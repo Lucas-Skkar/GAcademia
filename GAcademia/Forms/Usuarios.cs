@@ -24,7 +24,9 @@ namespace GAcademia.Forms
         {
 
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT idalunos, nome, nascimento, rg, cpf, endereco, num, bairro, cidade, estado, celular, email, objetivo, obs FROM dbacademia.tbalunos WHERE nome LIKE '" + tBoxSearchUser.Text + "'", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT idalunos, nome, nascimento, rg, cpf, endereco, num, bairro, cidade, estado, celular, email, objetivo, obs FROM dbacademia.tbalunos WHERE idalunos LIKE ? OR nome LIKE ?", con);
+            cmd.Parameters.AddWithValue("idalunos", tBoxSearchUser.Text + "%");
+            cmd.Parameters.AddWithValue("nome", tBoxSearchUser.Text + "%");
             MySqlDataReader srd = cmd.ExecuteReader();
             while (srd.Read())
             {
@@ -44,7 +46,7 @@ namespace GAcademia.Forms
                     textBoxObs.Text = srd.GetValue(13).ToString();
             }
             con.Close();
-            
+            srd.DisposeAsync();
         }
 
         private void btn_addUser_Click(object sender, EventArgs e)
@@ -92,6 +94,7 @@ namespace GAcademia.Forms
                     cmd.Parameters["@Objetivo"].Value = textBoxObjetivo.Text;
                     cmd.Parameters["@Obs"].Value = textBoxObs.Text;
 
+                    reader.DisposeAsync();
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Adicionado com sucesso!");
                 }
@@ -125,53 +128,57 @@ namespace GAcademia.Forms
 
         private void btn_UpdUser_Click(object sender, EventArgs e)
         {
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand("UPDATE tbalunos SET `nome`=@nome, `nascimento`=@Nascimento, `rg`=@Rg, `cpf`=@Cpf, `endereco`=@Endereco, `num`=@Numero, `bairro`=@Bairro, `cidade`=@Cidade, `estado`=@Estado, `celular`=@Telefone, `email`=@Email, `objetivo`=@Objetivo, `obs`=@Obs WHERE `idalunos`=@Id", con);
+            if (MessageBox.Show("Deseja atualizar os dados?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("UPDATE tbalunos SET `nome`=@nome, `nascimento`=@Nascimento, `rg`=@Rg, `cpf`=@Cpf, `endereco`=@Endereco, `num`=@Numero, `bairro`=@Bairro, `cidade`=@Cidade, `estado`=@Estado, `celular`=@Telefone, `email`=@Email, `objetivo`=@Objetivo, `obs`=@Obs WHERE `idalunos`=@Id", con);
 
-            cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 150);
-            cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
-            cmd.Parameters.Add("@Rg", MySqlDbType.VarChar, 15);
-            cmd.Parameters.Add("@Cpf", MySqlDbType.VarChar, 15);
-            cmd.Parameters.Add("@Endereco", MySqlDbType.VarChar, 100);
-            cmd.Parameters.Add("@Numero", MySqlDbType.VarChar, 10);
-            cmd.Parameters.Add("@Bairro", MySqlDbType.VarChar, 30);
-            cmd.Parameters.Add("@Cidade", MySqlDbType.VarChar, 100);
-            cmd.Parameters.Add("@Estado", MySqlDbType.VarChar, 10);
-            cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar, 20);
-            cmd.Parameters.Add("@Email", MySqlDbType.VarChar, 50);
-            cmd.Parameters.Add("@Objetivo", MySqlDbType.VarChar, 150);
-            cmd.Parameters.Add("@Obs", MySqlDbType.VarChar, 200);
-            cmd.Parameters.Add("@Id", MySqlDbType.Int32, 11);
+                cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 150);
+                cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
+                cmd.Parameters.Add("@Rg", MySqlDbType.VarChar, 15);
+                cmd.Parameters.Add("@Cpf", MySqlDbType.VarChar, 15);
+                cmd.Parameters.Add("@Endereco", MySqlDbType.VarChar, 100);
+                cmd.Parameters.Add("@Numero", MySqlDbType.VarChar, 10);
+                cmd.Parameters.Add("@Bairro", MySqlDbType.VarChar, 30);
+                cmd.Parameters.Add("@Cidade", MySqlDbType.VarChar, 100);
+                cmd.Parameters.Add("@Estado", MySqlDbType.VarChar, 10);
+                cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar, 20);
+                cmd.Parameters.Add("@Email", MySqlDbType.VarChar, 50);
+                cmd.Parameters.Add("@Objetivo", MySqlDbType.VarChar, 150);
+                cmd.Parameters.Add("@Obs", MySqlDbType.VarChar, 200);
+                cmd.Parameters.Add("@Id", MySqlDbType.Int32, 11);
 
-            cmd.Parameters["@nome"].Value = textBoxNome.Text;
-            cmd.Parameters["@Nascimento"].Value = textBoxNascimento.Text;
-            cmd.Parameters["@Rg"].Value = textBoxRg.Text;
-            cmd.Parameters["@Cpf"].Value = textBoxCpf.Text;
-            cmd.Parameters["@Endereco"].Value = textBoxEndereco.Text;
-            cmd.Parameters["@Numero"].Value = textBoxNumero.Text;
-            cmd.Parameters["@Bairro"].Value = textBoxBairro.Text;
-            cmd.Parameters["@Cidade"].Value = textBoxCidade.Text;
-            cmd.Parameters["@Estado"].Value = textBoxEstado.Text;
-            cmd.Parameters["@Telefone"].Value = textBoxTelefone.Text;
-            cmd.Parameters["@Email"].Value = textBoxEmail.Text;
-            cmd.Parameters["@Objetivo"].Value = textBoxObjetivo.Text;
-            cmd.Parameters["@Obs"].Value = textBoxObs.Text;
-            cmd.Parameters["@Id"].Value = textBoxId.Text;
+                cmd.Parameters["@nome"].Value = textBoxNome.Text;
+                cmd.Parameters["@Nascimento"].Value = textBoxNascimento.Text;
+                cmd.Parameters["@Rg"].Value = textBoxRg.Text;
+                cmd.Parameters["@Cpf"].Value = textBoxCpf.Text;
+                cmd.Parameters["@Endereco"].Value = textBoxEndereco.Text;
+                cmd.Parameters["@Numero"].Value = textBoxNumero.Text;
+                cmd.Parameters["@Bairro"].Value = textBoxBairro.Text;
+                cmd.Parameters["@Cidade"].Value = textBoxCidade.Text;
+                cmd.Parameters["@Estado"].Value = textBoxEstado.Text;
+                cmd.Parameters["@Telefone"].Value = textBoxTelefone.Text;
+                cmd.Parameters["@Email"].Value = textBoxEmail.Text;
+                cmd.Parameters["@Objetivo"].Value = textBoxObjetivo.Text;
+                cmd.Parameters["@Obs"].Value = textBoxObs.Text;
+                cmd.Parameters["@Id"].Value = textBoxId.Text;
 
-            cmd.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Dados atualizados com sucesso!");
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Dados atualizados com sucesso!");
+            }
         }
 
         private void tBoxSearchUser_TextChanged(object sender, EventArgs e)
         {
-            if (tBoxSearchUser.TextLength >= 2)
+            if (tBoxSearchUser.TextLength >= 1)
             {
                 con.Open();
-                string sql = "SELECT nome FROM dbacademia.tbalunos ";
-                sql += "WHERE nome LIKE ?";
+                string sql = "SELECT idalunos, nome FROM dbacademia.tbalunos ";
+                sql += "WHERE idalunos LIKE ? OR nome LIKE ?";
                 MySqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("idalunos", tBoxSearchUser.Text + "%");
                 cmd.Parameters.AddWithValue("nome", tBoxSearchUser.Text + "%");
                 DataTable dt = new DataTable();
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -201,8 +208,9 @@ namespace GAcademia.Forms
         private void searchResult_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.searchResult.Rows[e.RowIndex];
-            tBoxSearchUser.Text = row.Cells["nome"].Value.ToString();
+            tBoxSearchUser.Text = row.Cells["Aluno"].Value.ToString();
             searchResult.Height = 0;
         }
+
     }
 }

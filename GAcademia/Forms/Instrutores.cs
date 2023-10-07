@@ -103,70 +103,81 @@ namespace GAcademia.Forms
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            con.Open();
-            
-            con.Close();
-             if (MessageBox.Show("Deseja adicionar esse professor?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
-             {
-                 con.Open();
-                 MySqlCommand check_pName = new MySqlCommand("SELECT * FROM tbprofessor WHERE (`cpf` = @c)", con);
-                 check_pName.Parameters.AddWithValue("@c", TextBoxCPF.Text);
-                 MySqlDataReader dr = check_pName.ExecuteReader();
+            if (TextBoxNome.Text != "" && TextBoxCPF.Text != "" && TextBoxNascimento.Text != "" && ComboBoxSexo.Text != "" && TextBoxCelular.Text != "")
+            {
+                if (MessageBox.Show("Deseja adicionar esse professor?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    con.Open();
+                    MySqlCommand check_pName = new MySqlCommand("SELECT * FROM tbprofessor WHERE (`cpf` = @c)", con);
+                    check_pName.Parameters.AddWithValue("@c", TextBoxCPF.Text);
+                    MySqlDataReader dr = check_pName.ExecuteReader();
 
-                 if (dr.HasRows)
-                 {
-                     MessageBox.Show("Professor(a) já existe");
-                 }
-                 else
-                 {
-                     MySqlCommand cmd = new MySqlCommand("INSERT INTO tbprofessor (`nome`, `cpf`, `nasc`, `sexo`, `Celular`)" + " VALUES (@Nome, @Cpf, @Nascimento, @Sexo, @celular)", con);
+                    if (dr.HasRows)
+                    {
+                        MessageBox.Show("Professor(a) já existe");
+                    }
+                    else
+                    {
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO tbprofessor (`nome`, `cpf`, `nasc`, `sexo`, `Celular`)" + " VALUES (@Nome, @Cpf, @Nascimento, @Sexo, @celular)", con);
 
-                    cmd.Parameters.Add("@Nome", MySqlDbType.VarChar, 150);
-                    cmd.Parameters.Add("@Cpf", MySqlDbType.VarChar, 15);
-                    cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
-                    cmd.Parameters.Add("@Sexo", MySqlDbType.VarChar, 10);
-                    cmd.Parameters.Add("@celular", MySqlDbType.VarChar, 20);
+                        cmd.Parameters.Add("@Nome", MySqlDbType.VarChar, 150);
+                        cmd.Parameters.Add("@Cpf", MySqlDbType.VarChar, 15);
+                        cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
+                        cmd.Parameters.Add("@Sexo", MySqlDbType.VarChar, 10);
+                        cmd.Parameters.Add("@celular", MySqlDbType.VarChar, 20);
 
-                    cmd.Parameters["@Nome"].Value = TextBoxNome.Text;
-                    cmd.Parameters["@Cpf"].Value = TextBoxCPF.Text;
-                    cmd.Parameters["@Nascimento"].Value = TextBoxNascimento.Text;
-                    cmd.Parameters["@Sexo"].Value = ComboBoxSexo.Text;
-                    cmd.Parameters["@celular"].Value = TextBoxCelular.Text;
+                        cmd.Parameters["@Nome"].Value = TextBoxNome.Text;
+                        cmd.Parameters["@Cpf"].Value = TextBoxCPF.Text;
+                        cmd.Parameters["@Nascimento"].Value = TextBoxNascimento.Text;
+                        cmd.Parameters["@Sexo"].Value = ComboBoxSexo.Text;
+                        cmd.Parameters["@celular"].Value = TextBoxCelular.Text;
 
+                        dr.DisposeAsync();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Adicionado com sucesso!");
+                    }
                     dr.DisposeAsync();
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Adicionado com sucesso!");
-                 }
-                dr.DisposeAsync();
-                con.Close();
+                    con.Close();
+                }
              }
+            else
+            {
+                MessageBox.Show("Um ou mais campos estão vazios, preecha todos!");
+            }
         }
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja atualizar os dados?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (TextBoxID.Text != "")
             {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("UPDATE tbprofessor SET `nome`=@Nome, `cpf`=@Cpf, `nasc`=@Nascimento, `sexo`=@Sexo, `celular`=@Celular WHERE `idprofessor`=@Id", con);
+                if (MessageBox.Show("Deseja atualizar os dados?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand("UPDATE tbprofessor SET `nome`=@Nome, `cpf`=@Cpf, `nasc`=@Nascimento, `sexo`=@Sexo, `celular`=@Celular WHERE `idprofessor`=@Id", con);
 
-                cmd.Parameters.Add("@Id", MySqlDbType.Int32, 11);
-                cmd.Parameters.Add("@Nome", MySqlDbType.VarChar, 150);
-                cmd.Parameters.Add("@Cpf", MySqlDbType.VarChar, 15);
-                cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
-                cmd.Parameters.Add("@Sexo", MySqlDbType.VarChar, 10);
-                cmd.Parameters.Add("@Celular", MySqlDbType.VarChar, 20);
-                
-                cmd.Parameters["@Id"].Value = TextBoxID.Text;
-                cmd.Parameters["@Nome"].Value = TextBoxNome.Text;
-                cmd.Parameters["@Cpf"].Value = TextBoxCPF.Text;
-                cmd.Parameters["@Nascimento"].Value = TextBoxNascimento.Text;
-                cmd.Parameters["@Sexo"].Value = ComboBoxSexo.Text;
-                cmd.Parameters["@Celular"].Value = TextBoxCelular.Text;
+                    cmd.Parameters.Add("@Id", MySqlDbType.Int32, 11);
+                    cmd.Parameters.Add("@Nome", MySqlDbType.VarChar, 150);
+                    cmd.Parameters.Add("@Cpf", MySqlDbType.VarChar, 15);
+                    cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@Sexo", MySqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@Celular", MySqlDbType.VarChar, 20);
 
-                cmd.ExecuteNonQuery();
-                con.Close();
-                cmd.DisposeAsync();
-                MessageBox.Show("Dados atualizados com sucesso!");
+                    cmd.Parameters["@Id"].Value = TextBoxID.Text;
+                    cmd.Parameters["@Nome"].Value = TextBoxNome.Text;
+                    cmd.Parameters["@Cpf"].Value = TextBoxCPF.Text;
+                    cmd.Parameters["@Nascimento"].Value = TextBoxNascimento.Text;
+                    cmd.Parameters["@Sexo"].Value = ComboBoxSexo.Text;
+                    cmd.Parameters["@Celular"].Value = TextBoxCelular.Text;
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    cmd.DisposeAsync();
+                    MessageBox.Show("Dados atualizados com sucesso!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um professor");
             }
         }
 

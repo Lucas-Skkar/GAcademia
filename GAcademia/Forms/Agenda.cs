@@ -145,7 +145,9 @@ namespace GAcademia.Forms
         private void btn_search_Click(object sender, EventArgs e)
         {
             con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT idagenda, aluno, professor, dia, hora, descricao FROM tbagenda WHERE idagenda LIKE '" + TextBoxSearch.Text + "' OR aluno LIKE '" + TextBoxSearch.Text + "'", con);
+            MySqlCommand cmd = new MySqlCommand("SELECT idagenda, aluno, professor, dia, hora, descricao FROM tbagenda WHERE idagenda LIKE ? OR aluno LIKE ?", con);
+            cmd.Parameters.AddWithValue("idagenda", TextBoxSearch.Text + "%");
+            cmd.Parameters.AddWithValue("aluno", TextBoxSearch.Text + "%");
             MySqlDataReader srd = cmd.ExecuteReader();
             while (srd.Read())
             {
