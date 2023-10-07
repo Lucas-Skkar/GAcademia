@@ -1,0 +1,208 @@
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace GAcademia.Forms
+{
+    public partial class Usuarios : Form
+    {
+        public Usuarios()
+        {
+            InitializeComponent();
+        }
+
+        MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
+
+        private void btn_searchUser_Click(object sender, EventArgs e)
+        {
+
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT idalunos, nome, nascimento, rg, cpf, endereco, num, bairro, cidade, estado, celular, email, objetivo, obs FROM dbacademia.tbalunos WHERE nome LIKE '" + tBoxSearchUser.Text + "'", con);
+            MySqlDataReader srd = cmd.ExecuteReader();
+            while (srd.Read())
+            {
+                    textBoxId.Text = srd.GetValue(0).ToString();
+                    textBoxNome.Text = srd.GetValue(1).ToString();
+                    textBoxNascimento.Text = srd.GetValue(2).ToString();
+                    textBoxRg.Text = srd.GetValue(3).ToString();
+                    textBoxCpf.Text = srd.GetValue(4).ToString();
+                    textBoxEndereco.Text = srd.GetValue(5).ToString();
+                    textBoxNumero.Text = srd.GetValue(6).ToString();
+                    textBoxBairro.Text = srd.GetValue(7).ToString();
+                    textBoxCidade.Text = srd.GetValue(8).ToString();
+                    textBoxEstado.Text = srd.GetValue(9).ToString();
+                    textBoxTelefone.Text = srd.GetValue(10).ToString();
+                    textBoxEmail.Text = srd.GetValue(11).ToString();
+                    textBoxObjetivo.Text = srd.GetValue(12).ToString();
+                    textBoxObs.Text = srd.GetValue(13).ToString();
+            }
+            con.Close();
+            
+        }
+
+        private void btn_addUser_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja adicionar esse usuário?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                con.Open();
+                MySqlCommand check_usName = new MySqlCommand("SELECT * FROM tbalunos WHERE (`cpf` = @c)", con);
+                check_usName.Parameters.AddWithValue("@c", textBoxCpf.Text);
+                MySqlDataReader reader = check_usName.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    MessageBox.Show("Usuario já existe");
+                }
+                else
+                {
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO tbalunos (`nome`, `nascimento`, `rg`, `cpf`, `endereco`, `num`, `bairro`, `cidade`, `estado`, `celular`, `email`, `objetivo`, `obs`)" + " VALUES (@Nome, @Nascimento, @Rg, @Cpf, @Endereco, @Numero, @Bairro, @Cidade, @Estado, @Telefone, @Email, @Objetivo, @Obs)", con);
+
+                    cmd.Parameters.Add("@Nome", MySqlDbType.VarChar, 150);
+                    cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@Rg", MySqlDbType.VarChar, 15);
+                    cmd.Parameters.Add("@Cpf", MySqlDbType.VarChar, 15);
+                    cmd.Parameters.Add("@Endereco", MySqlDbType.VarChar, 100);
+                    cmd.Parameters.Add("@Numero", MySqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@Bairro", MySqlDbType.VarChar, 30);
+                    cmd.Parameters.Add("@Cidade", MySqlDbType.VarChar, 100);
+                    cmd.Parameters.Add("@Estado", MySqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar, 20);
+                    cmd.Parameters.Add("@Email", MySqlDbType.VarChar, 50);
+                    cmd.Parameters.Add("@Objetivo", MySqlDbType.VarChar, 150);
+                    cmd.Parameters.Add("@Obs", MySqlDbType.VarChar, 200);
+
+                    cmd.Parameters["@nome"].Value = textBoxNome.Text;
+                    cmd.Parameters["@Nascimento"].Value = textBoxNascimento.Text;
+                    cmd.Parameters["@Rg"].Value = textBoxRg.Text;
+                    cmd.Parameters["@Cpf"].Value = textBoxCpf.Text;
+                    cmd.Parameters["@Endereco"].Value = textBoxEndereco.Text;
+                    cmd.Parameters["@Numero"].Value = textBoxNumero.Text;
+                    cmd.Parameters["@Bairro"].Value = textBoxBairro.Text;
+                    cmd.Parameters["@Cidade"].Value = textBoxCidade.Text;
+                    cmd.Parameters["@Estado"].Value = textBoxEstado.Text;
+                    cmd.Parameters["@Telefone"].Value = textBoxTelefone.Text;
+                    cmd.Parameters["@Email"].Value = textBoxEmail.Text;
+                    cmd.Parameters["@Objetivo"].Value = textBoxObjetivo.Text;
+                    cmd.Parameters["@Obs"].Value = textBoxObs.Text;
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Adicionado com sucesso!");
+                }
+                con.Close();
+                reader.DisposeAsync();
+
+            }
+        }
+
+        private void btn_DelUser_Click(object sender, EventArgs e)
+        {
+            if (textBoxId.Text != "")
+            {
+                if (MessageBox.Show("Deseja remover esse usuário?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    string id = textBoxId.Text;
+                    con.Open();
+                    string sql = "DELETE FROM tbalunos WHERE `idalunos` = @id";
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    cmd.Parameters.Add(new MySqlParameter("@id", id));
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Usuário deletado");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um usuário");
+            }
+        }
+
+        private void btn_UpdUser_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("UPDATE tbalunos SET `nome`=@nome, `nascimento`=@Nascimento, `rg`=@Rg, `cpf`=@Cpf, `endereco`=@Endereco, `num`=@Numero, `bairro`=@Bairro, `cidade`=@Cidade, `estado`=@Estado, `celular`=@Telefone, `email`=@Email, `objetivo`=@Objetivo, `obs`=@Obs WHERE `idalunos`=@Id", con);
+
+            cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 150);
+            cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
+            cmd.Parameters.Add("@Rg", MySqlDbType.VarChar, 15);
+            cmd.Parameters.Add("@Cpf", MySqlDbType.VarChar, 15);
+            cmd.Parameters.Add("@Endereco", MySqlDbType.VarChar, 100);
+            cmd.Parameters.Add("@Numero", MySqlDbType.VarChar, 10);
+            cmd.Parameters.Add("@Bairro", MySqlDbType.VarChar, 30);
+            cmd.Parameters.Add("@Cidade", MySqlDbType.VarChar, 100);
+            cmd.Parameters.Add("@Estado", MySqlDbType.VarChar, 10);
+            cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar, 20);
+            cmd.Parameters.Add("@Email", MySqlDbType.VarChar, 50);
+            cmd.Parameters.Add("@Objetivo", MySqlDbType.VarChar, 150);
+            cmd.Parameters.Add("@Obs", MySqlDbType.VarChar, 200);
+            cmd.Parameters.Add("@Id", MySqlDbType.Int32, 11);
+
+            cmd.Parameters["@nome"].Value = textBoxNome.Text;
+            cmd.Parameters["@Nascimento"].Value = textBoxNascimento.Text;
+            cmd.Parameters["@Rg"].Value = textBoxRg.Text;
+            cmd.Parameters["@Cpf"].Value = textBoxCpf.Text;
+            cmd.Parameters["@Endereco"].Value = textBoxEndereco.Text;
+            cmd.Parameters["@Numero"].Value = textBoxNumero.Text;
+            cmd.Parameters["@Bairro"].Value = textBoxBairro.Text;
+            cmd.Parameters["@Cidade"].Value = textBoxCidade.Text;
+            cmd.Parameters["@Estado"].Value = textBoxEstado.Text;
+            cmd.Parameters["@Telefone"].Value = textBoxTelefone.Text;
+            cmd.Parameters["@Email"].Value = textBoxEmail.Text;
+            cmd.Parameters["@Objetivo"].Value = textBoxObjetivo.Text;
+            cmd.Parameters["@Obs"].Value = textBoxObs.Text;
+            cmd.Parameters["@Id"].Value = textBoxId.Text;
+
+            cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Dados atualizados com sucesso!");
+        }
+
+        private void tBoxSearchUser_TextChanged(object sender, EventArgs e)
+        {
+            if (tBoxSearchUser.TextLength >= 2)
+            {
+                con.Open();
+                string sql = "SELECT nome FROM dbacademia.tbalunos ";
+                sql += "WHERE nome LIKE ?";
+                MySqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("nome", tBoxSearchUser.Text + "%");
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    searchResult.DataSource = dt;
+                    searchResult.Height = searchResult.Rows.Count * 30;
+                }
+                else
+                {
+                    searchResult.Height = 0;
+                }
+
+                cmd.Dispose();
+                da.Dispose();
+                con.Close();
+
+            }
+            else if (tBoxSearchUser.TextLength <= 0)
+            {
+                searchResult.Height = 0;
+            }
+        }
+
+        private void searchResult_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = this.searchResult.Rows[e.RowIndex];
+            tBoxSearchUser.Text = row.Cells["nome"].Value.ToString();
+            searchResult.Height = 0;
+        }
+    }
+}
