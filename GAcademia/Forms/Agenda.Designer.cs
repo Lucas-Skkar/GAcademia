@@ -31,10 +31,7 @@ namespace GAcademia.Forms
         {
             this.TextBoxIdAluno = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TextBoxIdProf = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.TextBoxInfId1 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.TextBoxInfId2 = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ComboBoxDia = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.TextBoxHorario = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TextBoxDesc = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.ComboBoxAluno = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.TextBoxSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -48,8 +45,12 @@ namespace GAcademia.Forms
             this.tbn_upd = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_delete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.TextBoxIdAgenda = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.TextBoxInfIdAgenda = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.LabelDescricao = new System.Windows.Forms.Label();
+            this.MTextBoxHorario = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
+            this.TextBoxInfIdAgenda = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TextBoxInfIdAluno = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TextBoxInfIdProf = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TextBoxInfHorario = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxDia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxAluno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchResult)).BeginInit();
@@ -58,12 +59,13 @@ namespace GAcademia.Forms
             // 
             // TextBoxIdAluno
             // 
-            this.TextBoxIdAluno.Location = new System.Drawing.Point(546, 111);
+            this.TextBoxIdAluno.Enabled = false;
+            this.TextBoxIdAluno.Location = new System.Drawing.Point(493, 109);
             this.TextBoxIdAluno.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxIdAluno.Name = "TextBoxIdAluno";
             this.TextBoxIdAluno.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
             this.TextBoxIdAluno.ReadOnly = true;
-            this.TextBoxIdAluno.Size = new System.Drawing.Size(78, 32);
+            this.TextBoxIdAluno.Size = new System.Drawing.Size(67, 32);
             this.TextBoxIdAluno.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.TextBoxIdAluno.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.TextBoxIdAluno.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
@@ -73,18 +75,26 @@ namespace GAcademia.Forms
             this.TextBoxIdAluno.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.TextBoxIdAluno.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxIdAluno.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBoxIdAluno.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.TextBoxIdAluno.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxIdAluno.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.TextBoxIdAluno.StateDisabled.Border.Rounding = 20;
+            this.TextBoxIdAluno.StateDisabled.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.TextBoxIdAluno.StateDisabled.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxIdAluno.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.TextBoxIdAluno.TabIndex = 2;
             this.TextBoxIdAluno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextBoxIdProf
             // 
-            this.TextBoxIdProf.Location = new System.Drawing.Point(546, 173);
+            this.TextBoxIdProf.Enabled = false;
+            this.TextBoxIdProf.Location = new System.Drawing.Point(493, 171);
             this.TextBoxIdProf.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxIdProf.Name = "TextBoxIdProf";
             this.TextBoxIdProf.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
             this.TextBoxIdProf.ReadOnly = true;
-            this.TextBoxIdProf.Size = new System.Drawing.Size(78, 32);
+            this.TextBoxIdProf.Size = new System.Drawing.Size(67, 32);
             this.TextBoxIdProf.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.TextBoxIdProf.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.TextBoxIdProf.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
@@ -94,64 +104,22 @@ namespace GAcademia.Forms
             this.TextBoxIdProf.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.TextBoxIdProf.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxIdProf.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBoxIdProf.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.TextBoxIdProf.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxIdProf.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.TextBoxIdProf.StateDisabled.Border.Rounding = 20;
+            this.TextBoxIdProf.StateDisabled.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.TextBoxIdProf.StateDisabled.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxIdProf.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.TextBoxIdProf.TabIndex = 3;
             this.TextBoxIdProf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TextBoxInfId1
-            // 
-            this.TextBoxInfId1.Location = new System.Drawing.Point(624, 111);
-            this.TextBoxInfId1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.TextBoxInfId1.MaxLength = 10;
-            this.TextBoxInfId1.Name = "TextBoxInfId1";
-            this.TextBoxInfId1.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
-            this.TextBoxInfId1.ReadOnly = true;
-            this.TextBoxInfId1.Size = new System.Drawing.Size(59, 32);
-            this.TextBoxInfId1.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
-            this.TextBoxInfId1.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.TextBoxInfId1.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.TextBoxInfId1.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.TextBoxInfId1.StateActive.Border.Rounding = 20;
-            this.TextBoxInfId1.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.TextBoxInfId1.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxInfId1.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBoxInfId1.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
-            this.TextBoxInfId1.TabIndex = 4;
-            this.TextBoxInfId1.TabStop = false;
-            this.TextBoxInfId1.Text = "ID Aluno";
-            this.TextBoxInfId1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TextBoxInfId2
-            // 
-            this.TextBoxInfId2.Location = new System.Drawing.Point(624, 173);
-            this.TextBoxInfId2.Margin = new System.Windows.Forms.Padding(0);
-            this.TextBoxInfId2.MaxLength = 10;
-            this.TextBoxInfId2.Name = "TextBoxInfId2";
-            this.TextBoxInfId2.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
-            this.TextBoxInfId2.ReadOnly = true;
-            this.TextBoxInfId2.Size = new System.Drawing.Size(59, 32);
-            this.TextBoxInfId2.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
-            this.TextBoxInfId2.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.TextBoxInfId2.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.TextBoxInfId2.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.TextBoxInfId2.StateActive.Border.Rounding = 20;
-            this.TextBoxInfId2.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.TextBoxInfId2.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxInfId2.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBoxInfId2.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
-            this.TextBoxInfId2.TabIndex = 5;
-            this.TextBoxInfId2.TabStop = false;
-            this.TextBoxInfId2.Text = "ID Prof";
-            this.TextBoxInfId2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TextBoxInfId2.WordWrap = false;
             // 
             // ComboBoxDia
             // 
             this.ComboBoxDia.AlwaysActive = false;
             this.ComboBoxDia.DropDownWidth = 407;
-            this.ComboBoxDia.Location = new System.Drawing.Point(121, 231);
+            this.ComboBoxDia.Location = new System.Drawing.Point(57, 229);
             this.ComboBoxDia.Name = "ComboBoxDia";
             this.ComboBoxDia.Size = new System.Drawing.Size(253, 33);
             this.ComboBoxDia.StateActive.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -195,39 +163,10 @@ namespace GAcademia.Forms
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.ComboBoxDia.TabIndex = 7;
             // 
-            // TextBoxHorario
-            // 
-            this.TextBoxHorario.AlwaysActive = false;
-            this.TextBoxHorario.Location = new System.Drawing.Point(430, 231);
-            this.TextBoxHorario.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.TextBoxHorario.Name = "TextBoxHorario";
-            this.TextBoxHorario.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
-            this.TextBoxHorario.Size = new System.Drawing.Size(253, 32);
-            this.TextBoxHorario.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.TextBoxHorario.StateActive.Border.Color1 = System.Drawing.SystemColors.Highlight;
-            this.TextBoxHorario.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.TextBoxHorario.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.TextBoxHorario.StateActive.Border.Rounding = 20;
-            this.TextBoxHorario.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.TextBoxHorario.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxHorario.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
-            this.TextBoxHorario.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.TextBoxHorario.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.TextBoxHorario.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.TextBoxHorario.StateNormal.Border.Rounding = 20;
-            this.TextBoxHorario.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.TextBoxHorario.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxHorario.TabIndex = 8;
-            this.TextBoxHorario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // TextBoxDesc
             // 
             this.TextBoxDesc.AlwaysActive = false;
-            this.TextBoxDesc.Location = new System.Drawing.Point(121, 310);
+            this.TextBoxDesc.Location = new System.Drawing.Point(57, 308);
             this.TextBoxDesc.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxDesc.Multiline = true;
             this.TextBoxDesc.Name = "TextBoxDesc";
@@ -257,7 +196,7 @@ namespace GAcademia.Forms
             // 
             this.ComboBoxAluno.AlwaysActive = false;
             this.ComboBoxAluno.DropDownWidth = 407;
-            this.ComboBoxAluno.Location = new System.Drawing.Point(121, 110);
+            this.ComboBoxAluno.Location = new System.Drawing.Point(57, 108);
             this.ComboBoxAluno.Name = "ComboBoxAluno";
             this.ComboBoxAluno.Size = new System.Drawing.Size(419, 33);
             this.ComboBoxAluno.StateActive.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -310,7 +249,7 @@ namespace GAcademia.Forms
             // 
             this.TextBoxSearch.AlwaysActive = false;
             this.TextBoxSearch.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.TextBoxSearch.Location = new System.Drawing.Point(121, 27);
+            this.TextBoxSearch.Location = new System.Drawing.Point(57, 25);
             this.TextBoxSearch.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxSearch.Name = "TextBoxSearch";
             this.TextBoxSearch.Size = new System.Drawing.Size(482, 32);
@@ -346,7 +285,7 @@ namespace GAcademia.Forms
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(603, 27);
+            this.btn_search.Location = new System.Drawing.Point(539, 25);
             this.btn_search.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_search.Name = "btn_search";
             this.btn_search.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -404,12 +343,12 @@ namespace GAcademia.Forms
             this.btn_search.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_search.TabIndex = 13;
-            this.btn_search.Values.Text = "Selecionar";
+            this.btn_search.Values.Text = "Procurar";
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // btn_agendar
             // 
-            this.btn_agendar.Location = new System.Drawing.Point(266, 402);
+            this.btn_agendar.Location = new System.Drawing.Point(202, 400);
             this.btn_agendar.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_agendar.Name = "btn_agendar";
             this.btn_agendar.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -488,12 +427,12 @@ namespace GAcademia.Forms
             this.ID,
             this.Aluno,
             this.Dia});
-            this.searchResult.Location = new System.Drawing.Point(124, 62);
+            this.searchResult.Location = new System.Drawing.Point(73, 60);
             this.searchResult.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.searchResult.Name = "searchResult";
             this.searchResult.ReadOnly = true;
             this.searchResult.RowHeadersVisible = false;
-            this.searchResult.Size = new System.Drawing.Size(500, 0);
+            this.searchResult.Size = new System.Drawing.Size(466, 0);
             this.searchResult.StateCommon.Background.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.searchResult.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.searchResult.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -537,7 +476,7 @@ namespace GAcademia.Forms
             // 
             this.ComboBoxProfessor.AlwaysActive = false;
             this.ComboBoxProfessor.DropDownWidth = 407;
-            this.ComboBoxProfessor.Location = new System.Drawing.Point(121, 173);
+            this.ComboBoxProfessor.Location = new System.Drawing.Point(57, 171);
             this.ComboBoxProfessor.Name = "ComboBoxProfessor";
             this.ComboBoxProfessor.Size = new System.Drawing.Size(419, 33);
             this.ComboBoxProfessor.StateActive.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -587,7 +526,7 @@ namespace GAcademia.Forms
             // 
             // tbn_upd
             // 
-            this.tbn_upd.Location = new System.Drawing.Point(355, 402);
+            this.tbn_upd.Location = new System.Drawing.Point(291, 400);
             this.tbn_upd.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tbn_upd.Name = "tbn_upd";
             this.tbn_upd.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -656,7 +595,7 @@ namespace GAcademia.Forms
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(462, 402);
+            this.btn_delete.Location = new System.Drawing.Point(398, 400);
             this.btn_delete.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -725,12 +664,12 @@ namespace GAcademia.Forms
             // 
             // TextBoxIdAgenda
             // 
-            this.TextBoxIdAgenda.Location = new System.Drawing.Point(546, 68);
+            this.TextBoxIdAgenda.Location = new System.Drawing.Point(493, 66);
             this.TextBoxIdAgenda.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxIdAgenda.Name = "TextBoxIdAgenda";
             this.TextBoxIdAgenda.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
             this.TextBoxIdAgenda.ReadOnly = true;
-            this.TextBoxIdAgenda.Size = new System.Drawing.Size(78, 32);
+            this.TextBoxIdAgenda.Size = new System.Drawing.Size(67, 32);
             this.TextBoxIdAgenda.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.TextBoxIdAgenda.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.TextBoxIdAgenda.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
@@ -740,20 +679,66 @@ namespace GAcademia.Forms
             this.TextBoxIdAgenda.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.TextBoxIdAgenda.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxIdAgenda.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBoxIdAgenda.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.TextBoxIdAgenda.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxIdAgenda.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.TextBoxIdAgenda.StateDisabled.Border.Rounding = 20;
+            this.TextBoxIdAgenda.StateDisabled.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.TextBoxIdAgenda.StateDisabled.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxIdAgenda.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.TextBoxIdAgenda.TabIndex = 19;
             this.TextBoxIdAgenda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TextBoxIdAgenda.Visible = false;
             // 
+            // LabelDescricao
+            // 
+            this.LabelDescricao.AutoSize = true;
+            this.LabelDescricao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelDescricao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LabelDescricao.Location = new System.Drawing.Point(315, 290);
+            this.LabelDescricao.Name = "LabelDescricao";
+            this.LabelDescricao.Size = new System.Drawing.Size(58, 15);
+            this.LabelDescricao.TabIndex = 21;
+            this.LabelDescricao.Text = "Descrição";
+            // 
+            // MTextBoxHorario
+            // 
+            this.MTextBoxHorario.AlwaysActive = false;
+            this.MTextBoxHorario.Location = new System.Drawing.Point(365, 229);
+            this.MTextBoxHorario.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.MTextBoxHorario.Mask = "00 : 00";
+            this.MTextBoxHorario.Name = "MTextBoxHorario";
+            this.MTextBoxHorario.Size = new System.Drawing.Size(195, 35);
+            this.MTextBoxHorario.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.MTextBoxHorario.StateActive.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.MTextBoxHorario.StateActive.Border.Color2 = System.Drawing.SystemColors.HotTrack;
+            this.MTextBoxHorario.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.MTextBoxHorario.StateActive.Border.Rounding = 20;
+            this.MTextBoxHorario.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MTextBoxHorario.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.MTextBoxHorario.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.MTextBoxHorario.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.MTextBoxHorario.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.MTextBoxHorario.StateNormal.Border.Rounding = 20;
+            this.MTextBoxHorario.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MTextBoxHorario.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MTextBoxHorario.TabIndex = 34;
+            this.MTextBoxHorario.Text = "   : ";
+            this.MTextBoxHorario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // TextBoxInfIdAgenda
             // 
-            this.TextBoxInfIdAgenda.Location = new System.Drawing.Point(624, 68);
+            this.TextBoxInfIdAgenda.Enabled = false;
+            this.TextBoxInfIdAgenda.Location = new System.Drawing.Point(559, 66);
             this.TextBoxInfIdAgenda.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfIdAgenda.MaxLength = 10;
             this.TextBoxInfIdAgenda.Name = "TextBoxInfIdAgenda";
             this.TextBoxInfIdAgenda.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
             this.TextBoxInfIdAgenda.ReadOnly = true;
-            this.TextBoxInfIdAgenda.Size = new System.Drawing.Size(59, 32);
+            this.TextBoxInfIdAgenda.Size = new System.Drawing.Size(60, 32);
             this.TextBoxInfIdAgenda.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.TextBoxInfIdAgenda.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.TextBoxInfIdAgenda.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
@@ -763,23 +748,111 @@ namespace GAcademia.Forms
             this.TextBoxInfIdAgenda.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.TextBoxInfIdAgenda.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxInfIdAgenda.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBoxInfIdAgenda.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfIdAgenda.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfIdAgenda.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxInfIdAgenda.StateDisabled.Border.Rounding = 20;
+            this.TextBoxInfIdAgenda.StateDisabled.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxInfIdAgenda.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
-            this.TextBoxInfIdAgenda.TabIndex = 20;
+            this.TextBoxInfIdAgenda.TabIndex = 36;
             this.TextBoxInfIdAgenda.TabStop = false;
             this.TextBoxInfIdAgenda.Text = "ID Agenda";
             this.TextBoxInfIdAgenda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TextBoxInfIdAgenda.Visible = false;
             // 
-            // LabelDescricao
+            // TextBoxInfIdAluno
             // 
-            this.LabelDescricao.AutoSize = true;
-            this.LabelDescricao.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelDescricao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.LabelDescricao.Location = new System.Drawing.Point(379, 292);
-            this.LabelDescricao.Name = "LabelDescricao";
-            this.LabelDescricao.Size = new System.Drawing.Size(58, 15);
-            this.LabelDescricao.TabIndex = 21;
-            this.LabelDescricao.Text = "Descrição";
+            this.TextBoxInfIdAluno.Enabled = false;
+            this.TextBoxInfIdAluno.Location = new System.Drawing.Point(560, 109);
+            this.TextBoxInfIdAluno.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.TextBoxInfIdAluno.MaxLength = 10;
+            this.TextBoxInfIdAluno.Name = "TextBoxInfIdAluno";
+            this.TextBoxInfIdAluno.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.TextBoxInfIdAluno.ReadOnly = true;
+            this.TextBoxInfIdAluno.Size = new System.Drawing.Size(59, 32);
+            this.TextBoxInfIdAluno.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfIdAluno.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfIdAluno.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.TextBoxInfIdAluno.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxInfIdAluno.StateActive.Border.Rounding = 20;
+            this.TextBoxInfIdAluno.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.TextBoxInfIdAluno.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxInfIdAluno.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBoxInfIdAluno.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfIdAluno.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfIdAluno.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxInfIdAluno.StateDisabled.Border.Rounding = 20;
+            this.TextBoxInfIdAluno.StateDisabled.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxInfIdAluno.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfIdAluno.TabIndex = 37;
+            this.TextBoxInfIdAluno.TabStop = false;
+            this.TextBoxInfIdAluno.Text = "ID Aluno";
+            this.TextBoxInfIdAluno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TextBoxInfIdProf
+            // 
+            this.TextBoxInfIdProf.Enabled = false;
+            this.TextBoxInfIdProf.Location = new System.Drawing.Point(560, 171);
+            this.TextBoxInfIdProf.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.TextBoxInfIdProf.MaxLength = 10;
+            this.TextBoxInfIdProf.Name = "TextBoxInfIdProf";
+            this.TextBoxInfIdProf.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.TextBoxInfIdProf.ReadOnly = true;
+            this.TextBoxInfIdProf.Size = new System.Drawing.Size(59, 32);
+            this.TextBoxInfIdProf.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfIdProf.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfIdProf.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.TextBoxInfIdProf.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxInfIdProf.StateActive.Border.Rounding = 20;
+            this.TextBoxInfIdProf.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.TextBoxInfIdProf.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxInfIdProf.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBoxInfIdProf.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfIdProf.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfIdProf.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxInfIdProf.StateDisabled.Border.Rounding = 20;
+            this.TextBoxInfIdProf.StateDisabled.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxInfIdProf.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfIdProf.TabIndex = 38;
+            this.TextBoxInfIdProf.TabStop = false;
+            this.TextBoxInfIdProf.Text = "ID Prof";
+            this.TextBoxInfIdProf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TextBoxInfHorario
+            // 
+            this.TextBoxInfHorario.Enabled = false;
+            this.TextBoxInfHorario.Location = new System.Drawing.Point(559, 229);
+            this.TextBoxInfHorario.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.TextBoxInfHorario.MaxLength = 10;
+            this.TextBoxInfHorario.Name = "TextBoxInfHorario";
+            this.TextBoxInfHorario.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.TextBoxInfHorario.ReadOnly = true;
+            this.TextBoxInfHorario.Size = new System.Drawing.Size(60, 32);
+            this.TextBoxInfHorario.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfHorario.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfHorario.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.TextBoxInfHorario.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxInfHorario.StateActive.Border.Rounding = 20;
+            this.TextBoxInfHorario.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.TextBoxInfHorario.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxInfHorario.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBoxInfHorario.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfHorario.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfHorario.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxInfHorario.StateDisabled.Border.Rounding = 20;
+            this.TextBoxInfHorario.StateDisabled.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxInfHorario.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfHorario.TabIndex = 39;
+            this.TextBoxInfHorario.TabStop = false;
+            this.TextBoxInfHorario.Text = "Horário";
+            this.TextBoxInfHorario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Agenda
             // 
@@ -787,8 +860,12 @@ namespace GAcademia.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(884, 461);
-            this.Controls.Add(this.LabelDescricao);
+            this.Controls.Add(this.TextBoxInfHorario);
+            this.Controls.Add(this.TextBoxInfIdProf);
+            this.Controls.Add(this.TextBoxInfIdAluno);
             this.Controls.Add(this.TextBoxInfIdAgenda);
+            this.Controls.Add(this.MTextBoxHorario);
+            this.Controls.Add(this.LabelDescricao);
             this.Controls.Add(this.TextBoxIdAgenda);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.tbn_upd);
@@ -799,10 +876,7 @@ namespace GAcademia.Forms
             this.Controls.Add(this.TextBoxSearch);
             this.Controls.Add(this.ComboBoxAluno);
             this.Controls.Add(this.TextBoxDesc);
-            this.Controls.Add(this.TextBoxHorario);
             this.Controls.Add(this.ComboBoxDia);
-            this.Controls.Add(this.TextBoxInfId2);
-            this.Controls.Add(this.TextBoxInfId1);
             this.Controls.Add(this.TextBoxIdProf);
             this.Controls.Add(this.TextBoxIdAluno);
             this.Name = "Agenda";
@@ -820,10 +894,7 @@ namespace GAcademia.Forms
         #endregion
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxIdAluno;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxIdProf;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfId1;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfId2;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox ComboBoxDia;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxHorario;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxDesc;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox ComboBoxAluno;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxSearch;
@@ -837,7 +908,11 @@ namespace GAcademia.Forms
         private ComponentFactory.Krypton.Toolkit.KryptonButton tbn_upd;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_delete;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxIdAgenda;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfIdAgenda;
         private System.Windows.Forms.Label LabelDescricao;
+        private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox MTextBoxHorario;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfIdAgenda;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfIdAluno;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfIdProf;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfHorario;
     }
 }

@@ -35,10 +35,8 @@ namespace GAcademia.Forms
             this.TextBoxInfID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.textBoxNome = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TextBoxInfNome = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.textBoxNascimento = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TextBoxInfNasc = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.textBoxRg = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.textBoxTelefone = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.textBoxEndereco = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.textBoxCidade = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.textBoxObjetivo = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -47,7 +45,6 @@ namespace GAcademia.Forms
             this.TextBoxInfEndeco = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TextBoxInfCidade = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TextBoxInfObjetivo = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.textBoxCpf = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.textBoxEmail = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.textBoxBairro = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.textBoxEstado = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -67,6 +64,9 @@ namespace GAcademia.Forms
             this.searchResult = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MtextBoxTelefone = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
+            this.MtextBoxCpf = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
+            this.MtextBoxNascimento = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.searchResult)).BeginInit();
             this.SuspendLayout();
             // 
@@ -294,43 +294,6 @@ namespace GAcademia.Forms
             this.TextBoxInfNome.Text = "Nome";
             this.TextBoxInfNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBoxNascimento
-            // 
-            this.textBoxNascimento.AlwaysActive = false;
-            this.textBoxNascimento.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.textBoxNascimento.Location = new System.Drawing.Point(405, 68);
-            this.textBoxNascimento.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.textBoxNascimento.Name = "textBoxNascimento";
-            this.textBoxNascimento.Size = new System.Drawing.Size(238, 32);
-            this.textBoxNascimento.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.textBoxNascimento.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
-            this.textBoxNascimento.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.textBoxNascimento.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
-            this.textBoxNascimento.StateActive.Border.Rounding = 20;
-            this.textBoxNascimento.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.textBoxNascimento.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNascimento.StateActive.Content.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
-            this.textBoxNascimento.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.textBoxNascimento.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.textBoxNascimento.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.textBoxNascimento.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.textBoxNascimento.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
-            this.textBoxNascimento.StateDisabled.Border.Rounding = 20;
-            this.textBoxNascimento.StateDisabled.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBoxNascimento.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.textBoxNascimento.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.textBoxNascimento.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.textBoxNascimento.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
-            this.textBoxNascimento.StateNormal.Border.Rounding = 20;
-            this.textBoxNascimento.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBoxNascimento.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNascimento.TabIndex = 39;
-            // 
             // TextBoxInfNasc
             // 
             this.TextBoxInfNasc.Location = new System.Drawing.Point(643, 68);
@@ -390,42 +353,6 @@ namespace GAcademia.Forms
             this.textBoxRg.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxRg.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRg.TabIndex = 41;
-            // 
-            // textBoxTelefone
-            // 
-            this.textBoxTelefone.AlwaysActive = false;
-            this.textBoxTelefone.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.textBoxTelefone.Location = new System.Drawing.Point(107, 171);
-            this.textBoxTelefone.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.textBoxTelefone.Name = "textBoxTelefone";
-            this.textBoxTelefone.Size = new System.Drawing.Size(273, 32);
-            this.textBoxTelefone.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.textBoxTelefone.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
-            this.textBoxTelefone.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.textBoxTelefone.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.textBoxTelefone.StateActive.Border.Rounding = 20;
-            this.textBoxTelefone.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.textBoxTelefone.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTelefone.StateActive.Content.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
-            this.textBoxTelefone.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.textBoxTelefone.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.textBoxTelefone.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.textBoxTelefone.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.textBoxTelefone.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
-            this.textBoxTelefone.StateDisabled.Border.Rounding = 20;
-            this.textBoxTelefone.StateDisabled.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBoxTelefone.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.textBoxTelefone.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.textBoxTelefone.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.textBoxTelefone.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.textBoxTelefone.StateNormal.Border.Rounding = 20;
-            this.textBoxTelefone.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBoxTelefone.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTelefone.TabIndex = 42;
             // 
             // textBoxEndereco
             // 
@@ -654,43 +581,6 @@ namespace GAcademia.Forms
             this.TextBoxInfObjetivo.TabStop = false;
             this.TextBoxInfObjetivo.Text = "Objetivo";
             this.TextBoxInfObjetivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxCpf
-            // 
-            this.textBoxCpf.AlwaysActive = false;
-            this.textBoxCpf.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.textBoxCpf.Location = new System.Drawing.Point(405, 116);
-            this.textBoxCpf.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.textBoxCpf.Name = "textBoxCpf";
-            this.textBoxCpf.Size = new System.Drawing.Size(258, 32);
-            this.textBoxCpf.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.textBoxCpf.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
-            this.textBoxCpf.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.textBoxCpf.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
-            this.textBoxCpf.StateActive.Border.Rounding = 20;
-            this.textBoxCpf.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.textBoxCpf.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCpf.StateActive.Content.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
-            this.textBoxCpf.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.textBoxCpf.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.textBoxCpf.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.textBoxCpf.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.textBoxCpf.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
-            this.textBoxCpf.StateDisabled.Border.Rounding = 20;
-            this.textBoxCpf.StateDisabled.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBoxCpf.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.textBoxCpf.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.textBoxCpf.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.textBoxCpf.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
-            this.textBoxCpf.StateNormal.Border.Rounding = 20;
-            this.textBoxCpf.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBoxCpf.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCpf.TabIndex = 51;
             // 
             // textBoxEmail
             // 
@@ -1339,12 +1229,96 @@ namespace GAcademia.Forms
             this.Aluno.Name = "Aluno";
             this.Aluno.ReadOnly = true;
             // 
+            // MtextBoxTelefone
+            // 
+            this.MtextBoxTelefone.AlwaysActive = false;
+            this.MtextBoxTelefone.Location = new System.Drawing.Point(108, 171);
+            this.MtextBoxTelefone.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.MtextBoxTelefone.Mask = "(00) 00000 - 0000";
+            this.MtextBoxTelefone.Name = "MtextBoxTelefone";
+            this.MtextBoxTelefone.Size = new System.Drawing.Size(272, 35);
+            this.MtextBoxTelefone.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.MtextBoxTelefone.StateActive.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.MtextBoxTelefone.StateActive.Border.Color2 = System.Drawing.SystemColors.HotTrack;
+            this.MtextBoxTelefone.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.MtextBoxTelefone.StateActive.Border.Rounding = 20;
+            this.MtextBoxTelefone.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MtextBoxTelefone.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.MtextBoxTelefone.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.MtextBoxTelefone.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.MtextBoxTelefone.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.MtextBoxTelefone.StateNormal.Border.Rounding = 20;
+            this.MtextBoxTelefone.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MtextBoxTelefone.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MtextBoxTelefone.TabIndex = 71;
+            this.MtextBoxTelefone.Text = "(  )       - ";
+            this.MtextBoxTelefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // MtextBoxCpf
+            // 
+            this.MtextBoxCpf.AlwaysActive = false;
+            this.MtextBoxCpf.Location = new System.Drawing.Point(405, 116);
+            this.MtextBoxCpf.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.MtextBoxCpf.Mask = "000.000.000-00";
+            this.MtextBoxCpf.Name = "MtextBoxCpf";
+            this.MtextBoxCpf.Size = new System.Drawing.Size(258, 35);
+            this.MtextBoxCpf.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.MtextBoxCpf.StateActive.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.MtextBoxCpf.StateActive.Border.Color2 = System.Drawing.SystemColors.HotTrack;
+            this.MtextBoxCpf.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.MtextBoxCpf.StateActive.Border.Rounding = 20;
+            this.MtextBoxCpf.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MtextBoxCpf.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.MtextBoxCpf.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.MtextBoxCpf.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.MtextBoxCpf.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.MtextBoxCpf.StateNormal.Border.Rounding = 20;
+            this.MtextBoxCpf.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MtextBoxCpf.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MtextBoxCpf.TabIndex = 72;
+            this.MtextBoxCpf.Text = "   ,   ,   -";
+            this.MtextBoxCpf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // MtextBoxNascimento
+            // 
+            this.MtextBoxNascimento.AlwaysActive = false;
+            this.MtextBoxNascimento.Location = new System.Drawing.Point(405, 68);
+            this.MtextBoxNascimento.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.MtextBoxNascimento.Mask = "00 / 00 / 0000";
+            this.MtextBoxNascimento.Name = "MtextBoxNascimento";
+            this.MtextBoxNascimento.Size = new System.Drawing.Size(238, 35);
+            this.MtextBoxNascimento.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.MtextBoxNascimento.StateActive.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.MtextBoxNascimento.StateActive.Border.Color2 = System.Drawing.SystemColors.HotTrack;
+            this.MtextBoxNascimento.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.MtextBoxNascimento.StateActive.Border.Rounding = 20;
+            this.MtextBoxNascimento.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MtextBoxNascimento.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.MtextBoxNascimento.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.MtextBoxNascimento.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.MtextBoxNascimento.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.MtextBoxNascimento.StateNormal.Border.Rounding = 20;
+            this.MtextBoxNascimento.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.MtextBoxNascimento.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MtextBoxNascimento.TabIndex = 73;
+            this.MtextBoxNascimento.Text = "   /    / ";
+            this.MtextBoxNascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(801, 461);
+            this.Controls.Add(this.MtextBoxNascimento);
+            this.Controls.Add(this.MtextBoxCpf);
+            this.Controls.Add(this.MtextBoxTelefone);
             this.Controls.Add(this.searchResult);
             this.Controls.Add(this.btn_DelUser);
             this.Controls.Add(this.btn_UpdUser);
@@ -1362,7 +1336,6 @@ namespace GAcademia.Forms
             this.Controls.Add(this.textBoxEstado);
             this.Controls.Add(this.textBoxBairro);
             this.Controls.Add(this.textBoxEmail);
-            this.Controls.Add(this.textBoxCpf);
             this.Controls.Add(this.TextBoxInfObjetivo);
             this.Controls.Add(this.TextBoxInfCidade);
             this.Controls.Add(this.TextBoxInfEndeco);
@@ -1371,10 +1344,8 @@ namespace GAcademia.Forms
             this.Controls.Add(this.textBoxObjetivo);
             this.Controls.Add(this.textBoxCidade);
             this.Controls.Add(this.textBoxEndereco);
-            this.Controls.Add(this.textBoxTelefone);
             this.Controls.Add(this.textBoxRg);
             this.Controls.Add(this.TextBoxInfNasc);
-            this.Controls.Add(this.textBoxNascimento);
             this.Controls.Add(this.TextBoxInfNome);
             this.Controls.Add(this.textBoxNome);
             this.Controls.Add(this.TextBoxInfID);
@@ -1397,10 +1368,8 @@ namespace GAcademia.Forms
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfID;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxNome;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfNome;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxNascimento;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfNasc;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxRg;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxTelefone;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxEndereco;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxCidade;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxObjetivo;
@@ -1409,7 +1378,6 @@ namespace GAcademia.Forms
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfEndeco;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfCidade;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfObjetivo;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxCpf;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxEmail;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxBairro;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxEstado;
@@ -1429,5 +1397,8 @@ namespace GAcademia.Forms
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView searchResult;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Aluno;
+        private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox MtextBoxTelefone;
+        private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox MtextBoxCpf;
+        private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox MtextBoxNascimento;
     }
 }

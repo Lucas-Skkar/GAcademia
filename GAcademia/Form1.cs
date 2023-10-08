@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,11 +19,29 @@ namespace GAcademia
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
+        MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
         public FormMain()
         {
             InitializeComponent();
+            test_bdConnection();
             this.Text = string.Empty;
             this.ControlBox = false;
+        }
+
+        private void test_bdConnection()
+        {
+            try
+            {
+                con.Open();
+                //MessageBox.Show("Conectado ao banco de dados");
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Banco de dado desconectado");
+                //Form conf = new Forms.Notifications.MySqlConfig();
+                //conf.Show();
+            }
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -33,7 +52,13 @@ namespace GAcademia
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT aluno, hora, professor, descricao, dia FROM tbagenda", con);
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(dt);
+            DataGridAgenda.DataSource = dt;
+            con.Close();
         }
 
         private void OpenChildForm(Form childForm, object btnSender)
@@ -42,7 +67,6 @@ namespace GAcademia
             {
                 activeForm.Close();
             }
-           // ActivateButton(btnSender);
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -106,6 +130,39 @@ namespace GAcademia
             this.WindowState = FormWindowState.Minimized;
         }
 
-       
+        private void btn_Domingo_Click(object sender, EventArgs e)
+        {
+            (DataGridAgenda.DataSource as DataTable).DefaultView.RowFilter = string.Format("dia LIKE 'Domingo'");
+        }
+
+        private void btn_Segunda_Click(object sender, EventArgs e)
+        {
+            (DataGridAgenda.DataSource as DataTable).DefaultView.RowFilter = string.Format("dia LIKE 'Segunda'");
+        }
+
+        private void btn_Terca_Click(object sender, EventArgs e)
+        {
+            (DataGridAgenda.DataSource as DataTable).DefaultView.RowFilter = string.Format("dia LIKE 'Terça'");
+        }
+
+        private void btn_quarta_Click(object sender, EventArgs e)
+        {
+            (DataGridAgenda.DataSource as DataTable).DefaultView.RowFilter = string.Format("dia LIKE 'Quarta'");
+        }
+
+        private void btn_quinta_Click(object sender, EventArgs e)
+        {
+            (DataGridAgenda.DataSource as DataTable).DefaultView.RowFilter = string.Format("dia LIKE 'Quinta'");
+        }
+
+        private void btn_sexta_Click(object sender, EventArgs e)
+        {
+            (DataGridAgenda.DataSource as DataTable).DefaultView.RowFilter = string.Format("dia LIKE 'Sexta'");
+        }
+
+        private void btn_sabado_Click(object sender, EventArgs e)
+        {
+            (DataGridAgenda.DataSource as DataTable).DefaultView.RowFilter = string.Format("dia LIKE 'Sábado'");
+        }
     }
 }

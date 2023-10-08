@@ -74,26 +74,33 @@ namespace GAcademia.Forms
 
         private void btn_agendar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja agendar esse horário?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (ComboBoxAluno.Text != "" && ComboBoxProfessor.Text != "" && ComboBoxDia.Text != "" && MTextBoxHorario.Text != "")
             {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO tbagenda (`aluno`, `professor`, `dia`, `hora`, `descricao`)" + " VALUES (@Aluno, @Professor, @Dia, @Hora, @Desc)", con);
+                if (MessageBox.Show("Deseja agendar esse horário?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO tbagenda (`aluno`, `professor`, `dia`, `hora`, `descricao`)" + " VALUES (@Aluno, @Professor, @Dia, @Hora, @Desc)", con);
 
-                cmd.Parameters.Add("@Aluno", MySqlDbType.VarChar, 100);
-                cmd.Parameters.Add("@Professor", MySqlDbType.VarChar, 100);
-                cmd.Parameters.Add("@Dia", MySqlDbType.VarChar, 10);
-                cmd.Parameters.Add("@Hora", MySqlDbType.VarChar, 10);
-                cmd.Parameters.Add("@Desc", MySqlDbType.VarChar, 250);
+                    cmd.Parameters.Add("@Aluno", MySqlDbType.VarChar, 100);
+                    cmd.Parameters.Add("@Professor", MySqlDbType.VarChar, 100);
+                    cmd.Parameters.Add("@Dia", MySqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@Hora", MySqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@Desc", MySqlDbType.VarChar, 250);
 
-                cmd.Parameters["@Aluno"].Value = ComboBoxAluno.Text;
-                cmd.Parameters["@Professor"].Value = ComboBoxProfessor.Text;
-                cmd.Parameters["@Dia"].Value = ComboBoxDia.Text;
-                cmd.Parameters["@Hora"].Value = TextBoxHorario.Text;
-                cmd.Parameters["@Desc"].Value = TextBoxDesc.Text;
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Adicionado com sucesso!");
-                
-                con.Close();
+                    cmd.Parameters["@Aluno"].Value = ComboBoxAluno.Text;
+                    cmd.Parameters["@Professor"].Value = ComboBoxProfessor.Text;
+                    cmd.Parameters["@Dia"].Value = ComboBoxDia.Text;
+                    cmd.Parameters["@Hora"].Value = MTextBoxHorario.Text;
+                    cmd.Parameters["@Desc"].Value = TextBoxDesc.Text;
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Adicionado com sucesso!");
+
+                    con.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Um ou mais campos estão vazios, porfavor preecha todos!");
             }
         }
 
@@ -144,22 +151,25 @@ namespace GAcademia.Forms
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT idagenda, aluno, professor, dia, hora, descricao FROM tbagenda WHERE idagenda LIKE ? OR aluno LIKE ?", con);
-            cmd.Parameters.AddWithValue("idagenda", TextBoxSearch.Text + "%");
-            cmd.Parameters.AddWithValue("aluno", TextBoxSearch.Text + "%");
-            MySqlDataReader srd = cmd.ExecuteReader();
-            while (srd.Read())
+            if (TextBoxSearch.Text != "")
             {
-                TextBoxIdAgenda.Text = srd.GetValue(0).ToString();
-                ComboBoxAluno.Text = srd.GetValue(1).ToString();
-                ComboBoxProfessor.Text = srd.GetValue(2).ToString();
-                ComboBoxDia.Text = srd.GetValue(3).ToString();
-                TextBoxHorario.Text = srd.GetValue(4).ToString();
-                TextBoxDesc.Text = srd.GetValue(5).ToString();
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT idagenda, aluno, professor, dia, hora, descricao FROM tbagenda WHERE idagenda LIKE ? OR aluno LIKE ?", con);
+                cmd.Parameters.AddWithValue("idagenda", TextBoxSearch.Text + "%");
+                cmd.Parameters.AddWithValue("aluno", TextBoxSearch.Text + "%");
+                MySqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
+                {
+                    TextBoxIdAgenda.Text = srd.GetValue(0).ToString();
+                    ComboBoxAluno.Text = srd.GetValue(1).ToString();
+                    ComboBoxProfessor.Text = srd.GetValue(2).ToString();
+                    ComboBoxDia.Text = srd.GetValue(3).ToString();
+                    MTextBoxHorario.Text = srd.GetValue(4).ToString();
+                    TextBoxDesc.Text = srd.GetValue(5).ToString();
+                }
+                srd.Close();
+                con.Close();
             }
-            srd.Close();
-            con.Close();
         }
 
         private void tbn_upd_Click(object sender, EventArgs e)
@@ -180,7 +190,7 @@ namespace GAcademia.Forms
                 cmd.Parameters["@Aluno"].Value = ComboBoxAluno.Text;
                 cmd.Parameters["@Prof"].Value = ComboBoxProfessor.Text;
                 cmd.Parameters["@Dia"].Value = ComboBoxDia.Text;
-                cmd.Parameters["@Hora"].Value = TextBoxHorario.Text;
+                cmd.Parameters["@Hora"].Value = MTextBoxHorario.Text;
                 cmd.Parameters["@Desc"].Value = TextBoxDesc.Text;
 
                 cmd.ExecuteNonQuery();

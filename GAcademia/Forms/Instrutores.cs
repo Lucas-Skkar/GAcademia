@@ -32,31 +32,35 @@ namespace GAcademia.Forms
             ComboBoxSexo.DisplayMember = "sexoS";
             ComboBoxSexo.Text = "Selecione o sexo";
         }
+
         private class sexo
         {
             public int sexoId { get; set; }
             public string sexoS { get; set; }
         }
+
         private void btn_search_Click(object sender, EventArgs e)
         {
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT idprofessor, nome, cpf, nasc, sexo, Celular FROM tbprofessor WHERE nome LIKE ? OR idprofessor LIKE ?", con);
-            cmd.Parameters.AddWithValue("nome", TextBoxSearch.Text + "%");
-            cmd.Parameters.AddWithValue("id", TextBoxSearch.Text + "%");
-            MySqlDataReader srd = cmd.ExecuteReader();
-            while (srd.Read())
+            if (TextBoxSearch.Text != "")
             {
-                TextBoxID.Text = srd.GetValue(0).ToString();
-                TextBoxNome.Text = srd.GetValue(1).ToString();
-                TextBoxCPF.Text = srd.GetValue(2).ToString();
-                TextBoxNascimento.Text = srd.GetValue(3).ToString();
-                ComboBoxSexo.Text = srd.GetValue(4).ToString();
-                TextBoxCelular.Text = srd.GetValue(5).ToString();
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT idprofessor, nome, cpf, nasc, sexo, Celular FROM tbprofessor WHERE nome LIKE ? OR idprofessor LIKE ?", con);
+                cmd.Parameters.AddWithValue("nome", TextBoxSearch.Text + "%");
+                cmd.Parameters.AddWithValue("id", TextBoxSearch.Text + "%");
+                MySqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
+                {
+                    TextBoxID.Text = srd.GetValue(0).ToString();
+                    TextBoxNome.Text = srd.GetValue(1).ToString();
+                    MTextBoxCPF.Text = srd.GetValue(2).ToString();
+                    MTextBoxNascimento.Text = srd.GetValue(3).ToString();
+                    ComboBoxSexo.Text = srd.GetValue(4).ToString();
+                    MTextBoxCelular.Text = srd.GetValue(5).ToString();
+                }
+                srd.DisposeAsync();
+                con.Close();
             }
-            srd.DisposeAsync();
-            con.Close();
         }
-
 
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
         {
@@ -103,13 +107,13 @@ namespace GAcademia.Forms
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            if (TextBoxNome.Text != "" && TextBoxCPF.Text != "" && TextBoxNascimento.Text != "" && ComboBoxSexo.Text != "" && TextBoxCelular.Text != "")
+            if (TextBoxNome.Text != "" && MTextBoxCPF.Text != "" && MTextBoxNascimento.Text != "" && ComboBoxSexo.Text != "" && MTextBoxCelular.Text != "")
             {
                 if (MessageBox.Show("Deseja adicionar esse professor?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     con.Open();
                     MySqlCommand check_pName = new MySqlCommand("SELECT * FROM tbprofessor WHERE (`cpf` = @c)", con);
-                    check_pName.Parameters.AddWithValue("@c", TextBoxCPF.Text);
+                    check_pName.Parameters.AddWithValue("@c", MTextBoxCPF.Text);
                     MySqlDataReader dr = check_pName.ExecuteReader();
 
                     if (dr.HasRows)
@@ -127,10 +131,10 @@ namespace GAcademia.Forms
                         cmd.Parameters.Add("@celular", MySqlDbType.VarChar, 20);
 
                         cmd.Parameters["@Nome"].Value = TextBoxNome.Text;
-                        cmd.Parameters["@Cpf"].Value = TextBoxCPF.Text;
-                        cmd.Parameters["@Nascimento"].Value = TextBoxNascimento.Text;
+                        cmd.Parameters["@Cpf"].Value = MTextBoxCPF.Text;
+                        cmd.Parameters["@Nascimento"].Value = MTextBoxNascimento.Text;
                         cmd.Parameters["@Sexo"].Value = ComboBoxSexo.Text;
-                        cmd.Parameters["@celular"].Value = TextBoxCelular.Text;
+                        cmd.Parameters["@celular"].Value = MTextBoxCelular.Text;
 
                         dr.DisposeAsync();
                         cmd.ExecuteNonQuery();
@@ -142,7 +146,7 @@ namespace GAcademia.Forms
              }
             else
             {
-                MessageBox.Show("Um ou mais campos estão vazios, preecha todos!");
+                MessageBox.Show("Um ou mais campos estão vazios, porfavor preecha todos!");
             }
         }
 
@@ -164,10 +168,10 @@ namespace GAcademia.Forms
 
                     cmd.Parameters["@Id"].Value = TextBoxID.Text;
                     cmd.Parameters["@Nome"].Value = TextBoxNome.Text;
-                    cmd.Parameters["@Cpf"].Value = TextBoxCPF.Text;
-                    cmd.Parameters["@Nascimento"].Value = TextBoxNascimento.Text;
+                    cmd.Parameters["@Cpf"].Value = MTextBoxCPF.Text;
+                    cmd.Parameters["@Nascimento"].Value = MTextBoxNascimento.Text;
                     cmd.Parameters["@Sexo"].Value = ComboBoxSexo.Text;
-                    cmd.Parameters["@Celular"].Value = TextBoxCelular.Text;
+                    cmd.Parameters["@Celular"].Value = MTextBoxCelular.Text;
 
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -180,8 +184,6 @@ namespace GAcademia.Forms
                 MessageBox.Show("Selecione um professor");
             }
         }
-
-       
 
         private void btn_delete_Click(object sender, EventArgs e)
         {

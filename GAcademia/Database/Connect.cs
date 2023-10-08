@@ -8,11 +8,11 @@ namespace GAcademia.Database
 {
     class Connect
     {
-        private const string servidor = "localhost";
-        private const string bancoDados = "dbacademia";
-        private const string usuario = "root";
-        private const string senha = "";
-        private const string porta = "3306";
+        public static string servidor = "localhost";
+        public static string bancoDados = "dbacademia";
+        public static string usuario = "root";
+        public static string senha = "";
+        public static string porta = "3306";
 
         static public string dbConnect = $"server={servidor};database={bancoDados};user={usuario};password={senha};port={porta}";
     }

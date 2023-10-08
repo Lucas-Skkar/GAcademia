@@ -22,85 +22,94 @@ namespace GAcademia.Forms
 
         private void btn_searchUser_Click(object sender, EventArgs e)
         {
-
-            con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT idalunos, nome, nascimento, rg, cpf, endereco, num, bairro, cidade, estado, celular, email, objetivo, obs FROM dbacademia.tbalunos WHERE idalunos LIKE ? OR nome LIKE ?", con);
-            cmd.Parameters.AddWithValue("idalunos", tBoxSearchUser.Text + "%");
-            cmd.Parameters.AddWithValue("nome", tBoxSearchUser.Text + "%");
-            MySqlDataReader srd = cmd.ExecuteReader();
-            while (srd.Read())
+            if(tBoxSearchUser.Text !="")
             {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT idalunos, nome, nascimento, rg, cpf, endereco, num, bairro, cidade, estado, celular, email, objetivo, obs FROM dbacademia.tbalunos WHERE idalunos LIKE ? OR nome LIKE ?", con);
+                cmd.Parameters.AddWithValue("idalunos", tBoxSearchUser.Text + "%");
+                cmd.Parameters.AddWithValue("nome", tBoxSearchUser.Text + "%");
+                MySqlDataReader srd = cmd.ExecuteReader();
+                while (srd.Read())
+                {
                     textBoxId.Text = srd.GetValue(0).ToString();
                     textBoxNome.Text = srd.GetValue(1).ToString();
-                    textBoxNascimento.Text = srd.GetValue(2).ToString();
+                    MtextBoxNascimento.Text = srd.GetValue(2).ToString();
                     textBoxRg.Text = srd.GetValue(3).ToString();
-                    textBoxCpf.Text = srd.GetValue(4).ToString();
+                    MtextBoxCpf.Text = srd.GetValue(4).ToString();
                     textBoxEndereco.Text = srd.GetValue(5).ToString();
                     textBoxNumero.Text = srd.GetValue(6).ToString();
                     textBoxBairro.Text = srd.GetValue(7).ToString();
                     textBoxCidade.Text = srd.GetValue(8).ToString();
                     textBoxEstado.Text = srd.GetValue(9).ToString();
-                    textBoxTelefone.Text = srd.GetValue(10).ToString();
+                    MtextBoxTelefone.Text = srd.GetValue(10).ToString();
                     textBoxEmail.Text = srd.GetValue(11).ToString();
                     textBoxObjetivo.Text = srd.GetValue(12).ToString();
                     textBoxObs.Text = srd.GetValue(13).ToString();
+                }
+                con.Close();
+                srd.DisposeAsync();
             }
-            con.Close();
-            srd.DisposeAsync();
+            
         }
 
         private void btn_addUser_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja adicionar esse usuário?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (textBoxNome.Text != "" && MtextBoxNascimento.Text != "" && textBoxRg.Text != "" && MtextBoxCpf.Text != "" && textBoxEndereco.Text != "" && textBoxNumero.Text != "" && textBoxBairro.Text != "" && textBoxCidade.Text != "" && textBoxEstado.Text != "" && MtextBoxTelefone.Text != "" && textBoxEmail.Text != "")
             {
-                con.Open();
-                MySqlCommand check_usName = new MySqlCommand("SELECT * FROM tbalunos WHERE (`cpf` = @c)", con);
-                check_usName.Parameters.AddWithValue("@c", textBoxCpf.Text);
-                MySqlDataReader reader = check_usName.ExecuteReader();
-
-                if (reader.HasRows)
+                if (MessageBox.Show("Deseja adicionar esse usuário?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Usuario já existe");
-                }
-                else
-                {
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO tbalunos (`nome`, `nascimento`, `rg`, `cpf`, `endereco`, `num`, `bairro`, `cidade`, `estado`, `celular`, `email`, `objetivo`, `obs`)" + " VALUES (@Nome, @Nascimento, @Rg, @Cpf, @Endereco, @Numero, @Bairro, @Cidade, @Estado, @Telefone, @Email, @Objetivo, @Obs)", con);
+                    con.Open();
+                    MySqlCommand check_usName = new MySqlCommand("SELECT * FROM tbalunos WHERE (`cpf` = @c)", con);
+                    check_usName.Parameters.AddWithValue("@c", MtextBoxCpf.Text);
+                    MySqlDataReader reader = check_usName.ExecuteReader();
 
-                    cmd.Parameters.Add("@Nome", MySqlDbType.VarChar, 150);
-                    cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
-                    cmd.Parameters.Add("@Rg", MySqlDbType.VarChar, 15);
-                    cmd.Parameters.Add("@Cpf", MySqlDbType.VarChar, 15);
-                    cmd.Parameters.Add("@Endereco", MySqlDbType.VarChar, 100);
-                    cmd.Parameters.Add("@Numero", MySqlDbType.VarChar, 10);
-                    cmd.Parameters.Add("@Bairro", MySqlDbType.VarChar, 30);
-                    cmd.Parameters.Add("@Cidade", MySqlDbType.VarChar, 100);
-                    cmd.Parameters.Add("@Estado", MySqlDbType.VarChar, 10);
-                    cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar, 20);
-                    cmd.Parameters.Add("@Email", MySqlDbType.VarChar, 50);
-                    cmd.Parameters.Add("@Objetivo", MySqlDbType.VarChar, 150);
-                    cmd.Parameters.Add("@Obs", MySqlDbType.VarChar, 200);
+                    if (reader.HasRows)
+                    {
+                        MessageBox.Show("Usuario já existe");
+                    }
+                    else
+                    {
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO tbalunos (`nome`, `nascimento`, `rg`, `cpf`, `endereco`, `num`, `bairro`, `cidade`, `estado`, `celular`, `email`, `objetivo`, `obs`)" + " VALUES (@Nome, @Nascimento, @Rg, @Cpf, @Endereco, @Numero, @Bairro, @Cidade, @Estado, @Telefone, @Email, @Objetivo, @Obs)", con);
 
-                    cmd.Parameters["@nome"].Value = textBoxNome.Text;
-                    cmd.Parameters["@Nascimento"].Value = textBoxNascimento.Text;
-                    cmd.Parameters["@Rg"].Value = textBoxRg.Text;
-                    cmd.Parameters["@Cpf"].Value = textBoxCpf.Text;
-                    cmd.Parameters["@Endereco"].Value = textBoxEndereco.Text;
-                    cmd.Parameters["@Numero"].Value = textBoxNumero.Text;
-                    cmd.Parameters["@Bairro"].Value = textBoxBairro.Text;
-                    cmd.Parameters["@Cidade"].Value = textBoxCidade.Text;
-                    cmd.Parameters["@Estado"].Value = textBoxEstado.Text;
-                    cmd.Parameters["@Telefone"].Value = textBoxTelefone.Text;
-                    cmd.Parameters["@Email"].Value = textBoxEmail.Text;
-                    cmd.Parameters["@Objetivo"].Value = textBoxObjetivo.Text;
-                    cmd.Parameters["@Obs"].Value = textBoxObs.Text;
+                        cmd.Parameters.Add("@Nome", MySqlDbType.VarChar, 150);
+                        cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
+                        cmd.Parameters.Add("@Rg", MySqlDbType.VarChar, 15);
+                        cmd.Parameters.Add("@Cpf", MySqlDbType.VarChar, 15);
+                        cmd.Parameters.Add("@Endereco", MySqlDbType.VarChar, 100);
+                        cmd.Parameters.Add("@Numero", MySqlDbType.VarChar, 10);
+                        cmd.Parameters.Add("@Bairro", MySqlDbType.VarChar, 30);
+                        cmd.Parameters.Add("@Cidade", MySqlDbType.VarChar, 100);
+                        cmd.Parameters.Add("@Estado", MySqlDbType.VarChar, 10);
+                        cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar, 20);
+                        cmd.Parameters.Add("@Email", MySqlDbType.VarChar, 50);
+                        cmd.Parameters.Add("@Objetivo", MySqlDbType.VarChar, 150);
+                        cmd.Parameters.Add("@Obs", MySqlDbType.VarChar, 200);
 
+                        cmd.Parameters["@nome"].Value = textBoxNome.Text;
+                        cmd.Parameters["@Nascimento"].Value = MtextBoxNascimento.Text;
+                        cmd.Parameters["@Rg"].Value = textBoxRg.Text;
+                        cmd.Parameters["@Cpf"].Value = MtextBoxCpf.Text;
+                        cmd.Parameters["@Endereco"].Value = textBoxEndereco.Text;
+                        cmd.Parameters["@Numero"].Value = textBoxNumero.Text;
+                        cmd.Parameters["@Bairro"].Value = textBoxBairro.Text;
+                        cmd.Parameters["@Cidade"].Value = textBoxCidade.Text;
+                        cmd.Parameters["@Estado"].Value = textBoxEstado.Text;
+                        cmd.Parameters["@Telefone"].Value = MtextBoxTelefone.Text;
+                        cmd.Parameters["@Email"].Value = textBoxEmail.Text;
+                        cmd.Parameters["@Objetivo"].Value = textBoxObjetivo.Text;
+                        cmd.Parameters["@Obs"].Value = textBoxObs.Text;
+
+                        reader.DisposeAsync();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Adicionado com sucesso!");
+                    }
+                    con.Close();
                     reader.DisposeAsync();
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Adicionado com sucesso!");
                 }
-                con.Close();
-                reader.DisposeAsync();
-
+            }
+            else
+            {
+                MessageBox.Show("Um ou mais campos estão vazios, porfavor preecha todos!");
             }
         }
 
@@ -149,15 +158,15 @@ namespace GAcademia.Forms
                 cmd.Parameters.Add("@Id", MySqlDbType.Int32, 11);
 
                 cmd.Parameters["@nome"].Value = textBoxNome.Text;
-                cmd.Parameters["@Nascimento"].Value = textBoxNascimento.Text;
+                cmd.Parameters["@Nascimento"].Value = MtextBoxNascimento.Text;
                 cmd.Parameters["@Rg"].Value = textBoxRg.Text;
-                cmd.Parameters["@Cpf"].Value = textBoxCpf.Text;
+                cmd.Parameters["@Cpf"].Value = MtextBoxCpf.Text;
                 cmd.Parameters["@Endereco"].Value = textBoxEndereco.Text;
                 cmd.Parameters["@Numero"].Value = textBoxNumero.Text;
                 cmd.Parameters["@Bairro"].Value = textBoxBairro.Text;
                 cmd.Parameters["@Cidade"].Value = textBoxCidade.Text;
                 cmd.Parameters["@Estado"].Value = textBoxEstado.Text;
-                cmd.Parameters["@Telefone"].Value = textBoxTelefone.Text;
+                cmd.Parameters["@Telefone"].Value = MtextBoxTelefone.Text;
                 cmd.Parameters["@Email"].Value = textBoxEmail.Text;
                 cmd.Parameters["@Objetivo"].Value = textBoxObjetivo.Text;
                 cmd.Parameters["@Obs"].Value = textBoxObs.Text;
