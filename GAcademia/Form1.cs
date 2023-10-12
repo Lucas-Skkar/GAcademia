@@ -33,14 +33,27 @@ namespace GAcademia
             try
             {
                 con.Open();
-                //MessageBox.Show("Conectado ao banco de dados");
+                MySqlCommand cmd = new MySqlCommand("SELECT aluno, hora, professor, descricao, dia FROM tbagenda", con);
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+                DataGridAgenda.DataSource = dt;
                 con.Close();
             }
             catch (Exception)
             {
-                MessageBox.Show("Banco de dado desconectado");
-                //Form conf = new Forms.Notifications.MySqlConfig();
-                //conf.Show();
+               // MessageBox.Show("Banco de dado desconectado");
+
+                btn_Domingo.Enabled = false;
+                btn_Segunda.Enabled = false;
+                btn_Terca.Enabled = false;
+                btn_quarta.Enabled = false;
+                btn_quinta.Enabled = false;
+                btn_sexta.Enabled = false;
+                btn_sabado.Enabled = false;
+
+               // Form conf = new Forms.Notifications.MySqlConfig();
+              //  conf.ShowDialog();
             }
         }
 
@@ -52,13 +65,13 @@ namespace GAcademia
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            con.Open();
+           /* con.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT aluno, hora, professor, descricao, dia FROM tbagenda", con);
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             da.Fill(dt);
             DataGridAgenda.DataSource = dt;
-            con.Close();
+            con.Close();*/
         }
 
         private void OpenChildForm(Form childForm, object btnSender)
@@ -163,6 +176,11 @@ namespace GAcademia
         private void btn_sabado_Click(object sender, EventArgs e)
         {
             (DataGridAgenda.DataSource as DataTable).DefaultView.RowFilter = string.Format("dia LIKE 'Sábado'");
+        }
+
+        private void btn_confg_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.Configuracao(), sender);
         }
     }
 }

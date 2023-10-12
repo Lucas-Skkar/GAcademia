@@ -115,6 +115,12 @@
     <Compile Include="Forms\Agenda.Designer.cs">
       <DependentUpon>Agenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Configuracao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracao.Designer.cs">
+      <DependentUpon>Configuracao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Instrutores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,12 @@
     </Compile>
     <Compile Include="Forms\Mensalidades.Designer.cs">
       <DependentUpon>Mensalidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Notifications\LoginAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Notifications\LoginAdmin.Designer.cs">
+      <DependentUpon>LoginAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Notifications\MySqlConfig.cs">
       <SubType>Form</SubType>
@@ -153,6 +165,9 @@
     <EmbeddedResource Include="Forms\Agenda.resx">
       <DependentUpon>Agenda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracao.resx">
+      <DependentUpon>Configuracao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Instrutores.resx">
       <DependentUpon>Instrutores.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Mensalidades.resx">
       <DependentUpon>Mensalidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Notifications\LoginAdmin.resx">
+      <DependentUpon>LoginAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Notifications\MySqlConfig.resx">
       <DependentUpon>MySqlConfig.cs</DependentUpon>
