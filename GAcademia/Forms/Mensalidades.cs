@@ -258,5 +258,19 @@ namespace GAcademia.Forms
                 MessageBox.Show("Selecione uma mensalidade");
             }
         }
+
+        private void btn_Imprimir_Click(object sender, EventArgs e)
+        {
+            if (MtextBoxDPagamento.Text != "")
+            {
+                Comprovante.Comprovante frm = new Comprovante.Comprovante(ComboBoxAluno.Text, textBoxValor.Text, ComboBoxMes.Text, MtextBoxDPagamento.Text);
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("O Campo Data de Pagamento deve ser preenchido.");
+            }
+           
+        }
     }
 }

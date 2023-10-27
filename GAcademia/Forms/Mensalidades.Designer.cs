@@ -30,6 +30,8 @@ namespace GAcademia.Forms
         private void InitializeComponent()
         {
             this.searchResult = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.idmensalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_search = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.TextBoxSearch = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TextBoxInfIdAluno = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -47,8 +49,7 @@ namespace GAcademia.Forms
             this.btn_update = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_delete = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ComboBoxDia = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.idmensalidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_Imprimir = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.searchResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxAluno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxMes)).BeginInit();
@@ -89,6 +90,21 @@ namespace GAcademia.Forms
             this.searchResult.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchResult.TabIndex = 18;
             this.searchResult.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.searchResult_CellClick);
+            // 
+            // idmensalidade
+            // 
+            this.idmensalidade.DataPropertyName = "idmensalidade";
+            this.idmensalidade.HeaderText = "ID";
+            this.idmensalidade.Name = "idmensalidade";
+            this.idmensalidade.ReadOnly = true;
+            // 
+            // nome
+            // 
+            this.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nome.DataPropertyName = "nome";
+            this.nome.HeaderText = "Aluno";
+            this.nome.Name = "nome";
+            this.nome.ReadOnly = true;
             // 
             // btn_search
             // 
@@ -590,7 +606,8 @@ namespace GAcademia.Forms
             // 
             // btn_Adicionar
             // 
-            this.btn_Adicionar.Location = new System.Drawing.Point(175, 331);
+            this.btn_Adicionar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Adicionar.Location = new System.Drawing.Point(144, 322);
             this.btn_Adicionar.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_Adicionar.Name = "btn_Adicionar";
             this.btn_Adicionar.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -659,7 +676,8 @@ namespace GAcademia.Forms
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(290, 331);
+            this.btn_update.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_update.Location = new System.Drawing.Point(254, 322);
             this.btn_update.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_update.Name = "btn_update";
             this.btn_update.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -728,7 +746,8 @@ namespace GAcademia.Forms
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(422, 331);
+            this.btn_delete.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_delete.Location = new System.Drawing.Point(374, 322);
             this.btn_delete.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -844,20 +863,75 @@ namespace GAcademia.Forms
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.ComboBoxDia.TabIndex = 4;
             // 
-            // idmensalidade
+            // btn_Imprimir
             // 
-            this.idmensalidade.DataPropertyName = "idmensalidade";
-            this.idmensalidade.HeaderText = "ID";
-            this.idmensalidade.Name = "idmensalidade";
-            this.idmensalidade.ReadOnly = true;
-            // 
-            // nome
-            // 
-            this.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nome.DataPropertyName = "nome";
-            this.nome.HeaderText = "Aluno";
-            this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
+            this.btn_Imprimir.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Imprimir.Location = new System.Drawing.Point(480, 322);
+            this.btn_Imprimir.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btn_Imprimir.Name = "btn_Imprimir";
+            this.btn_Imprimir.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_Imprimir.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_Imprimir.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_Imprimir.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.OverrideFocus.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.btn_Imprimir.OverrideFocus.Border.Color2 = System.Drawing.SystemColors.Highlight;
+            this.btn_Imprimir.OverrideFocus.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.btn_Imprimir.OverrideFocus.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_Imprimir.OverrideFocus.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.btn_Imprimir.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_Imprimir.OverrideFocus.Border.Rounding = 20;
+            this.btn_Imprimir.Size = new System.Drawing.Size(150, 32);
+            this.btn_Imprimir.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_Imprimir.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.btn_Imprimir.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_Imprimir.StateCommon.Border.Rounding = 20;
+            this.btn_Imprimir.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_Imprimir.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Imprimir.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.StateDisabled.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_Imprimir.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_Imprimir.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.StateNormal.Back.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.btn_Imprimir.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_Imprimir.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_Imprimir.StateNormal.Border.Rounding = 20;
+            this.btn_Imprimir.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.StatePressed.Border.Color1 = System.Drawing.Color.Blue;
+            this.btn_Imprimir.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_Imprimir.StatePressed.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.LinearShadow;
+            this.btn_Imprimir.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_Imprimir.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.StateTracking.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.btn_Imprimir.StateTracking.Border.Color2 = System.Drawing.SystemColors.Highlight;
+            this.btn_Imprimir.StateTracking.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.btn_Imprimir.StateTracking.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_Imprimir.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_Imprimir.TabIndex = 83;
+            this.btn_Imprimir.Values.Text = "Imprimir Comprovante";
+            this.btn_Imprimir.Click += new System.EventHandler(this.btn_Imprimir_Click);
             // 
             // Mensalidades
             // 
@@ -866,6 +940,7 @@ namespace GAcademia.Forms
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(800, 427);
             this.ControlBox = false;
+            this.Controls.Add(this.btn_Imprimir);
             this.Controls.Add(this.ComboBoxDia);
             this.Controls.Add(this.searchResult);
             this.Controls.Add(this.btn_delete);
@@ -931,5 +1006,6 @@ namespace GAcademia.Forms
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox ComboBoxDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn idmensalidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Imprimir;
     }
 }
