@@ -29,13 +29,14 @@ namespace GAcademia
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btn_confg = new System.Windows.Forms.Button();
             this.btn_Agenda = new System.Windows.Forms.Button();
-            this.btn_Men = new System.Windows.Forms.Button();
+            this.btn_Financas = new System.Windows.Forms.Button();
             this.btn_Instrutor = new System.Windows.Forms.Button();
-            this.btn_User = new System.Windows.Forms.Button();
+            this.btn_Alunos = new System.Windows.Forms.Button();
             this.btn_Home = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
@@ -53,13 +54,10 @@ namespace GAcademia
             this.btn_Segunda = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_Domingo = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_min = new System.Windows.Forms.Label();
-            this.btn_max = new System.Windows.Forms.Label();
-            this.bnt_close = new System.Windows.Forms.Label();
+            this.kryptonPaletteMain = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panelMenu.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridAgenda)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -67,9 +65,9 @@ namespace GAcademia
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.panelMenu.Controls.Add(this.btn_confg);
             this.panelMenu.Controls.Add(this.btn_Agenda);
-            this.panelMenu.Controls.Add(this.btn_Men);
+            this.panelMenu.Controls.Add(this.btn_Financas);
             this.panelMenu.Controls.Add(this.btn_Instrutor);
-            this.panelMenu.Controls.Add(this.btn_User);
+            this.panelMenu.Controls.Add(this.btn_Alunos);
             this.panelMenu.Controls.Add(this.btn_Home);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -91,7 +89,7 @@ namespace GAcademia
             this.btn_confg.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn_confg.Size = new System.Drawing.Size(200, 60);
             this.btn_confg.TabIndex = 6;
-            this.btn_confg.Text = "Configuração";
+            this.btn_confg.Text = "Configurações";
             this.btn_confg.UseVisualStyleBackColor = true;
             this.btn_confg.Click += new System.EventHandler(this.btn_confg_Click);
             // 
@@ -111,21 +109,21 @@ namespace GAcademia
             this.btn_Agenda.UseVisualStyleBackColor = true;
             this.btn_Agenda.Click += new System.EventHandler(this.btn_Agenda_Click);
             // 
-            // btn_Men
+            // btn_Financas
             // 
-            this.btn_Men.AutoSize = true;
-            this.btn_Men.FlatAppearance.BorderSize = 0;
-            this.btn_Men.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Men.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Men.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btn_Men.Location = new System.Drawing.Point(0, 260);
-            this.btn_Men.Name = "btn_Men";
-            this.btn_Men.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btn_Men.Size = new System.Drawing.Size(200, 60);
-            this.btn_Men.TabIndex = 4;
-            this.btn_Men.Text = "Mensalidades";
-            this.btn_Men.UseVisualStyleBackColor = true;
-            this.btn_Men.Click += new System.EventHandler(this.btn_Men_Click);
+            this.btn_Financas.AutoSize = true;
+            this.btn_Financas.FlatAppearance.BorderSize = 0;
+            this.btn_Financas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Financas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Financas.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btn_Financas.Location = new System.Drawing.Point(0, 260);
+            this.btn_Financas.Name = "btn_Financas";
+            this.btn_Financas.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btn_Financas.Size = new System.Drawing.Size(200, 60);
+            this.btn_Financas.TabIndex = 4;
+            this.btn_Financas.Text = "Finanças";
+            this.btn_Financas.UseVisualStyleBackColor = true;
+            this.btn_Financas.Click += new System.EventHandler(this.btn_Financas_Click);
             // 
             // btn_Instrutor
             // 
@@ -143,21 +141,21 @@ namespace GAcademia
             this.btn_Instrutor.UseVisualStyleBackColor = true;
             this.btn_Instrutor.Click += new System.EventHandler(this.btn_Instrutor_Click);
             // 
-            // btn_User
+            // btn_Alunos
             // 
-            this.btn_User.AutoSize = true;
-            this.btn_User.FlatAppearance.BorderSize = 0;
-            this.btn_User.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_User.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_User.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btn_User.Location = new System.Drawing.Point(0, 140);
-            this.btn_User.Name = "btn_User";
-            this.btn_User.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btn_User.Size = new System.Drawing.Size(200, 60);
-            this.btn_User.TabIndex = 2;
-            this.btn_User.Text = "Usuários";
-            this.btn_User.UseVisualStyleBackColor = true;
-            this.btn_User.Click += new System.EventHandler(this.btn_User_Click);
+            this.btn_Alunos.AutoSize = true;
+            this.btn_Alunos.FlatAppearance.BorderSize = 0;
+            this.btn_Alunos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Alunos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Alunos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btn_Alunos.Location = new System.Drawing.Point(0, 140);
+            this.btn_Alunos.Name = "btn_Alunos";
+            this.btn_Alunos.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btn_Alunos.Size = new System.Drawing.Size(200, 60);
+            this.btn_Alunos.TabIndex = 2;
+            this.btn_Alunos.Text = "Alunos";
+            this.btn_Alunos.UseVisualStyleBackColor = true;
+            this.btn_Alunos.Click += new System.EventHandler(this.btn_Alunos_Click);
             // 
             // btn_Home
             // 
@@ -209,9 +207,9 @@ namespace GAcademia
             this.DataGridAgenda.AllowUserToDeleteRows = false;
             this.DataGridAgenda.AllowUserToResizeColumns = false;
             this.DataGridAgenda.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DataGridAgenda.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DataGridAgenda.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridAgenda.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -849,9 +847,6 @@ namespace GAcademia
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.panel1.Controls.Add(this.btn_min);
-            this.panel1.Controls.Add(this.btn_max);
-            this.panel1.Controls.Add(this.bnt_close);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(200, 0);
             this.panel1.Name = "panel1";
@@ -859,44 +854,90 @@ namespace GAcademia
             this.panel1.TabIndex = 2;
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
-            // btn_min
+            // kryptonPaletteMain
             // 
-            this.btn_min.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_min.AutoSize = true;
-            this.btn_min.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_min.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btn_min.Location = new System.Drawing.Point(702, 0);
-            this.btn_min.Name = "btn_min";
-            this.btn_min.Size = new System.Drawing.Size(28, 26);
-            this.btn_min.TabIndex = 2;
-            this.btn_min.Text = "O";
-            this.btn_min.Click += new System.EventHandler(this.btn_min_Click);
-            // 
-            // btn_max
-            // 
-            this.btn_max.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_max.AutoSize = true;
-            this.btn_max.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_max.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btn_max.Location = new System.Drawing.Point(736, 0);
-            this.btn_max.Name = "btn_max";
-            this.btn_max.Size = new System.Drawing.Size(28, 26);
-            this.btn_max.TabIndex = 1;
-            this.btn_max.Text = "O";
-            this.btn_max.Click += new System.EventHandler(this.btn_max_Click);
-            // 
-            // bnt_close
-            // 
-            this.bnt_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bnt_close.AutoSize = true;
-            this.bnt_close.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnt_close.ForeColor = System.Drawing.Color.Firebrick;
-            this.bnt_close.Location = new System.Drawing.Point(766, 0);
-            this.bnt_close.Name = "bnt_close";
-            this.bnt_close.Size = new System.Drawing.Size(28, 26);
-            this.bnt_close.TabIndex = 0;
-            this.bnt_close.Text = "O";
-            this.bnt_close.Click += new System.EventHandler(this.bnt_close_Click);
+            this.kryptonPaletteMain.ButtonSpecs.Close.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Custom1;
+            this.kryptonPaletteMain.ButtonSpecs.Close.Text = "O";
+            this.kryptonPaletteMain.ButtonSpecs.FormClose.AllowInheritImage = false;
+            this.kryptonPaletteMain.ButtonSpecs.FormClose.ColorMap = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonSpecs.FormClose.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Custom1;
+            this.kryptonPaletteMain.ButtonSpecs.FormClose.Text = "O";
+            this.kryptonPaletteMain.ButtonSpecs.FormMax.AllowInheritImage = false;
+            this.kryptonPaletteMain.ButtonSpecs.FormMax.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Custom2;
+            this.kryptonPaletteMain.ButtonSpecs.FormMax.Text = "O";
+            this.kryptonPaletteMain.ButtonSpecs.FormMin.AllowInheritImage = false;
+            this.kryptonPaletteMain.ButtonSpecs.FormMin.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Custom2;
+            this.kryptonPaletteMain.ButtonSpecs.FormMin.Text = "O";
+            this.kryptonPaletteMain.ButtonSpecs.FormRestore.AllowInheritImage = false;
+            this.kryptonPaletteMain.ButtonSpecs.FormRestore.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Custom2;
+            this.kryptonPaletteMain.ButtonSpecs.FormRestore.Text = "O";
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.OverrideDefault.Back.Color1 = System.Drawing.Color.Red;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.OverrideDefault.Back.Color2 = System.Drawing.Color.Red;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Border.Rounding = 4;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.DarkRed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.DarkRed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Montserrat", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateTracking.Back.Color1 = System.Drawing.Color.Red;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateTracking.Back.Color2 = System.Drawing.Color.Red;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideFocus.Border.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideFocus.Border.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCheckedNormal.Back.Color1 = System.Drawing.Color.Red;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCheckedPressed.Back.Color1 = System.Drawing.Color.Blue;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCheckedTracking.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCheckedTracking.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Back.Color1 = System.Drawing.Color.Maroon;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Back.Color2 = System.Drawing.Color.DarkRed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Montserrat", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateDisabled.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateDisabled.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateNormal.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateNormal.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StatePressed.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StatePressed.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(33)))));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(33)))));
+            this.kryptonPaletteMain.ControlStyles.ControlCommon.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ControlStyles.ControlCommon.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ControlStyles.ControlCommon.StateNormal.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ControlStyles.ControlCommon.StateNormal.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.FormStyles.FormMain.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.kryptonPaletteMain.FormStyles.FormMain.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.kryptonPaletteMain.FormStyles.FormMain.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.kryptonPaletteMain.FormStyles.FormMain.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.kryptonPaletteMain.FormStyles.FormMain.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteMain.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.kryptonPaletteMain.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.kryptonPaletteMain.HeaderStyles.HeaderForm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             // 
             // FormMain
             // 
@@ -907,17 +948,18 @@ namespace GAcademia
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
+            this.ForeColor = System.Drawing.Color.Transparent;
             this.MinimumSize = new System.Drawing.Size(860, 500);
             this.Name = "FormMain";
+            this.Palette = this.kryptonPaletteMain;
+            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.ShowIcon = false;
             this.Text = "GerAcademia";
-            this.TransparencyKey = System.Drawing.Color.Transparent;
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             this.panelDesktop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridAgenda)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -925,16 +967,13 @@ namespace GAcademia
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private System.Windows.Forms.Button btn_Men;
+        private System.Windows.Forms.Button btn_Financas;
         private System.Windows.Forms.Button btn_Instrutor;
-        private System.Windows.Forms.Button btn_User;
+        private System.Windows.Forms.Button btn_Alunos;
         private System.Windows.Forms.Button btn_Home;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label btn_min;
-        private System.Windows.Forms.Label btn_max;
-        private System.Windows.Forms.Label bnt_close;
         private System.Windows.Forms.Button btn_Agenda;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_sabado;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_sexta;
@@ -950,6 +989,7 @@ namespace GAcademia
         private System.Windows.Forms.DataGridViewTextBoxColumn Professor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.Button btn_confg;
+        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteMain;
     }
 }
 

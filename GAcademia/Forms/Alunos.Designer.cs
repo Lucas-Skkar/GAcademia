@@ -1,7 +1,7 @@
 ﻿
 namespace GAcademia.Forms
 {
-    partial class Usuarios
+    partial class Alunos
     {
         /// <summary>
         /// Required designer variable.
@@ -73,8 +73,9 @@ namespace GAcademia.Forms
             // tBoxSearchUser
             // 
             this.tBoxSearchUser.AlwaysActive = false;
+            this.tBoxSearchUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.tBoxSearchUser.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.tBoxSearchUser.Location = new System.Drawing.Point(47, 12);
+            this.tBoxSearchUser.Location = new System.Drawing.Point(107, 15);
             this.tBoxSearchUser.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.tBoxSearchUser.Name = "tBoxSearchUser";
             this.tBoxSearchUser.Size = new System.Drawing.Size(406, 32);
@@ -82,26 +83,25 @@ namespace GAcademia.Forms
             this.tBoxSearchUser.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
             this.tBoxSearchUser.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.tBoxSearchUser.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.tBoxSearchUser.StateActive.Border.Rounding = 20;
             this.tBoxSearchUser.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.tBoxSearchUser.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxSearchUser.StateActive.Content.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
             this.tBoxSearchUser.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.tBoxSearchUser.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            this.tBoxSearchUser.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.tBoxSearchUser.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.tBoxSearchUser.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.tBoxSearchUser.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.tBoxSearchUser.StateDisabled.Border.Rounding = 20;
             this.tBoxSearchUser.StateDisabled.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tBoxSearchUser.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.tBoxSearchUser.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.tBoxSearchUser.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.tBoxSearchUser.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.tBoxSearchUser.StateNormal.Border.Rounding = 20;
             this.tBoxSearchUser.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tBoxSearchUser.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,8 +110,9 @@ namespace GAcademia.Forms
             // 
             // btn_searchUser
             // 
-            this.btn_searchUser.Location = new System.Drawing.Point(453, 12);
-            this.btn_searchUser.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btn_searchUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_searchUser.Location = new System.Drawing.Point(49, 15);
+            this.btn_searchUser.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.btn_searchUser.Name = "btn_searchUser";
             this.btn_searchUser.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -135,22 +136,21 @@ namespace GAcademia.Forms
             this.btn_searchUser.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.btn_searchUser.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.btn_searchUser.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.btn_searchUser.StateCommon.Border.Rounding = 20;
             this.btn_searchUser.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_searchUser.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_searchUser.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.StateDisabled.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_searchUser.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_searchUser.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.btn_searchUser.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.StateNormal.Back.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
             this.btn_searchUser.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.btn_searchUser.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.btn_searchUser.StateNormal.Border.Rounding = 20;
             this.btn_searchUser.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -158,7 +158,7 @@ namespace GAcademia.Forms
             this.btn_searchUser.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.btn_searchUser.StatePressed.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.LinearShadow;
             this.btn_searchUser.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.btn_searchUser.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.StateTracking.Border.Color1 = System.Drawing.SystemColors.Highlight;
@@ -166,7 +166,7 @@ namespace GAcademia.Forms
             this.btn_searchUser.StateTracking.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
             this.btn_searchUser.StateTracking.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.btn_searchUser.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.btn_searchUser.TabIndex = 34;
             this.btn_searchUser.Values.Text = "Procurar";
             this.btn_searchUser.Click += new System.EventHandler(this.btn_searchUser_Click);
@@ -174,6 +174,7 @@ namespace GAcademia.Forms
             // textBoxId
             // 
             this.textBoxId.AlwaysActive = false;
+            this.textBoxId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxId.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
             this.textBoxId.Location = new System.Drawing.Point(597, 12);
             this.textBoxId.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
@@ -212,6 +213,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfID
             // 
+            this.TextBoxInfID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfID.Location = new System.Drawing.Point(683, 12);
             this.TextBoxInfID.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfID.MaxLength = 10;
@@ -237,6 +239,7 @@ namespace GAcademia.Forms
             // textBoxNome
             // 
             this.textBoxNome.AlwaysActive = false;
+            this.textBoxNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxNome.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
             this.textBoxNome.Location = new System.Drawing.Point(107, 68);
             this.textBoxNome.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
@@ -272,6 +275,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfNome
             // 
+            this.TextBoxInfNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfNome.Location = new System.Drawing.Point(47, 68);
             this.TextBoxInfNome.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxInfNome.MaxLength = 10;
@@ -296,6 +300,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfNasc
             // 
+            this.TextBoxInfNasc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfNasc.Location = new System.Drawing.Point(643, 68);
             this.TextBoxInfNasc.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfNasc.MaxLength = 10;
@@ -321,6 +326,7 @@ namespace GAcademia.Forms
             // textBoxRg
             // 
             this.textBoxRg.AlwaysActive = false;
+            this.textBoxRg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxRg.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
             this.textBoxRg.Location = new System.Drawing.Point(107, 116);
             this.textBoxRg.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
@@ -357,6 +363,7 @@ namespace GAcademia.Forms
             // textBoxEndereco
             // 
             this.textBoxEndereco.AlwaysActive = false;
+            this.textBoxEndereco.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxEndereco.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
             this.textBoxEndereco.Location = new System.Drawing.Point(107, 221);
             this.textBoxEndereco.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
@@ -393,6 +400,7 @@ namespace GAcademia.Forms
             // textBoxCidade
             // 
             this.textBoxCidade.AlwaysActive = false;
+            this.textBoxCidade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxCidade.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
             this.textBoxCidade.Location = new System.Drawing.Point(107, 282);
             this.textBoxCidade.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
@@ -429,6 +437,7 @@ namespace GAcademia.Forms
             // textBoxObjetivo
             // 
             this.textBoxObjetivo.AlwaysActive = false;
+            this.textBoxObjetivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxObjetivo.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
             this.textBoxObjetivo.Location = new System.Drawing.Point(107, 335);
             this.textBoxObjetivo.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
@@ -464,6 +473,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfRg
             // 
+            this.TextBoxInfRg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfRg.Location = new System.Drawing.Point(47, 116);
             this.TextBoxInfRg.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxInfRg.MaxLength = 10;
@@ -488,6 +498,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfTelefone
             // 
+            this.TextBoxInfTelefone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfTelefone.Location = new System.Drawing.Point(47, 171);
             this.TextBoxInfTelefone.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxInfTelefone.MaxLength = 10;
@@ -512,6 +523,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfEndeco
             // 
+            this.TextBoxInfEndeco.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfEndeco.Location = new System.Drawing.Point(47, 221);
             this.TextBoxInfEndeco.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxInfEndeco.MaxLength = 10;
@@ -536,6 +548,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfCidade
             // 
+            this.TextBoxInfCidade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfCidade.Location = new System.Drawing.Point(47, 282);
             this.TextBoxInfCidade.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxInfCidade.MaxLength = 10;
@@ -560,6 +573,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfObjetivo
             // 
+            this.TextBoxInfObjetivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfObjetivo.Location = new System.Drawing.Point(47, 335);
             this.TextBoxInfObjetivo.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxInfObjetivo.MaxLength = 10;
@@ -585,6 +599,7 @@ namespace GAcademia.Forms
             // textBoxEmail
             // 
             this.textBoxEmail.AlwaysActive = false;
+            this.textBoxEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxEmail.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
             this.textBoxEmail.Location = new System.Drawing.Point(405, 171);
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
@@ -622,6 +637,7 @@ namespace GAcademia.Forms
             // textBoxBairro
             // 
             this.textBoxBairro.AlwaysActive = false;
+            this.textBoxBairro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxBairro.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
             this.textBoxBairro.Location = new System.Drawing.Point(535, 221);
             this.textBoxBairro.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
@@ -659,6 +675,7 @@ namespace GAcademia.Forms
             // textBoxEstado
             // 
             this.textBoxEstado.AlwaysActive = false;
+            this.textBoxEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxEstado.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
             this.textBoxEstado.Location = new System.Drawing.Point(405, 282);
             this.textBoxEstado.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
@@ -696,6 +713,7 @@ namespace GAcademia.Forms
             // textBoxObs
             // 
             this.textBoxObs.AlwaysActive = false;
+            this.textBoxObs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxObs.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
             this.textBoxObs.Location = new System.Drawing.Point(405, 335);
             this.textBoxObs.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
@@ -732,6 +750,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfCpf
             // 
+            this.TextBoxInfCpf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfCpf.Location = new System.Drawing.Point(663, 116);
             this.TextBoxInfCpf.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfCpf.MaxLength = 10;
@@ -756,6 +775,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfEmail
             // 
+            this.TextBoxInfEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfEmail.Location = new System.Drawing.Point(663, 171);
             this.TextBoxInfEmail.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfEmail.MaxLength = 10;
@@ -780,6 +800,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfBairro
             // 
+            this.TextBoxInfBairro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfBairro.Location = new System.Drawing.Point(673, 221);
             this.TextBoxInfBairro.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfBairro.MaxLength = 10;
@@ -804,6 +825,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfEstado
             // 
+            this.TextBoxInfEstado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfEstado.Location = new System.Drawing.Point(663, 282);
             this.TextBoxInfEstado.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfEstado.MaxLength = 10;
@@ -828,6 +850,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfObs
             // 
+            this.TextBoxInfObs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfObs.Location = new System.Drawing.Point(643, 335);
             this.TextBoxInfObs.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfObs.MaxLength = 10;
@@ -853,6 +876,7 @@ namespace GAcademia.Forms
             // textBoxNumero
             // 
             this.textBoxNumero.AlwaysActive = false;
+            this.textBoxNumero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxNumero.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
             this.textBoxNumero.Location = new System.Drawing.Point(470, 221);
             this.textBoxNumero.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
@@ -888,6 +912,7 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfNumero
             // 
+            this.TextBoxInfNumero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextBoxInfNumero.Location = new System.Drawing.Point(405, 221);
             this.TextBoxInfNumero.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxInfNumero.MaxLength = 10;
@@ -913,8 +938,9 @@ namespace GAcademia.Forms
             // textBoxNumComp1
             // 
             this.textBoxNumComp1.AlwaysActive = false;
+            this.textBoxNumComp1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxNumComp1.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.textBoxNumComp1.Location = new System.Drawing.Point(49, 406);
+            this.textBoxNumComp1.Location = new System.Drawing.Point(49, 408);
             this.textBoxNumComp1.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.textBoxNumComp1.Name = "textBoxNumComp1";
             this.textBoxNumComp1.ReadOnly = true;
@@ -951,7 +977,8 @@ namespace GAcademia.Forms
             // 
             // TextBoxInfNumComp
             // 
-            this.TextBoxInfNumComp.Location = new System.Drawing.Point(108, 406);
+            this.TextBoxInfNumComp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.TextBoxInfNumComp.Location = new System.Drawing.Point(108, 408);
             this.TextBoxInfNumComp.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfNumComp.MaxLength = 10;
             this.TextBoxInfNumComp.Name = "TextBoxInfNumComp";
@@ -976,7 +1003,8 @@ namespace GAcademia.Forms
             // 
             // btn_addUser
             // 
-            this.btn_addUser.Location = new System.Drawing.Point(223, 406);
+            this.btn_addUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_addUser.Location = new System.Drawing.Point(231, 408);
             this.btn_addUser.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_addUser.Name = "btn_addUser";
             this.btn_addUser.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -1045,7 +1073,8 @@ namespace GAcademia.Forms
             // 
             // btn_UpdUser
             // 
-            this.btn_UpdUser.Location = new System.Drawing.Point(328, 406);
+            this.btn_UpdUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_UpdUser.Location = new System.Drawing.Point(336, 408);
             this.btn_UpdUser.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_UpdUser.Name = "btn_UpdUser";
             this.btn_UpdUser.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -1114,7 +1143,8 @@ namespace GAcademia.Forms
             // 
             // btn_DelUser
             // 
-            this.btn_DelUser.Location = new System.Drawing.Point(443, 406);
+            this.btn_DelUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_DelUser.Location = new System.Drawing.Point(451, 408);
             this.btn_DelUser.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_DelUser.Name = "btn_DelUser";
             this.btn_DelUser.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -1187,17 +1217,18 @@ namespace GAcademia.Forms
             this.searchResult.AllowUserToDeleteRows = false;
             this.searchResult.AllowUserToResizeColumns = false;
             this.searchResult.AllowUserToResizeRows = false;
+            this.searchResult.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchResult.ColumnHeadersVisible = false;
             this.searchResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Aluno});
-            this.searchResult.Location = new System.Drawing.Point(60, 47);
+            this.searchResult.Location = new System.Drawing.Point(107, 47);
             this.searchResult.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.searchResult.Name = "searchResult";
             this.searchResult.ReadOnly = true;
             this.searchResult.RowHeadersVisible = false;
-            this.searchResult.Size = new System.Drawing.Size(393, 0);
+            this.searchResult.Size = new System.Drawing.Size(396, 0);
             this.searchResult.StateCommon.Background.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.searchResult.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.searchResult.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -1232,6 +1263,7 @@ namespace GAcademia.Forms
             // MtextBoxTelefone
             // 
             this.MtextBoxTelefone.AlwaysActive = false;
+            this.MtextBoxTelefone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.MtextBoxTelefone.Location = new System.Drawing.Point(108, 171);
             this.MtextBoxTelefone.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.MtextBoxTelefone.Mask = "(00) 00000 - 0000";
@@ -1259,6 +1291,7 @@ namespace GAcademia.Forms
             // MtextBoxCpf
             // 
             this.MtextBoxCpf.AlwaysActive = false;
+            this.MtextBoxCpf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.MtextBoxCpf.Location = new System.Drawing.Point(405, 116);
             this.MtextBoxCpf.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.MtextBoxCpf.Mask = "000.000.000-00";
@@ -1286,6 +1319,7 @@ namespace GAcademia.Forms
             // MtextBoxNascimento
             // 
             this.MtextBoxNascimento.AlwaysActive = false;
+            this.MtextBoxNascimento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.MtextBoxNascimento.Location = new System.Drawing.Point(405, 68);
             this.MtextBoxNascimento.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.MtextBoxNascimento.Mask = "00 / 00 / 0000";
@@ -1310,16 +1344,16 @@ namespace GAcademia.Forms
             this.MtextBoxNascimento.Text = "   /    / ";
             this.MtextBoxNascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Usuarios
+            // Alunos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(801, 461);
+            this.ClientSize = new System.Drawing.Size(801, 506);
+            this.Controls.Add(this.searchResult);
             this.Controls.Add(this.MtextBoxNascimento);
             this.Controls.Add(this.MtextBoxCpf);
             this.Controls.Add(this.MtextBoxTelefone);
-            this.Controls.Add(this.searchResult);
             this.Controls.Add(this.btn_DelUser);
             this.Controls.Add(this.btn_UpdUser);
             this.Controls.Add(this.btn_addUser);
@@ -1353,8 +1387,8 @@ namespace GAcademia.Forms
             this.Controls.Add(this.btn_searchUser);
             this.Controls.Add(this.tBoxSearchUser);
             this.MinimumSize = new System.Drawing.Size(800, 500);
-            this.Name = "Usuarios";
-            this.Text = "Usuarios";
+            this.Name = "Alunos";
+            this.Text = "Alunos";
             ((System.ComponentModel.ISupportInitialize)(this.searchResult)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

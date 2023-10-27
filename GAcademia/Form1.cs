@@ -9,11 +9,12 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace GAcademia
 {
     
-    public partial class FormMain : Form
+    public partial class FormMain : KryptonForm
     {
         private Form activeForm;
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -24,8 +25,8 @@ namespace GAcademia
         {
             InitializeComponent();
             test_bdConnection();
-            this.Text = string.Empty;
-            this.ControlBox = false;
+            //this.Text = string.Empty;
+            //this.ControlBox = false;
         }
 
         private void test_bdConnection()
@@ -90,9 +91,9 @@ namespace GAcademia
             childForm.Show();
         }
 
-        private void btn_User_Click(object sender, EventArgs e)
+        private void btn_Alunos_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.Usuarios(), sender);
+            OpenChildForm(new Forms.Alunos(), sender);
         }
 
         private void btn_Instrutor_Click(object sender, EventArgs e)
@@ -100,9 +101,9 @@ namespace GAcademia
             OpenChildForm(new Forms.Instrutores(), sender);
         }
 
-        private void btn_Men_Click(object sender, EventArgs e)
+        private void btn_Financas_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.Mensalidades(), sender);
+            OpenChildForm(new Forms.Financas(), sender);
         }
 
         private void btn_Agenda_Click(object sender, EventArgs e)
@@ -182,5 +183,6 @@ namespace GAcademia
         {
             OpenChildForm(new Forms.Configuracao(), sender);
         }
+
     }
 }

@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace GAcademia.Forms.Notifications
 {
-    public partial class LoginAdmin : Form
+    public partial class LoginAdmin : KryptonForm
     {
         public LoginAdmin()
         {

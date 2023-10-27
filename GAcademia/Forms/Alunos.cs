@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace GAcademia.Forms
 {
-    public partial class Usuarios : Form
+    public partial class Alunos : Form
     {
-        public Usuarios()
+        public Alunos()
         {
             InitializeComponent();
         }

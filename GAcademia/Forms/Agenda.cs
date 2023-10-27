@@ -36,24 +36,32 @@ namespace GAcademia.Forms
             ComboBoxDia.DisplayMember = "nomeDia";
             ComboBoxDia.Text = "Selecione o dia";
 
-            con.Open();
-            MySqlDataAdapter daP = new MySqlDataAdapter("SELECT idprofessor, nome FROM tbprofessor", con);
-            DataSet dtP = new DataSet();
-            daP.Fill(dtP, "Professor");
-            ComboBoxProfessor.DataSource = dtP.Tables["Professor"];
-            ComboBoxProfessor.DisplayMember = "nome";
-            ComboBoxProfessor.ValueMember = "idprofessor";
-            ComboBoxProfessor.Text = "Selecionar Professor";
+            try
+            {
+                con.Open();
+                MySqlDataAdapter daP = new MySqlDataAdapter("SELECT idprofessor, nome FROM tbprofessor", con);
+                DataSet dtP = new DataSet();
+                daP.Fill(dtP, "Professor");
+                ComboBoxProfessor.DataSource = dtP.Tables["Professor"];
+                ComboBoxProfessor.DisplayMember = "nome";
+                ComboBoxProfessor.ValueMember = "idprofessor";
+                ComboBoxProfessor.Text = "Selecionar Professor";
 
-            MySqlDataAdapter daA = new MySqlDataAdapter("SELECT idalunos, nome, cpf FROM tbalunos", con);
-            DataSet dtA = new DataSet();
-            daA.Fill(dtA, "Aluno");
-            ComboBoxAluno.DataSource = dtA.Tables["Aluno"];
-            ComboBoxAluno.DisplayMember = "nome";
-            ComboBoxAluno.ValueMember = "idalunos";
-            ComboBoxAluno.Text = "Selecionar Aluno";
+                MySqlDataAdapter daA = new MySqlDataAdapter("SELECT idalunos, nome, cpf FROM tbalunos", con);
+                DataSet dtA = new DataSet();
+                daA.Fill(dtA, "Aluno");
+                ComboBoxAluno.DataSource = dtA.Tables["Aluno"];
+                ComboBoxAluno.DisplayMember = "nome";
+                ComboBoxAluno.ValueMember = "idalunos";
+                ComboBoxAluno.Text = "Selecionar Aluno";
 
-            con.Close();
+                con.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Banco de dado desconectado, verifique a conexão em Configurações");
+            }
+            
         }
 
         private void ComboBoxAluno_SelectionChangeCommitted(object sender, EventArgs e)
@@ -100,7 +108,7 @@ namespace GAcademia.Forms
             }
             else
             {
-                MessageBox.Show("Um ou mais campos estão vazios, porfavor preecha todos!");
+                MessageBox.Show("Um ou mais campos estão vazios, porfavor preecha todos os campos!");
             }
         }
 
@@ -174,35 +182,42 @@ namespace GAcademia.Forms
 
         private void tbn_upd_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja atualizar os dados?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (TextBoxIdAgenda.Text != "")
             {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("UPDATE tbagenda SET `aluno`=@Aluno, `professor`=@Prof, `dia`=@Dia, `hora`=@Hora, `descricao`=@Desc WHERE `idagenda`=@Id", con);
+                if (MessageBox.Show("Deseja atualizar os dados?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand("UPDATE tbagenda SET `aluno`=@Aluno, `professor`=@Prof, `dia`=@Dia, `hora`=@Hora, `descricao`=@Desc WHERE `idagenda`=@Id", con);
 
-                cmd.Parameters.Add("@Id", MySqlDbType.Int32, 11);
-                cmd.Parameters.Add("@Aluno", MySqlDbType.VarChar, 150);
-                cmd.Parameters.Add("@Prof", MySqlDbType.VarChar, 15);
-                cmd.Parameters.Add("@Dia", MySqlDbType.VarChar, 10);
-                cmd.Parameters.Add("@Hora", MySqlDbType.VarChar, 10);
-                cmd.Parameters.Add("@Desc", MySqlDbType.VarChar, 20);
+                    cmd.Parameters.Add("@Id", MySqlDbType.Int32, 11);
+                    cmd.Parameters.Add("@Aluno", MySqlDbType.VarChar, 150);
+                    cmd.Parameters.Add("@Prof", MySqlDbType.VarChar, 15);
+                    cmd.Parameters.Add("@Dia", MySqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@Hora", MySqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@Desc", MySqlDbType.VarChar, 20);
 
-                cmd.Parameters["@Id"].Value = TextBoxIdAgenda.Text;
-                cmd.Parameters["@Aluno"].Value = ComboBoxAluno.Text;
-                cmd.Parameters["@Prof"].Value = ComboBoxProfessor.Text;
-                cmd.Parameters["@Dia"].Value = ComboBoxDia.Text;
-                cmd.Parameters["@Hora"].Value = MTextBoxHorario.Text;
-                cmd.Parameters["@Desc"].Value = TextBoxDesc.Text;
+                    cmd.Parameters["@Id"].Value = TextBoxIdAgenda.Text;
+                    cmd.Parameters["@Aluno"].Value = ComboBoxAluno.Text;
+                    cmd.Parameters["@Prof"].Value = ComboBoxProfessor.Text;
+                    cmd.Parameters["@Dia"].Value = ComboBoxDia.Text;
+                    cmd.Parameters["@Hora"].Value = MTextBoxHorario.Text;
+                    cmd.Parameters["@Desc"].Value = TextBoxDesc.Text;
 
-                cmd.ExecuteNonQuery();
-                con.Close();
-                cmd.DisposeAsync();
-                MessageBox.Show("Dados atualizados com sucesso!");
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    cmd.DisposeAsync();
+                    MessageBox.Show("Dados atualizados com sucesso!");
+                }
             }
+            else
+            {
+                MessageBox.Show("Falha na atualização! Tenha certeza de ter selecionado uma agenda antes de atualizar.");
+            }
+            
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            {
                 if (TextBoxIdAgenda.Text != "")
                 {
                     if (MessageBox.Show("Deseja remover esse agendamento?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -222,7 +237,7 @@ namespace GAcademia.Forms
                 {
                     MessageBox.Show("Selecione um agendamento");
                 }
-            }
         }
+
     }
 }

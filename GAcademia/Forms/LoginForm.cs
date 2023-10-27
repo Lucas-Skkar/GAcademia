@@ -10,10 +10,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace GAcademia.Forms
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : KryptonForm
     {
         string ID;
         string Pass;

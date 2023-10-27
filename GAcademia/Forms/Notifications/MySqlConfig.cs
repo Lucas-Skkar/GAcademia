@@ -9,10 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace GAcademia.Forms.Notifications
 {
-    public partial class MySqlConfig : Form
+    public partial class MySqlConfig : KryptonForm
     {
         public MySqlConfig()
         {
@@ -36,11 +37,7 @@ namespace GAcademia.Forms.Notifications
             }
         }
 
-        private void bnt_close_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+       
         private void btn_connect_Click(object sender, EventArgs e)
         {
             Database.Connect.LoadFile();
@@ -57,5 +54,6 @@ namespace GAcademia.Forms.Notifications
                 MessageBox.Show("Servidor não encontrado, tenha certeza de ter salvo as informações antes de clicar em Conectar");
             }
         }
+
     }
 }

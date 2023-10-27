@@ -29,6 +29,7 @@ namespace GAcademia.Forms.Notifications
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_save = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_connect = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.textBoxServidor = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -41,12 +42,12 @@ namespace GAcademia.Forms.Notifications
             this.TextBoxInfUser = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TextBoxInfSenha = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TextBoxInfPorta = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.bnt_close = new System.Windows.Forms.Label();
+            this.kryptonPaletteMain = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.SuspendLayout();
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(12, 278);
+            this.btn_save.Location = new System.Drawing.Point(19, 268);
             this.btn_save.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_save.Name = "btn_save";
             this.btn_save.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -115,7 +116,7 @@ namespace GAcademia.Forms.Notifications
             // 
             // btn_connect
             // 
-            this.btn_connect.Location = new System.Drawing.Point(159, 278);
+            this.btn_connect.Location = new System.Drawing.Point(166, 268);
             this.btn_connect.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_connect.Name = "btn_connect";
             this.btn_connect.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -186,7 +187,7 @@ namespace GAcademia.Forms.Notifications
             // 
             this.textBoxServidor.AlwaysActive = false;
             this.textBoxServidor.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.textBoxServidor.Location = new System.Drawing.Point(12, 41);
+            this.textBoxServidor.Location = new System.Drawing.Point(19, 16);
             this.textBoxServidor.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.textBoxServidor.Name = "textBoxServidor";
             this.textBoxServidor.Size = new System.Drawing.Size(143, 32);
@@ -224,7 +225,7 @@ namespace GAcademia.Forms.Notifications
             // 
             this.textBoxBancoDados.AlwaysActive = false;
             this.textBoxBancoDados.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.textBoxBancoDados.Location = new System.Drawing.Point(12, 89);
+            this.textBoxBancoDados.Location = new System.Drawing.Point(19, 64);
             this.textBoxBancoDados.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.textBoxBancoDados.Name = "textBoxBancoDados";
             this.textBoxBancoDados.Size = new System.Drawing.Size(143, 32);
@@ -262,7 +263,7 @@ namespace GAcademia.Forms.Notifications
             // 
             this.textBoxUsuario.AlwaysActive = false;
             this.textBoxUsuario.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.textBoxUsuario.Location = new System.Drawing.Point(12, 136);
+            this.textBoxUsuario.Location = new System.Drawing.Point(19, 111);
             this.textBoxUsuario.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.textBoxUsuario.Name = "textBoxUsuario";
             this.textBoxUsuario.Size = new System.Drawing.Size(143, 32);
@@ -300,7 +301,7 @@ namespace GAcademia.Forms.Notifications
             // 
             this.textBoxSenha.AlwaysActive = false;
             this.textBoxSenha.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.textBoxSenha.Location = new System.Drawing.Point(12, 183);
+            this.textBoxSenha.Location = new System.Drawing.Point(19, 158);
             this.textBoxSenha.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.textBoxSenha.Name = "textBoxSenha";
             this.textBoxSenha.Size = new System.Drawing.Size(143, 32);
@@ -338,7 +339,7 @@ namespace GAcademia.Forms.Notifications
             // 
             this.textBoxPorta.AlwaysActive = false;
             this.textBoxPorta.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.textBoxPorta.Location = new System.Drawing.Point(12, 231);
+            this.textBoxPorta.Location = new System.Drawing.Point(19, 206);
             this.textBoxPorta.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.textBoxPorta.Name = "textBoxPorta";
             this.textBoxPorta.Size = new System.Drawing.Size(143, 32);
@@ -375,7 +376,7 @@ namespace GAcademia.Forms.Notifications
             // TextBoxInfServidor
             // 
             this.TextBoxInfServidor.Enabled = false;
-            this.TextBoxInfServidor.Location = new System.Drawing.Point(155, 41);
+            this.TextBoxInfServidor.Location = new System.Drawing.Point(162, 16);
             this.TextBoxInfServidor.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfServidor.MaxLength = 1000;
             this.TextBoxInfServidor.Name = "TextBoxInfServidor";
@@ -406,7 +407,7 @@ namespace GAcademia.Forms.Notifications
             // TextBoxInfBD
             // 
             this.TextBoxInfBD.Enabled = false;
-            this.TextBoxInfBD.Location = new System.Drawing.Point(155, 89);
+            this.TextBoxInfBD.Location = new System.Drawing.Point(162, 64);
             this.TextBoxInfBD.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfBD.MaxLength = 1000;
             this.TextBoxInfBD.Name = "TextBoxInfBD";
@@ -437,7 +438,7 @@ namespace GAcademia.Forms.Notifications
             // TextBoxInfUser
             // 
             this.TextBoxInfUser.Enabled = false;
-            this.TextBoxInfUser.Location = new System.Drawing.Point(155, 136);
+            this.TextBoxInfUser.Location = new System.Drawing.Point(162, 111);
             this.TextBoxInfUser.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfUser.MaxLength = 1000;
             this.TextBoxInfUser.Name = "TextBoxInfUser";
@@ -468,7 +469,7 @@ namespace GAcademia.Forms.Notifications
             // TextBoxInfSenha
             // 
             this.TextBoxInfSenha.Enabled = false;
-            this.TextBoxInfSenha.Location = new System.Drawing.Point(155, 183);
+            this.TextBoxInfSenha.Location = new System.Drawing.Point(162, 158);
             this.TextBoxInfSenha.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfSenha.MaxLength = 1000;
             this.TextBoxInfSenha.Name = "TextBoxInfSenha";
@@ -499,7 +500,7 @@ namespace GAcademia.Forms.Notifications
             // TextBoxInfPorta
             // 
             this.TextBoxInfPorta.Enabled = false;
-            this.TextBoxInfPorta.Location = new System.Drawing.Point(155, 231);
+            this.TextBoxInfPorta.Location = new System.Drawing.Point(162, 206);
             this.TextBoxInfPorta.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfPorta.MaxLength = 1000;
             this.TextBoxInfPorta.Name = "TextBoxInfPorta";
@@ -527,19 +528,90 @@ namespace GAcademia.Forms.Notifications
             this.TextBoxInfPorta.TabStop = false;
             this.TextBoxInfPorta.Text = "   Porta (padrão MySql: 3306)";
             // 
-            // bnt_close
+            // kryptonPaletteMain
             // 
-            this.bnt_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bnt_close.AutoSize = true;
-            this.bnt_close.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bnt_close.ForeColor = System.Drawing.Color.Firebrick;
-            this.bnt_close.Location = new System.Drawing.Point(351, -3);
-            this.bnt_close.Name = "bnt_close";
-            this.bnt_close.Size = new System.Drawing.Size(28, 26);
-            this.bnt_close.TabIndex = 40;
-            this.bnt_close.Text = "O";
-            this.bnt_close.Visible = false;
-            this.bnt_close.Click += new System.EventHandler(this.bnt_close_Click);
+            this.kryptonPaletteMain.ButtonSpecs.Close.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.FormClose;
+            this.kryptonPaletteMain.ButtonSpecs.Close.Text = "O";
+            this.kryptonPaletteMain.ButtonSpecs.FormClose.AllowInheritImage = false;
+            this.kryptonPaletteMain.ButtonSpecs.FormClose.ColorMap = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonSpecs.FormClose.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Custom1;
+            this.kryptonPaletteMain.ButtonSpecs.FormClose.Text = "O";
+            this.kryptonPaletteMain.ButtonSpecs.FormMax.AllowInheritImage = false;
+            this.kryptonPaletteMain.ButtonSpecs.FormMax.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Custom2;
+            this.kryptonPaletteMain.ButtonSpecs.FormMax.Text = "O";
+            this.kryptonPaletteMain.ButtonSpecs.FormMin.AllowInheritImage = false;
+            this.kryptonPaletteMain.ButtonSpecs.FormMin.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Custom2;
+            this.kryptonPaletteMain.ButtonSpecs.FormMin.Text = "O";
+            this.kryptonPaletteMain.ButtonSpecs.FormRestore.AllowInheritImage = false;
+            this.kryptonPaletteMain.ButtonSpecs.FormRestore.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.Custom2;
+            this.kryptonPaletteMain.ButtonSpecs.FormRestore.Text = "O";
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.OverrideDefault.Back.Color1 = System.Drawing.Color.Red;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.OverrideDefault.Back.Color2 = System.Drawing.Color.Red;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Border.Rounding = 4;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.DarkRed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.DarkRed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Montserrat", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateTracking.Back.Color1 = System.Drawing.Color.Red;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateTracking.Back.Color2 = System.Drawing.Color.Red;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom1.StateTracking.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideDefault.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideDefault.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideFocus.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideFocus.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideFocus.Border.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideFocus.Border.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCheckedNormal.Back.Color1 = System.Drawing.Color.Red;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCheckedPressed.Back.Color1 = System.Drawing.Color.Blue;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCheckedTracking.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCheckedTracking.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Back.Color1 = System.Drawing.Color.Maroon;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Back.Color2 = System.Drawing.Color.DarkRed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Border.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Border.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Montserrat", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateDisabled.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateDisabled.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateNormal.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateNormal.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateNormal.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StatePressed.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StatePressed.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(33)))));
+            this.kryptonPaletteMain.ButtonStyles.ButtonCustom2.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(28)))), ((int)(((byte)(33)))));
+            this.kryptonPaletteMain.ControlStyles.ControlCommon.StateCommon.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ControlStyles.ControlCommon.StateCommon.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ControlStyles.ControlCommon.StateNormal.Back.Color1 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.ControlStyles.ControlCommon.StateNormal.Back.Color2 = System.Drawing.Color.Transparent;
+            this.kryptonPaletteMain.FormStyles.FormMain.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.kryptonPaletteMain.FormStyles.FormMain.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.kryptonPaletteMain.FormStyles.FormMain.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.kryptonPaletteMain.FormStyles.FormMain.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.kryptonPaletteMain.FormStyles.FormMain.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonPaletteMain.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.kryptonPaletteMain.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.kryptonPaletteMain.HeaderStyles.HeaderForm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             // 
             // MySqlConfig
             // 
@@ -547,7 +619,6 @@ namespace GAcademia.Forms.Notifications
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(376, 333);
-            this.Controls.Add(this.bnt_close);
             this.Controls.Add(this.TextBoxInfPorta);
             this.Controls.Add(this.TextBoxInfSenha);
             this.Controls.Add(this.TextBoxInfUser);
@@ -561,9 +632,24 @@ namespace GAcademia.Forms.Notifications
             this.Controls.Add(this.btn_connect);
             this.Controls.Add(this.btn_save);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MySqlConfig";
-            this.Text = "MySqlConfig";
+            this.Palette = this.kryptonPaletteMain;
+            this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.StateCommon.Header.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.StateCommon.Header.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.StateCommon.Header.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.StateCommon.Header.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.StateCommon.Header.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -582,6 +668,6 @@ namespace GAcademia.Forms.Notifications
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfUser;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfSenha;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfPorta;
-        private System.Windows.Forms.Label bnt_close;
+        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteMain;
     }
 }
