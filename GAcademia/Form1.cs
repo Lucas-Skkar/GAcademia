@@ -66,13 +66,46 @@ namespace GAcademia
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-           /* con.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT aluno, hora, professor, descricao, dia FROM tbagenda", con);
+             con.Open();
+
+            DateTime hoje = DateTime.Today;
+            DateTime mesPassado = hoje.AddMonths(-1);
+            string nomeMesPassado = mesPassado.ToString("MMMM");
+            string nomeMesAtual = hoje.ToString("MMMM");
+
+            string sql = "SELECT * FROM tbmensalidades WHERE mes = @mesPassado";
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@mesPassado", nomeMesPassado);
+
             DataTable dt = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-            da.Fill(dt);
-            DataGridAgenda.DataSource = dt;
-            con.Close();*/
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            adapter.Fill(dt);
+
+            cmd.Cancel();
+            cmd.Dispose();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string idAluno = row["fk_idalunos"].ToString();
+                MySqlCommand verificaCmd = new MySqlCommand("SELECT COUNT(*) FROM tbmensalidades WHERE mes = @mesAtual AND fk_idalunos = @IdAlunos", con);
+                verificaCmd.Parameters.AddWithValue("@mesAtual", nomeMesAtual);
+                verificaCmd.Parameters.AddWithValue("@IdAlunos", idAluno);
+                int count = Convert.ToInt32(verificaCmd.ExecuteScalar());
+
+                if (count == 0)
+                {
+                    MySqlCommand command = new MySqlCommand("INSERT INTO tbmensalidades (mes, dia, status, valor, data_pag, fk_idalunos) VALUES (@mesAtual, @Dia, 'Pendente', @valor, @Data, @IdAlunos)", con);
+                    command.Parameters.AddWithValue("@mesAtual", nomeMesAtual);
+                    command.Parameters.AddWithValue("@Dia", row["dia"]);
+                    command.Parameters.AddWithValue("@Status", row["status"]);
+                    command.Parameters.AddWithValue("@valor", row["valor"]);
+                    command.Parameters.AddWithValue("@Data", row["data_pag"]);
+                    command.Parameters.AddWithValue("@IdAlunos", row["fk_idalunos"]);
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            con.Close();
         }
 
         private void OpenChildForm(Form childForm, object btnSender)

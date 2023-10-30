@@ -368,6 +368,6 @@ namespace GAcademia.Forms.Notifications
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfSenha;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxSenha;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Save;
-        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteMain;
+        public ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteMain;
     }
 }
