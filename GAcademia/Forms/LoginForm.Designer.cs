@@ -247,6 +247,7 @@ namespace GAcademia.Forms
             this.tBoxSenha.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tBoxSenha.MinimumSize = new System.Drawing.Size(129, 32);
             this.tBoxSenha.Name = "tBoxSenha";
+            this.tBoxSenha.PasswordChar = '●';
             this.tBoxSenha.Size = new System.Drawing.Size(371, 32);
             this.tBoxSenha.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.tBoxSenha.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
@@ -275,6 +276,7 @@ namespace GAcademia.Forms
             this.tBoxSenha.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tBoxSenha.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxSenha.TabIndex = 3;
+            this.tBoxSenha.UseSystemPasswordChar = true;
             // 
             // LoginForm
             // 

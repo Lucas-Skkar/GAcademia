@@ -23,5 +23,6 @@ namespace GAcademia
                 Application.Run(new FormMain());
             }
         }
+
     }
 }

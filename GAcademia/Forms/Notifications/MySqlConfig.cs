@@ -18,26 +18,8 @@ namespace GAcademia.Forms.Notifications
         public MySqlConfig()
         {
             InitializeComponent();
-            textBoxServidor.Text = Database.Connect.servidor;
-            textBoxBancoDados.Text = Database.Connect.bancoDados;
-            textBoxUsuario.Text = Database.Connect.usuario;
-            textBoxSenha.Text = Database.Connect.senha;
-            textBoxPorta.Text = Database.Connect.porta;
         }
 
-        private void btn_save_Click(object sender, EventArgs e)
-        {
-            using (StreamWriter writer = new StreamWriter("dBconfig.txt"))
-            {
-                writer.WriteLine($"servidor={textBoxServidor.Text}");
-                writer.WriteLine($"bancoDados={textBoxBancoDados.Text}");
-                writer.WriteLine($"usuario={textBoxUsuario.Text}");
-                writer.WriteLine($"senha={textBoxSenha.Text}");
-                writer.WriteLine($"porta={textBoxPorta.Text}");
-            }
-        }
-
-       
         private void btn_connect_Click(object sender, EventArgs e)
         {
             Database.Connect.LoadFile();
@@ -54,6 +36,5 @@ namespace GAcademia.Forms.Notifications
                 MessageBox.Show("Servidor não encontrado, tenha certeza de ter salvo as informações antes de clicar em Conectar");
             }
         }
-
     }
 }

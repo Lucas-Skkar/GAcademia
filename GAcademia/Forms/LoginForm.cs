@@ -16,6 +16,8 @@ namespace GAcademia.Forms
 {
     public partial class LoginForm : KryptonForm
     {
+
+        
         string ID;
         string Pass;
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -70,38 +72,110 @@ namespace GAcademia.Forms
 
         private void Btn_login_Click(object sender, EventArgs e)
         {
+            MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
+
             string Usuario = tBoxUsuario.Text;
             string Senha = tBoxSenha.Text;
+            string Tipo;
 
-            if (File.Exists("config.txt"))
+            try
             {
-            }
-            else
-            {
-                ID = "admin";
-                Pass = "123456";
-            }
-            if (Usuario == ID && Senha == Pass)
-            {
-                try
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT login, senha, userType FROM tbusuario WHERE login = @Login AND senha = @Senha", con);
+                cmd.Parameters.AddWithValue("@Login", Usuario);
+                cmd.Parameters.AddWithValue("@Senha", Senha);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
                 {
-                    MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
-                    con.Open();
-                    con.Close();
+                    dr.Read();
+                    Tipo = dr.GetString(2);
+                    if (Tipo != "Admin")
+                    {
+                        FormMain.privilegio = false;
+                    }
+                    else
+                    {
+                        FormMain.privilegio = true;
+                    }
+
+                    this.DialogResult = DialogResult.OK;
+
                 }
-                catch
+                else if (dr.HasRows == false)
                 {
-                    MessageBox.Show("Banco de dado desconectado");
-                    Form conf = new Forms.Notifications.MySqlConfig();
-                    conf.ShowDialog();
+                    if (File.Exists("config.txt"))
+                    {
+                    }
+                    else
+                    {
+                        ID = "admin";
+                        Pass = "123456";
+                    }
+                    if (Usuario == ID && Senha == Pass)
+                    {
+
+                        try
+                        {
+                            MySqlConnection connection = new MySqlConnection(Database.Connect.dbConnect);
+                            connection.Open();
+                            connection.Close();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Banco de dado desconectado");
+                            Form conf = new Forms.Notifications.MySqlConfig();
+                            conf.ShowDialog();
+                        }
+
+                        FormMain.privilegio = true;
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuário ou senha incorreta");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Usuário ou senha incorreta");
                 }
 
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                dr.Close();
+                con.Close();
             }
-            else
+            catch
             {
-                MessageBox.Show("Usuário ou senha incorreta");
+                if (File.Exists("config.txt"))
+                {
+                }
+                else
+                {
+                    ID = "admin";
+                    Pass = "123456";
+                }
+                if (Usuario == ID && Senha == Pass)
+                {
+
+                    try
+                    {
+                        MySqlConnection connection = new MySqlConnection(Database.Connect.dbConnect);
+                        connection.Open();
+                        connection.Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Banco de dado desconectado");
+                        Form conf = new Forms.Notifications.MySqlConfig();
+                        conf.ShowDialog();
+                    }
+
+                    FormMain.privilegio = true;
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Usuário ou senha incorreta");
+                }
             }
         }
 

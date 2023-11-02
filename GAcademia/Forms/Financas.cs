@@ -58,7 +58,7 @@ namespace GAcademia.Forms
             }
             catch (Exception)
             {
-                MessageBox.Show("Erro");
+                MessageBox.Show("Banco de dados desconectado.");
             }
         }
 

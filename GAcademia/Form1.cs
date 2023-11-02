@@ -16,6 +16,7 @@ namespace GAcademia
     
     public partial class FormMain : KryptonForm
     {
+        public static bool privilegio = false;
         private Form activeForm;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -66,46 +67,58 @@ namespace GAcademia
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-             con.Open();
-
-            DateTime hoje = DateTime.Today;
-            DateTime mesPassado = hoje.AddMonths(-1);
-            string nomeMesPassado = mesPassado.ToString("MMMM");
-            string nomeMesAtual = hoje.ToString("MMMM");
-
-            string sql = "SELECT * FROM tbmensalidades WHERE mes = @mesPassado";
-            MySqlCommand cmd = new MySqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("@mesPassado", nomeMesPassado);
-
-            DataTable dt = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            adapter.Fill(dt);
-
-            cmd.Cancel();
-            cmd.Dispose();
-
-            foreach (DataRow row in dt.Rows)
+            if (privilegio == false)
             {
-                string idAluno = row["fk_idalunos"].ToString();
-                MySqlCommand verificaCmd = new MySqlCommand("SELECT COUNT(*) FROM tbmensalidades WHERE mes = @mesAtual AND fk_idalunos = @IdAlunos", con);
-                verificaCmd.Parameters.AddWithValue("@mesAtual", nomeMesAtual);
-                verificaCmd.Parameters.AddWithValue("@IdAlunos", idAluno);
-                int count = Convert.ToInt32(verificaCmd.ExecuteScalar());
-
-                if (count == 0)
-                {
-                    MySqlCommand command = new MySqlCommand("INSERT INTO tbmensalidades (mes, dia, status, valor, data_pag, fk_idalunos) VALUES (@mesAtual, @Dia, 'Pendente', @valor, @Data, @IdAlunos)", con);
-                    command.Parameters.AddWithValue("@mesAtual", nomeMesAtual);
-                    command.Parameters.AddWithValue("@Dia", row["dia"]);
-                    command.Parameters.AddWithValue("@Status", row["status"]);
-                    command.Parameters.AddWithValue("@valor", row["valor"]);
-                    command.Parameters.AddWithValue("@Data", row["data_pag"]);
-                    command.Parameters.AddWithValue("@IdAlunos", row["fk_idalunos"]);
-                    command.ExecuteNonQuery();
-                }
+                btn_Financas.Enabled = false;
             }
+            try
+            {
+                con.Open();
 
-            con.Close();
+                DateTime hoje = DateTime.Today;
+                DateTime mesPassado = hoje.AddMonths(-1);
+                string nomeMesPassado = mesPassado.ToString("MMMM");
+                string nomeMesAtual = hoje.ToString("MMMM");
+
+                string sql = "SELECT * FROM tbmensalidades WHERE mes = @mesPassado";
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@mesPassado", nomeMesPassado);
+
+                DataTable dt = new DataTable();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                adapter.Fill(dt);
+
+                cmd.Cancel();
+                cmd.Dispose();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    string idAluno = row["fk_idalunos"].ToString();
+                    MySqlCommand verificaCmd = new MySqlCommand("SELECT COUNT(*) FROM tbmensalidades WHERE mes = @mesAtual AND fk_idalunos = @IdAlunos", con);
+                    verificaCmd.Parameters.AddWithValue("@mesAtual", nomeMesAtual);
+                    verificaCmd.Parameters.AddWithValue("@IdAlunos", idAluno);
+                    int count = Convert.ToInt32(verificaCmd.ExecuteScalar());
+
+                    if (count == 0)
+                    {
+                        MySqlCommand command = new MySqlCommand("INSERT INTO tbmensalidades (mes, dia, status, valor, data_pag, fk_idalunos) VALUES (@mesAtual, @Dia, 'Pendente', @valor, @Data, @IdAlunos)", con);
+                        command.Parameters.AddWithValue("@mesAtual", nomeMesAtual);
+                        command.Parameters.AddWithValue("@Dia", row["dia"]);
+                        command.Parameters.AddWithValue("@Status", row["status"]);
+                        command.Parameters.AddWithValue("@valor", row["valor"]);
+                        command.Parameters.AddWithValue("@Data", row["data_pag"]);
+                        command.Parameters.AddWithValue("@IdAlunos", row["fk_idalunos"]);
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+                con.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possível se conectar ao banco de dados, algumas funções ficarão desativadas.");
+            }
+            
         }
 
         private void OpenChildForm(Form childForm, object btnSender)
