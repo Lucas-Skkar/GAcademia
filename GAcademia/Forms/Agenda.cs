@@ -47,12 +47,12 @@ namespace GAcademia.Forms
                 ComboBoxProfessor.ValueMember = "idprofessor";
                 ComboBoxProfessor.Text = "Selecionar Professor";
 
-                MySqlDataAdapter daA = new MySqlDataAdapter("SELECT idalunos, nome, cpf FROM tbalunos", con);
+                MySqlDataAdapter daA = new MySqlDataAdapter("SELECT idaluno, nome, cpf FROM tbalunos", con);
                 DataSet dtA = new DataSet();
                 daA.Fill(dtA, "Aluno");
                 ComboBoxAluno.DataSource = dtA.Tables["Aluno"];
                 ComboBoxAluno.DisplayMember = "nome";
-                ComboBoxAluno.ValueMember = "idalunos";
+                ComboBoxAluno.ValueMember = "idaluno";
                 ComboBoxAluno.Text = "Selecionar Aluno";
 
                 con.Close();

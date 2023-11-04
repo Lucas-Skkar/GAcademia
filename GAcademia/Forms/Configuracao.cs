@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static GAcademia.UserControlMySqlConfig;
 
 namespace GAcademia.Forms
 {
@@ -94,11 +95,25 @@ namespace GAcademia.Forms
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
+            string ID = textBoxUsuario.Text;
+            string Pass = textBoxSenha.Text;
+
+            /* using (StreamWriter writer = new StreamWriter("config.txt"))
+             {
+                 writer.WriteLine($"ID={textBoxUsuario.Text}");
+                 writer.WriteLine($"Pass={textBoxSenha.Text}");
+             }*/
+            
+            string criptografar = $"{ID}\n{Pass}";
+
+            string encryptedData = DataEncryptor.Encrypt(criptografar);
+
             using (StreamWriter writer = new StreamWriter("config.txt"))
             {
-                writer.WriteLine($"ID={textBoxUsuario.Text}");
-                writer.WriteLine($"Pass={textBoxSenha.Text}");
+                writer.Write(encryptedData);
             }
+            
+            MessageBox.Show("Senha alterada com sucesso. Caso esqueça a senha, delete o arquivo config.txt na pasta raiz");
         }
 
         private void bnt_salvarN_Click(object sender, EventArgs e)

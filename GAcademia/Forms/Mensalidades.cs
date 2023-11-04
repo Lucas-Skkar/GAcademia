@@ -14,6 +14,8 @@ namespace GAcademia.Forms
 {
     public partial class Mensalidades : KryptonForm
     {
+        public static bool call = false;
+
         MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
         public Mensalidades()
         {
@@ -22,6 +24,13 @@ namespace GAcademia.Forms
 
         private void Mensalidades_Load(object sender, EventArgs e)
         {
+            if (call == true)
+            {
+                btn_update.Visible = false;
+                btn_delete.Visible = false;
+                btn_Imprimir.Visible = false;
+            }
+
             var mes = new List<Mes>();
             mes.Add(new Mes() { mesId = 0, nomeMes = "" });
             mes.Add(new Mes() { mesId = 1, nomeMes = "Janeiro" });
@@ -59,12 +68,12 @@ namespace GAcademia.Forms
             {
                 con.Open();
 
-                MySqlDataAdapter daA = new MySqlDataAdapter("SELECT idalunos, nome FROM tbalunos", con);
+                MySqlDataAdapter daA = new MySqlDataAdapter("SELECT idaluno, nome FROM tbalunos", con);
                 DataSet dtA = new DataSet();
                 daA.Fill(dtA, "Aluno");
                 ComboBoxAluno.DataSource = dtA.Tables["Aluno"];
                 ComboBoxAluno.DisplayMember = "nome";
-                ComboBoxAluno.ValueMember = "idalunos";
+                ComboBoxAluno.ValueMember = "idaluno";
                 ComboBoxAluno.Text = "Selecionar Aluno";
 
                 con.Close();
@@ -98,7 +107,7 @@ namespace GAcademia.Forms
             {
                 con.Open();
                 string sql = "SELECT tbmensalidades.idmensalidade, tbmensalidades.mes, tbmensalidades.status, tbalunos.nome FROM tbmensalidades ";
-                sql += "INNER JOIN tbalunos ON tbmensalidades.fk_idalunos = tbalunos.idalunos ";
+                sql += "INNER JOIN tbalunos ON tbmensalidades.FK_idaluno = tbalunos.idaluno ";
                 sql += "WHERE tbalunos.nome LIKE ?";
                 MySqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = sql;
@@ -149,7 +158,7 @@ namespace GAcademia.Forms
                 con.Open();
 
                 string sql = "SELECT tbmensalidades.idmensalidade, tbmensalidades.mes, tbmensalidades.dia, tbmensalidades.status, tbmensalidades.valor, tbmensalidades.data_pag, tbalunos.nome FROM tbmensalidades ";
-                sql += "INNER JOIN tbalunos ON tbmensalidades.fk_idalunos = tbalunos.idalunos ";
+                sql += "INNER JOIN tbalunos ON tbmensalidades.FK_idaluno = tbalunos.idaluno ";
                 sql += "WHERE tbalunos.nome LIKE ? OR tbmensalidades.idmensalidade LIKE ?";
                 MySqlCommand command = con.CreateCommand();
                 command.CommandText = sql;
@@ -177,25 +186,31 @@ namespace GAcademia.Forms
             if (MessageBox.Show("Deseja adicionar essa mensalidade?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO tbmensalidades (`mes`, `dia`, `status`, `valor`, `data_pag`, `fk_idalunos`)" + " VALUES (@Mes, @Dia, @Status, @Valor, @DataPagamento, @IdAlunos)", con);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO tbmensalidades (`mes`, `dia`, `status`, `valor`, `data_pag`, `FK_idaluno`)" + " VALUES (@Mes, @Dia, @Status, @Valor, @DataPagamento, @IdAluno)", con);
 
                 cmd.Parameters.Add("@Mes", MySqlDbType.VarChar, 20);
                 cmd.Parameters.Add("@Dia", MySqlDbType.Int32, 11);
                 cmd.Parameters.Add("@Status", MySqlDbType.VarChar, 10);
                 cmd.Parameters.Add("@Valor", MySqlDbType.VarChar, 20);
                 cmd.Parameters.Add("@DataPagamento", MySqlDbType.VarChar, 10);
-                cmd.Parameters.Add("@IdAlunos", MySqlDbType.Int32, 11);
+                cmd.Parameters.Add("@IdAluno", MySqlDbType.Int32, 11);
 
                 cmd.Parameters["@Mes"].Value = ComboBoxMes.Text;
                 cmd.Parameters["@Dia"].Value = ComboBoxDia.Text;
                 cmd.Parameters["@Status"].Value = ComboBoxStatus.Text;
                 cmd.Parameters["@Valor"].Value = textBoxValor.Text;
                 cmd.Parameters["@DataPagamento"].Value = MtextBoxDPagamento.Text;
-                cmd.Parameters["@IdAlunos"].Value = TextBoxIdAluno.Text;
+                cmd.Parameters["@IdAluno"].Value = TextBoxIdAluno.Text;
 
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Adicionado com sucesso!");
+
+                if (call == true)
+                {
+                    call = false;
+                    this.Close();
+                }
             }
         }
 
@@ -206,7 +221,7 @@ namespace GAcademia.Forms
                 if (MessageBox.Show("Deseja atualizar os dados?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("UPDATE tbmensalidades SET `mes`=@Mes, `dia`=@Dia, `status`=@Status, `valor`=@Valor, `data_pag`=@DataPagamento, `fk_idalunos`=@IdAlunos WHERE `idmensalidade`=@Id", con);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE tbmensalidades SET `mes`=@Mes, `dia`=@Dia, `status`=@Status, `valor`=@Valor, `data_pag`=@DataPagamento, `FK_idaluno`=@IdAluno WHERE `idmensalidade`=@Id", con);
 
                     cmd.Parameters.Add("@Id", MySqlDbType.Int32, 11);
                     cmd.Parameters.Add("@Mes", MySqlDbType.VarChar, 20);
@@ -214,7 +229,7 @@ namespace GAcademia.Forms
                     cmd.Parameters.Add("@Status", MySqlDbType.VarChar, 10);
                     cmd.Parameters.Add("@Valor", MySqlDbType.VarChar, 20);
                     cmd.Parameters.Add("@DataPagamento", MySqlDbType.VarChar, 10);
-                    cmd.Parameters.Add("@IdAlunos", MySqlDbType.Int32, 11);
+                    cmd.Parameters.Add("@IdAluno", MySqlDbType.Int32, 11);
 
                     cmd.Parameters["@Id"].Value = TextBoxIdMensalidade.Text;
                     cmd.Parameters["@Mes"].Value = ComboBoxMes.Text;
@@ -222,7 +237,7 @@ namespace GAcademia.Forms
                     cmd.Parameters["@Status"].Value = ComboBoxStatus.Text;
                     cmd.Parameters["@Valor"].Value = textBoxValor.Text;
                     cmd.Parameters["@DataPagamento"].Value = MtextBoxDPagamento.Text;
-                    cmd.Parameters["@IdAlunos"].Value = TextBoxIdAluno.Text;
+                    cmd.Parameters["@IdAluno"].Value = TextBoxIdAluno.Text;
 
                     cmd.ExecuteNonQuery();
                     cmd.DisposeAsync();

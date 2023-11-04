@@ -46,7 +46,7 @@ namespace GAcademia.Forms
             {
                 con.Open();
                 string sql = "SELECT tbmensalidades.mes, tbmensalidades.dia, tbmensalidades.status, tbmensalidades.valor, tbalunos.nome, tbalunos.celular FROM tbmensalidades ";
-                sql += "INNER JOIN tbalunos ON tbmensalidades.fk_idalunos = tbalunos.idalunos";
+                sql += "INNER JOIN tbalunos ON tbmensalidades.FK_idaluno = tbalunos.idaluno";
                 MySqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = sql;
                 DataTable dt = new DataTable();
@@ -86,6 +86,7 @@ namespace GAcademia.Forms
 
         private void btn_Mensalidades_Click(object sender, EventArgs e)
         {
+            Mensalidades.call = false;
             OpenChildForm(new Forms.Mensalidades(), sender);
         }
 
@@ -101,20 +102,20 @@ namespace GAcademia.Forms
             {
                 con.Open();
 
-                string mesD = ComboBoxMes.Text;
+                string mesSel = ComboBoxMes.Text;
 
                 string sqlPago = "SELECT SUM(CONVERT(valor, DECIMAL(10, 2))) FROM tbmensalidades WHERE status = 'Pago' AND mes = @Mes";
 
                 string sqlPendente = "SELECT SUM(CONVERT(valor, DECIMAL(10, 2))) FROM tbmensalidades WHERE status = 'Pendente' AND mes = @Mes";
 
-                using (MySqlCommand commandPago = new MySqlCommand(sqlPago, con))
-                using (MySqlCommand commandPendente = new MySqlCommand(sqlPendente, con))
+                using (MySqlCommand cmdPago = new MySqlCommand(sqlPago, con))
+                using (MySqlCommand cmdPendente = new MySqlCommand(sqlPendente, con))
                 {
-                    commandPago.Parameters.AddWithValue("@Mes", mesD);
-                    commandPendente.Parameters.AddWithValue("@Mes", mesD);
+                    cmdPago.Parameters.AddWithValue("@Mes", mesSel);
+                    cmdPendente.Parameters.AddWithValue("@Mes", mesSel);
 
-                    object resultPago = commandPago.ExecuteScalar();
-                    object resultPendente = commandPendente.ExecuteScalar();
+                    object resultPago = cmdPago.ExecuteScalar();
+                    object resultPendente = cmdPendente.ExecuteScalar();
 
                     if (resultPago != DBNull.Value)
                     {

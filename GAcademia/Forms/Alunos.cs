@@ -25,8 +25,9 @@ namespace GAcademia.Forms
             if(tBoxSearchUser.Text !="")
             {
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT idalunos, nome, nascimento, rg, cpf, endereco, num, bairro, cidade, estado, celular, email, objetivo, obs FROM dbacademia.tbalunos WHERE idalunos LIKE ? OR nome LIKE ?", con);
-                cmd.Parameters.AddWithValue("idalunos", tBoxSearchUser.Text + "%");
+                MySqlCommand cmd = new MySqlCommand("SELECT idaluno, nome, nascimento, rg, cpf, endereco, num, bairro, cidade, estado, celular, email, objetivo, obs "
+                + "FROM dbacademia.tbalunos WHERE idaluno LIKE ? OR nome LIKE ?", con) ;
+                cmd.Parameters.AddWithValue("idaluno", tBoxSearchUser.Text + "%");
                 cmd.Parameters.AddWithValue("nome", tBoxSearchUser.Text + "%");
                 MySqlDataReader srd = cmd.ExecuteReader();
                 while (srd.Read())
@@ -101,7 +102,13 @@ namespace GAcademia.Forms
 
                         reader.DisposeAsync();
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Adicionado com sucesso!");
+                       // MessageBox.Show("Adicionado com sucesso!");
+                        if (MessageBox.Show("Adicionado com sucesso! Gostaria de adicionar a mensalidade?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            Mensalidades.call = true;
+                            Mensalidades fm = new Mensalidades();
+                            fm.ShowDialog();
+                        }
                     }
                     con.Close();
                     reader.DisposeAsync();
@@ -121,7 +128,7 @@ namespace GAcademia.Forms
                 {
                     string id = textBoxId.Text;
                     con.Open();
-                    string sql = "DELETE FROM tbalunos WHERE `idalunos` = @id";
+                    string sql = "DELETE FROM tbalunos WHERE `idaluno` = @id";
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     cmd.Parameters.Add(new MySqlParameter("@id", id));
                     cmd.ExecuteNonQuery();
@@ -140,7 +147,7 @@ namespace GAcademia.Forms
             if (MessageBox.Show("Deseja atualizar os dados?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("UPDATE tbalunos SET `nome`=@nome, `nascimento`=@Nascimento, `rg`=@Rg, `cpf`=@Cpf, `endereco`=@Endereco, `num`=@Numero, `bairro`=@Bairro, `cidade`=@Cidade, `estado`=@Estado, `celular`=@Telefone, `email`=@Email, `objetivo`=@Objetivo, `obs`=@Obs WHERE `idalunos`=@Id", con);
+                MySqlCommand cmd = new MySqlCommand("UPDATE tbalunos SET `nome`=@nome, `nascimento`=@Nascimento, `rg`=@Rg, `cpf`=@Cpf, `endereco`=@Endereco, `num`=@Numero, `bairro`=@Bairro, `cidade`=@Cidade, `estado`=@Estado, `celular`=@Telefone, `email`=@Email, `objetivo`=@Objetivo, `obs`=@Obs WHERE `idaluno`=@Id", con);
 
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 150);
                 cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
@@ -183,11 +190,11 @@ namespace GAcademia.Forms
             if (tBoxSearchUser.TextLength >= 1)
             {
                 con.Open();
-                string sql = "SELECT idalunos, nome FROM dbacademia.tbalunos ";
-                sql += "WHERE idalunos LIKE ? OR nome LIKE ?";
+                string sql = "SELECT idaluno, nome FROM dbacademia.tbalunos ";
+                sql += "WHERE idaluno LIKE ? OR nome LIKE ?";
                 MySqlCommand cmd = con.CreateCommand();
                 cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("idalunos", tBoxSearchUser.Text + "%");
+                cmd.Parameters.AddWithValue("idaluno", tBoxSearchUser.Text + "%");
                 cmd.Parameters.AddWithValue("nome", tBoxSearchUser.Text + "%");
                 DataTable dt = new DataTable();
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);

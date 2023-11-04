@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using static GAcademia.UserControlMySqlConfig;
 
 namespace GAcademia.Forms
 {
@@ -33,7 +34,6 @@ namespace GAcademia.Forms
         {
             InitializeComponent();
             Database.Connect.LoadFile();
-            LoadAdmin();
         }
 
         public void LoadAdmin()
@@ -42,6 +42,7 @@ namespace GAcademia.Forms
             {
                 if (File.Exists("config.txt"))
                 {
+                    ReadConfigFile();
                     string[] linhas = File.ReadAllLines("config.txt");
                     foreach (string linha in linhas)
                     {
@@ -62,6 +63,12 @@ namespace GAcademia.Forms
                             }
                         }
                     }
+                    string criptografar = $"{ID}\n{Pass}";
+                    string encryptedData = DataEncryptor.Encrypt(criptografar);
+                    using (StreamWriter writer = new StreamWriter("config.txt"))
+                    {
+                        writer.Write(encryptedData);
+                    }
                 }
             }
             catch (Exception ex)
@@ -77,7 +84,6 @@ namespace GAcademia.Forms
             string Usuario = tBoxUsuario.Text;
             string Senha = tBoxSenha.Text;
             string Tipo;
-
             try
             {
                 con.Open();
@@ -103,37 +109,7 @@ namespace GAcademia.Forms
                 }
                 else if (dr.HasRows == false)
                 {
-                    if (File.Exists("config.txt"))
-                    {
-                    }
-                    else
-                    {
-                        ID = "admin";
-                        Pass = "123456";
-                    }
-                    if (Usuario == ID && Senha == Pass)
-                    {
-
-                        try
-                        {
-                            MySqlConnection connection = new MySqlConnection(Database.Connect.dbConnect);
-                            connection.Open();
-                            connection.Close();
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Banco de dado desconectado");
-                            Form conf = new Forms.Notifications.MySqlConfig();
-                            conf.ShowDialog();
-                        }
-
-                        FormMain.privilegio = true;
-                        this.DialogResult = DialogResult.OK;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Usuário ou senha incorreta");
-                    }
+                    loginPadrao();
                 }
                 else
                 {
@@ -145,38 +121,52 @@ namespace GAcademia.Forms
             }
             catch
             {
-                if (File.Exists("config.txt"))
-                {
-                }
-                else
-                {
-                    ID = "admin";
-                    Pass = "123456";
-                }
-                if (Usuario == ID && Senha == Pass)
-                {
-
-                    try
-                    {
-                        MySqlConnection connection = new MySqlConnection(Database.Connect.dbConnect);
-                        connection.Open();
-                        connection.Close();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Banco de dado desconectado");
-                        Form conf = new Forms.Notifications.MySqlConfig();
-                        conf.ShowDialog();
-                    }
-
-                    FormMain.privilegio = true;
-                    this.DialogResult = DialogResult.OK;
-                }
-                else
-                {
-                    MessageBox.Show("Usuário ou senha incorreta");
-                }
+                MessageBox.Show("Banco de dados desconectado, use admin padrão");
+                loginPadrao();
             }
+            
+        }
+
+        private void loginPadrao()
+        {
+           
+            string Usuario = tBoxUsuario.Text;
+            string Senha = tBoxSenha.Text;
+           
+
+            if (File.Exists("config.txt"))
+            {
+                LoadAdmin();
+            }
+            else
+            {
+                ID = "admin";
+                Pass = "123456";
+            }
+            if (Usuario == ID && Senha == Pass)
+            {
+
+                try
+                {
+                    MySqlConnection connection = new MySqlConnection(Database.Connect.dbConnect);
+                    connection.Open();
+                    connection.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Banco de dado desconectado");
+                    Form conf = new Forms.Notifications.MySqlConfig();
+                    conf.ShowDialog();
+                }
+
+                FormMain.privilegio = true;
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Usuário ou senha incorreta");
+            }
+
         }
 
         private void bnt_close_Click(object sender, EventArgs e)
@@ -191,6 +181,32 @@ namespace GAcademia.Forms
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private static void ReadConfigFile()
+        {
+            
+                string encryptedData;
+                using (StreamReader reader = new StreamReader("config.txt"))
+                {
+                    encryptedData = reader.ReadToEnd();
+                }
+
+                string decryptedData = DataEncryptor.Decrypt(encryptedData);
+
+                string[] dataParts = decryptedData.Split('\n');
+                if (dataParts.Length == 2)
+                {
+                    string ID = dataParts[0];
+                    string Pass = dataParts[1];
+
+                    using (StreamWriter writer = new StreamWriter("config.txt"))
+                    {
+                        writer.WriteLine($"ID={ID}");
+                        writer.WriteLine($"Pass={Pass}");
+                    }
+                }
+            
         }
     }
 }

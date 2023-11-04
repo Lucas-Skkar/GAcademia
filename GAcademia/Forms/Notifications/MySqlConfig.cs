@@ -36,5 +36,6 @@ namespace GAcademia.Forms.Notifications
                 MessageBox.Show("Servidor não encontrado, tenha certeza de ter salvo as informações antes de clicar em Conectar");
             }
         }
+       
     }
 }

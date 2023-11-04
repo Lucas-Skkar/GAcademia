@@ -111,6 +111,7 @@ namespace GAcademia.Forms
             // btn_searchUser
             // 
             this.btn_searchUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_searchUser.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.LowProfile;
             this.btn_searchUser.Location = new System.Drawing.Point(49, 15);
             this.btn_searchUser.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.btn_searchUser.Name = "btn_searchUser";
@@ -118,17 +119,18 @@ namespace GAcademia.Forms
             this.btn_searchUser.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.btn_searchUser.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_searchUser.OverrideDefault.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
             this.btn_searchUser.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.btn_searchUser.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.OverrideFocus.Border.Color1 = System.Drawing.SystemColors.Highlight;
             this.btn_searchUser.OverrideFocus.Border.Color2 = System.Drawing.SystemColors.Highlight;
             this.btn_searchUser.OverrideFocus.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
-            this.btn_searchUser.OverrideFocus.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_searchUser.OverrideFocus.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
             this.btn_searchUser.OverrideFocus.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.btn_searchUser.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.btn_searchUser.OverrideFocus.Border.Rounding = 20;
             this.btn_searchUser.Size = new System.Drawing.Size(59, 32);
             this.btn_searchUser.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -164,7 +166,7 @@ namespace GAcademia.Forms
             this.btn_searchUser.StateTracking.Border.Color1 = System.Drawing.SystemColors.Highlight;
             this.btn_searchUser.StateTracking.Border.Color2 = System.Drawing.SystemColors.Highlight;
             this.btn_searchUser.StateTracking.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
-            this.btn_searchUser.StateTracking.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_searchUser.StateTracking.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
             this.btn_searchUser.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.btn_searchUser.TabIndex = 34;

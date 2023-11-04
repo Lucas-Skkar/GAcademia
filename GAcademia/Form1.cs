@@ -93,21 +93,21 @@ namespace GAcademia
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    string idAluno = row["fk_idalunos"].ToString();
-                    MySqlCommand verificaCmd = new MySqlCommand("SELECT COUNT(*) FROM tbmensalidades WHERE mes = @mesAtual AND fk_idalunos = @IdAlunos", con);
+                    string idAluno = row["FK_idaluno"].ToString();
+                    MySqlCommand verificaCmd = new MySqlCommand("SELECT COUNT(*) FROM tbmensalidades WHERE mes = @mesAtual AND FK_idaluno = @IdAluno", con);
                     verificaCmd.Parameters.AddWithValue("@mesAtual", nomeMesAtual);
-                    verificaCmd.Parameters.AddWithValue("@IdAlunos", idAluno);
+                    verificaCmd.Parameters.AddWithValue("@IdAluno", idAluno);
                     int count = Convert.ToInt32(verificaCmd.ExecuteScalar());
 
                     if (count == 0)
                     {
-                        MySqlCommand command = new MySqlCommand("INSERT INTO tbmensalidades (mes, dia, status, valor, data_pag, fk_idalunos) VALUES (@mesAtual, @Dia, 'Pendente', @valor, @Data, @IdAlunos)", con);
+                        MySqlCommand command = new MySqlCommand("INSERT INTO tbmensalidades (mes, dia, status, valor, data_pag, FK_idaluno) VALUES (@mesAtual, @Dia, 'Pendente', @valor, @Data, @IdAluno)", con);
                         command.Parameters.AddWithValue("@mesAtual", nomeMesAtual);
                         command.Parameters.AddWithValue("@Dia", row["dia"]);
                         command.Parameters.AddWithValue("@Status", row["status"]);
                         command.Parameters.AddWithValue("@valor", row["valor"]);
                         command.Parameters.AddWithValue("@Data", row["data_pag"]);
-                        command.Parameters.AddWithValue("@IdAlunos", row["fk_idalunos"]);
+                        command.Parameters.AddWithValue("@IdAluno", row["FK_idaluno"]);
                         command.ExecuteNonQuery();
                     }
                 }
