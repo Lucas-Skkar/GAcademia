@@ -12,13 +12,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using static GAcademia.UserControlMySqlConfig;
+using System.Security.Cryptography;
 
 namespace GAcademia.Forms
 {
     public partial class LoginForm : KryptonForm
     {
-
-        
         string ID;
         string Pass;
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -87,36 +86,58 @@ namespace GAcademia.Forms
             try
             {
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT login, senha, userType FROM tbusuario WHERE login = @Login AND senha = @Senha", con);
+                string sql = "SELECT senha, alt, userType FROM tbusuario WHERE login =@Login";
+                MySqlCommand cmd = new MySqlCommand(sql, con);
                 cmd.Parameters.AddWithValue("@Login", Usuario);
-                cmd.Parameters.AddWithValue("@Senha", Senha);
-                MySqlDataReader dr = cmd.ExecuteReader();
-                if (dr.HasRows)
+
+                using (MySqlDataReader dr = cmd.ExecuteReader())
                 {
-                    dr.Read();
-                    Tipo = dr.GetString(2);
-                    if (Tipo != "Admin")
+                    if (dr.Read())
                     {
-                        FormMain.privilegio = false;
+                        Tipo = dr.GetString(2);
+                        byte[] dbPassHash = (byte[])dr["senha"];
+                        byte[] salt = (byte[])dr["alt"];
+                        byte[] pHash = sHash(Senha, salt);
+
+                        if (compare(dbPassHash, pHash))
+                        {
+                            if (Tipo != "Admin")
+                            {
+                                FormMain.privilegio = false;
+                            }
+                            else
+                            {
+                                FormMain.privilegio = true;
+                            }
+
+                            this.DialogResult = DialogResult.OK;
+                           // MessageBox.Show("Login bem-sucedido.");
+                        }
+                        else
+                        {
+                            try
+                            {
+                                loginPadrao();
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Senha incorreta.");
+                            }
+                        }
                     }
                     else
                     {
-                        FormMain.privilegio = true;
+                        try
+                        {
+                            loginPadrao();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Usuário não encontrado.");
+                        }
                     }
-
-                    this.DialogResult = DialogResult.OK;
-
-                }
-                else if (dr.HasRows == false)
-                {
-                    loginPadrao();
-                }
-                else
-                {
-                    MessageBox.Show("Usuário ou senha incorreta");
                 }
 
-                dr.Close();
                 con.Close();
             }
             catch
@@ -208,5 +229,32 @@ namespace GAcademia.Forms
                 }
             
         }
+
+        private byte[] sHash(string pass, byte[] salt)
+        {
+            using (Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(pass, salt, 10000))
+            {
+                return pbkdf2.GetBytes(32); // 32 bytes = 256 bits
+            }
+        }
+
+        private bool compare(byte[] array1, byte[] array2)
+        {
+            if (array1.Length != array2.Length)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < array1.Length; i++)
+            {
+                if (array1[i] != array2[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
     }
 }

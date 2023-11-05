@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static GAcademia.UserControlMySqlConfig;
+using System.Security.Cryptography;
 
 namespace GAcademia.Forms
 {
@@ -118,21 +119,38 @@ namespace GAcademia.Forms
 
         private void bnt_salvarN_Click(object sender, EventArgs e)
         {
-            if(textBoxInfLoginN.Text !="" && textBoxSenhaN.Text !="" && ComboBoxPrivilegio.SelectedIndex != 0)
+            if (textBoxInfLoginN.Text != "" && textBoxSenhaN.Text != "" && ComboBoxPrivilegio.Text != "")
             {
+                string Login = textBoxLoginN.Text;
+                string Senha = textBoxSenhaN.Text;
+                string Tipo = ComboBoxPrivilegio.Text;
+
                 try
                 {
+                    byte[] salt = GerarSalt();
+                    byte[] critptogafado = pHash(Senha, salt);
+
                     MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
                     con.Open();
 
-                    string sql = "INSERT INTO tbusuario (`login`, `senha`, `userType`) VALUES (@Login, @Senha, @Tipo)";
+                    string sql = "INSERT INTO tbusuario (`login`, `senha`, `userType`, `alt`) VALUES (@Login, @Senha, @Tipo, @Salt)";
                     MySqlCommand cmd = new MySqlCommand(sql, con);
-                    cmd.Parameters.AddWithValue("@Login", textBoxInfLoginN.Text);
-                    cmd.Parameters.AddWithValue("@Senha", textBoxSenhaN.Text);
-                    cmd.Parameters.AddWithValue("@Tipo", ComboBoxPrivilegio.Text);
+                    cmd.Parameters.AddWithValue("@Login", Login);
+                    cmd.Parameters.AddWithValue("@Senha", critptogafado);
+                    cmd.Parameters.AddWithValue("@Tipo", Tipo);
+                    cmd.Parameters.AddWithValue("@Salt", salt);
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Usuário adicionado com sucesso!");
+                    int rAfetada = cmd.ExecuteNonQuery();
+                    if (rAfetada > 0)
+                    {
+                        MessageBox.Show("Usuário adicionado com sucesso!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao inserir o registro.");
+                    }
+
+                    // MessageBox.Show("Usuário adicionado com sucesso!");
                     con.Close();
                 }
                 catch
@@ -144,7 +162,26 @@ namespace GAcademia.Forms
             {
                 MessageBox.Show("Erro! Um ou mais campos estão vazios");
             }
-            
         }
+
+            private byte[] GerarSalt()
+            {
+                byte[] salt = new byte[16];
+                using (RNGCryptoServiceProvider rngCsp = new RNGCryptoServiceProvider())
+                {
+                    rngCsp.GetBytes(salt);
+                }
+                return salt;
+            }
+
+            private byte[] pHash(string pass, byte[] salt)
+            {
+                using (Rfc2898DeriveBytes Ale = new Rfc2898DeriveBytes(pass, salt, 10000))
+                {
+                    return Ale.GetBytes(32);
+                }
+            }
+
+        
     }
 }
