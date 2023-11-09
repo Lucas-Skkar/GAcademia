@@ -62,15 +62,15 @@ namespace GAcademia.Forms
 
         private void Mensalidades_Load(object sender, EventArgs e)
         {
-            if (call == true)
+            /*if (call == true)
             {
                 btn_update.Visible = false;
                 btn_delete.Visible = false;
                 btn_Imprimir.Visible = false;
-            }
+            }*/
 
             var mes = new List<Mes>();
-            mes.Add(new Mes() { mesId = 0, nomeMes = "" });
+            //mes.Add(new Mes() { mesId = 0, nomeMes = "" });
             mes.Add(new Mes() { mesId = 1, nomeMes = "Janeiro" });
             mes.Add(new Mes() { mesId = 2, nomeMes = "Fevereiro" });
             mes.Add(new Mes() { mesId = 3, nomeMes = "Março" });
@@ -94,7 +94,7 @@ namespace GAcademia.Forms
             ComboBoxDia.Text = "Dia da mensalidade";
 
             var status = new List<Status>();
-            status.Add(new Status() { statusId = 0, statusValor = "" });
+            //status.Add(new Status() { statusId = 0, statusValor = "" });
             status.Add(new Status() { statusId = 1, statusValor = "Pendente" });
             status.Add(new Status() { statusId = 2, statusValor = "Pago" });
 
@@ -326,7 +326,7 @@ namespace GAcademia.Forms
             }
         }
 
-        private void rezise()
+        private void resize()
         {
             resizeControl(TextBoxSearchOriginal, TextBoxSearch);
             resizeControl(btn_searchOriginal, btn_search);
@@ -364,7 +364,7 @@ namespace GAcademia.Forms
 
         private void Mensalidades_Resize(object sender, EventArgs e)
         {
-            rezise();
+            resize();
         }
     }
 }

@@ -164,39 +164,75 @@ namespace GAcademia.Forms
         {
             if (textBoxInfLoginN.Text != "" && textBoxSenhaN.Text != "" && ComboBoxPrivilegio.Text != "")
             {
-                string Login = textBoxLoginN.Text;
-                string Senha = textBoxSenhaN.Text;
-                string Tipo = ComboBoxPrivilegio.Text;
+                labelLogin.Visible = false;
+                labelSenha.Visible = false;
 
-                try
+                if (textBoxLoginN.Text.Length >= 4)
                 {
-                    byte[] salt = GerarSalt();
-                    byte[] critptogafado = pHash(Senha, salt);
-
-                    con.Open();
-
-                    string sql = "INSERT INTO tbusuario (`login`, `senha`, `userType`, `alt`) VALUES (@Login, @Senha, @Tipo, @Salt)";
-                    MySqlCommand cmd = new MySqlCommand(sql, con);
-                    cmd.Parameters.AddWithValue("@Login", Login);
-                    cmd.Parameters.AddWithValue("@Senha", critptogafado);
-                    cmd.Parameters.AddWithValue("@Tipo", Tipo);
-                    cmd.Parameters.AddWithValue("@Salt", salt);
-
-                    int rAfetada = cmd.ExecuteNonQuery();
-                    if (rAfetada > 0)
+                    if(textBoxSenhaN.Text.Length >= 6)
                     {
-                        MessageBox.Show("Usuário adicionado com sucesso!");
+                        if (MessageBox.Show("Deseja adicionar esse usuário?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            con.Open();
+
+                            MySqlCommand check_usName = new MySqlCommand("SELECT * FROM tbusuario WHERE (`login` = @Log)", con);
+                            check_usName.Parameters.AddWithValue("@Log", textBoxLoginN.Text);
+                            MySqlDataReader reader = check_usName.ExecuteReader();
+                            
+                            if (reader.HasRows)
+                            {
+                                MessageBox.Show("Login já existe.");
+                                con.Close();
+                            }
+                            else
+                            {
+                                con.Close();
+                                string Login = textBoxLoginN.Text;
+                                string Senha = textBoxSenhaN.Text;
+                                string Tipo = ComboBoxPrivilegio.Text;
+
+                                try
+                                {
+                                    byte[] salt = GerarSalt();
+                                    byte[] critptogafado = pHash(Senha, salt);
+
+                                    con.Open();
+
+                                    string sql = "INSERT INTO tbusuario (`login`, `senha`, `userType`, `alt`) VALUES (@Login, @Senha, @Tipo, @Salt)";
+                                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                                    cmd.Parameters.AddWithValue("@Login", Login);
+                                    cmd.Parameters.AddWithValue("@Senha", critptogafado);
+                                    cmd.Parameters.AddWithValue("@Tipo", Tipo);
+                                    cmd.Parameters.AddWithValue("@Salt", salt);
+
+                                    int rAfetada = cmd.ExecuteNonQuery();
+                                    if (rAfetada > 0)
+                                    {
+                                        MessageBox.Show("Usuário adicionado com sucesso!");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Erro ao inserir o registro.");
+                                    }
+
+                                    con.Close();
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("Erro! Banco de dados desconectado.");
+                                }
+                            }
+                        }
+                                
                     }
                     else
                     {
-                        MessageBox.Show("Erro ao inserir o registro.");
+                        labelSenha.Visible = true;
                     }
-
-                    con.Close();
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Erro! Banco de dados desconectado.");
+                    labelLogin.Visible = true;
                 }
             }
             else

@@ -75,10 +75,10 @@ namespace GAcademia.Forms
             this.tBoxSearchUser.AlwaysActive = false;
             this.tBoxSearchUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.tBoxSearchUser.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.tBoxSearchUser.Location = new System.Drawing.Point(99, 15);
-            this.tBoxSearchUser.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.tBoxSearchUser.Location = new System.Drawing.Point(120, 15);
+            this.tBoxSearchUser.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tBoxSearchUser.Name = "tBoxSearchUser";
-            this.tBoxSearchUser.Size = new System.Drawing.Size(406, 32);
+            this.tBoxSearchUser.Size = new System.Drawing.Size(387, 32);
             this.tBoxSearchUser.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.tBoxSearchUser.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
             this.tBoxSearchUser.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
@@ -106,6 +106,7 @@ namespace GAcademia.Forms
             this.tBoxSearchUser.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tBoxSearchUser.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxSearchUser.TabIndex = 33;
+            this.tBoxSearchUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tBoxSearchUser.TextChanged += new System.EventHandler(this.tBoxSearchUser_TextChanged);
             // 
             // btn_searchUser
@@ -115,7 +116,7 @@ namespace GAcademia.Forms
             this.btn_searchUser.Location = new System.Drawing.Point(41, 15);
             this.btn_searchUser.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.btn_searchUser.MaximumSize = new System.Drawing.Size(0, 32);
-            this.btn_searchUser.MinimumSize = new System.Drawing.Size(59, 32);
+            this.btn_searchUser.MinimumSize = new System.Drawing.Size(79, 32);
             this.btn_searchUser.Name = "btn_searchUser";
             this.btn_searchUser.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -133,7 +134,7 @@ namespace GAcademia.Forms
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.btn_searchUser.OverrideFocus.Border.Rounding = 20;
             this.btn_searchUser.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
-            this.btn_searchUser.Size = new System.Drawing.Size(59, 32);
+            this.btn_searchUser.Size = new System.Drawing.Size(79, 32);
             this.btn_searchUser.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_searchUser.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
@@ -170,7 +171,7 @@ namespace GAcademia.Forms
             this.btn_searchUser.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.btn_searchUser.TabIndex = 34;
-            this.btn_searchUser.Values.Text = "Procurar";
+            this.btn_searchUser.Values.Text = "Selecionar";
             this.btn_searchUser.Click += new System.EventHandler(this.btn_searchUser_Click);
             // 
             // textBoxId
@@ -274,6 +275,7 @@ namespace GAcademia.Forms
             this.textBoxNome.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxNome.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNome.TabIndex = 37;
+            this.textBoxNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextBoxInfNome
             // 
@@ -361,6 +363,7 @@ namespace GAcademia.Forms
             this.textBoxRg.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxRg.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRg.TabIndex = 41;
+            this.textBoxRg.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxEndereco
             // 
@@ -398,6 +401,7 @@ namespace GAcademia.Forms
             this.textBoxEndereco.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxEndereco.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEndereco.TabIndex = 43;
+            this.textBoxEndereco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxCidade
             // 
@@ -435,6 +439,7 @@ namespace GAcademia.Forms
             this.textBoxCidade.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxCidade.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCidade.TabIndex = 44;
+            this.textBoxCidade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxObjetivo
             // 
@@ -472,6 +477,7 @@ namespace GAcademia.Forms
             this.textBoxObjetivo.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxObjetivo.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxObjetivo.TabIndex = 45;
+            this.textBoxObjetivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextBoxInfRg
             // 
@@ -635,6 +641,7 @@ namespace GAcademia.Forms
             this.textBoxEmail.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxEmail.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmail.TabIndex = 52;
+            this.textBoxEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxBairro
             // 
@@ -711,6 +718,7 @@ namespace GAcademia.Forms
             this.textBoxEstado.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxEstado.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEstado.TabIndex = 55;
+            this.textBoxEstado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxObs
             // 
@@ -749,6 +757,7 @@ namespace GAcademia.Forms
             this.textBoxObs.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxObs.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxObs.TabIndex = 56;
+            this.textBoxObs.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextBoxInfCpf
             // 
@@ -911,6 +920,7 @@ namespace GAcademia.Forms
             this.textBoxNumero.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxNumero.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNumero.TabIndex = 63;
+            this.textBoxNumero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextBoxInfNumero
             // 
@@ -975,6 +985,7 @@ namespace GAcademia.Forms
             this.textBoxNumComp1.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxNumComp1.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNumComp1.TabIndex = 65;
+            this.textBoxNumComp1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxNumComp1.Visible = false;
             // 
             // TextBoxInfNumComp

@@ -56,6 +56,8 @@ namespace GAcademia.Forms
             this.btn_Save = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.PanelMySqlConfig = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btn_testConnect = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.labelLogin = new System.Windows.Forms.Label();
+            this.labelSenha = new System.Windows.Forms.Label();
             this.userControlMySqlConfig1 = new GAcademia.UserControlMySqlConfig();
             this.panelButtons.SuspendLayout();
             this.panelChildrens.SuspendLayout();
@@ -101,7 +103,7 @@ namespace GAcademia.Forms
             this.btn_NewLogin.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_NewLogin.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_NewLogin.TabIndex = 8;
-            this.btn_NewLogin.Values.Text = "Database Add Login";
+            this.btn_NewLogin.Values.Text = "Add Login Database";
             this.btn_NewLogin.Click += new System.EventHandler(this.btn_NewLogin_Click);
             // 
             // kryptonPaletteButtons
@@ -238,7 +240,7 @@ namespace GAcademia.Forms
             this.btn_Login.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_Login.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Login.TabIndex = 6;
-            this.btn_Login.Values.Text = "Senha Padrão Admin";
+            this.btn_Login.Values.Text = "Config Admin Padrão";
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // panelChildrens
@@ -256,6 +258,8 @@ namespace GAcademia.Forms
             // 
             // PanelNewLogin
             // 
+            this.PanelNewLogin.Controls.Add(this.labelSenha);
+            this.PanelNewLogin.Controls.Add(this.labelLogin);
             this.PanelNewLogin.Controls.Add(this.btn_DeleteN);
             this.PanelNewLogin.Controls.Add(this.btn_UpdateN);
             this.PanelNewLogin.Controls.Add(this.TextBoxIdUser);
@@ -278,6 +282,7 @@ namespace GAcademia.Forms
             this.PanelNewLogin.StateNormal.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.PanelNewLogin.StateNormal.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.PanelNewLogin.TabIndex = 63;
+            this.PanelNewLogin.Visible = false;
             // 
             // btn_DeleteN
             // 
@@ -1163,6 +1168,30 @@ namespace GAcademia.Forms
             this.btn_testConnect.Values.Text = "Testar Conexão";
             this.btn_testConnect.Click += new System.EventHandler(this.btn_testConnect_Click);
             // 
+            // labelLogin
+            // 
+            this.labelLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelLogin.AutoSize = true;
+            this.labelLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelLogin.Location = new System.Drawing.Point(263, 141);
+            this.labelLogin.Name = "labelLogin";
+            this.labelLogin.Size = new System.Drawing.Size(202, 13);
+            this.labelLogin.TabIndex = 74;
+            this.labelLogin.Text = "Login precisa de no mínimo 4 caracteres.";
+            this.labelLogin.Visible = false;
+            // 
+            // labelSenha
+            // 
+            this.labelSenha.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelSenha.AutoSize = true;
+            this.labelSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelSenha.Location = new System.Drawing.Point(263, 203);
+            this.labelSenha.Name = "labelSenha";
+            this.labelSenha.Size = new System.Drawing.Size(207, 13);
+            this.labelSenha.TabIndex = 75;
+            this.labelSenha.Text = "Senha precisa de no mínimo 6 caracteres.";
+            this.labelSenha.Visible = false;
+            // 
             // userControlMySqlConfig1
             // 
             this.userControlMySqlConfig1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -1228,5 +1257,7 @@ namespace GAcademia.Forms
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfIdUser;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_DeleteN;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_UpdateN;
+        private System.Windows.Forms.Label labelSenha;
+        private System.Windows.Forms.Label labelLogin;
     }
 }

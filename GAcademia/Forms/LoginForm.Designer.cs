@@ -245,7 +245,7 @@ namespace GAcademia.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tBoxSenha.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.tBoxSenha.Location = new System.Drawing.Point(208, 203);
+            this.tBoxSenha.Location = new System.Drawing.Point(207, 203);
             this.tBoxSenha.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tBoxSenha.MinimumSize = new System.Drawing.Size(129, 32);
             this.tBoxSenha.Name = "tBoxSenha";

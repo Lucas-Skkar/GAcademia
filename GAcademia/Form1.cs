@@ -36,8 +36,6 @@ namespace GAcademia
         {
             InitializeComponent();
             test_bdConnection();
-            //this.Text = string.Empty;
-            //this.ControlBox = false;
 
             formOriginal = this.Size;
             btn_DomingoOriginal = new Rectangle (btn_Domingo.Location.X, btn_Domingo.Location.Y, btn_Domingo.Width, btn_Domingo.Height);
@@ -256,7 +254,7 @@ namespace GAcademia
             labelHead.Text = "Configurações";
         }
 
-        private void rezise()
+        private void resize()
         {
             resizeControl(btn_DomingoOriginal, btn_Domingo);
             resizeControl(btn_SegundaOriginal, btn_Segunda);
@@ -285,7 +283,7 @@ namespace GAcademia
 
         private void FormMain_Resize(object sender, EventArgs e)
         {
-            rezise();
+            resize();
         }
     }
 }

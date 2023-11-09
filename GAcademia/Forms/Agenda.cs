@@ -278,7 +278,7 @@ namespace GAcademia.Forms
             }
         }
 
-        private void rezise()
+        private void resize()
         {
             resizeControl(TextBoxSearchOriginal, TextBoxSearch);
             resizeControl(btn_searchOriginal, btn_search);
@@ -316,7 +316,7 @@ namespace GAcademia.Forms
 
         private void Agenda_Resize(object sender, EventArgs e)
         {
-            rezise();
+            resize();
         }
     }
 }

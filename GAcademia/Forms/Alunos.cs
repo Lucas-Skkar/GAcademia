@@ -54,6 +54,7 @@ namespace GAcademia.Forms
         {
             InitializeComponent();
 
+            // Definição das posições iniciais dos objetos da tela (botões, caixa de textos, etc) para redimensionamento da tela.
             formOriginal = this.Size;
             btn_searchUserOriginal = new Rectangle(btn_searchUser.Location.X, btn_searchUser.Location.Y, btn_searchUser.Width, btn_searchUser.Height);
             tBoxSearchUserOriginal = new Rectangle(tBoxSearchUser.Location.X, tBoxSearchUser.Location.Y, tBoxSearchUser.Width, tBoxSearchUser.Height);
@@ -91,8 +92,10 @@ namespace GAcademia.Forms
             searchResultOriginal = new Rectangle(searchResult.Location.X, tBoxSearchUser.Location.Y + 25, searchResult.Width, searchResult.Height);
         }
 
+        // Cria novo objeto usando a string de conexão do banco de dados.
         MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
 
+        // Seleciona os dados da tabela tbalunos e preenche as caixas de textos.
         private void btn_searchUser_Click(object sender, EventArgs e)
         {
             if(tBoxSearchUser.Text !="")
@@ -126,6 +129,7 @@ namespace GAcademia.Forms
             
         }
 
+        // Adiciona a tabela tbalunos o conteúdo das caixas de textos.
         private void btn_addUser_Click(object sender, EventArgs e)
         {
             if (textBoxNome.Text != "" && MtextBoxNascimento.Text != "" && textBoxRg.Text != "" && MtextBoxCpf.Text != "" && textBoxEndereco.Text != "" && textBoxNumero.Text != "" && textBoxBairro.Text != "" && textBoxCidade.Text != "" && textBoxEstado.Text != "" && MtextBoxTelefone.Text != "" && textBoxEmail.Text != "")
@@ -143,7 +147,9 @@ namespace GAcademia.Forms
                     }
                     else
                     {
-                        MySqlCommand cmd = new MySqlCommand("INSERT INTO tbalunos (`nome`, `nascimento`, `rg`, `cpf`, `endereco`, `num`, `bairro`, `cidade`, `estado`, `celular`, `email`, `objetivo`, `obs`)" + " VALUES (@Nome, @Nascimento, @Rg, @Cpf, @Endereco, @Numero, @Bairro, @Cidade, @Estado, @Telefone, @Email, @Objetivo, @Obs)", con);
+                        string sql = "INSERT INTO tbalunos(`nome`, `nascimento`, `rg`, `cpf`, `endereco`, `num`, `bairro`, `cidade`, `estado`, `celular`, `email`, `objetivo`, `obs`) ";
+                        sql += "VALUES(@Nome, @Nascimento, @Rg, @Cpf, @Endereco, @Numero, @Bairro, @Cidade, @Estado, @Telefone, @Email, @Objetivo, @Obs)";
+                        MySqlCommand cmd = new MySqlCommand(sql, con);
 
                         cmd.Parameters.Add("@Nome", MySqlDbType.VarChar, 150);
                         cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
@@ -175,7 +181,7 @@ namespace GAcademia.Forms
 
                         reader.DisposeAsync();
                         cmd.ExecuteNonQuery();
-                       // MessageBox.Show("Adicionado com sucesso!");
+
                         if (MessageBox.Show("Adicionado com sucesso! Gostaria de adicionar a mensalidade?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             Mensalidades.call = true;
@@ -193,6 +199,7 @@ namespace GAcademia.Forms
             }
         }
 
+        // Deleta linha(row) da tabela tbalunos onde o idaluno é igual ao valor da caixa de texto textBoxId.
         private void btn_DelUser_Click(object sender, EventArgs e)
         {
             if (textBoxId.Text != "")
@@ -215,15 +222,18 @@ namespace GAcademia.Forms
             }
         }
 
+        // Atualiza os registros da tabela tbalunos com o conteúdo das caixas de textos onde o valor de idaluno é igual ao do textBoxId.
         private void btn_UpdUser_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Deseja atualizar os dados?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("UPDATE tbalunos SET `nome`=@nome, `nascimento`=@Nascimento, `rg`=@Rg, `cpf`=@Cpf, `endereco`=@Endereco, `num`=@Numero, `bairro`=@Bairro, `cidade`=@Cidade, `estado`=@Estado, `celular`=@Telefone, `email`=@Email, `objetivo`=@Objetivo, `obs`=@Obs WHERE `idaluno`=@Id", con);
+                string sql = "UPDATE tbalunos SET `nome`=@nome, `nascimento`=@Nascimento, `rg`=@Rg, `cpf`=@Cpf, `endereco`=@Endereco, `num`=@Numero, `bairro`=@Bairro, ";
+                sql += "`cidade`=@Cidade, `estado`=@Estado, `celular`=@Telefone, `email`=@Email, `objetivo`=@Objetivo, `obs`=@Obs WHERE `idaluno`=@Id";
+                MySqlCommand cmd = new MySqlCommand(sql, con);
 
                 cmd.Parameters.Add("@nome", MySqlDbType.VarChar, 150);
-                cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 10);
+                cmd.Parameters.Add("@Nascimento", MySqlDbType.VarChar, 14);
                 cmd.Parameters.Add("@Rg", MySqlDbType.VarChar, 15);
                 cmd.Parameters.Add("@Cpf", MySqlDbType.VarChar, 15);
                 cmd.Parameters.Add("@Endereco", MySqlDbType.VarChar, 100);
@@ -258,6 +268,8 @@ namespace GAcademia.Forms
             }
         }
 
+        // Ao digitar algo no "tBoxSearchUser" busca na "tbalunos" valores similares (para número = idaluno, para letras = nome do aluno) 
+        // e preenche o data grid "searchResult" com os valores encontrados, se houver.
         private void tBoxSearchUser_TextChanged(object sender, EventArgs e)
         {
             if (tBoxSearchUser.TextLength >= 1)
@@ -294,6 +306,8 @@ namespace GAcademia.Forms
             }
         }
 
+        // Ao clicar na célula do data grid "searchResult", o nome é enviado para o "tBoxSearchUser".
+        // Erros: Deve clicar no nome para funcionar; Se tiver mais de um resultado, sempre selecionará o último registro da tabela.
         private void searchResult_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.searchResult.Rows[e.RowIndex];
@@ -301,7 +315,8 @@ namespace GAcademia.Forms
             searchResult.Height = 0;
         }
 
-        private void rezise()
+        //Calcula as novas posições dos objetos da tela quando redimensiona a tela.
+        private void resize()
         {
             resizeControl(btn_searchUserOriginal, btn_searchUser);
             resizeControl(tBoxSearchUserOriginal, tBoxSearchUser);
@@ -339,6 +354,7 @@ namespace GAcademia.Forms
             resizeControl(searchResultOriginal, searchResult);
         }
 
+        // Método usado no cálculo do redimensionamento.
         private void resizeControl(Rectangle OriginalControl, Control control)
         {
             float xRatio = (float)(this.Width) / (float)(formOriginal.Width);
@@ -354,9 +370,10 @@ namespace GAcademia.Forms
             control.Size = new Size(newWidth, newHeight);
         }
 
+        //Chama o "resize" quando redimensiona a tela.
         private void Alunos_Resize(object sender, EventArgs e)
         {
-            rezise();
+            resize();
         }
     }
 }
