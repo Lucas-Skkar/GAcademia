@@ -59,9 +59,11 @@ namespace GAcademia.Forms.Notifications
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_connect.OverrideFocus.Border.Rounding = 20;
+            this.btn_connect.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
             this.btn_connect.Size = new System.Drawing.Size(202, 32);
             this.btn_connect.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_connect.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_connect.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.btn_connect.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.btn_connect.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.btn_connect.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 

@@ -14,12 +14,50 @@ namespace GAcademia.Forms
 {
     public partial class Mensalidades : KryptonForm
     {
+        private Rectangle TextBoxSearchOriginal;
+        private Rectangle btn_searchOriginal;
+        private Rectangle ComboBoxAlunoOriginal;
+        private Rectangle TextBoxIdAlunoOriginal;
+        private Rectangle TextBoxInfIdAlunoOriginal;
+        private Rectangle ComboBoxMesOriginal;
+        private Rectangle ComboBoxDiaOriginal;
+        private Rectangle ComboBoxStatusOriginal;
+        private Rectangle TextBoxInfValorOriginal;
+        private Rectangle textBoxValorOriginal;
+        private Rectangle MtextBoxDPagamentoOriginal;
+        private Rectangle TextBoxInfDPagamOriginal;
+        private Rectangle btn_AdicionarOriginal;
+        private Rectangle btn_updateOriginal;
+        private Rectangle btn_deleteOriginal;
+        private Rectangle btn_ImprimirOriginal;
+        private Rectangle searchResultOriginal;
+
+        private Size formOriginal;
+
         public static bool call = false;
 
         MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
         public Mensalidades()
         {
             InitializeComponent();
+            formOriginal = this.Size;
+            TextBoxSearchOriginal = new Rectangle(TextBoxSearch.Location.X, TextBoxSearch.Location.Y, TextBoxSearch.Width, TextBoxSearch.Height);
+            btn_searchOriginal = new Rectangle(btn_search.Location.X, btn_search.Location.Y, btn_search.Width, btn_search.Height);
+            ComboBoxAlunoOriginal = new Rectangle(ComboBoxAluno.Location.X, ComboBoxAluno.Location.Y, ComboBoxAluno.Width, ComboBoxAluno.Height);
+            TextBoxIdAlunoOriginal = new Rectangle(TextBoxIdAluno.Location.X, TextBoxIdAluno.Location.Y, TextBoxIdAluno.Width, TextBoxIdAluno.Height);
+            TextBoxInfIdAlunoOriginal = new Rectangle(TextBoxInfIdAluno.Location.X, TextBoxInfIdAluno.Location.Y, TextBoxInfIdAluno.Width, TextBoxInfIdAluno.Height);
+            ComboBoxMesOriginal = new Rectangle(ComboBoxMes.Location.X, ComboBoxMes.Location.Y, ComboBoxMes.Width, ComboBoxMes.Height);
+            ComboBoxDiaOriginal = new Rectangle(ComboBoxDia.Location.X, ComboBoxDia.Location.Y, ComboBoxDia.Width, ComboBoxDia.Height);
+            ComboBoxStatusOriginal = new Rectangle(ComboBoxStatus.Location.X, ComboBoxStatus.Location.Y, ComboBoxStatus.Width, ComboBoxStatus.Height);
+            TextBoxInfValorOriginal = new Rectangle(TextBoxInfValor.Location.X, TextBoxInfValor.Location.Y, TextBoxInfValor.Width, TextBoxInfValor.Height);
+            textBoxValorOriginal = new Rectangle(textBoxValor.Location.X, textBoxValor.Location.Y, textBoxValor.Width, textBoxValor.Height);
+            MtextBoxDPagamentoOriginal = new Rectangle(MtextBoxDPagamento.Location.X, MtextBoxDPagamento.Location.Y, MtextBoxDPagamento.Width, MtextBoxDPagamento.Height);
+            TextBoxInfDPagamOriginal = new Rectangle(TextBoxInfDPagam.Location.X, TextBoxInfDPagam.Location.Y, TextBoxInfDPagam.Width, TextBoxInfDPagam.Height);
+            btn_AdicionarOriginal = new Rectangle(btn_Adicionar.Location.X, btn_Adicionar.Location.Y, btn_Adicionar.Width, btn_Adicionar.Height);
+            btn_updateOriginal = new Rectangle(btn_update.Location.X, btn_update.Location.Y, btn_update.Width, btn_update.Height);
+            btn_deleteOriginal = new Rectangle(btn_delete.Location.X, btn_delete.Location.Y, btn_delete.Width, btn_delete.Height);
+            btn_ImprimirOriginal = new Rectangle(btn_Imprimir.Location.X, btn_Imprimir.Location.Y, btn_Imprimir.Width, btn_Imprimir.Height);
+            searchResultOriginal = new Rectangle(searchResult.Location.X, TextBoxSearch.Location.Y +25, searchResult.Width, searchResult.Height);
         }
 
         private void Mensalidades_Load(object sender, EventArgs e)
@@ -82,6 +120,7 @@ namespace GAcademia.Forms
             {
                 MessageBox.Show("Banco de dado desconectado, verifique a conexão em Configurações > Banco de dados");
             }
+
         }
 
         private class Mes
@@ -285,7 +324,47 @@ namespace GAcademia.Forms
             {
                 MessageBox.Show("O Campo Data de Pagamento deve ser preenchido.");
             }
-           
+        }
+
+        private void rezise()
+        {
+            resizeControl(TextBoxSearchOriginal, TextBoxSearch);
+            resizeControl(btn_searchOriginal, btn_search);
+            resizeControl(ComboBoxAlunoOriginal, ComboBoxAluno);
+            resizeControl(TextBoxIdAlunoOriginal, TextBoxIdAluno);
+            resizeControl(TextBoxInfIdAlunoOriginal, TextBoxInfIdAluno);
+            resizeControl(ComboBoxMesOriginal, ComboBoxMes);
+            resizeControl(ComboBoxDiaOriginal, ComboBoxDia);
+            resizeControl(ComboBoxStatusOriginal, ComboBoxStatus);
+            resizeControl(TextBoxInfValorOriginal, TextBoxInfValor);
+            resizeControl(textBoxValorOriginal, textBoxValor);
+            resizeControl(MtextBoxDPagamentoOriginal, MtextBoxDPagamento);
+            resizeControl(TextBoxInfDPagamOriginal, TextBoxInfDPagam);
+            resizeControl(btn_AdicionarOriginal, btn_Adicionar);
+            resizeControl(btn_updateOriginal, btn_update);
+            resizeControl(btn_deleteOriginal, btn_delete);
+            resizeControl(btn_ImprimirOriginal, btn_Imprimir);
+            resizeControl(searchResultOriginal, searchResult);
+        }
+
+        private void resizeControl(Rectangle OriginalControl, Control control)
+        {
+            float xRatio = (float)(this.Width) / (float)(formOriginal.Width);
+            float yRatio = (float)(this.Height) / (float)(formOriginal.Height);
+
+            int newX = (int)(OriginalControl.X * xRatio);
+            int newY = (int)(OriginalControl.Y * yRatio);
+
+            int newWidth = (int)(OriginalControl.Width * xRatio);
+            int newHeight = (int)(OriginalControl.Height * yRatio);
+
+            control.Location = new Point(newX, newY);
+            control.Size = new Size(newWidth, newHeight);
+        }
+
+        private void Mensalidades_Resize(object sender, EventArgs e)
+        {
+            rezise();
         }
     }
 }

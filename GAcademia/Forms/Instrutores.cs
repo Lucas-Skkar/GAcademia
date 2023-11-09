@@ -13,9 +13,48 @@ namespace GAcademia.Forms
 {
     public partial class Instrutores : Form
     {
+        private Rectangle TextBoxSearchOriginal;
+        private Rectangle btn_searchOriginal;
+        private Rectangle TextBoxInfNomeOriginal;
+        private Rectangle TextBoxNomeOriginal;
+        private Rectangle TextBoxIDOriginal;
+        private Rectangle TextBoxInfIDOriginal;
+        private Rectangle TextBoxInfCpfOriginal;
+        private Rectangle MTextBoxCPFOriginal;
+        private Rectangle MTextBoxCelularOriginal;
+        private Rectangle TextBoxInfCelOriginal;
+        private Rectangle TextBoxInfNascOriginal;
+        private Rectangle MTextBoxNascimentoOriginal;
+        private Rectangle ComboBoxSexoOriginal;
+        private Rectangle btn_addOriginal;
+        private Rectangle btn_updateOriginal;
+        private Rectangle btn_deleteOriginal;
+        private Rectangle searchResultOriginal;
+
+        private Size formOriginal;
+
         public Instrutores()
         {
             InitializeComponent();
+
+            formOriginal = this.Size;
+            TextBoxSearchOriginal = new Rectangle(TextBoxSearch.Location.X, TextBoxSearch.Location.Y, TextBoxSearch.Width, TextBoxSearch.Height);
+            btn_searchOriginal = new Rectangle(btn_search.Location.X, btn_search.Location.Y, btn_search.Width, btn_search.Height);
+            TextBoxInfNomeOriginal = new Rectangle(TextBoxInfNome.Location.X, TextBoxInfNome.Location.Y, TextBoxInfNome.Width, TextBoxInfNome.Height);
+            TextBoxNomeOriginal = new Rectangle(TextBoxNome.Location.X, TextBoxNome.Location.Y, TextBoxNome.Width, TextBoxNome.Height);
+            TextBoxIDOriginal = new Rectangle(TextBoxID.Location.X, TextBoxID.Location.Y, TextBoxID.Width, TextBoxID.Height);
+            TextBoxInfIDOriginal = new Rectangle(TextBoxInfID.Location.X, TextBoxInfID.Location.Y, TextBoxInfID.Width, TextBoxInfID.Height);
+            TextBoxInfCpfOriginal = new Rectangle(TextBoxInfCpf.Location.X, TextBoxInfCpf.Location.Y, TextBoxInfCpf.Width, TextBoxInfCpf.Height);
+            MTextBoxCPFOriginal = new Rectangle(MTextBoxCPF.Location.X, MTextBoxCPF.Location.Y, MTextBoxCPF.Width, MTextBoxCPF.Height);
+            MTextBoxCelularOriginal = new Rectangle(MTextBoxCelular.Location.X, MTextBoxCelular.Location.Y, MTextBoxCelular.Width, MTextBoxCelular.Height);
+            TextBoxInfCelOriginal = new Rectangle(TextBoxInfCel.Location.X, TextBoxInfCel.Location.Y, TextBoxInfCel.Width, TextBoxInfCel.Height);
+            TextBoxInfNascOriginal = new Rectangle(TextBoxInfNasc.Location.X, TextBoxInfNasc.Location.Y, TextBoxInfNasc.Width, TextBoxInfNasc.Height);
+            MTextBoxNascimentoOriginal = new Rectangle(MTextBoxNascimento.Location.X, MTextBoxNascimento.Location.Y, MTextBoxNascimento.Width, MTextBoxNascimento.Height);
+            ComboBoxSexoOriginal = new Rectangle(ComboBoxSexo.Location.X, ComboBoxSexo.Location.Y, ComboBoxSexo.Width, ComboBoxSexo.Height);
+            btn_addOriginal = new Rectangle(btn_add.Location.X, btn_add.Location.Y, btn_add.Width, btn_add.Height);
+            btn_updateOriginal = new Rectangle(btn_update.Location.X, btn_update.Location.Y, btn_update.Width, btn_update.Height);
+            btn_deleteOriginal = new Rectangle(btn_delete.Location.X, btn_delete.Location.Y, btn_delete.Width, btn_delete.Height);
+            searchResultOriginal = new Rectangle(searchResult.Location.X, TextBoxSearch.Location.Y + 25, searchResult.Width, searchResult.Height);
         }
 
         MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
@@ -208,6 +247,47 @@ namespace GAcademia.Forms
                     MessageBox.Show("Selecione um professor");
                 }
             }
+        }
+
+        private void rezise()
+        {
+            resizeControl(TextBoxSearchOriginal, TextBoxSearch);
+            resizeControl(btn_searchOriginal, btn_search);
+            resizeControl(TextBoxInfNomeOriginal, TextBoxInfNome);
+            resizeControl(TextBoxNomeOriginal, TextBoxNome);
+            resizeControl(TextBoxIDOriginal, TextBoxID);
+            resizeControl(TextBoxInfIDOriginal, TextBoxInfID);
+            resizeControl(TextBoxInfCpfOriginal, TextBoxInfCpf);
+            resizeControl(MTextBoxCPFOriginal, MTextBoxCPF);
+            resizeControl(MTextBoxCelularOriginal, MTextBoxCelular);
+            resizeControl(TextBoxInfCelOriginal, TextBoxInfCel);
+            resizeControl(TextBoxInfNascOriginal, TextBoxInfNasc);
+            resizeControl(MTextBoxNascimentoOriginal, MTextBoxNascimento);
+            resizeControl(ComboBoxSexoOriginal, ComboBoxSexo);
+            resizeControl(btn_addOriginal, btn_add);
+            resizeControl(btn_updateOriginal, btn_update);
+            resizeControl(btn_deleteOriginal, btn_delete);
+            resizeControl(searchResultOriginal, searchResult);
+        }
+
+        private void resizeControl(Rectangle OriginalControl, Control control)
+        {
+            float xRatio = (float)(this.Width) / (float)(formOriginal.Width);
+            float yRatio = (float)(this.Height) / (float)(formOriginal.Height);
+
+            int newX = (int)(OriginalControl.X * xRatio);
+            int newY = (int)(OriginalControl.Y * yRatio);
+
+            int newWidth = (int)(OriginalControl.Width * xRatio);
+            int newHeight = (int)(OriginalControl.Height * yRatio);
+
+            control.Location = new Point(newX, newY);
+            control.Size = new Size(newWidth, newHeight);
+        }
+
+        private void Instrutores_Resize(object sender, EventArgs e)
+        {
+            rezise();
         }
     }
 }

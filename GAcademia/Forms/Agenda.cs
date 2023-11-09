@@ -13,9 +13,48 @@ namespace GAcademia.Forms
 {
     public partial class Agenda : Form
     {
+        private Rectangle TextBoxSearchOriginal;
+        private Rectangle btn_searchOriginal;
+        private Rectangle ComboBoxAlunoOriginal;
+        private Rectangle TextBoxIdAlunoOriginal;
+        private Rectangle TextBoxInfIdAlunoOriginal;
+        private Rectangle ComboBoxProfessorOriginal;
+        private Rectangle TextBoxIdProfOriginal;
+        private Rectangle TextBoxInfIdProfOriginal;
+        private Rectangle ComboBoxDiaOriginal;
+        private Rectangle MTextBoxHorarioOriginal;
+        private Rectangle TextBoxInfHorarioOriginal;
+        private Rectangle LabelDescricaoOriginal;
+        private Rectangle TextBoxDescOriginal;
+        private Rectangle btn_agendarOriginal;
+        private Rectangle tbn_updOriginal;
+        private Rectangle btn_deleteOriginal;
+        private Rectangle searchResultOriginal;
+
+        private Size formOriginal;
+
         public Agenda()
         {
             InitializeComponent();
+
+            formOriginal = this.Size;
+            TextBoxSearchOriginal = new Rectangle(TextBoxSearch.Location.X, TextBoxSearch.Location.Y, TextBoxSearch.Width, TextBoxSearch.Height);
+            btn_searchOriginal = new Rectangle(btn_search.Location.X, btn_search.Location.Y, btn_search.Width, btn_search.Height);
+            ComboBoxAlunoOriginal = new Rectangle(ComboBoxAluno.Location.X, ComboBoxAluno.Location.Y, ComboBoxAluno.Width, ComboBoxAluno.Height);
+            TextBoxIdAlunoOriginal = new Rectangle(TextBoxIdAluno.Location.X, TextBoxIdAluno.Location.Y, TextBoxIdAluno.Width, TextBoxIdAluno.Height);
+            TextBoxInfIdAlunoOriginal = new Rectangle(TextBoxInfIdAluno.Location.X, TextBoxInfIdAluno.Location.Y, TextBoxInfIdAluno.Width, TextBoxInfIdAluno.Height);
+            ComboBoxProfessorOriginal = new Rectangle(ComboBoxProfessor.Location.X, ComboBoxProfessor.Location.Y, ComboBoxProfessor.Width, ComboBoxProfessor.Height);
+            TextBoxIdProfOriginal = new Rectangle(TextBoxIdProf.Location.X, TextBoxIdProf.Location.Y, TextBoxIdProf.Width, TextBoxIdProf.Height);
+            TextBoxInfIdProfOriginal = new Rectangle(TextBoxInfIdProf.Location.X, TextBoxInfIdProf.Location.Y, TextBoxInfIdProf.Width, TextBoxInfIdProf.Height);
+            ComboBoxDiaOriginal = new Rectangle(ComboBoxDia.Location.X, ComboBoxDia.Location.Y, ComboBoxDia.Width, ComboBoxDia.Height);
+            MTextBoxHorarioOriginal = new Rectangle(MTextBoxHorario.Location.X, MTextBoxHorario.Location.Y, MTextBoxHorario.Width, MTextBoxHorario.Height);
+            TextBoxInfHorarioOriginal = new Rectangle(TextBoxInfHorario.Location.X, TextBoxInfHorario.Location.Y, TextBoxInfHorario.Width, TextBoxInfHorario.Height);
+            LabelDescricaoOriginal = new Rectangle(LabelDescricao.Location.X, LabelDescricao.Location.Y, LabelDescricao.Width, LabelDescricao.Height);
+            TextBoxDescOriginal = new Rectangle(TextBoxDesc.Location.X, TextBoxDesc.Location.Y, TextBoxDesc.Width, TextBoxDesc.Height);
+            btn_agendarOriginal = new Rectangle(btn_agendar.Location.X, btn_agendar.Location.Y, btn_agendar.Width, btn_agendar.Height);
+            tbn_updOriginal = new Rectangle(tbn_upd.Location.X, tbn_upd.Location.Y, tbn_upd.Width, tbn_upd.Height);
+            btn_deleteOriginal = new Rectangle(btn_delete.Location.X, btn_delete.Location.Y, btn_delete.Width, btn_delete.Height);
+            searchResultOriginal = new Rectangle(searchResult.Location.X, TextBoxSearch.Location.Y + 25, searchResult.Width, searchResult.Height);
         }
 
         MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
@@ -218,26 +257,66 @@ namespace GAcademia.Forms
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-                if (TextBoxIdAgenda.Text != "")
+            if (TextBoxIdAgenda.Text != "")
+            {
+                if (MessageBox.Show("Deseja remover esse agendamento?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    if (MessageBox.Show("Deseja remover esse agendamento?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        string id = TextBoxIdAgenda.Text;
-                        con.Open();
-                        string sql = "DELETE FROM tbagenda WHERE `idagenda` = @id";
-                        MySqlCommand cmd = new MySqlCommand(sql, con);
-                        cmd.Parameters.Add(new MySqlParameter("@id", id));
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        cmd.Dispose();
-                        MessageBox.Show("Agendamento deletado");
-                    }
+                    string id = TextBoxIdAgenda.Text;
+                    con.Open();
+                    string sql = "DELETE FROM tbagenda WHERE `idagenda` = @id";
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    cmd.Parameters.Add(new MySqlParameter("@id", id));
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    cmd.Dispose();
+                    MessageBox.Show("Agendamento deletado");
                 }
-                else
-                {
-                    MessageBox.Show("Selecione um agendamento");
-                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um agendamento");
+            }
         }
 
+        private void rezise()
+        {
+            resizeControl(TextBoxSearchOriginal, TextBoxSearch);
+            resizeControl(btn_searchOriginal, btn_search);
+            resizeControl(ComboBoxAlunoOriginal, ComboBoxAluno);
+            resizeControl(TextBoxIdAlunoOriginal, TextBoxIdAluno);
+            resizeControl(TextBoxInfIdAlunoOriginal, TextBoxInfIdAluno);
+            resizeControl(ComboBoxProfessorOriginal, ComboBoxProfessor);
+            resizeControl(TextBoxIdProfOriginal, TextBoxIdProf);
+            resizeControl(TextBoxInfIdProfOriginal, TextBoxInfIdProf);
+            resizeControl(ComboBoxDiaOriginal, ComboBoxDia);
+            resizeControl(MTextBoxHorarioOriginal, MTextBoxHorario);
+            resizeControl(TextBoxInfHorarioOriginal, TextBoxInfHorario);
+            resizeControl(LabelDescricaoOriginal, LabelDescricao);
+            resizeControl(TextBoxDescOriginal, TextBoxDesc);
+            resizeControl(btn_agendarOriginal, btn_agendar);
+            resizeControl(tbn_updOriginal, tbn_upd);
+            resizeControl(btn_deleteOriginal, btn_delete);
+            resizeControl(searchResultOriginal, searchResult);
+        }
+
+        private void resizeControl(Rectangle OriginalControl, Control control)
+        {
+            float xRatio = (float)(this.Width) / (float)(formOriginal.Width);
+            float yRatio = (float)(this.Height) / (float)(formOriginal.Height);
+
+            int newX = (int)(OriginalControl.X * xRatio);
+            int newY = (int)(OriginalControl.Y * yRatio);
+
+            int newWidth = (int)(OriginalControl.Width * xRatio);
+            int newHeight = (int)(OriginalControl.Height * yRatio);
+
+            control.Location = new Point(newX, newY);
+            control.Size = new Size(newWidth, newHeight);
+        }
+
+        private void Agenda_Resize(object sender, EventArgs e)
+        {
+            rezise();
+        }
     }
 }

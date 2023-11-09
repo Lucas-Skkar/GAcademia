@@ -30,7 +30,7 @@ namespace GAcademia.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelButtons = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btn_Detalhes = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPaletteButtons = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
@@ -62,7 +62,7 @@ namespace GAcademia.Forms
             this.panelButtons.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelButtons.Location = new System.Drawing.Point(0, 0);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(120, 450);
+            this.panelButtons.Size = new System.Drawing.Size(120, 461);
             this.panelButtons.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
             this.panelButtons.TabIndex = 3;
             // 
@@ -200,12 +200,6 @@ namespace GAcademia.Forms
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_Mensalidades.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_Mensalidades.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Mensalidades.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.btn_Mensalidades.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.btn_Mensalidades.StatePressed.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
-            this.btn_Mensalidades.StatePressed.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_Mensalidades.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.btn_Mensalidades.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.btn_Mensalidades.TabIndex = 4;
             this.btn_Mensalidades.Values.Text = "Mensalidades";
             this.btn_Mensalidades.Click += new System.EventHandler(this.btn_Mensalidades_Click);
@@ -223,7 +217,7 @@ namespace GAcademia.Forms
             this.panelChildrens.Location = new System.Drawing.Point(120, 0);
             this.panelChildrens.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.panelChildrens.Name = "panelChildrens";
-            this.panelChildrens.Size = new System.Drawing.Size(680, 450);
+            this.panelChildrens.Size = new System.Drawing.Size(664, 461);
             this.panelChildrens.TabIndex = 4;
             // 
             // DataGridDetalhes
@@ -233,9 +227,9 @@ namespace GAcademia.Forms
             this.DataGridDetalhes.AllowUserToOrderColumns = true;
             this.DataGridDetalhes.AllowUserToResizeColumns = false;
             this.DataGridDetalhes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DataGridDetalhes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DataGridDetalhes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridDetalhes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -255,7 +249,7 @@ namespace GAcademia.Forms
             this.DataGridDetalhes.RowHeadersVisible = false;
             this.DataGridDetalhes.RowTemplate.Height = 30;
             this.DataGridDetalhes.RowTemplate.ReadOnly = true;
-            this.DataGridDetalhes.Size = new System.Drawing.Size(652, 296);
+            this.DataGridDetalhes.Size = new System.Drawing.Size(636, 307);
             this.DataGridDetalhes.StateCommon.Background.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.DataGridDetalhes.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.DataGridDetalhes.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -387,7 +381,7 @@ namespace GAcademia.Forms
             // TextBoxInfAtrasado
             // 
             this.TextBoxInfAtrasado.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TextBoxInfAtrasado.Location = new System.Drawing.Point(328, 83);
+            this.TextBoxInfAtrasado.Location = new System.Drawing.Point(320, 83);
             this.TextBoxInfAtrasado.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxInfAtrasado.MaximumSize = new System.Drawing.Size(101, 32);
             this.TextBoxInfAtrasado.MaxLength = 10;
@@ -416,7 +410,7 @@ namespace GAcademia.Forms
             this.textBoxAtrasado.AlwaysActive = false;
             this.textBoxAtrasado.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxAtrasado.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.textBoxAtrasado.Location = new System.Drawing.Point(429, 83);
+            this.textBoxAtrasado.Location = new System.Drawing.Point(421, 83);
             this.textBoxAtrasado.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.textBoxAtrasado.Name = "textBoxAtrasado";
             this.textBoxAtrasado.Size = new System.Drawing.Size(109, 32);
@@ -451,7 +445,7 @@ namespace GAcademia.Forms
             // TextBoxInfRecebeu
             // 
             this.TextBoxInfRecebeu.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TextBoxInfRecebeu.Location = new System.Drawing.Point(119, 83);
+            this.TextBoxInfRecebeu.Location = new System.Drawing.Point(111, 83);
             this.TextBoxInfRecebeu.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxInfRecebeu.MaximumSize = new System.Drawing.Size(100, 32);
             this.TextBoxInfRecebeu.MaxLength = 10;
@@ -480,7 +474,7 @@ namespace GAcademia.Forms
             this.textBoxRecebeu.AlwaysActive = false;
             this.textBoxRecebeu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxRecebeu.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.textBoxRecebeu.Location = new System.Drawing.Point(219, 83);
+            this.textBoxRecebeu.Location = new System.Drawing.Point(211, 83);
             this.textBoxRecebeu.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.textBoxRecebeu.Name = "textBoxRecebeu";
             this.textBoxRecebeu.Size = new System.Drawing.Size(84, 32);
@@ -517,7 +511,7 @@ namespace GAcademia.Forms
             this.ComboBoxMes.AlwaysActive = false;
             this.ComboBoxMes.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ComboBoxMes.DropDownWidth = 419;
-            this.ComboBoxMes.Location = new System.Drawing.Point(119, 23);
+            this.ComboBoxMes.Location = new System.Drawing.Point(111, 23);
             this.ComboBoxMes.Name = "ComboBoxMes";
             this.ComboBoxMes.Size = new System.Drawing.Size(419, 33);
             this.ComboBoxMes.StateActive.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -570,9 +564,10 @@ namespace GAcademia.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.panelChildrens);
             this.Controls.Add(this.panelButtons);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "Financas";
             this.Text = "Financas";
             this.Load += new System.EventHandler(this.Financas_Load);

@@ -13,9 +13,82 @@ namespace GAcademia.Forms
 {
     public partial class Alunos : Form
     {
+        private Rectangle btn_searchUserOriginal;
+        private Rectangle tBoxSearchUserOriginal;
+        private Rectangle textBoxIdOriginal;
+        private Rectangle TextBoxInfIDOriginal;
+        private Rectangle TextBoxInfNomeOriginal;
+        private Rectangle textBoxNomeOriginal;
+        private Rectangle MtextBoxNascimentoOriginal;
+        private Rectangle TextBoxInfNascOriginal;
+        private Rectangle TextBoxInfRgOriginal;
+        private Rectangle textBoxRgOriginal;
+        private Rectangle MtextBoxCpfOriginal;
+        private Rectangle TextBoxInfCpfOriginal;
+        private Rectangle TextBoxInfTelefoneOriginal;
+        private Rectangle MtextBoxTelefoneOriginal;
+        private Rectangle textBoxEmailOriginal;
+        private Rectangle TextBoxInfEmailOriginal;
+        private Rectangle TextBoxInfEndecoOriginal;
+        private Rectangle textBoxEnderecoOriginal;
+        private Rectangle TextBoxInfNumeroOriginal;
+        private Rectangle textBoxNumeroOriginal;
+        private Rectangle textBoxBairroOriginal;
+        private Rectangle TextBoxInfBairroOriginal;
+        private Rectangle TextBoxInfCidadeOriginal;
+        private Rectangle textBoxCidadeOriginal;
+        private Rectangle textBoxEstadoOriginal;
+        private Rectangle TextBoxInfEstadoOriginal;
+        private Rectangle TextBoxInfObjetivoOriginal;
+        private Rectangle textBoxObjetivoOriginal;
+        private Rectangle textBoxObsOriginal;
+        private Rectangle TextBoxInfObsOriginal;
+        private Rectangle btn_addUserOriginal;
+        private Rectangle btn_UpdUserOriginal;
+        private Rectangle btn_DelUserOriginal;
+        private Rectangle searchResultOriginal;
+
+        private Size formOriginal;
+
         public Alunos()
         {
             InitializeComponent();
+
+            formOriginal = this.Size;
+            btn_searchUserOriginal = new Rectangle(btn_searchUser.Location.X, btn_searchUser.Location.Y, btn_searchUser.Width, btn_searchUser.Height);
+            tBoxSearchUserOriginal = new Rectangle(tBoxSearchUser.Location.X, tBoxSearchUser.Location.Y, tBoxSearchUser.Width, tBoxSearchUser.Height);
+            textBoxIdOriginal = new Rectangle(textBoxId.Location.X, textBoxId.Location.Y, textBoxId.Width, textBoxId.Height);
+            TextBoxInfIDOriginal = new Rectangle(TextBoxInfID.Location.X, TextBoxInfID.Location.Y, TextBoxInfID.Width, TextBoxInfID.Height);
+            TextBoxInfNomeOriginal = new Rectangle(TextBoxInfNome.Location.X, TextBoxInfNome.Location.Y, TextBoxInfNome.Width, TextBoxInfNome.Height);
+            textBoxNomeOriginal = new Rectangle(textBoxNome.Location.X, textBoxNome.Location.Y, textBoxNome.Width, textBoxNome.Height);
+            MtextBoxNascimentoOriginal = new Rectangle(MtextBoxNascimento.Location.X, MtextBoxNascimento.Location.Y, MtextBoxNascimento.Width, MtextBoxNascimento.Height);
+            TextBoxInfNascOriginal = new Rectangle(TextBoxInfNasc.Location.X, TextBoxInfNasc.Location.Y, TextBoxInfNasc.Width, TextBoxInfNasc.Height);
+            TextBoxInfRgOriginal = new Rectangle(TextBoxInfRg.Location.X, TextBoxInfRg.Location.Y, TextBoxInfRg.Width, TextBoxInfRg.Height);
+            textBoxRgOriginal = new Rectangle(textBoxRg.Location.X, textBoxRg.Location.Y, textBoxRg.Width, textBoxRg.Height);
+            MtextBoxCpfOriginal = new Rectangle(MtextBoxCpf.Location.X, MtextBoxCpf.Location.Y, MtextBoxCpf.Width, MtextBoxCpf.Height);
+            TextBoxInfCpfOriginal = new Rectangle(TextBoxInfCpf.Location.X, TextBoxInfCpf.Location.Y, TextBoxInfCpf.Width, TextBoxInfCpf.Height);
+            TextBoxInfTelefoneOriginal = new Rectangle(TextBoxInfTelefone.Location.X, TextBoxInfTelefone.Location.Y, TextBoxInfTelefone.Width, TextBoxInfTelefone.Height);
+            MtextBoxTelefoneOriginal = new Rectangle(MtextBoxTelefone.Location.X, MtextBoxTelefone.Location.Y, MtextBoxTelefone.Width, MtextBoxTelefone.Height);
+            textBoxEmailOriginal = new Rectangle(textBoxEmail.Location.X, textBoxEmail.Location.Y, textBoxEmail.Width, textBoxEmail.Height);
+            TextBoxInfEmailOriginal = new Rectangle(TextBoxInfEmail.Location.X, TextBoxInfEmail.Location.Y, TextBoxInfEmail.Width, TextBoxInfEmail.Height);
+            TextBoxInfEndecoOriginal = new Rectangle(TextBoxInfEndeco.Location.X, TextBoxInfEndeco.Location.Y, TextBoxInfEndeco.Width, TextBoxInfEndeco.Height);
+            textBoxEnderecoOriginal = new Rectangle(textBoxEndereco.Location.X, textBoxEndereco.Location.Y, textBoxEndereco.Width, textBoxEndereco.Height);
+            TextBoxInfNumeroOriginal = new Rectangle(TextBoxInfNumero.Location.X, TextBoxInfNumero.Location.Y, TextBoxInfNumero.Width, TextBoxInfNumero.Height);
+            textBoxNumeroOriginal = new Rectangle(textBoxNumero.Location.X, textBoxNumero.Location.Y, textBoxNumero.Width, textBoxNumero.Height);
+            textBoxBairroOriginal = new Rectangle(textBoxBairro.Location.X, textBoxBairro.Location.Y, textBoxBairro.Width, textBoxBairro.Height);
+            TextBoxInfBairroOriginal = new Rectangle(TextBoxInfBairro.Location.X, TextBoxInfBairro.Location.Y, TextBoxInfBairro.Width, TextBoxInfBairro.Height);
+            TextBoxInfCidadeOriginal = new Rectangle(TextBoxInfCidade.Location.X, TextBoxInfCidade.Location.Y, TextBoxInfCidade.Width, TextBoxInfCidade.Height);
+            textBoxCidadeOriginal = new Rectangle(textBoxCidade.Location.X, textBoxCidade.Location.Y, textBoxCidade.Width, textBoxCidade.Height);
+            textBoxEstadoOriginal = new Rectangle(textBoxEstado.Location.X, textBoxEstado.Location.Y, textBoxEstado.Width, textBoxEstado.Height);
+            TextBoxInfEstadoOriginal = new Rectangle(TextBoxInfEstado.Location.X, TextBoxInfEstado.Location.Y, TextBoxInfEstado.Width, TextBoxInfEstado.Height);
+            TextBoxInfObjetivoOriginal = new Rectangle(TextBoxInfObjetivo.Location.X, TextBoxInfObjetivo.Location.Y, TextBoxInfObjetivo.Width, TextBoxInfObjetivo.Height);
+            textBoxObjetivoOriginal = new Rectangle(textBoxObjetivo.Location.X, textBoxObjetivo.Location.Y, textBoxObjetivo.Width, textBoxObjetivo.Height);
+            textBoxObsOriginal = new Rectangle(textBoxObs.Location.X, textBoxObs.Location.Y, textBoxObs.Width, textBoxObs.Height);
+            TextBoxInfObsOriginal = new Rectangle(TextBoxInfObs.Location.X, TextBoxInfObs.Location.Y, TextBoxInfObs.Width, TextBoxInfObs.Height);
+            btn_addUserOriginal = new Rectangle(btn_addUser.Location.X, btn_addUser.Location.Y, btn_addUser.Width, btn_addUser.Height);
+            btn_UpdUserOriginal = new Rectangle(btn_UpdUser.Location.X, btn_UpdUser.Location.Y, btn_UpdUser.Width, btn_UpdUser.Height);
+            btn_DelUserOriginal = new Rectangle(btn_DelUser.Location.X, btn_DelUser.Location.Y, btn_DelUser.Width, btn_DelUser.Height);
+            searchResultOriginal = new Rectangle(searchResult.Location.X, tBoxSearchUser.Location.Y + 25, searchResult.Width, searchResult.Height);
         }
 
         MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
@@ -228,5 +301,62 @@ namespace GAcademia.Forms
             searchResult.Height = 0;
         }
 
+        private void rezise()
+        {
+            resizeControl(btn_searchUserOriginal, btn_searchUser);
+            resizeControl(tBoxSearchUserOriginal, tBoxSearchUser);
+            resizeControl(textBoxIdOriginal, textBoxId);
+            resizeControl(TextBoxInfIDOriginal, TextBoxInfID);
+            resizeControl(TextBoxInfNomeOriginal, TextBoxInfNome);
+            resizeControl(textBoxNomeOriginal, textBoxNome);
+            resizeControl(MtextBoxNascimentoOriginal, MtextBoxNascimento);
+            resizeControl(TextBoxInfNascOriginal, TextBoxInfNasc);
+            resizeControl(TextBoxInfRgOriginal, TextBoxInfRg);
+            resizeControl(textBoxRgOriginal, textBoxRg);
+            resizeControl(MtextBoxCpfOriginal, MtextBoxCpf);
+            resizeControl(TextBoxInfCpfOriginal, TextBoxInfCpf);
+            resizeControl(TextBoxInfTelefoneOriginal, TextBoxInfTelefone);
+            resizeControl(MtextBoxTelefoneOriginal, MtextBoxTelefone);
+            resizeControl(textBoxEmailOriginal, textBoxEmail);
+            resizeControl(TextBoxInfEmailOriginal, TextBoxInfEmail);
+            resizeControl(TextBoxInfEndecoOriginal, TextBoxInfEndeco);
+            resizeControl(textBoxEnderecoOriginal, textBoxEndereco);
+            resizeControl(TextBoxInfNumeroOriginal, TextBoxInfNumero);
+            resizeControl(textBoxNumeroOriginal, textBoxNumero);
+            resizeControl(textBoxBairroOriginal, textBoxBairro);
+            resizeControl(TextBoxInfBairroOriginal, TextBoxInfBairro);
+            resizeControl(TextBoxInfCidadeOriginal, TextBoxInfCidade);
+            resizeControl(textBoxCidadeOriginal, textBoxCidade);
+            resizeControl(textBoxEstadoOriginal, textBoxEstado);
+            resizeControl(TextBoxInfEstadoOriginal, TextBoxInfEstado);
+            resizeControl(TextBoxInfObjetivoOriginal, TextBoxInfObjetivo);
+            resizeControl(textBoxObjetivoOriginal, textBoxObjetivo);
+            resizeControl(textBoxObsOriginal, textBoxObs);
+            resizeControl(TextBoxInfObsOriginal, TextBoxInfObs);
+            resizeControl(btn_addUserOriginal, btn_addUser);
+            resizeControl(btn_UpdUserOriginal, btn_UpdUser);
+            resizeControl(btn_DelUserOriginal, btn_DelUser);
+            resizeControl(searchResultOriginal, searchResult);
+        }
+
+        private void resizeControl(Rectangle OriginalControl, Control control)
+        {
+            float xRatio = (float)(this.Width) / (float)(formOriginal.Width);
+            float yRatio = (float)(this.Height) / (float)(formOriginal.Height);
+
+            int newX = (int)(OriginalControl.X * xRatio);
+            int newY = (int)(OriginalControl.Y * yRatio);
+
+            int newWidth = (int)(OriginalControl.Width * xRatio);
+            int newHeight = (int)(OriginalControl.Height * yRatio);
+
+            control.Location = new Point(newX, newY);
+            control.Size = new Size(newWidth, newHeight);
+        }
+
+        private void Alunos_Resize(object sender, EventArgs e)
+        {
+            rezise();
+        }
     }
 }

@@ -37,6 +37,12 @@ namespace GAcademia.Forms
             this.btn_Login = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panelChildrens = new System.Windows.Forms.Panel();
             this.PanelNewLogin = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.btn_DeleteN = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btn_UpdateN = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.TextBoxIdUser = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TextBoxInfIdUser = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.ComboBoxSelect = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.ComboBoxPrivilegio = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.bnt_salvarN = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.textBoxLoginN = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.textBoxSenhaN = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -51,16 +57,16 @@ namespace GAcademia.Forms
             this.PanelMySqlConfig = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btn_testConnect = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.userControlMySqlConfig1 = new GAcademia.UserControlMySqlConfig();
-            this.ComboBoxPrivilegio = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.panelButtons.SuspendLayout();
             this.panelChildrens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PanelNewLogin)).BeginInit();
             this.PanelNewLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSelect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ComboBoxPrivilegio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PanelTrocarLoginPadrao)).BeginInit();
             this.PanelTrocarLoginPadrao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PanelMySqlConfig)).BeginInit();
             this.PanelMySqlConfig.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ComboBoxPrivilegio)).BeginInit();
             this.SuspendLayout();
             // 
             // panelButtons
@@ -73,13 +79,13 @@ namespace GAcademia.Forms
             this.panelButtons.Location = new System.Drawing.Point(0, 0);
             this.panelButtons.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(150, 450);
+            this.panelButtons.Size = new System.Drawing.Size(150, 461);
             this.panelButtons.TabIndex = 0;
             // 
             // btn_NewLogin
             // 
             this.btn_NewLogin.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Custom2;
-            this.btn_NewLogin.Location = new System.Drawing.Point(0, 106);
+            this.btn_NewLogin.Location = new System.Drawing.Point(0, 53);
             this.btn_NewLogin.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.btn_NewLogin.Name = "btn_NewLogin";
             this.btn_NewLogin.Palette = this.kryptonPaletteButtons;
@@ -95,7 +101,7 @@ namespace GAcademia.Forms
             this.btn_NewLogin.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_NewLogin.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_NewLogin.TabIndex = 8;
-            this.btn_NewLogin.Values.Text = "Adicionar Novo Login";
+            this.btn_NewLogin.Values.Text = "Database Add Login";
             this.btn_NewLogin.Click += new System.EventHandler(this.btn_NewLogin_Click);
             // 
             // kryptonPaletteButtons
@@ -194,7 +200,7 @@ namespace GAcademia.Forms
             // btn_db
             // 
             this.btn_db.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Custom2;
-            this.btn_db.Location = new System.Drawing.Point(0, 53);
+            this.btn_db.Location = new System.Drawing.Point(0, 106);
             this.btn_db.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.btn_db.Name = "btn_db";
             this.btn_db.Palette = this.kryptonPaletteButtons;
@@ -232,7 +238,7 @@ namespace GAcademia.Forms
             this.btn_Login.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_Login.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Login.TabIndex = 6;
-            this.btn_Login.Values.Text = "Trocar Senha Admin";
+            this.btn_Login.Values.Text = "Senha Padrão Admin";
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // panelChildrens
@@ -245,11 +251,16 @@ namespace GAcademia.Forms
             this.panelChildrens.Location = new System.Drawing.Point(150, 0);
             this.panelChildrens.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.panelChildrens.Name = "panelChildrens";
-            this.panelChildrens.Size = new System.Drawing.Size(650, 450);
+            this.panelChildrens.Size = new System.Drawing.Size(634, 461);
             this.panelChildrens.TabIndex = 1;
             // 
             // PanelNewLogin
             // 
+            this.PanelNewLogin.Controls.Add(this.btn_DeleteN);
+            this.PanelNewLogin.Controls.Add(this.btn_UpdateN);
+            this.PanelNewLogin.Controls.Add(this.TextBoxIdUser);
+            this.PanelNewLogin.Controls.Add(this.TextBoxInfIdUser);
+            this.PanelNewLogin.Controls.Add(this.ComboBoxSelect);
             this.PanelNewLogin.Controls.Add(this.ComboBoxPrivilegio);
             this.PanelNewLogin.Controls.Add(this.bnt_salvarN);
             this.PanelNewLogin.Controls.Add(this.textBoxLoginN);
@@ -259,7 +270,7 @@ namespace GAcademia.Forms
             this.PanelNewLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelNewLogin.Location = new System.Drawing.Point(0, 0);
             this.PanelNewLogin.Name = "PanelNewLogin";
-            this.PanelNewLogin.Size = new System.Drawing.Size(650, 450);
+            this.PanelNewLogin.Size = new System.Drawing.Size(634, 461);
             this.PanelNewLogin.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.PanelNewLogin.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.PanelNewLogin.StateDisabled.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -268,10 +279,333 @@ namespace GAcademia.Forms
             this.PanelNewLogin.StateNormal.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.PanelNewLogin.TabIndex = 63;
             // 
+            // btn_DeleteN
+            // 
+            this.btn_DeleteN.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_DeleteN.Location = new System.Drawing.Point(193, 368);
+            this.btn_DeleteN.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btn_DeleteN.Name = "btn_DeleteN";
+            this.btn_DeleteN.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_DeleteN.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_DeleteN.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_DeleteN.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.OverrideFocus.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.btn_DeleteN.OverrideFocus.Border.Color2 = System.Drawing.SystemColors.Highlight;
+            this.btn_DeleteN.OverrideFocus.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.btn_DeleteN.OverrideFocus.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_DeleteN.OverrideFocus.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.btn_DeleteN.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_DeleteN.OverrideFocus.Border.Rounding = 20;
+            this.btn_DeleteN.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
+            this.btn_DeleteN.Size = new System.Drawing.Size(198, 32);
+            this.btn_DeleteN.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_DeleteN.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_DeleteN.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.btn_DeleteN.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_DeleteN.StateCommon.Border.Rounding = 20;
+            this.btn_DeleteN.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_DeleteN.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DeleteN.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.StateDisabled.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_DeleteN.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_DeleteN.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.StateNormal.Back.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.btn_DeleteN.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_DeleteN.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_DeleteN.StateNormal.Border.Rounding = 20;
+            this.btn_DeleteN.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.StatePressed.Border.Color1 = System.Drawing.Color.Blue;
+            this.btn_DeleteN.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_DeleteN.StatePressed.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.LinearShadow;
+            this.btn_DeleteN.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_DeleteN.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_DeleteN.StateTracking.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.btn_DeleteN.StateTracking.Border.Color2 = System.Drawing.SystemColors.Highlight;
+            this.btn_DeleteN.StateTracking.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.btn_DeleteN.StateTracking.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_DeleteN.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_DeleteN.TabIndex = 73;
+            this.btn_DeleteN.Values.Text = "Deletar";
+            this.btn_DeleteN.Click += new System.EventHandler(this.btn_DeleteN_Click);
+            // 
+            // btn_UpdateN
+            // 
+            this.btn_UpdateN.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_UpdateN.Location = new System.Drawing.Point(314, 305);
+            this.btn_UpdateN.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btn_UpdateN.Name = "btn_UpdateN";
+            this.btn_UpdateN.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_UpdateN.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_UpdateN.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_UpdateN.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.OverrideFocus.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.btn_UpdateN.OverrideFocus.Border.Color2 = System.Drawing.SystemColors.Highlight;
+            this.btn_UpdateN.OverrideFocus.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.btn_UpdateN.OverrideFocus.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_UpdateN.OverrideFocus.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.btn_UpdateN.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_UpdateN.OverrideFocus.Border.Rounding = 20;
+            this.btn_UpdateN.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
+            this.btn_UpdateN.Size = new System.Drawing.Size(183, 32);
+            this.btn_UpdateN.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_UpdateN.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_UpdateN.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.btn_UpdateN.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_UpdateN.StateCommon.Border.Rounding = 20;
+            this.btn_UpdateN.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_UpdateN.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_UpdateN.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.StateDisabled.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_UpdateN.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_UpdateN.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.StateNormal.Back.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.btn_UpdateN.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_UpdateN.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_UpdateN.StateNormal.Border.Rounding = 20;
+            this.btn_UpdateN.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.StatePressed.Border.Color1 = System.Drawing.Color.Blue;
+            this.btn_UpdateN.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_UpdateN.StatePressed.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.LinearShadow;
+            this.btn_UpdateN.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_UpdateN.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_UpdateN.StateTracking.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.btn_UpdateN.StateTracking.Border.Color2 = System.Drawing.SystemColors.Highlight;
+            this.btn_UpdateN.StateTracking.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.btn_UpdateN.StateTracking.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_UpdateN.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_UpdateN.TabIndex = 72;
+            this.btn_UpdateN.Values.Text = "Atualizar";
+            this.btn_UpdateN.Click += new System.EventHandler(this.btn_UpdateN_Click);
+            // 
+            // TextBoxIdUser
+            // 
+            this.TextBoxIdUser.AlwaysActive = false;
+            this.TextBoxIdUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TextBoxIdUser.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
+            this.TextBoxIdUser.Location = new System.Drawing.Point(152, 68);
+            this.TextBoxIdUser.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.TextBoxIdUser.Name = "TextBoxIdUser";
+            this.TextBoxIdUser.Size = new System.Drawing.Size(83, 32);
+            this.TextBoxIdUser.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.TextBoxIdUser.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
+            this.TextBoxIdUser.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.TextBoxIdUser.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxIdUser.StateActive.Border.Rounding = 20;
+            this.TextBoxIdUser.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.TextBoxIdUser.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxIdUser.StateActive.Content.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
+            this.TextBoxIdUser.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxIdUser.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxIdUser.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.TextBoxIdUser.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxIdUser.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxIdUser.StateDisabled.Border.Rounding = 20;
+            this.TextBoxIdUser.StateDisabled.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TextBoxIdUser.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.TextBoxIdUser.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxIdUser.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.TextBoxIdUser.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxIdUser.StateNormal.Border.Rounding = 20;
+            this.TextBoxIdUser.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TextBoxIdUser.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxIdUser.TabIndex = 71;
+            this.TextBoxIdUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TextBoxIdUser.Visible = false;
+            // 
+            // TextBoxInfIdUser
+            // 
+            this.TextBoxInfIdUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TextBoxInfIdUser.Enabled = false;
+            this.TextBoxInfIdUser.Location = new System.Drawing.Point(98, 68);
+            this.TextBoxInfIdUser.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.TextBoxInfIdUser.MaxLength = 1000;
+            this.TextBoxInfIdUser.Name = "TextBoxInfIdUser";
+            this.TextBoxInfIdUser.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.TextBoxInfIdUser.ReadOnly = true;
+            this.TextBoxInfIdUser.ShortcutsEnabled = false;
+            this.TextBoxInfIdUser.Size = new System.Drawing.Size(54, 32);
+            this.TextBoxInfIdUser.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfIdUser.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfIdUser.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.TextBoxInfIdUser.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.TextBoxInfIdUser.StateActive.Border.Rounding = 20;
+            this.TextBoxInfIdUser.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.TextBoxInfIdUser.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxInfIdUser.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBoxInfIdUser.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfIdUser.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfIdUser.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.TextBoxInfIdUser.StateDisabled.Border.Rounding = 20;
+            this.TextBoxInfIdUser.StateDisabled.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxInfIdUser.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfIdUser.TabIndex = 70;
+            this.TextBoxInfIdUser.TabStop = false;
+            this.TextBoxInfIdUser.Text = "ID User";
+            this.TextBoxInfIdUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TextBoxInfIdUser.Visible = false;
+            // 
+            // ComboBoxSelect
+            // 
+            this.ComboBoxSelect.AlwaysActive = false;
+            this.ComboBoxSelect.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ComboBoxSelect.DropDownWidth = 174;
+            this.ComboBoxSelect.Location = new System.Drawing.Point(98, 31);
+            this.ComboBoxSelect.Name = "ComboBoxSelect";
+            this.ComboBoxSelect.Size = new System.Drawing.Size(399, 33);
+            this.ComboBoxSelect.StateActive.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxSelect.StateActive.ComboBox.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.ComboBoxSelect.StateActive.ComboBox.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.ComboBoxSelect.StateActive.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.ComboBoxSelect.StateActive.ComboBox.Border.Rounding = 20;
+            this.ComboBoxSelect.StateActive.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.ComboBoxSelect.StateActive.ComboBox.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxSelect.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxSelect.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ComboBoxSelect.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxSelect.StateCommon.DropBack.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxSelect.StateCommon.DropBack.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxSelect.StateCommon.Item.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxSelect.StateCommon.Item.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxSelect.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ComboBoxSelect.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxSelect.StateNormal.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxSelect.StateNormal.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.ComboBoxSelect.StateNormal.ComboBox.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.ComboBoxSelect.StateNormal.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.ComboBoxSelect.StateNormal.ComboBox.Border.Rounding = 20;
+            this.ComboBoxSelect.StateNormal.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ComboBoxSelect.StateNormal.ComboBox.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxSelect.StateNormal.Item.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxSelect.StateNormal.Item.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxSelect.StateNormal.Item.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.ComboBoxSelect.StateNormal.Item.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.ComboBoxSelect.StateNormal.Item.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.ComboBoxSelect.StateTracking.Item.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxSelect.StateTracking.Item.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxSelect.StateTracking.Item.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.ComboBoxSelect.StateTracking.Item.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.ComboBoxSelect.StateTracking.Item.Border.Color2 = System.Drawing.SystemColors.HotTrack;
+            this.ComboBoxSelect.StateTracking.Item.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.ComboBoxSelect.TabIndex = 69;
+            this.ComboBoxSelect.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxSelect_SelectionChangeCommitted);
+            // 
+            // ComboBoxPrivilegio
+            // 
+            this.ComboBoxPrivilegio.AlwaysActive = false;
+            this.ComboBoxPrivilegio.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ComboBoxPrivilegio.DropDownWidth = 174;
+            this.ComboBoxPrivilegio.Location = new System.Drawing.Point(165, 227);
+            this.ComboBoxPrivilegio.Name = "ComboBoxPrivilegio";
+            this.ComboBoxPrivilegio.Size = new System.Drawing.Size(266, 33);
+            this.ComboBoxPrivilegio.StateActive.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxPrivilegio.StateActive.ComboBox.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.ComboBoxPrivilegio.StateActive.ComboBox.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.ComboBoxPrivilegio.StateActive.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.ComboBoxPrivilegio.StateActive.ComboBox.Border.Rounding = 20;
+            this.ComboBoxPrivilegio.StateActive.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.ComboBoxPrivilegio.StateActive.ComboBox.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxPrivilegio.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxPrivilegio.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ComboBoxPrivilegio.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxPrivilegio.StateCommon.DropBack.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxPrivilegio.StateCommon.DropBack.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxPrivilegio.StateCommon.Item.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxPrivilegio.StateCommon.Item.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxPrivilegio.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ComboBoxPrivilegio.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxPrivilegio.StateNormal.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxPrivilegio.StateNormal.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.ComboBoxPrivilegio.StateNormal.ComboBox.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.ComboBoxPrivilegio.StateNormal.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.ComboBoxPrivilegio.StateNormal.ComboBox.Border.Rounding = 20;
+            this.ComboBoxPrivilegio.StateNormal.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ComboBoxPrivilegio.StateNormal.ComboBox.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxPrivilegio.StateNormal.Item.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxPrivilegio.StateNormal.Item.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxPrivilegio.StateNormal.Item.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.ComboBoxPrivilegio.StateNormal.Item.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.ComboBoxPrivilegio.StateNormal.Item.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.ComboBoxPrivilegio.StateTracking.Item.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxPrivilegio.StateTracking.Item.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.ComboBoxPrivilegio.StateTracking.Item.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
+            this.ComboBoxPrivilegio.StateTracking.Item.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.ComboBoxPrivilegio.StateTracking.Item.Border.Color2 = System.Drawing.SystemColors.HotTrack;
+            this.ComboBoxPrivilegio.StateTracking.Item.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.ComboBoxPrivilegio.TabIndex = 68;
+            // 
             // bnt_salvarN
             // 
             this.bnt_salvarN.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bnt_salvarN.Location = new System.Drawing.Point(208, 303);
+            this.bnt_salvarN.Location = new System.Drawing.Point(98, 305);
             this.bnt_salvarN.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.bnt_salvarN.Name = "bnt_salvarN";
             this.bnt_salvarN.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -292,9 +626,11 @@ namespace GAcademia.Forms
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.bnt_salvarN.OverrideFocus.Border.Rounding = 20;
-            this.bnt_salvarN.Size = new System.Drawing.Size(198, 32);
+            this.bnt_salvarN.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
+            this.bnt_salvarN.Size = new System.Drawing.Size(183, 32);
             this.bnt_salvarN.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.bnt_salvarN.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.bnt_salvarN.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.bnt_salvarN.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.bnt_salvarN.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.bnt_salvarN.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -348,7 +684,7 @@ namespace GAcademia.Forms
             this.textBoxLoginN.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.textBoxLoginN.MinimumSize = new System.Drawing.Size(138, 32);
             this.textBoxLoginN.Name = "textBoxLoginN";
-            this.textBoxLoginN.Size = new System.Drawing.Size(253, 32);
+            this.textBoxLoginN.Size = new System.Drawing.Size(237, 32);
             this.textBoxLoginN.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.textBoxLoginN.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
             this.textBoxLoginN.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
@@ -390,7 +726,7 @@ namespace GAcademia.Forms
             this.textBoxSenhaN.MinimumSize = new System.Drawing.Size(138, 32);
             this.textBoxSenhaN.Name = "textBoxSenhaN";
             this.textBoxSenhaN.PasswordChar = '●';
-            this.textBoxSenhaN.Size = new System.Drawing.Size(253, 32);
+            this.textBoxSenhaN.Size = new System.Drawing.Size(237, 32);
             this.textBoxSenhaN.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.textBoxSenhaN.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
             this.textBoxSenhaN.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
@@ -504,7 +840,7 @@ namespace GAcademia.Forms
             this.PanelTrocarLoginPadrao.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelTrocarLoginPadrao.Location = new System.Drawing.Point(0, 0);
             this.PanelTrocarLoginPadrao.Name = "PanelTrocarLoginPadrao";
-            this.PanelTrocarLoginPadrao.Size = new System.Drawing.Size(650, 450);
+            this.PanelTrocarLoginPadrao.Size = new System.Drawing.Size(634, 461);
             this.PanelTrocarLoginPadrao.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.PanelTrocarLoginPadrao.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.PanelTrocarLoginPadrao.StateDisabled.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -559,7 +895,7 @@ namespace GAcademia.Forms
             this.textBoxSenha.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.textBoxSenha.MinimumSize = new System.Drawing.Size(138, 32);
             this.textBoxSenha.Name = "textBoxSenha";
-            this.textBoxSenha.Size = new System.Drawing.Size(253, 32);
+            this.textBoxSenha.Size = new System.Drawing.Size(237, 32);
             this.textBoxSenha.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.textBoxSenha.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
             this.textBoxSenha.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
@@ -636,7 +972,7 @@ namespace GAcademia.Forms
             this.textBoxUsuario.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.textBoxUsuario.MinimumSize = new System.Drawing.Size(138, 32);
             this.textBoxUsuario.Name = "textBoxUsuario";
-            this.textBoxUsuario.Size = new System.Drawing.Size(253, 32);
+            this.textBoxUsuario.Size = new System.Drawing.Size(237, 32);
             this.textBoxUsuario.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.textBoxUsuario.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
             this.textBoxUsuario.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
@@ -670,7 +1006,7 @@ namespace GAcademia.Forms
             // btn_Save
             // 
             this.btn_Save.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_Save.Location = new System.Drawing.Point(229, 201);
+            this.btn_Save.Location = new System.Drawing.Point(221, 201);
             this.btn_Save.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -691,9 +1027,11 @@ namespace GAcademia.Forms
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_Save.OverrideFocus.Border.Rounding = 20;
+            this.btn_Save.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
             this.btn_Save.Size = new System.Drawing.Size(198, 32);
             this.btn_Save.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_Save.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Save.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.btn_Save.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.btn_Save.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.btn_Save.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -744,7 +1082,7 @@ namespace GAcademia.Forms
             this.PanelMySqlConfig.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMySqlConfig.Location = new System.Drawing.Point(0, 0);
             this.PanelMySqlConfig.Name = "PanelMySqlConfig";
-            this.PanelMySqlConfig.Size = new System.Drawing.Size(650, 450);
+            this.PanelMySqlConfig.Size = new System.Drawing.Size(634, 461);
             this.PanelMySqlConfig.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.PanelMySqlConfig.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.PanelMySqlConfig.StateDisabled.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -756,7 +1094,7 @@ namespace GAcademia.Forms
             // btn_testConnect
             // 
             this.btn_testConnect.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_testConnect.Location = new System.Drawing.Point(274, 283);
+            this.btn_testConnect.Location = new System.Drawing.Point(266, 283);
             this.btn_testConnect.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btn_testConnect.Name = "btn_testConnect";
             this.btn_testConnect.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -777,9 +1115,11 @@ namespace GAcademia.Forms
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_testConnect.OverrideFocus.Border.Rounding = 20;
+            this.btn_testConnect.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
             this.btn_testConnect.Size = new System.Drawing.Size(207, 32);
             this.btn_testConnect.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_testConnect.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_testConnect.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.btn_testConnect.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.btn_testConnect.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.btn_testConnect.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -829,81 +1169,32 @@ namespace GAcademia.Forms
             this.userControlMySqlConfig1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlMySqlConfig1.Location = new System.Drawing.Point(0, 0);
             this.userControlMySqlConfig1.Name = "userControlMySqlConfig1";
-            this.userControlMySqlConfig1.Size = new System.Drawing.Size(650, 450);
+            this.userControlMySqlConfig1.Size = new System.Drawing.Size(634, 461);
             this.userControlMySqlConfig1.TabIndex = 0;
-            // 
-            // ComboBoxPrivilegio
-            // 
-            this.ComboBoxPrivilegio.AlwaysActive = false;
-            this.ComboBoxPrivilegio.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ComboBoxPrivilegio.DropDownWidth = 174;
-            this.ComboBoxPrivilegio.Location = new System.Drawing.Point(180, 227);
-            this.ComboBoxPrivilegio.Name = "ComboBoxPrivilegio";
-            this.ComboBoxPrivilegio.Size = new System.Drawing.Size(266, 33);
-            this.ComboBoxPrivilegio.StateActive.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.ComboBoxPrivilegio.StateActive.ComboBox.Border.Color1 = System.Drawing.SystemColors.Highlight;
-            this.ComboBoxPrivilegio.StateActive.ComboBox.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.ComboBoxPrivilegio.StateActive.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.ComboBoxPrivilegio.StateActive.ComboBox.Border.Rounding = 20;
-            this.ComboBoxPrivilegio.StateActive.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.ComboBoxPrivilegio.StateActive.ComboBox.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboBoxPrivilegio.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.ComboBoxPrivilegio.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ComboBoxPrivilegio.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboBoxPrivilegio.StateCommon.DropBack.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.ComboBoxPrivilegio.StateCommon.DropBack.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.ComboBoxPrivilegio.StateCommon.Item.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.ComboBoxPrivilegio.StateCommon.Item.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.ComboBoxPrivilegio.StateCommon.Item.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ComboBoxPrivilegio.StateCommon.Item.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboBoxPrivilegio.StateNormal.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.ComboBoxPrivilegio.StateNormal.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.ComboBoxPrivilegio.StateNormal.ComboBox.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
-            this.ComboBoxPrivilegio.StateNormal.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.ComboBoxPrivilegio.StateNormal.ComboBox.Border.Rounding = 20;
-            this.ComboBoxPrivilegio.StateNormal.ComboBox.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ComboBoxPrivilegio.StateNormal.ComboBox.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboBoxPrivilegio.StateNormal.Item.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.ComboBoxPrivilegio.StateNormal.Item.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.ComboBoxPrivilegio.StateNormal.Item.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.ComboBoxPrivilegio.StateNormal.Item.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
-            this.ComboBoxPrivilegio.StateNormal.Item.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.ComboBoxPrivilegio.StateTracking.Item.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.ComboBoxPrivilegio.StateTracking.Item.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
-            this.ComboBoxPrivilegio.StateTracking.Item.Back.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.False;
-            this.ComboBoxPrivilegio.StateTracking.Item.Border.Color1 = System.Drawing.SystemColors.Highlight;
-            this.ComboBoxPrivilegio.StateTracking.Item.Border.Color2 = System.Drawing.SystemColors.HotTrack;
-            this.ComboBoxPrivilegio.StateTracking.Item.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.ComboBoxPrivilegio.TabIndex = 68;
             // 
             // Configuracao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.panelChildrens);
             this.Controls.Add(this.panelButtons);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "Configuracao";
             this.Text = "Configuracao";
+            this.Load += new System.EventHandler(this.Configuracao_Load);
             this.panelButtons.ResumeLayout(false);
             this.panelChildrens.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PanelNewLogin)).EndInit();
             this.PanelNewLogin.ResumeLayout(false);
             this.PanelNewLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSelect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ComboBoxPrivilegio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PanelTrocarLoginPadrao)).EndInit();
             this.PanelTrocarLoginPadrao.ResumeLayout(false);
             this.PanelTrocarLoginPadrao.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PanelMySqlConfig)).EndInit();
             this.PanelMySqlConfig.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ComboBoxPrivilegio)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -932,5 +1223,10 @@ namespace GAcademia.Forms
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxInfLoginN;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxInfSenhaN;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox ComboBoxPrivilegio;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox ComboBoxSelect;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxIdUser;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfIdUser;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_DeleteN;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_UpdateN;
     }
 }

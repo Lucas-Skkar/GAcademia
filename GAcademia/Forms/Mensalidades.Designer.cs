@@ -69,7 +69,7 @@ namespace GAcademia.Forms
             this.searchResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idmensalidade,
             this.nome});
-            this.searchResult.Location = new System.Drawing.Point(105, 47);
+            this.searchResult.Location = new System.Drawing.Point(109, 77);
             this.searchResult.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.searchResult.Name = "searchResult";
             this.searchResult.ReadOnly = true;
@@ -109,8 +109,10 @@ namespace GAcademia.Forms
             // btn_search
             // 
             this.btn_search.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_search.Location = new System.Drawing.Point(571, 12);
+            this.btn_search.Location = new System.Drawing.Point(575, 42);
             this.btn_search.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btn_search.MaximumSize = new System.Drawing.Size(0, 32);
+            this.btn_search.MinimumSize = new System.Drawing.Size(80, 32);
             this.btn_search.Name = "btn_search";
             this.btn_search.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_search.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -128,9 +130,11 @@ namespace GAcademia.Forms
             this.btn_search.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_search.OverrideFocus.Border.Rounding = 20;
+            this.btn_search.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
             this.btn_search.Size = new System.Drawing.Size(80, 32);
             this.btn_search.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_search.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_search.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.btn_search.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.btn_search.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.btn_search.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -167,7 +171,7 @@ namespace GAcademia.Forms
             this.btn_search.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_search.TabIndex = 17;
-            this.btn_search.Values.Text = "Procurar";
+            this.btn_search.Values.Text = "Selecionar";
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // TextBoxSearch
@@ -175,7 +179,7 @@ namespace GAcademia.Forms
             this.TextBoxSearch.AlwaysActive = false;
             this.TextBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TextBoxSearch.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.TextBoxSearch.Location = new System.Drawing.Point(89, 12);
+            this.TextBoxSearch.Location = new System.Drawing.Point(93, 42);
             this.TextBoxSearch.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxSearch.Name = "TextBoxSearch";
             this.TextBoxSearch.Size = new System.Drawing.Size(482, 32);
@@ -213,7 +217,7 @@ namespace GAcademia.Forms
             // 
             this.TextBoxInfIdAluno.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TextBoxInfIdAluno.Enabled = false;
-            this.TextBoxInfIdAluno.Location = new System.Drawing.Point(592, 93);
+            this.TextBoxInfIdAluno.Location = new System.Drawing.Point(596, 123);
             this.TextBoxInfIdAluno.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfIdAluno.MaxLength = 10;
             this.TextBoxInfIdAluno.Name = "TextBoxInfIdAluno";
@@ -246,7 +250,7 @@ namespace GAcademia.Forms
             this.ComboBoxAluno.AlwaysActive = false;
             this.ComboBoxAluno.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ComboBoxAluno.DropDownWidth = 419;
-            this.ComboBoxAluno.Location = new System.Drawing.Point(89, 92);
+            this.ComboBoxAluno.Location = new System.Drawing.Point(93, 122);
             this.ComboBoxAluno.Name = "ComboBoxAluno";
             this.ComboBoxAluno.Size = new System.Drawing.Size(419, 33);
             this.ComboBoxAluno.StateActive.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -299,7 +303,7 @@ namespace GAcademia.Forms
             // 
             this.TextBoxIdAluno.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TextBoxIdAluno.Enabled = false;
-            this.TextBoxIdAluno.Location = new System.Drawing.Point(525, 93);
+            this.TextBoxIdAluno.Location = new System.Drawing.Point(529, 123);
             this.TextBoxIdAluno.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxIdAluno.Name = "TextBoxIdAluno";
             this.TextBoxIdAluno.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
@@ -330,7 +334,7 @@ namespace GAcademia.Forms
             this.ComboBoxMes.AlwaysActive = false;
             this.ComboBoxMes.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ComboBoxMes.DropDownWidth = 215;
-            this.ComboBoxMes.Location = new System.Drawing.Point(89, 158);
+            this.ComboBoxMes.Location = new System.Drawing.Point(93, 188);
             this.ComboBoxMes.Name = "ComboBoxMes";
             this.ComboBoxMes.Size = new System.Drawing.Size(215, 33);
             this.ComboBoxMes.StateActive.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -382,7 +386,7 @@ namespace GAcademia.Forms
             this.ComboBoxStatus.AlwaysActive = false;
             this.ComboBoxStatus.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ComboBoxStatus.DropDownWidth = 145;
-            this.ComboBoxStatus.Location = new System.Drawing.Point(506, 158);
+            this.ComboBoxStatus.Location = new System.Drawing.Point(510, 188);
             this.ComboBoxStatus.Name = "ComboBoxStatus";
             this.ComboBoxStatus.Size = new System.Drawing.Size(145, 33);
             this.ComboBoxStatus.StateActive.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -430,7 +434,7 @@ namespace GAcademia.Forms
             // 
             this.MtextBoxDPagamento.AlwaysActive = false;
             this.MtextBoxDPagamento.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.MtextBoxDPagamento.Location = new System.Drawing.Point(359, 226);
+            this.MtextBoxDPagamento.Location = new System.Drawing.Point(363, 256);
             this.MtextBoxDPagamento.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.MtextBoxDPagamento.Mask = "00 / 00 / 0000";
             this.MtextBoxDPagamento.Name = "MtextBoxDPagamento";
@@ -457,7 +461,7 @@ namespace GAcademia.Forms
             // TextBoxInfDPagam
             // 
             this.TextBoxInfDPagam.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TextBoxInfDPagam.Location = new System.Drawing.Point(548, 226);
+            this.TextBoxInfDPagam.Location = new System.Drawing.Point(552, 256);
             this.TextBoxInfDPagam.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfDPagam.MaxLength = 10;
             this.TextBoxInfDPagam.Name = "TextBoxInfDPagam";
@@ -482,7 +486,7 @@ namespace GAcademia.Forms
             // TextBoxInfValor
             // 
             this.TextBoxInfValor.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TextBoxInfValor.Location = new System.Drawing.Point(89, 226);
+            this.TextBoxInfValor.Location = new System.Drawing.Point(93, 256);
             this.TextBoxInfValor.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxInfValor.MaxLength = 10;
             this.TextBoxInfValor.Name = "TextBoxInfValor";
@@ -509,7 +513,7 @@ namespace GAcademia.Forms
             this.textBoxValor.AlwaysActive = false;
             this.textBoxValor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxValor.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
-            this.textBoxValor.Location = new System.Drawing.Point(144, 226);
+            this.textBoxValor.Location = new System.Drawing.Point(148, 256);
             this.textBoxValor.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.textBoxValor.Name = "textBoxValor";
             this.textBoxValor.Size = new System.Drawing.Size(160, 32);
@@ -545,7 +549,7 @@ namespace GAcademia.Forms
             // 
             this.TextBoxInfIdMensalidade.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TextBoxInfIdMensalidade.Enabled = false;
-            this.TextBoxInfIdMensalidade.Location = new System.Drawing.Point(584, 55);
+            this.TextBoxInfIdMensalidade.Location = new System.Drawing.Point(588, 85);
             this.TextBoxInfIdMensalidade.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.TextBoxInfIdMensalidade.MaxLength = 10;
             this.TextBoxInfIdMensalidade.Name = "TextBoxInfIdMensalidade";
@@ -577,7 +581,7 @@ namespace GAcademia.Forms
             // TextBoxIdMensalidade
             // 
             this.TextBoxIdMensalidade.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TextBoxIdMensalidade.Location = new System.Drawing.Point(525, 55);
+            this.TextBoxIdMensalidade.Location = new System.Drawing.Point(529, 85);
             this.TextBoxIdMensalidade.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.TextBoxIdMensalidade.Name = "TextBoxIdMensalidade";
             this.TextBoxIdMensalidade.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
@@ -607,8 +611,9 @@ namespace GAcademia.Forms
             // btn_Adicionar
             // 
             this.btn_Adicionar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_Adicionar.Location = new System.Drawing.Point(144, 322);
+            this.btn_Adicionar.Location = new System.Drawing.Point(148, 352);
             this.btn_Adicionar.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btn_Adicionar.MinimumSize = new System.Drawing.Size(92, 32);
             this.btn_Adicionar.Name = "btn_Adicionar";
             this.btn_Adicionar.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_Adicionar.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -628,9 +633,11 @@ namespace GAcademia.Forms
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_Adicionar.OverrideFocus.Border.Rounding = 20;
+            this.btn_Adicionar.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
             this.btn_Adicionar.Size = new System.Drawing.Size(92, 32);
             this.btn_Adicionar.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_Adicionar.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Adicionar.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.btn_Adicionar.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.btn_Adicionar.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.btn_Adicionar.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -677,8 +684,9 @@ namespace GAcademia.Forms
             // btn_update
             // 
             this.btn_update.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_update.Location = new System.Drawing.Point(254, 322);
+            this.btn_update.Location = new System.Drawing.Point(258, 352);
             this.btn_update.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btn_update.MinimumSize = new System.Drawing.Size(104, 32);
             this.btn_update.Name = "btn_update";
             this.btn_update.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_update.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -698,9 +706,11 @@ namespace GAcademia.Forms
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_update.OverrideFocus.Border.Rounding = 20;
+            this.btn_update.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
             this.btn_update.Size = new System.Drawing.Size(104, 32);
             this.btn_update.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_update.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_update.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.btn_update.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.btn_update.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.btn_update.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -747,8 +757,9 @@ namespace GAcademia.Forms
             // btn_delete
             // 
             this.btn_delete.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_delete.Location = new System.Drawing.Point(374, 322);
+            this.btn_delete.Location = new System.Drawing.Point(378, 352);
             this.btn_delete.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btn_delete.MinimumSize = new System.Drawing.Size(86, 32);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_delete.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -768,9 +779,11 @@ namespace GAcademia.Forms
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_delete.OverrideFocus.Border.Rounding = 20;
+            this.btn_delete.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
             this.btn_delete.Size = new System.Drawing.Size(86, 32);
             this.btn_delete.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_delete.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_delete.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.btn_delete.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.btn_delete.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.btn_delete.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -819,7 +832,7 @@ namespace GAcademia.Forms
             this.ComboBoxDia.AlwaysActive = false;
             this.ComboBoxDia.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ComboBoxDia.DropDownWidth = 145;
-            this.ComboBoxDia.Location = new System.Drawing.Point(331, 158);
+            this.ComboBoxDia.Location = new System.Drawing.Point(335, 188);
             this.ComboBoxDia.Name = "ComboBoxDia";
             this.ComboBoxDia.Size = new System.Drawing.Size(145, 33);
             this.ComboBoxDia.StateActive.ComboBox.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -866,8 +879,9 @@ namespace GAcademia.Forms
             // btn_Imprimir
             // 
             this.btn_Imprimir.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_Imprimir.Location = new System.Drawing.Point(480, 322);
+            this.btn_Imprimir.Location = new System.Drawing.Point(484, 352);
             this.btn_Imprimir.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btn_Imprimir.MinimumSize = new System.Drawing.Size(150, 32);
             this.btn_Imprimir.Name = "btn_Imprimir";
             this.btn_Imprimir.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_Imprimir.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -887,9 +901,11 @@ namespace GAcademia.Forms
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_Imprimir.OverrideFocus.Border.Rounding = 20;
+            this.btn_Imprimir.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
             this.btn_Imprimir.Size = new System.Drawing.Size(150, 32);
             this.btn_Imprimir.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.btn_Imprimir.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_Imprimir.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
             this.btn_Imprimir.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
             this.btn_Imprimir.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
             this.btn_Imprimir.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -938,7 +954,7 @@ namespace GAcademia.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(800, 427);
+            this.ClientSize = new System.Drawing.Size(784, 484);
             this.ControlBox = false;
             this.Controls.Add(this.btn_Imprimir);
             this.Controls.Add(this.ComboBoxDia);
@@ -959,6 +975,7 @@ namespace GAcademia.Forms
             this.Controls.Add(this.TextBoxIdAluno);
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.TextBoxSearch);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "Mensalidades";
             this.ShowIcon = false;
             this.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
@@ -972,8 +989,8 @@ namespace GAcademia.Forms
             this.StateCommon.Header.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
             this.StateCommon.Header.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.StateCommon.Header.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Text = "Mensalidades";
             this.Load += new System.EventHandler(this.Mensalidades_Load);
+            this.Resize += new System.EventHandler(this.Mensalidades_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.searchResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxAluno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxMes)).EndInit();

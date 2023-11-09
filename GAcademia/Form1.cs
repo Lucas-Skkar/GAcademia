@@ -13,9 +13,19 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace GAcademia
 {
-    
     public partial class FormMain : KryptonForm
     {
+        private Rectangle btn_DomingoOriginal;
+        private Rectangle btn_SegundaOriginal;
+        private Rectangle btn_TercaOriginal;
+        private Rectangle btn_quartaOriginal;
+        private Rectangle btn_quintaOriginal;
+        private Rectangle btn_sextaOriginal;
+        private Rectangle btn_sabadoOriginal;
+        //private Rectangle DataGridAgendaOriginal;
+
+        private Size formOriginal;
+
         public static bool privilegio = false;
         private Form activeForm;
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -28,6 +38,16 @@ namespace GAcademia
             test_bdConnection();
             //this.Text = string.Empty;
             //this.ControlBox = false;
+
+            formOriginal = this.Size;
+            btn_DomingoOriginal = new Rectangle (btn_Domingo.Location.X, btn_Domingo.Location.Y, btn_Domingo.Width, btn_Domingo.Height);
+            btn_SegundaOriginal = new Rectangle(btn_Segunda.Location.X, btn_Segunda.Location.Y, btn_Segunda.Width, btn_Segunda.Height);
+            btn_TercaOriginal = new Rectangle(btn_Terca.Location.X, btn_Terca.Location.Y, btn_Terca.Width, btn_Terca.Height);
+            btn_quartaOriginal = new Rectangle(btn_quarta.Location.X, btn_quarta.Location.Y, btn_quarta.Width, btn_quarta.Height);
+            btn_quintaOriginal = new Rectangle(btn_quinta.Location.X, btn_quinta.Location.Y, btn_quinta.Width, btn_quinta.Height);
+            btn_sextaOriginal = new Rectangle(btn_sexta.Location.X, btn_sexta.Location.Y, btn_sexta.Width, btn_sexta.Height);
+            btn_sabadoOriginal = new Rectangle(btn_sabado.Location.X, btn_sabado.Location.Y, btn_sabado.Width, btn_sabado.Height);
+            //DataGridAgendaOriginal = new Rectangle(DataGridAgenda.Location.X, DataGridAgenda.Location.Y, DataGridAgenda.Width, DataGridAgenda.Height);
         }
 
         private void test_bdConnection()
@@ -140,27 +160,32 @@ namespace GAcademia
         private void btn_Alunos_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.Alunos(), sender);
+            labelHead.Text = "Alunos";
         }
 
         private void btn_Instrutor_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.Instrutores(), sender);
+            labelHead.Text = "Professores";
         }
 
         private void btn_Financas_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.Financas(), sender);
+            labelHead.Text = "Finanças";
         }
 
         private void btn_Agenda_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.Agenda(), sender);
+            labelHead.Text = "Agenda";
         }
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
                 activeForm.Close();
+            labelHead.Text = "Home";
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -228,7 +253,39 @@ namespace GAcademia
         private void btn_confg_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.Configuracao(), sender);
+            labelHead.Text = "Configurações";
         }
 
+        private void rezise()
+        {
+            resizeControl(btn_DomingoOriginal, btn_Domingo);
+            resizeControl(btn_SegundaOriginal, btn_Segunda);
+            resizeControl(btn_TercaOriginal, btn_Terca);
+            resizeControl(btn_quartaOriginal, btn_quarta);
+            resizeControl(btn_quintaOriginal, btn_quinta);
+            resizeControl(btn_sextaOriginal, btn_sexta);
+            resizeControl(btn_sabadoOriginal, btn_sabado);
+            //resizeControl(DataGridAgendaOriginal, DataGridAgenda);
+        }
+
+        private void resizeControl(Rectangle OriginalControl, Control control)
+        {
+            float xRatio = (float)(this.Width) / (float)(formOriginal.Width);
+            float yRatio = (float)(this.Height) / (float)(formOriginal.Height);
+
+            int newX = (int)(OriginalControl.X * xRatio);
+            int newY = (int)(OriginalControl.Y * yRatio);
+
+            int newWidth = (int)(OriginalControl.Width * xRatio);
+            int newHeight = (int)(OriginalControl.Height * yRatio);
+
+            control.Location = new Point(newX, newY);
+            control.Size = new Size(newWidth, newHeight);
+        }
+
+        private void FormMain_Resize(object sender, EventArgs e)
+        {
+            rezise();
+        }
     }
 }
