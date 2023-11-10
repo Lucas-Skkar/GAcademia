@@ -144,31 +144,39 @@ namespace GAcademia.Forms
         {
             if (TextBoxSearch.TextLength >= 1)
             {
-                con.Open();
-                string sql = "SELECT tbmensalidades.idmensalidade, tbmensalidades.mes, tbmensalidades.status, tbalunos.nome FROM tbmensalidades ";
-                sql += "INNER JOIN tbalunos ON tbmensalidades.FK_idaluno = tbalunos.idaluno ";
-                sql += "WHERE tbalunos.nome LIKE ?";
-                MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = sql;
-                cmd.Parameters.AddWithValue("tbalunos.nome", TextBoxSearch.Text + "%");
-                cmd.Parameters.AddWithValue("tbmensalidades.idmensalidade", TextBoxSearch.Text + "%");
-                DataTable dt = new DataTable();
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                da.Fill(dt);
-
-                if (dt != null && dt.Rows.Count > 0)
+                try
                 {
-                    searchResult.DataSource = dt;
-                    searchResult.Height = searchResult.Rows.Count * 25;
-                }
-                else
-                {
-                    searchResult.Height = 0;
-                }
+                    con.Open();
+                    string sql = "SELECT tbmensalidades.idmensalidade, tbmensalidades.mes, tbmensalidades.status, tbalunos.nome FROM tbmensalidades ";
+                    sql += "INNER JOIN tbalunos ON tbmensalidades.FK_idaluno = tbalunos.idaluno ";
+                    sql += "WHERE tbalunos.nome LIKE ?";
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("tbalunos.nome", TextBoxSearch.Text + "%");
+                    cmd.Parameters.AddWithValue("tbmensalidades.idmensalidade", TextBoxSearch.Text + "%");
+                    DataTable dt = new DataTable();
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    da.Fill(dt);
 
-                cmd.Dispose();
-                da.Dispose();
-                con.Close();
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        searchResult.DataSource = dt;
+                        searchResult.Height = searchResult.Rows.Count * 25;
+                    }
+                    else
+                    {
+                        searchResult.Height = 0;
+                    }
+
+                    cmd.Dispose();
+                    da.Dispose();
+                    con.Close();
+
+                }
+                catch
+                {
+
+                }
 
             }
             else if (TextBoxSearch.TextLength <= 0)
@@ -194,29 +202,36 @@ namespace GAcademia.Forms
                 textBoxValor.Text = "";
                 MtextBoxDPagamento.Text = "";
 
-                con.Open();
-
-                string sql = "SELECT tbmensalidades.idmensalidade, tbmensalidades.mes, tbmensalidades.dia, tbmensalidades.status, tbmensalidades.valor, tbmensalidades.data_pag, tbalunos.nome FROM tbmensalidades ";
-                sql += "INNER JOIN tbalunos ON tbmensalidades.FK_idaluno = tbalunos.idaluno ";
-                sql += "WHERE tbalunos.nome LIKE ? OR tbmensalidades.idmensalidade LIKE ?";
-                MySqlCommand command = con.CreateCommand();
-                command.CommandText = sql;
-                command.Parameters.AddWithValue("tbmensalidades.idmensalidade", TextBoxSearch.Text + "%");
-                command.Parameters.AddWithValue("tbalunos.nome", TextBoxSearch.Text + "%");
-                MySqlDataReader dr = command.ExecuteReader();
-                while (dr.Read())
+                try
                 {
-                    ComboBoxAluno.Text = dr.GetValue(6).ToString();
-                    TextBoxIdMensalidade.Text = dr.GetValue(0).ToString();
-                    ComboBoxMes.Text = dr.GetValue(1).ToString();
-                    ComboBoxDia.Text = dr.GetValue(2).ToString();
-                    ComboBoxStatus.Text = dr.GetValue(3).ToString();
-                    textBoxValor.Text = dr.GetValue(4).ToString();
-                    MtextBoxDPagamento.Text = dr.GetValue(5).ToString();
-                }
+                    con.Open();
 
-                dr.Close();
-                con.Close();
+                    string sql = "SELECT tbmensalidades.idmensalidade, tbmensalidades.mes, tbmensalidades.dia, tbmensalidades.status, tbmensalidades.valor, tbmensalidades.data_pag, tbalunos.nome FROM tbmensalidades ";
+                    sql += "INNER JOIN tbalunos ON tbmensalidades.FK_idaluno = tbalunos.idaluno ";
+                    sql += "WHERE tbalunos.nome LIKE ? OR tbmensalidades.idmensalidade LIKE ?";
+                    MySqlCommand command = con.CreateCommand();
+                    command.CommandText = sql;
+                    command.Parameters.AddWithValue("tbmensalidades.idmensalidade", TextBoxSearch.Text + "%");
+                    command.Parameters.AddWithValue("tbalunos.nome", TextBoxSearch.Text + "%");
+                    MySqlDataReader dr = command.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ComboBoxAluno.Text = dr.GetValue(6).ToString();
+                        TextBoxIdMensalidade.Text = dr.GetValue(0).ToString();
+                        ComboBoxMes.Text = dr.GetValue(1).ToString();
+                        ComboBoxDia.Text = dr.GetValue(2).ToString();
+                        ComboBoxStatus.Text = dr.GetValue(3).ToString();
+                        textBoxValor.Text = dr.GetValue(4).ToString();
+                        MtextBoxDPagamento.Text = dr.GetValue(5).ToString();
+                    }
+
+                    dr.Close();
+                    con.Close();
+                }
+                catch
+                {
+
+                }
             }
         }
 
@@ -224,27 +239,36 @@ namespace GAcademia.Forms
         {
             if (MessageBox.Show("Deseja adicionar essa mensalidade?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                con.Open();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO tbmensalidades (`mes`, `dia`, `status`, `valor`, `data_pag`, `FK_idaluno`)" + " VALUES (@Mes, @Dia, @Status, @Valor, @DataPagamento, @IdAluno)", con);
+                try
+                {
+                    con.Open();
+                    string sql = "INSERT INTO tbmensalidades (`mes`, `dia`, `status`, `valor`, `data_pag`, `FK_idaluno`) ";
+                    sql += "VALUES (@Mes, @Dia, @Status, @Valor, @DataPagamento, @IdAluno)";
+                    MySqlCommand cmd = new MySqlCommand(sql, con);
 
-                cmd.Parameters.Add("@Mes", MySqlDbType.VarChar, 20);
-                cmd.Parameters.Add("@Dia", MySqlDbType.Int32, 11);
-                cmd.Parameters.Add("@Status", MySqlDbType.VarChar, 10);
-                cmd.Parameters.Add("@Valor", MySqlDbType.VarChar, 20);
-                cmd.Parameters.Add("@DataPagamento", MySqlDbType.VarChar, 10);
-                cmd.Parameters.Add("@IdAluno", MySqlDbType.Int32, 11);
+                    cmd.Parameters.Add("@Mes", MySqlDbType.VarChar, 20);
+                    cmd.Parameters.Add("@Dia", MySqlDbType.Int32, 11);
+                    cmd.Parameters.Add("@Status", MySqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@Valor", MySqlDbType.VarChar, 20);
+                    cmd.Parameters.Add("@DataPagamento", MySqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@IdAluno", MySqlDbType.Int32, 11);
 
-                cmd.Parameters["@Mes"].Value = ComboBoxMes.Text;
-                cmd.Parameters["@Dia"].Value = ComboBoxDia.Text;
-                cmd.Parameters["@Status"].Value = ComboBoxStatus.Text;
-                cmd.Parameters["@Valor"].Value = textBoxValor.Text;
-                cmd.Parameters["@DataPagamento"].Value = MtextBoxDPagamento.Text;
-                cmd.Parameters["@IdAluno"].Value = TextBoxIdAluno.Text;
+                    cmd.Parameters["@Mes"].Value = ComboBoxMes.Text;
+                    cmd.Parameters["@Dia"].Value = ComboBoxDia.Text;
+                    cmd.Parameters["@Status"].Value = ComboBoxStatus.Text;
+                    cmd.Parameters["@Valor"].Value = textBoxValor.Text;
+                    cmd.Parameters["@DataPagamento"].Value = MtextBoxDPagamento.Text;
+                    cmd.Parameters["@IdAluno"].Value = TextBoxIdAluno.Text;
 
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Adicionado com sucesso!");
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Adicionado com sucesso!");
+                }
+                catch
+                {
 
+                }
+                
                 if (call == true)
                 {
                     call = false;
@@ -259,29 +283,39 @@ namespace GAcademia.Forms
             {
                 if (MessageBox.Show("Deseja atualizar os dados?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    con.Open();
-                    MySqlCommand cmd = new MySqlCommand("UPDATE tbmensalidades SET `mes`=@Mes, `dia`=@Dia, `status`=@Status, `valor`=@Valor, `data_pag`=@DataPagamento, `FK_idaluno`=@IdAluno WHERE `idmensalidade`=@Id", con);
+                    try
+                    {
+                        con.Open();
+                        string sql = "UPDATE tbmensalidades SET `mes`=@Mes, `dia`=@Dia, `status`=@Status, `valor`=@Valor, `data_pag`=@DataPagamento, `FK_idaluno`=@IdAluno ";
+                        sql += "WHERE `idmensalidade`=@Id";
+                        MySqlCommand cmd = new MySqlCommand(sql, con);
 
-                    cmd.Parameters.Add("@Id", MySqlDbType.Int32, 11);
-                    cmd.Parameters.Add("@Mes", MySqlDbType.VarChar, 20);
-                    cmd.Parameters.Add("@Dia", MySqlDbType.Int32, 11);
-                    cmd.Parameters.Add("@Status", MySqlDbType.VarChar, 10);
-                    cmd.Parameters.Add("@Valor", MySqlDbType.VarChar, 20);
-                    cmd.Parameters.Add("@DataPagamento", MySqlDbType.VarChar, 10);
-                    cmd.Parameters.Add("@IdAluno", MySqlDbType.Int32, 11);
+                        cmd.Parameters.Add("@Id", MySqlDbType.Int32, 11);
+                        cmd.Parameters.Add("@Mes", MySqlDbType.VarChar, 20);
+                        cmd.Parameters.Add("@Dia", MySqlDbType.Int32, 11);
+                        cmd.Parameters.Add("@Status", MySqlDbType.VarChar, 10);
+                        cmd.Parameters.Add("@Valor", MySqlDbType.VarChar, 20);
+                        cmd.Parameters.Add("@DataPagamento", MySqlDbType.VarChar, 10);
+                        cmd.Parameters.Add("@IdAluno", MySqlDbType.Int32, 11);
 
-                    cmd.Parameters["@Id"].Value = TextBoxIdMensalidade.Text;
-                    cmd.Parameters["@Mes"].Value = ComboBoxMes.Text;
-                    cmd.Parameters["@Dia"].Value = ComboBoxDia.Text;
-                    cmd.Parameters["@Status"].Value = ComboBoxStatus.Text;
-                    cmd.Parameters["@Valor"].Value = textBoxValor.Text;
-                    cmd.Parameters["@DataPagamento"].Value = MtextBoxDPagamento.Text;
-                    cmd.Parameters["@IdAluno"].Value = TextBoxIdAluno.Text;
+                        cmd.Parameters["@Id"].Value = TextBoxIdMensalidade.Text;
+                        cmd.Parameters["@Mes"].Value = ComboBoxMes.Text;
+                        cmd.Parameters["@Dia"].Value = ComboBoxDia.Text;
+                        cmd.Parameters["@Status"].Value = ComboBoxStatus.Text;
+                        cmd.Parameters["@Valor"].Value = textBoxValor.Text;
+                        cmd.Parameters["@DataPagamento"].Value = MtextBoxDPagamento.Text;
+                        cmd.Parameters["@IdAluno"].Value = TextBoxIdAluno.Text;
 
-                    cmd.ExecuteNonQuery();
-                    cmd.DisposeAsync();
-                    con.Close();
-                    MessageBox.Show("Dados atualizados com sucesso!");
+                        cmd.ExecuteNonQuery();
+                        cmd.DisposeAsync();
+                        con.Close();
+                        MessageBox.Show("Dados atualizados com sucesso!");
+                    }
+                    catch
+                    {
+
+                    }
+                    
                 }
             }
             else
@@ -297,14 +331,22 @@ namespace GAcademia.Forms
                 if (MessageBox.Show("Deseja remover essa mensalidade?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     string id = TextBoxIdMensalidade.Text;
-                    con.Open();
-                    string sql = "DELETE FROM tbmensalidades WHERE `idmensalidade` = @id";
-                    MySqlCommand cmd = new MySqlCommand(sql, con);
-                    cmd.Parameters.Add(new MySqlParameter("@id", id));
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    cmd.Dispose();
-                    MessageBox.Show("Mensalidade removida");
+                    try
+                    {
+                        con.Open();
+                        string sql = "DELETE FROM tbmensalidades WHERE `idmensalidade` = @id";
+                        MySqlCommand cmd = new MySqlCommand(sql, con);
+                        cmd.Parameters.Add(new MySqlParameter("@id", id));
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        cmd.Dispose();
+                        MessageBox.Show("Mensalidade removida");
+                    }
+                    catch
+                    {
+
+                    }
+                    
                 }
             }
             else

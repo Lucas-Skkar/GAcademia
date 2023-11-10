@@ -111,7 +111,6 @@ namespace GAcademia.Forms
                             }
 
                             this.DialogResult = DialogResult.OK;
-                           // MessageBox.Show("Login bem-sucedido.");
                         }
                         else
                         {
@@ -142,8 +141,15 @@ namespace GAcademia.Forms
             }
             catch
             {
-                MessageBox.Show("Banco de dados desconectado, use admin padrão");
-                loginPadrao();
+                try
+                {
+                    loginPadrao();
+                }
+                catch
+                {
+                    MessageBox.Show("Banco de dados desconectado, use admin padrão");
+                }
+                
             }
             
         }
@@ -176,8 +182,14 @@ namespace GAcademia.Forms
                 catch
                 {
                     MessageBox.Show("Banco de dado desconectado");
-                    Form conf = new Forms.Notifications.MySqlConfig();
-                    conf.ShowDialog();
+                    if (File.Exists("dBconfig.txt"))
+                    {
+                    }
+                    else
+                    {
+                        Form conf = new Forms.Notifications.MySqlConfig();
+                        conf.ShowDialog();
+                    }
                 }
 
                 FormMain.privilegio = true;

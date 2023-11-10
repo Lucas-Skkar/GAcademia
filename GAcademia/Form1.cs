@@ -72,6 +72,7 @@ namespace GAcademia
                 btn_sexta.Enabled = false;
                 btn_sabado.Enabled = false;
 
+
                // Form conf = new Forms.Notifications.MySqlConfig();
               //  conf.ShowDialog();
             }
@@ -88,6 +89,7 @@ namespace GAcademia
             if (privilegio == false)
             {
                 btn_Financas.Enabled = false;
+                btn_confg.Enabled = false;
             }
             try
             {

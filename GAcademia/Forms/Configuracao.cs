@@ -314,15 +314,23 @@ namespace GAcademia.Forms
             {
                 if (MessageBox.Show("Deseja remover esse agendamento?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    string id = TextBoxIdUser.Text;
-                    con.Open();
-                    string sql = "DELETE FROM tbusuario WHERE `idusuario` = @id";
-                    MySqlCommand cmd = new MySqlCommand(sql, con);
-                    cmd.Parameters.Add(new MySqlParameter("@id", id));
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    cmd.Dispose();
-                    MessageBox.Show("Login de usuário deletado");
+                    try
+                    {
+                        string id = TextBoxIdUser.Text;
+                        con.Open();
+                        string sql = "DELETE FROM tbusuario WHERE `idusuario` = @id";
+                        MySqlCommand cmd = new MySqlCommand(sql, con);
+                        cmd.Parameters.Add(new MySqlParameter("@id", id));
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        cmd.Dispose();
+                        MessageBox.Show("Login de usuário deletado");
+                    }
+                    catch
+                    {
+
+                    }
+                    
                 }
             }
             else

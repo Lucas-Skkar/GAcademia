@@ -62,11 +62,11 @@ namespace GAcademia.Forms
             this.btn_UpdUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_DelUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.searchResult = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MtextBoxTelefone = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             this.MtextBoxCpf = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             this.MtextBoxNascimento = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.searchResult)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +76,7 @@ namespace GAcademia.Forms
             this.tBoxSearchUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.tBoxSearchUser.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
             this.tBoxSearchUser.Location = new System.Drawing.Point(120, 15);
-            this.tBoxSearchUser.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.tBoxSearchUser.Margin = new System.Windows.Forms.Padding(0, 3, 3, 0);
             this.tBoxSearchUser.Name = "tBoxSearchUser";
             this.tBoxSearchUser.Size = new System.Drawing.Size(387, 32);
             this.tBoxSearchUser.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -1242,12 +1242,12 @@ namespace GAcademia.Forms
             this.searchResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Aluno});
-            this.searchResult.Location = new System.Drawing.Point(99, 47);
+            this.searchResult.Location = new System.Drawing.Point(123, 47);
             this.searchResult.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.searchResult.Name = "searchResult";
             this.searchResult.ReadOnly = true;
             this.searchResult.RowHeadersVisible = false;
-            this.searchResult.Size = new System.Drawing.Size(396, 0);
+            this.searchResult.Size = new System.Drawing.Size(368, 0);
             this.searchResult.StateCommon.Background.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.searchResult.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.searchResult.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
@@ -1263,21 +1263,6 @@ namespace GAcademia.Forms
             this.searchResult.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchResult.TabIndex = 70;
             this.searchResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.searchResult_CellClick);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "idalunos";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Aluno
-            // 
-            this.Aluno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Aluno.DataPropertyName = "nome";
-            this.Aluno.HeaderText = "Aluno";
-            this.Aluno.Name = "Aluno";
-            this.Aluno.ReadOnly = true;
             // 
             // MtextBoxTelefone
             // 
@@ -1362,6 +1347,21 @@ namespace GAcademia.Forms
             this.MtextBoxNascimento.TabIndex = 73;
             this.MtextBoxNascimento.Text = "   /    / ";
             this.MtextBoxNascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "idaluno";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Aluno
+            // 
+            this.Aluno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Aluno.DataPropertyName = "nome";
+            this.Aluno.HeaderText = "Aluno";
+            this.Aluno.Name = "Aluno";
+            this.Aluno.ReadOnly = true;
             // 
             // Alunos
             // 
@@ -1449,10 +1449,10 @@ namespace GAcademia.Forms
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_UpdUser;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_DelUser;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView searchResult;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Aluno;
         private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox MtextBoxTelefone;
         private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox MtextBoxCpf;
         private ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox MtextBoxNascimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aluno;
     }
 }
