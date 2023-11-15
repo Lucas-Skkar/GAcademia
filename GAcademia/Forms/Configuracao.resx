@@ -120,4 +120,14 @@
   <metadata name="kryptonPaletteButtons.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="labelIportante.Text" xml:space="preserve">
+    <value>Importante: O email deve ser gmail e a senha deve ser senha específica para aplicativos.
+                      Para gerar a senha, entre na conta gmail, clique no avatar &gt; Gerenciar Sua 
+                      Conta do Google &gt; Segurança &gt; Verificação em duas etapas (precisará ativar)&gt;
+                      Senhas de App. Em "suas senhas de app" escreva o nome do aplicativo e clique
+                      em "Criar", gerará um código (ex: sgdr htrh obrs bnfe), copíe e cole no campo 
+                      "Senha" e salve. Agora poderá enviar emails de agendamentos para alunos.
+                       
+</value>
+  </data>
 </root>

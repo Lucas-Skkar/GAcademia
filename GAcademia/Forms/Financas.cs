@@ -58,7 +58,7 @@ namespace GAcademia.Forms
             }
             catch (Exception)
             {
-                MessageBox.Show("Banco de dados desconectado.");
+               // MessageBox.Show("Banco de dados desconectado.");
             }
         }
 
@@ -142,7 +142,7 @@ namespace GAcademia.Forms
             }
             catch
             {
-                MessageBox.Show("falha");
+              //  MessageBox.Show("falha");
             }
         }
 

@@ -414,5 +414,32 @@ namespace GAcademia.Forms
         {
             resize();
         }
+
+        // Quando entrar no TextBoxSearch, apaga o texto padrão e muda a cor da fonte.
+        private void tBoxSearchUser_Enter(object sender, EventArgs e)
+        {
+            if (tBoxSearchUser.Text == "Digite o número ID ou Nome do aluno.")
+            {
+                tBoxSearchUser.StateActive.Content.Color1 = Color.Silver;
+                tBoxSearchUser.Text = "";
+            }
+        }
+
+        // Quando sair do TextBoxSearch (cliclar em outro textbox), se não tiver texto volta o texto padrão
+        // e muda a cor para mais escuro, caso tenha algum texto só muda a cor para mais claro. 
+        private void tBoxSearchUser_Leave(object sender, EventArgs e)
+        {
+            if (tBoxSearchUser.Text == "")
+            {
+                tBoxSearchUser.StateActive.Content.Color1 = Color.Gray;
+                tBoxSearchUser.StateNormal.Content.Color1 = Color.Gray;
+                tBoxSearchUser.Text = "Digite o número ID ou Nome do aluno.";
+            }
+            else
+            {
+                tBoxSearchUser.StateActive.Content.Color1 = Color.LightGray;
+                tBoxSearchUser.StateNormal.Content.Color1 = Color.LightGray;
+            }
+        }
     }
 }

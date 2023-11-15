@@ -30,13 +30,24 @@ namespace GAcademia.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Configuracao));
             this.panelButtons = new System.Windows.Forms.Panel();
-            this.btn_NewLogin = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btn_ConfigEmail = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPaletteButtons = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.btn_NewLogin = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_db = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_Login = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panelChildrens = new System.Windows.Forms.Panel();
+            this.PanelEmail = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.labelIportante = new System.Windows.Forms.Label();
+            this.btn_SalvarEmail = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.TextBoxEmail = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TextBoxEmailSenha = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TextBoxInfEmail = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TextBoxInfEmailSenha = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.PanelNewLogin = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.labelSenha = new System.Windows.Forms.Label();
+            this.labelLogin = new System.Windows.Forms.Label();
             this.btn_DeleteN = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_UpdateN = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.TextBoxIdUser = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -56,11 +67,11 @@ namespace GAcademia.Forms
             this.btn_Save = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.PanelMySqlConfig = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btn_testConnect = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.labelLogin = new System.Windows.Forms.Label();
-            this.labelSenha = new System.Windows.Forms.Label();
             this.userControlMySqlConfig1 = new GAcademia.UserControlMySqlConfig();
             this.panelButtons.SuspendLayout();
             this.panelChildrens.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PanelEmail)).BeginInit();
+            this.PanelEmail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PanelNewLogin)).BeginInit();
             this.PanelNewLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSelect)).BeginInit();
@@ -74,6 +85,7 @@ namespace GAcademia.Forms
             // panelButtons
             // 
             this.panelButtons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
+            this.panelButtons.Controls.Add(this.btn_ConfigEmail);
             this.panelButtons.Controls.Add(this.btn_NewLogin);
             this.panelButtons.Controls.Add(this.btn_db);
             this.panelButtons.Controls.Add(this.btn_Login);
@@ -84,27 +96,27 @@ namespace GAcademia.Forms
             this.panelButtons.Size = new System.Drawing.Size(150, 461);
             this.panelButtons.TabIndex = 0;
             // 
-            // btn_NewLogin
+            // btn_ConfigEmail
             // 
-            this.btn_NewLogin.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Custom2;
-            this.btn_NewLogin.Location = new System.Drawing.Point(0, 53);
-            this.btn_NewLogin.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.btn_NewLogin.Name = "btn_NewLogin";
-            this.btn_NewLogin.Palette = this.kryptonPaletteButtons;
-            this.btn_NewLogin.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.btn_NewLogin.Size = new System.Drawing.Size(160, 53);
-            this.btn_NewLogin.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
-            this.btn_NewLogin.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
-            this.btn_NewLogin.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
-            this.btn_NewLogin.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
-            this.btn_NewLogin.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.btn_ConfigEmail.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Custom2;
+            this.btn_ConfigEmail.Location = new System.Drawing.Point(0, 159);
+            this.btn_ConfigEmail.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btn_ConfigEmail.Name = "btn_ConfigEmail";
+            this.btn_ConfigEmail.Palette = this.kryptonPaletteButtons;
+            this.btn_ConfigEmail.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.btn_ConfigEmail.Size = new System.Drawing.Size(160, 53);
+            this.btn_ConfigEmail.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
+            this.btn_ConfigEmail.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
+            this.btn_ConfigEmail.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
+            this.btn_ConfigEmail.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
+            this.btn_ConfigEmail.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_NewLogin.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btn_NewLogin.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_NewLogin.TabIndex = 8;
-            this.btn_NewLogin.Values.Text = "Add Login Database";
-            this.btn_NewLogin.Click += new System.EventHandler(this.btn_NewLogin_Click);
+            this.btn_ConfigEmail.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_ConfigEmail.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ConfigEmail.TabIndex = 9;
+            this.btn_ConfigEmail.Values.Text = "Configurar Email";
+            this.btn_ConfigEmail.Click += new System.EventHandler(this.btn_ConfigEmail_Click);
             // 
             // kryptonPaletteButtons
             // 
@@ -199,6 +211,28 @@ namespace GAcademia.Forms
             this.kryptonPaletteButtons.HeaderStyles.HeaderForm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             // 
+            // btn_NewLogin
+            // 
+            this.btn_NewLogin.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Custom2;
+            this.btn_NewLogin.Location = new System.Drawing.Point(0, 53);
+            this.btn_NewLogin.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btn_NewLogin.Name = "btn_NewLogin";
+            this.btn_NewLogin.Palette = this.kryptonPaletteButtons;
+            this.btn_NewLogin.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.btn_NewLogin.Size = new System.Drawing.Size(160, 53);
+            this.btn_NewLogin.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
+            this.btn_NewLogin.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
+            this.btn_NewLogin.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
+            this.btn_NewLogin.StateNormal.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(21)))), ((int)(((byte)(26)))));
+            this.btn_NewLogin.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_NewLogin.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_NewLogin.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_NewLogin.TabIndex = 8;
+            this.btn_NewLogin.Values.Text = "Add Login Database";
+            this.btn_NewLogin.Click += new System.EventHandler(this.btn_NewLogin_Click);
+            // 
             // btn_db
             // 
             this.btn_db.ButtonStyle = ComponentFactory.Krypton.Toolkit.ButtonStyle.Custom2;
@@ -246,6 +280,7 @@ namespace GAcademia.Forms
             // panelChildrens
             // 
             this.panelChildrens.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.panelChildrens.Controls.Add(this.PanelEmail);
             this.panelChildrens.Controls.Add(this.PanelNewLogin);
             this.panelChildrens.Controls.Add(this.PanelTrocarLoginPadrao);
             this.panelChildrens.Controls.Add(this.PanelMySqlConfig);
@@ -255,6 +290,268 @@ namespace GAcademia.Forms
             this.panelChildrens.Name = "panelChildrens";
             this.panelChildrens.Size = new System.Drawing.Size(634, 461);
             this.panelChildrens.TabIndex = 1;
+            // 
+            // PanelEmail
+            // 
+            this.PanelEmail.Controls.Add(this.labelIportante);
+            this.PanelEmail.Controls.Add(this.btn_SalvarEmail);
+            this.PanelEmail.Controls.Add(this.TextBoxEmail);
+            this.PanelEmail.Controls.Add(this.TextBoxEmailSenha);
+            this.PanelEmail.Controls.Add(this.TextBoxInfEmail);
+            this.PanelEmail.Controls.Add(this.TextBoxInfEmailSenha);
+            this.PanelEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelEmail.Location = new System.Drawing.Point(0, 0);
+            this.PanelEmail.Name = "PanelEmail";
+            this.PanelEmail.Size = new System.Drawing.Size(634, 461);
+            this.PanelEmail.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.PanelEmail.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.PanelEmail.StateDisabled.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.PanelEmail.StateDisabled.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.PanelEmail.StateNormal.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.PanelEmail.StateNormal.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.PanelEmail.TabIndex = 76;
+            this.PanelEmail.Visible = false;
+            // 
+            // labelIportante
+            // 
+            this.labelIportante.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelIportante.AutoSize = true;
+            this.labelIportante.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIportante.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.labelIportante.Location = new System.Drawing.Point(103, 190);
+            this.labelIportante.Name = "labelIportante";
+            this.labelIportante.Size = new System.Drawing.Size(477, 91);
+            this.labelIportante.TabIndex = 75;
+            this.labelIportante.Text = resources.GetString("labelIportante.Text");
+            this.labelIportante.Visible = false;
+            // 
+            // btn_SalvarEmail
+            // 
+            this.btn_SalvarEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_SalvarEmail.Location = new System.Drawing.Point(208, 283);
+            this.btn_SalvarEmail.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btn_SalvarEmail.Name = "btn_SalvarEmail";
+            this.btn_SalvarEmail.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_SalvarEmail.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_SalvarEmail.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SalvarEmail.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.OverrideFocus.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.btn_SalvarEmail.OverrideFocus.Border.Color2 = System.Drawing.SystemColors.Highlight;
+            this.btn_SalvarEmail.OverrideFocus.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.btn_SalvarEmail.OverrideFocus.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_SalvarEmail.OverrideFocus.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.btn_SalvarEmail.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SalvarEmail.OverrideFocus.Border.Rounding = 20;
+            this.btn_SalvarEmail.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleOrange;
+            this.btn_SalvarEmail.Size = new System.Drawing.Size(183, 32);
+            this.btn_SalvarEmail.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.StateCommon.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_SalvarEmail.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_SalvarEmail.StateCommon.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.btn_SalvarEmail.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SalvarEmail.StateCommon.Border.Rounding = 20;
+            this.btn_SalvarEmail.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_SalvarEmail.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SalvarEmail.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.StateDisabled.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_SalvarEmail.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SalvarEmail.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.StateNormal.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.StateNormal.Back.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.btn_SalvarEmail.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_SalvarEmail.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SalvarEmail.StateNormal.Border.Rounding = 20;
+            this.btn_SalvarEmail.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.StatePressed.Border.Color1 = System.Drawing.Color.Blue;
+            this.btn_SalvarEmail.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.btn_SalvarEmail.StatePressed.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.LinearShadow;
+            this.btn_SalvarEmail.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SalvarEmail.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.btn_SalvarEmail.StateTracking.Border.Color1 = System.Drawing.SystemColors.Highlight;
+            this.btn_SalvarEmail.StateTracking.Border.Color2 = System.Drawing.SystemColors.Highlight;
+            this.btn_SalvarEmail.StateTracking.Border.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Local;
+            this.btn_SalvarEmail.StateTracking.Border.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Solid;
+            this.btn_SalvarEmail.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SalvarEmail.TabIndex = 67;
+            this.btn_SalvarEmail.Values.Text = "Salvar";
+            this.btn_SalvarEmail.Click += new System.EventHandler(this.btn_SalvarEmail_Click);
+            // 
+            // TextBoxEmail
+            // 
+            this.TextBoxEmail.AlwaysActive = false;
+            this.TextBoxEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxEmail.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
+            this.TextBoxEmail.Location = new System.Drawing.Point(252, 67);
+            this.TextBoxEmail.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.TextBoxEmail.MinimumSize = new System.Drawing.Size(138, 32);
+            this.TextBoxEmail.Name = "TextBoxEmail";
+            this.TextBoxEmail.Size = new System.Drawing.Size(237, 32);
+            this.TextBoxEmail.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.TextBoxEmail.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
+            this.TextBoxEmail.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.TextBoxEmail.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxEmail.StateActive.Border.Rounding = 20;
+            this.TextBoxEmail.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.TextBoxEmail.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxEmail.StateActive.Content.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
+            this.TextBoxEmail.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxEmail.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxEmail.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.TextBoxEmail.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxEmail.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxEmail.StateDisabled.Border.Rounding = 20;
+            this.TextBoxEmail.StateDisabled.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TextBoxEmail.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.TextBoxEmail.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxEmail.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.TextBoxEmail.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxEmail.StateNormal.Border.Rounding = 20;
+            this.TextBoxEmail.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TextBoxEmail.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxEmail.TabIndex = 66;
+            this.TextBoxEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TextBoxEmailSenha
+            // 
+            this.TextBoxEmailSenha.AlwaysActive = false;
+            this.TextBoxEmailSenha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxEmailSenha.InputControlStyle = ComponentFactory.Krypton.Toolkit.InputControlStyle.Custom1;
+            this.TextBoxEmailSenha.Location = new System.Drawing.Point(252, 144);
+            this.TextBoxEmailSenha.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.TextBoxEmailSenha.MinimumSize = new System.Drawing.Size(138, 32);
+            this.TextBoxEmailSenha.Name = "TextBoxEmailSenha";
+            this.TextBoxEmailSenha.PasswordChar = '●';
+            this.TextBoxEmailSenha.Size = new System.Drawing.Size(237, 32);
+            this.TextBoxEmailSenha.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.TextBoxEmailSenha.StateActive.Border.Color1 = System.Drawing.SystemColors.MenuHighlight;
+            this.TextBoxEmailSenha.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.TextBoxEmailSenha.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxEmailSenha.StateActive.Border.Rounding = 20;
+            this.TextBoxEmailSenha.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.TextBoxEmailSenha.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxEmailSenha.StateActive.Content.Padding = new System.Windows.Forms.Padding(5, 1, 1, 1);
+            this.TextBoxEmailSenha.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxEmailSenha.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxEmailSenha.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.TextBoxEmailSenha.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxEmailSenha.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxEmailSenha.StateDisabled.Border.Rounding = 20;
+            this.TextBoxEmailSenha.StateDisabled.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TextBoxEmailSenha.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
+            this.TextBoxEmailSenha.StateNormal.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxEmailSenha.StateNormal.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.TextBoxEmailSenha.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.TextBoxEmailSenha.StateNormal.Border.Rounding = 20;
+            this.TextBoxEmailSenha.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TextBoxEmailSenha.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxEmailSenha.TabIndex = 65;
+            this.TextBoxEmailSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TextBoxEmailSenha.UseSystemPasswordChar = true;
+            // 
+            // TextBoxInfEmail
+            // 
+            this.TextBoxInfEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxInfEmail.Enabled = false;
+            this.TextBoxInfEmail.Location = new System.Drawing.Point(106, 67);
+            this.TextBoxInfEmail.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.TextBoxInfEmail.MaximumSize = new System.Drawing.Size(146, 32);
+            this.TextBoxInfEmail.MaxLength = 1000;
+            this.TextBoxInfEmail.MinimumSize = new System.Drawing.Size(146, 32);
+            this.TextBoxInfEmail.Name = "TextBoxInfEmail";
+            this.TextBoxInfEmail.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.TextBoxInfEmail.ReadOnly = true;
+            this.TextBoxInfEmail.ShortcutsEnabled = false;
+            this.TextBoxInfEmail.Size = new System.Drawing.Size(146, 32);
+            this.TextBoxInfEmail.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfEmail.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfEmail.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.TextBoxInfEmail.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.TextBoxInfEmail.StateActive.Border.Rounding = 20;
+            this.TextBoxInfEmail.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.TextBoxInfEmail.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxInfEmail.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBoxInfEmail.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfEmail.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfEmail.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.TextBoxInfEmail.StateDisabled.Border.Rounding = 20;
+            this.TextBoxInfEmail.StateDisabled.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxInfEmail.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfEmail.TabIndex = 64;
+            this.TextBoxInfEmail.TabStop = false;
+            this.TextBoxInfEmail.Text = "Email";
+            this.TextBoxInfEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TextBoxInfEmailSenha
+            // 
+            this.TextBoxInfEmailSenha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextBoxInfEmailSenha.Enabled = false;
+            this.TextBoxInfEmailSenha.Location = new System.Drawing.Point(106, 144);
+            this.TextBoxInfEmailSenha.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.TextBoxInfEmailSenha.MaximumSize = new System.Drawing.Size(146, 32);
+            this.TextBoxInfEmailSenha.MaxLength = 1000;
+            this.TextBoxInfEmailSenha.MinimumSize = new System.Drawing.Size(146, 32);
+            this.TextBoxInfEmailSenha.Name = "TextBoxInfEmailSenha";
+            this.TextBoxInfEmailSenha.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Black;
+            this.TextBoxInfEmailSenha.ReadOnly = true;
+            this.TextBoxInfEmailSenha.ShortcutsEnabled = false;
+            this.TextBoxInfEmailSenha.Size = new System.Drawing.Size(146, 32);
+            this.TextBoxInfEmailSenha.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfEmailSenha.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfEmailSenha.StateActive.Border.Draw = ComponentFactory.Krypton.Toolkit.InheritBool.True;
+            this.TextBoxInfEmailSenha.StateActive.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.TextBoxInfEmailSenha.StateActive.Border.Rounding = 20;
+            this.TextBoxInfEmailSenha.StateActive.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.TextBoxInfEmailSenha.StateActive.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxInfEmailSenha.StateActive.Content.Padding = new System.Windows.Forms.Padding(1);
+            this.TextBoxInfEmailSenha.StateDisabled.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfEmailSenha.StateDisabled.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(57)))), ((int)(((byte)(61)))));
+            this.TextBoxInfEmailSenha.StateDisabled.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
+            this.TextBoxInfEmailSenha.StateDisabled.Border.Rounding = 20;
+            this.TextBoxInfEmailSenha.StateDisabled.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxInfEmailSenha.StateNormal.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(36)))), ((int)(((byte)(41)))));
+            this.TextBoxInfEmailSenha.TabIndex = 63;
+            this.TextBoxInfEmailSenha.TabStop = false;
+            this.TextBoxInfEmailSenha.Text = "Senha";
+            this.TextBoxInfEmailSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // PanelNewLogin
             // 
@@ -283,6 +580,30 @@ namespace GAcademia.Forms
             this.PanelNewLogin.StateNormal.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.PanelNewLogin.TabIndex = 63;
             this.PanelNewLogin.Visible = false;
+            // 
+            // labelSenha
+            // 
+            this.labelSenha.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelSenha.AutoSize = true;
+            this.labelSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelSenha.Location = new System.Drawing.Point(263, 203);
+            this.labelSenha.Name = "labelSenha";
+            this.labelSenha.Size = new System.Drawing.Size(207, 13);
+            this.labelSenha.TabIndex = 75;
+            this.labelSenha.Text = "Senha precisa de no mínimo 6 caracteres.";
+            this.labelSenha.Visible = false;
+            // 
+            // labelLogin
+            // 
+            this.labelLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelLogin.AutoSize = true;
+            this.labelLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelLogin.Location = new System.Drawing.Point(263, 141);
+            this.labelLogin.Name = "labelLogin";
+            this.labelLogin.Size = new System.Drawing.Size(202, 13);
+            this.labelLogin.TabIndex = 74;
+            this.labelLogin.Text = "Login precisa de no mínimo 4 caracteres.";
+            this.labelLogin.Visible = false;
             // 
             // btn_DeleteN
             // 
@@ -1168,30 +1489,6 @@ namespace GAcademia.Forms
             this.btn_testConnect.Values.Text = "Testar Conexão";
             this.btn_testConnect.Click += new System.EventHandler(this.btn_testConnect_Click);
             // 
-            // labelLogin
-            // 
-            this.labelLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelLogin.AutoSize = true;
-            this.labelLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelLogin.Location = new System.Drawing.Point(263, 141);
-            this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(202, 13);
-            this.labelLogin.TabIndex = 74;
-            this.labelLogin.Text = "Login precisa de no mínimo 4 caracteres.";
-            this.labelLogin.Visible = false;
-            // 
-            // labelSenha
-            // 
-            this.labelSenha.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelSenha.AutoSize = true;
-            this.labelSenha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelSenha.Location = new System.Drawing.Point(263, 203);
-            this.labelSenha.Name = "labelSenha";
-            this.labelSenha.Size = new System.Drawing.Size(207, 13);
-            this.labelSenha.TabIndex = 75;
-            this.labelSenha.Text = "Senha precisa de no mínimo 6 caracteres.";
-            this.labelSenha.Visible = false;
-            // 
             // userControlMySqlConfig1
             // 
             this.userControlMySqlConfig1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -1214,6 +1511,9 @@ namespace GAcademia.Forms
             this.Load += new System.EventHandler(this.Configuracao_Load);
             this.panelButtons.ResumeLayout(false);
             this.panelChildrens.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PanelEmail)).EndInit();
+            this.PanelEmail.ResumeLayout(false);
+            this.PanelEmail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PanelNewLogin)).EndInit();
             this.PanelNewLogin.ResumeLayout(false);
             this.PanelNewLogin.PerformLayout();
@@ -1259,5 +1559,13 @@ namespace GAcademia.Forms
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_UpdateN;
         private System.Windows.Forms.Label labelSenha;
         private System.Windows.Forms.Label labelLogin;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel PanelEmail;
+        private System.Windows.Forms.Label labelIportante;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_SalvarEmail;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxEmail;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxEmailSenha;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfEmail;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfEmailSenha;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_ConfigEmail;
     }
 }

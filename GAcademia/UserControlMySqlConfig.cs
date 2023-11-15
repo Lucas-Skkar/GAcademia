@@ -92,6 +92,8 @@ namespace GAcademia
             {
                 writer.Write(encryptedData);
             }
+
+            MessageBox.Show("Configuração salva");
         }
     }
 }

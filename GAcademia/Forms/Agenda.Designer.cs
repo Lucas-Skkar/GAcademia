@@ -284,10 +284,13 @@ namespace GAcademia.Forms
             this.TextBoxSearch.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.TextBoxSearch.StateNormal.Border.Rounding = 20;
-            this.TextBoxSearch.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TextBoxSearch.StateNormal.Content.Color1 = System.Drawing.Color.Gray;
             this.TextBoxSearch.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxSearch.TabIndex = 12;
+            this.TextBoxSearch.Text = "Digite o número ID do agendamento ou Nome do aluno.";
             this.TextBoxSearch.TextChanged += new System.EventHandler(this.TextBoxSearch_TextChanged);
+            this.TextBoxSearch.Enter += new System.EventHandler(this.TextBoxSearch_Enter);
+            this.TextBoxSearch.Leave += new System.EventHandler(this.TextBoxSearch_Leave);
             // 
             // btn_search
             // 
@@ -354,7 +357,7 @@ namespace GAcademia.Forms
             this.btn_search.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_search.TabIndex = 13;
-            this.btn_search.Values.Text = "Procurar";
+            this.btn_search.Values.Text = "Selecionar";
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // btn_agendar
@@ -660,7 +663,7 @@ namespace GAcademia.Forms
             this.MTextBoxHorario.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.MTextBoxHorario.Location = new System.Drawing.Point(414, 238);
             this.MTextBoxHorario.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.MTextBoxHorario.Mask = "00 : 00";
+            this.MTextBoxHorario.Mask = "00:00";
             this.MTextBoxHorario.Name = "MTextBoxHorario";
             this.MTextBoxHorario.Size = new System.Drawing.Size(195, 35);
             this.MTextBoxHorario.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -679,7 +682,7 @@ namespace GAcademia.Forms
             this.MTextBoxHorario.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.MTextBoxHorario.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MTextBoxHorario.TabIndex = 34;
-            this.MTextBoxHorario.Text = "   : ";
+            this.MTextBoxHorario.Text = "  :";
             this.MTextBoxHorario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextBoxInfIdAgenda

@@ -35,6 +35,8 @@ namespace GAcademia.Forms
             this.tBoxUsuario = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TextBoxInfSenha = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.tBoxSenha = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.labelUsuario = new System.Windows.Forms.Label();
+            this.labelSenha = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bnt_close
@@ -280,6 +282,34 @@ namespace GAcademia.Forms
             this.tBoxSenha.TabIndex = 3;
             this.tBoxSenha.UseSystemPasswordChar = true;
             // 
+            // labelUsuario
+            // 
+            this.labelUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUsuario.AutoSize = true;
+            this.labelUsuario.ForeColor = System.Drawing.Color.Red;
+            this.labelUsuario.Location = new System.Drawing.Point(204, 150);
+            this.labelUsuario.Name = "labelUsuario";
+            this.labelUsuario.Size = new System.Drawing.Size(124, 13);
+            this.labelUsuario.TabIndex = 44;
+            this.labelUsuario.Text = "Usuário não encontrado.";
+            this.labelUsuario.Visible = false;
+            // 
+            // labelSenha
+            // 
+            this.labelSenha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSenha.AutoSize = true;
+            this.labelSenha.ForeColor = System.Drawing.Color.Red;
+            this.labelSenha.Location = new System.Drawing.Point(204, 238);
+            this.labelSenha.Name = "labelSenha";
+            this.labelSenha.Size = new System.Drawing.Size(157, 13);
+            this.labelSenha.TabIndex = 45;
+            this.labelSenha.Text = "Senha incorreta, tente de novo.";
+            this.labelSenha.Visible = false;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,6 +317,8 @@ namespace GAcademia.Forms
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.ClientSize = new System.Drawing.Size(669, 401);
             this.ControlBox = false;
+            this.Controls.Add(this.labelSenha);
+            this.Controls.Add(this.labelUsuario);
             this.Controls.Add(this.Btn_login);
             this.Controls.Add(this.tBoxSenha);
             this.Controls.Add(this.TextBoxInfSenha);
@@ -348,5 +380,7 @@ namespace GAcademia.Forms
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox tBoxUsuario;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfSenha;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox tBoxSenha;
+        private System.Windows.Forms.Label labelUsuario;
+        private System.Windows.Forms.Label labelSenha;
     }
 }

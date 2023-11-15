@@ -71,7 +71,7 @@ namespace GAcademia.Database
             }
         }
 
-        public static void ReadConfigFile()
+        private static void ReadConfigFile()
         {
             try
             {

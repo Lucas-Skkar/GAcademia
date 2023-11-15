@@ -78,6 +78,9 @@ namespace GAcademia.Forms
 
         private void Btn_login_Click(object sender, EventArgs e)
         {
+            labelUsuario.Visible = false;
+            labelSenha.Visible = false;
+
             MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
 
             string Usuario = tBoxUsuario.Text;
@@ -120,7 +123,8 @@ namespace GAcademia.Forms
                             }
                             catch
                             {
-                                MessageBox.Show("Senha incorreta.");
+                                //MessageBox.Show("Senha incorreta.");
+                                labelSenha.Visible = true;
                             }
                         }
                     }
@@ -132,7 +136,8 @@ namespace GAcademia.Forms
                         }
                         catch
                         {
-                            MessageBox.Show("Usuário não encontrado.");
+                            //MessageBox.Show("Usuário não encontrado.");
+                            labelUsuario.Visible = true;
                         }
                     }
                 }
@@ -147,7 +152,7 @@ namespace GAcademia.Forms
                 }
                 catch
                 {
-                    MessageBox.Show("Banco de dados desconectado, use admin padrão");
+                    MessageBox.Show("Banco de dados desconectado, use conta admin padrão");
                 }
                 
             }
@@ -197,7 +202,15 @@ namespace GAcademia.Forms
             }
             else
             {
-                MessageBox.Show("Usuário ou senha incorreta");
+                //MessageBox.Show("Usuário ou senha incorreta");
+                if(Usuario == ID)
+                {
+                    labelSenha.Visible = true;
+                }
+                else
+                {
+                    labelUsuario.Visible = true;
+                }
             }
 
         }

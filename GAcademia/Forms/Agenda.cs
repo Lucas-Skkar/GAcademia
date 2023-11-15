@@ -8,11 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Mail;
+using System.Net;
+using System.IO;
+using static GAcademia.UserControlMySqlConfig;
 
 namespace GAcademia.Forms
 {
     public partial class Agenda : Form
     {
+        string emailOrigen;
+        string emailSenha;
+        private static bool add = true;
+
         private Rectangle TextBoxSearchOriginal;
         private Rectangle btn_searchOriginal;
         private Rectangle ComboBoxAlunoOriginal;
@@ -37,6 +45,7 @@ namespace GAcademia.Forms
         {
             InitializeComponent();
 
+            // Definição das posições iniciais dos objetos da tela (botões, caixa de textos, etc) para redimensionamento da tela.
             formOriginal = this.Size;
             TextBoxSearchOriginal = new Rectangle(TextBoxSearch.Location.X, TextBoxSearch.Location.Y, TextBoxSearch.Width, TextBoxSearch.Height);
             btn_searchOriginal = new Rectangle(btn_search.Location.X, btn_search.Location.Y, btn_search.Width, btn_search.Height);
@@ -57,6 +66,7 @@ namespace GAcademia.Forms
             searchResultOriginal = new Rectangle(searchResult.Location.X, TextBoxSearch.Location.Y + 25, searchResult.Width, searchResult.Height);
         }
 
+        // Cria novo objeto usando a string de conexão do banco de dados.
         MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
 
         private void Agenda_Load(object sender, EventArgs e)
@@ -98,7 +108,7 @@ namespace GAcademia.Forms
             }
             catch (Exception)
             {
-                MessageBox.Show("Banco de dado desconectado, verifique a conexão em Configurações");
+               // MessageBox.Show("Banco de dado desconectado, verifique a conexão em Configurações");
             }
             
         }
@@ -123,6 +133,8 @@ namespace GAcademia.Forms
         {
             if (ComboBoxAluno.Text != "" && ComboBoxProfessor.Text != "" && ComboBoxDia.Text != "" && MTextBoxHorario.Text != "")
             {
+                add = true;
+
                 if (MessageBox.Show("Deseja agendar esse horário?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
@@ -145,6 +157,11 @@ namespace GAcademia.Forms
                         MessageBox.Show("Adicionado com sucesso!");
 
                         con.Close();
+
+                        if (MessageBox.Show("Deseja enviar email para o aluno avisando sobre o agendamento?", "Deseja enviar email?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            sendEmail();
+                        }
                     }
                     catch
                     {
@@ -242,6 +259,8 @@ namespace GAcademia.Forms
 
         private void tbn_upd_Click(object sender, EventArgs e)
         {
+            add = false;
+
             if (TextBoxIdAgenda.Text != "")
             {
                 if (MessageBox.Show("Deseja atualizar os dados?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -269,6 +288,11 @@ namespace GAcademia.Forms
                         con.Close();
                         cmd.DisposeAsync();
                         MessageBox.Show("Dados atualizados com sucesso!");
+
+                        if (MessageBox.Show("Deseja enviar email para o aluno avisando sobre a alteração no agendamento?", "Deseja enviar email?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            sendEmail();
+                        }
                     }
                     catch
                     {
@@ -355,6 +379,150 @@ namespace GAcademia.Forms
         private void Agenda_Resize(object sender, EventArgs e)
         {
             resize();
+        }
+
+        private void sendEmail()
+        {
+            loadEmail();
+            try
+            {
+                con.Open();
+                string sql = "SELECT email FROM tbalunos WHERE idaluno =@Id";
+                MySqlCommand cmd = new MySqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@Id", TextBoxIdAluno.Text);
+                string emailDestino = (string)cmd.ExecuteScalar();
+                con.Close();
+
+                ICredentialsByHost credentials = new NetworkCredential(emailOrigen, emailSenha);
+
+                SmtpClient cliente = new SmtpClient()
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    Credentials = credentials
+                };
+
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(emailOrigen);
+                mail.To.Add(emailDestino);
+                mail.Subject = "Agendamento de treino na academia";
+                if(add == true)
+                {
+                    mail.Body = "Você tem treino marcado para " + ComboBoxDia.Text + " as " + MTextBoxHorario.Text;
+                }
+                else
+                {
+                    mail.Body = "Seu treino foi alterado para " + ComboBoxDia.Text + " as " + MTextBoxHorario.Text;
+                }
+                
+                cliente.Send(mail);
+                MessageBox.Show("Email enviado");
+            }
+            catch
+            {
+                if (File.Exists("eConfig.txt"))
+                {
+                    MessageBox.Show("Não foi possível enviar o email.");
+                }
+                else
+                {
+                    MessageBox.Show("Email não cadastrado. Adicione um email em Configurações > Configurar Email.");
+                }
+            }
+        }
+
+
+        private void readEmail()
+        {
+            string encryptedData;
+            using (StreamReader reader = new StreamReader("eConfig.txt"))
+            {
+                encryptedData = reader.ReadToEnd();
+            }
+
+            string decryptedData = DataEncryptor.Decrypt(encryptedData);
+
+            string[] dataParts = decryptedData.Split('\n');
+            if (dataParts.Length == 2)
+            {
+                string emailOrigen = dataParts[0];
+                string emailSenha = dataParts[1];
+
+                using (StreamWriter writer = new StreamWriter("eConfig.txt"))
+                {
+                    writer.WriteLine($"emailOrigen={emailOrigen}");
+                    writer.WriteLine($"emailSenha={emailSenha}");
+                }
+            }
+        }
+
+        private void loadEmail()
+        {
+            try
+            {
+                if (File.Exists("eConfig.txt"))
+                {
+                    readEmail();
+                    string[] linhas = File.ReadAllLines("eConfig.txt");
+                    foreach (string linha in linhas)
+                    {
+                        string[] partes = linha.Split('=');
+                        if (partes.Length == 2)
+                        {
+                            string chave = partes[0];
+                            string valor = partes[1];
+
+                            switch (chave)
+                            {
+                                case "emailOrigen":
+                                    emailOrigen = valor;
+                                    break;
+                                case "emailSenha":
+                                    emailSenha = valor;
+                                    break;
+                            }
+                        }
+                    }
+                    string criptografar = $"{emailOrigen}\n{emailSenha}";
+                    string encryptedData = DataEncryptor.Encrypt(criptografar);
+                    using (StreamWriter writer = new StreamWriter("eConfig.txt"))
+                    {
+                        writer.Write(encryptedData);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao carregar valores do arquivo: " + ex.Message);
+            }
+        }
+
+        // Quando entrar no TextBoxSearch, apaga o texto padrão e muda a cor da fonte.
+        private void TextBoxSearch_Enter(object sender, EventArgs e)
+        {
+            if (TextBoxSearch.Text == "Digite o número ID do agendamento ou Nome do aluno.")
+            {
+                TextBoxSearch.StateActive.Content.Color1 = Color.Silver;
+                TextBoxSearch.Text = "";
+            }
+        }
+
+        // Quando sair do TextBoxSearch (cliclar em outro textbox), se não tiver texto volta o texto padrão
+        // e muda a cor para mais escuro, caso tenha algum texto só muda a cor para mais claro. 
+        private void TextBoxSearch_Leave(object sender, EventArgs e)
+        {
+            if (TextBoxSearch.Text == "")
+            {
+                TextBoxSearch.StateActive.Content.Color1 = Color.Gray;
+                TextBoxSearch.StateNormal.Content.Color1 = Color.Gray;
+                TextBoxSearch.Text = "Digite o número ID do agendamento ou Nome do aluno.";
+            }
+            else
+            {
+                TextBoxSearch.StateActive.Content.Color1 = Color.LightGray;
+                TextBoxSearch.StateNormal.Content.Color1 = Color.LightGray;
+            }
         }
     }
 }

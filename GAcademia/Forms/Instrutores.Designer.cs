@@ -116,7 +116,7 @@ namespace GAcademia.Forms
             this.btn_search.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.btn_search.TabIndex = 14;
-            this.btn_search.Values.Text = "Procurar";
+            this.btn_search.Values.Text = "Selecionar";
             this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // TextBoxSearch
@@ -156,10 +156,13 @@ namespace GAcademia.Forms
             this.TextBoxSearch.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left)));
             this.TextBoxSearch.StateNormal.Border.Rounding = 20;
-            this.TextBoxSearch.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.TextBoxSearch.StateNormal.Content.Color1 = System.Drawing.Color.Gray;
             this.TextBoxSearch.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxSearch.TabIndex = 15;
+            this.TextBoxSearch.Text = "Digite o número ID ou Nome do Professor.";
             this.TextBoxSearch.TextChanged += new System.EventHandler(this.TextBoxSearch_TextChanged);
+            this.TextBoxSearch.Enter += new System.EventHandler(this.TextBoxSearch_Enter);
+            this.TextBoxSearch.Leave += new System.EventHandler(this.TextBoxSearch_Leave);
             // 
             // TextBoxNome
             // 

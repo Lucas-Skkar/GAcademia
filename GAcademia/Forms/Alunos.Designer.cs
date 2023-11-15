@@ -62,11 +62,11 @@ namespace GAcademia.Forms
             this.btn_UpdUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_DelUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.searchResult = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MtextBoxTelefone = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             this.MtextBoxCpf = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
             this.MtextBoxNascimento = new ComponentFactory.Krypton.Toolkit.KryptonMaskedTextBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.searchResult)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,11 +103,14 @@ namespace GAcademia.Forms
             this.tBoxSearchUser.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.tBoxSearchUser.StateNormal.Border.Rounding = 20;
-            this.tBoxSearchUser.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tBoxSearchUser.StateNormal.Content.Color1 = System.Drawing.Color.Gray;
             this.tBoxSearchUser.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tBoxSearchUser.TabIndex = 33;
+            this.tBoxSearchUser.Text = "Digite o número ID ou Nome do aluno.";
             this.tBoxSearchUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tBoxSearchUser.TextChanged += new System.EventHandler(this.tBoxSearchUser_TextChanged);
+            this.tBoxSearchUser.Enter += new System.EventHandler(this.tBoxSearchUser_Enter);
+            this.tBoxSearchUser.Leave += new System.EventHandler(this.tBoxSearchUser_Leave);
             // 
             // btn_searchUser
             // 
@@ -1264,6 +1267,21 @@ namespace GAcademia.Forms
             this.searchResult.TabIndex = 70;
             this.searchResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.searchResult_CellClick);
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "idaluno";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Aluno
+            // 
+            this.Aluno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Aluno.DataPropertyName = "nome";
+            this.Aluno.HeaderText = "Aluno";
+            this.Aluno.Name = "Aluno";
+            this.Aluno.ReadOnly = true;
+            // 
             // MtextBoxTelefone
             // 
             this.MtextBoxTelefone.AlwaysActive = false;
@@ -1347,21 +1365,6 @@ namespace GAcademia.Forms
             this.MtextBoxNascimento.TabIndex = 73;
             this.MtextBoxNascimento.Text = "   /    / ";
             this.MtextBoxNascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "idaluno";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Aluno
-            // 
-            this.Aluno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Aluno.DataPropertyName = "nome";
-            this.Aluno.HeaderText = "Aluno";
-            this.Aluno.Name = "Aluno";
-            this.Aluno.ReadOnly = true;
             // 
             // Alunos
             // 

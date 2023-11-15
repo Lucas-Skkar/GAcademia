@@ -24,6 +24,7 @@ namespace GAcademia.Forms
             PanelTrocarLoginPadrao.Visible = true;
             PanelMySqlConfig.Visible = false;
             PanelNewLogin.Visible = false;
+            PanelEmail.Visible = false;
         }
 
         private void Configuracao_Load(object sender, EventArgs e)
@@ -52,7 +53,16 @@ namespace GAcademia.Forms
             }
             catch (Exception)
             {
-                MessageBox.Show("Banco de dado desconectado.");
+               // MessageBox.Show("Banco de dado desconectado.");
+            }
+
+            if (File.Exists("eConfig.txt"))
+            {
+                labelIportante.Visible = false;
+            }
+            else
+            {
+                labelIportante.Visible = true;
             }
         }
 
@@ -109,10 +119,10 @@ namespace GAcademia.Forms
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            //OpenChildForm(new Forms.Notifications.LoginAdmin(), sender);
             PanelTrocarLoginPadrao.Visible = true;
             PanelMySqlConfig.Visible = false;
             PanelNewLogin.Visible = false;
+            PanelEmail.Visible = false;
 
         }
 
@@ -121,6 +131,7 @@ namespace GAcademia.Forms
             PanelMySqlConfig.Visible = true;
             PanelTrocarLoginPadrao.Visible = false;
             PanelNewLogin.Visible = false;
+            PanelEmail.Visible = false;
         }
 
         private void btn_NewLogin_Click(object sender, EventArgs e)
@@ -128,10 +139,21 @@ namespace GAcademia.Forms
             PanelNewLogin.Visible = true;
             PanelTrocarLoginPadrao.Visible = false;
             PanelMySqlConfig.Visible = false;
+            PanelEmail.Visible = false;
+        }
+
+        private void btn_ConfigEmail_Click(object sender, EventArgs e)
+        {
+            PanelEmail.Visible = true;
+            PanelMySqlConfig.Visible = false;
+            PanelTrocarLoginPadrao.Visible = false;
+            PanelNewLogin.Visible = false;
         }
 
         private void btn_testConnect_Click(object sender, EventArgs e)
         {
+            Database.Connect.LoadFile();
+
             try
             {
                 con.Open();
@@ -157,7 +179,7 @@ namespace GAcademia.Forms
                 writer.Write(encryptedData);
             }
             
-            MessageBox.Show("Senha alterada com sucesso. Caso esqueça a senha, delete o arquivo config.txt na pasta raiz");
+            MessageBox.Show("Administrador padrão alterada com sucesso. Caso esqueça a senha, delete o arquivo config.txt na pasta raiz");
         }
 
         private void bnt_salvarN_Click(object sender, EventArgs e)
@@ -338,6 +360,24 @@ namespace GAcademia.Forms
                 MessageBox.Show("Selecione um login de usuário");
             }
         }
-       
+
+        private void btn_SalvarEmail_Click(object sender, EventArgs e)
+        {
+            string emailOrigen = TextBoxEmail.Text;
+            string emailSenha = TextBoxEmailSenha.Text;
+
+            string dataToEncrypt = $"{emailOrigen}\n{emailSenha}";
+
+            string encryptedData = DataEncryptor.Encrypt(dataToEncrypt);
+
+            using (StreamWriter writer = new StreamWriter("eConfig.txt"))
+            {
+                writer.Write(encryptedData);
+            }
+
+            MessageBox.Show("Email salvo");
+        }
+
+        
     }
 }

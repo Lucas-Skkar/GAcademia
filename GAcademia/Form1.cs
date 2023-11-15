@@ -88,6 +88,7 @@ namespace GAcademia
         {
             if (privilegio == false)
             {
+                btn_Instrutor.Enabled = false;
                 btn_Financas.Enabled = false;
                 btn_confg.Enabled = false;
             }
@@ -136,7 +137,7 @@ namespace GAcademia
             }
             catch
             {
-                MessageBox.Show("Não foi possível se conectar ao banco de dados, algumas funções ficarão desativadas.");
+                MessageBox.Show("Não foi possível se conectar ao banco de dados, algumas funções não funcionarão corretamente. Acesse Configurações > Configurar MySql para configurar a conexão");
             }
             
         }
@@ -183,9 +184,26 @@ namespace GAcademia
 
         private void btn_Home_Click(object sender, EventArgs e)
         {
+            
             if (activeForm != null)
                 activeForm.Close();
             labelHead.Text = "Home";
+            test_bdConnection();
+            try
+            {
+                con.Open();
+                con.Close();
+                btn_Domingo.Enabled = true;
+                btn_Segunda.Enabled = true;
+                btn_Terca.Enabled = true;
+                btn_quarta.Enabled = true;
+                btn_quinta.Enabled = true;
+                btn_sexta.Enabled = true;
+                btn_sabado.Enabled = true;
+            }
+            catch
+            {
+            }
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -195,24 +213,6 @@ namespace GAcademia
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-        }
-
-        private void bnt_close_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btn_max_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-                this.WindowState = FormWindowState.Maximized;
-            else
-                this.WindowState = FormWindowState.Normal;
-        }
-
-        private void btn_min_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btn_Domingo_Click(object sender, EventArgs e)
