@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GAcademia
@@ -16,6 +13,8 @@ namespace GAcademia
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // Abre a tela de login antes da FormMain. 
             Forms.LoginForm fl = new Forms.LoginForm();
             DialogResult dr = fl.ShowDialog();
             if (dr == DialogResult.OK)

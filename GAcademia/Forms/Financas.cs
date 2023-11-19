@@ -1,14 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace GAcademia.Forms
 {
@@ -24,6 +18,7 @@ namespace GAcademia.Forms
 
         private void Financas_Load(object sender, EventArgs e)
         {
+            // Cria lista Mes.
             var mes = new List<Mes>();
             mes.Add(new Mes() { mesId = 1, nomeMes = "Janeiro" });
             mes.Add(new Mes() { mesId = 2, nomeMes = "Fevereiro" });
@@ -38,10 +33,12 @@ namespace GAcademia.Forms
             mes.Add(new Mes() { mesId = 11, nomeMes = "Novembro" });
             mes.Add(new Mes() { mesId = 12, nomeMes = "Dezembro" });
 
+            // Adiciona a lista "Mes" para o "ComboBoxMes".
             ComboBoxMes.DataSource = mes;
             ComboBoxMes.DisplayMember = "nomeMes";
             ComboBoxMes.Text = "Selecione o mês";
 
+            // Preenche o "DataGridDetalhes" com os dados da tabela "tbmensalidades".
             try
             {
                 con.Open();
@@ -68,6 +65,7 @@ namespace GAcademia.Forms
             public string nomeMes { get; set; }
         }
 
+        // Permite abrir outras telas dentro dessa tela.
         private void OpenChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
@@ -84,18 +82,23 @@ namespace GAcademia.Forms
             childForm.Show();
         }
 
+        // Abre a forma Mensalidades dentro dessa forma.
         private void btn_Mensalidades_Click(object sender, EventArgs e)
         {
             Mensalidades.call = false;
             OpenChildForm(new Forms.Mensalidades(), sender);
         }
 
+        // Caso a forma aberta não seja a forma Financas, fecha ela.
+        // de modo simples, mostra a tela inicial Financas.
         private void btn_Detalhes_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
                 activeForm.Close();
         }
 
+        // Ao selecionar um mês no "ComboBoxMes", mostra respectivamente no "textBoxRecebeu" e "textBoxAtrasado" 
+        // a soma dos valores da coluna "valor" onde o nome é "pago" e "pendente" na coluna "status" da tabela "tbmensalidades".
         private void ComboBoxMes_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

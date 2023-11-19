@@ -1,13 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static GAcademia.UserControlMySqlConfig;
 using System.Security.Cryptography;
@@ -21,6 +16,8 @@ namespace GAcademia.Forms
         public Configuracao()
         {
             InitializeComponent();
+
+            // Deixa o painel "PanelTrocarLoginPadrao" visível e os outros painéis invisíveis ao abrir a forma.
             PanelTrocarLoginPadrao.Visible = true;
             PanelMySqlConfig.Visible = false;
             PanelNewLogin.Visible = false;
@@ -29,6 +26,7 @@ namespace GAcademia.Forms
 
         private void Configuracao_Load(object sender, EventArgs e)
         {
+            // Cria a lista "Privilegio" e adiciona ao "ComboBoxPrivilegio".
             var Priv = new List<Privilegio>();
             Priv.Add(new Privilegio() { privId = 1, privNome = "Admin" });
             Priv.Add(new Privilegio() { privId = 2, privNome = "Instrutor" });
@@ -37,7 +35,7 @@ namespace GAcademia.Forms
             ComboBoxPrivilegio.DisplayMember = "privNome";
             ComboBoxPrivilegio.Text = "Selecione o tipo de usuário";
 
-
+            // Adiciona ao "ComboBoxSelect" os dados da tabela "tbusuario".
             try
             {
                 con.Open();
@@ -66,8 +64,10 @@ namespace GAcademia.Forms
             }
         }
 
+        // Mostra no "textBoxLoginN" e "ComboBoxPrivilegio" os valores da tabela "tbusuario".
         private void ComboBoxSelect_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            // Ao selecionar um login no "ComboBoxSelect", o texto do "TextBoxIdUser" recebe o ValueMember.
             TextBoxIdUser.Text = ComboBoxSelect.GetItemText(ComboBoxSelect.SelectedValue);
             if (TextBoxIdUser.Text != "")
             {
@@ -101,6 +101,7 @@ namespace GAcademia.Forms
             public string privNome { get; set; }
         }
 
+        // Permite abrir outras formas dentro dessa forma.
         private void OpenChildForm(Form childForm, object btnSender)
         {
             if (activeForm != null)
@@ -117,15 +118,16 @@ namespace GAcademia.Forms
             childForm.Show();
         }
 
+        // Torna painel "PanelTrocarLoginPadrao" visível e os outros painéis invisíveis.
         private void btn_Login_Click(object sender, EventArgs e)
         {
             PanelTrocarLoginPadrao.Visible = true;
             PanelMySqlConfig.Visible = false;
             PanelNewLogin.Visible = false;
             PanelEmail.Visible = false;
-
         }
 
+        // Torna painel "PanelMySqlConfig" visível e os outros painéis invisíveis.
         private void btn_db_Click(object sender, EventArgs e)
         {
             PanelMySqlConfig.Visible = true;
@@ -134,6 +136,7 @@ namespace GAcademia.Forms
             PanelEmail.Visible = false;
         }
 
+        // Torna painel "PanelNewLogin" visível e os outros painéis invisíveis.
         private void btn_NewLogin_Click(object sender, EventArgs e)
         {
             PanelNewLogin.Visible = true;
@@ -142,6 +145,7 @@ namespace GAcademia.Forms
             PanelEmail.Visible = false;
         }
 
+        // Torna painel "PanelEmail" visível e os outros painéis invisíveis.
         private void btn_ConfigEmail_Click(object sender, EventArgs e)
         {
             PanelEmail.Visible = true;
@@ -150,6 +154,7 @@ namespace GAcademia.Forms
             PanelNewLogin.Visible = false;
         }
 
+        // Pega os valores do LoadFile (encontrado em Database.Connect) e tenta se conectar com o banco de dados.
         private void btn_testConnect_Click(object sender, EventArgs e)
         {
             Database.Connect.LoadFile();
@@ -167,6 +172,7 @@ namespace GAcademia.Forms
            
         }
 
+        // Salva os textos do "textBoxUsuario" e "textBoxSenha" no arquivo "config.txt" e o criptografa.
         private void btn_Save_Click(object sender, EventArgs e)
         {
             string ID = textBoxUsuario.Text;
@@ -182,19 +188,26 @@ namespace GAcademia.Forms
             MessageBox.Show("Administrador padrão alterada com sucesso. Caso esqueça a senha, delete o arquivo config.txt na pasta raiz");
         }
 
+        // Cria novo login user usando o banco de dados, permite criar conta tipo administrador e istrutor.
+        // Salva os textos de "textBoxLoginN", "textBoxSenhaN" e "ComboBoxPrivilegio" na tabela "tbusuario".
         private void bnt_salvarN_Click(object sender, EventArgs e)
         {
+            // Checa se os textbox e combobox não estão vazios.
             if (textBoxInfLoginN.Text != "" && textBoxSenhaN.Text != "" && ComboBoxPrivilegio.Text != "")
             {
+                // Deixa invisível os textos de erro antes de executar o resto do código. 
                 labelLogin.Visible = false;
                 labelSenha.Visible = false;
 
+                // Checa se o texto do "textBoxLoginN" tem quatro ou mais caracteres.
                 if (textBoxLoginN.Text.Length >= 4)
                 {
-                    if(textBoxSenhaN.Text.Length >= 6)
+                    // Checa se o texto do "textBoxSenhaN" tem seis ou mais caracteres. 
+                    if (textBoxSenhaN.Text.Length >= 6)
                     {
                         if (MessageBox.Show("Deseja adicionar esse usuário?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
+                            // Checa se já existe um login com o mesmo nome do texto do "textBoxLoginN".
                             con.Open();
 
                             MySqlCommand check_usName = new MySqlCommand("SELECT * FROM tbusuario WHERE (`login` = @Log)", con);
@@ -209,15 +222,17 @@ namespace GAcademia.Forms
                             else
                             {
                                 con.Close();
+
                                 string Login = textBoxLoginN.Text;
                                 string Senha = textBoxSenhaN.Text;
                                 string Tipo = ComboBoxPrivilegio.Text;
 
                                 try
                                 {
-                                    byte[] salt = GerarSalt();
-                                    byte[] critptogafado = pHash(Senha, salt);
+                                    byte[] salt = GerarSalt(); // Chama o "GerarSalt" para gera a chave salt.
+                                    byte[] critptogafado = pHash(Senha, salt); // Chama o "pHash" para criptografar a senha.
 
+                                    // Adiciona os novos registros na tabela "tbusuario" com a senha já criptografada. 
                                     con.Open();
 
                                     string sql = "INSERT INTO tbusuario (`login`, `senha`, `userType`, `alt`) VALUES (@Login, @Senha, @Tipo, @Salt)";
@@ -228,6 +243,8 @@ namespace GAcademia.Forms
                                     cmd.Parameters.AddWithValue("@Salt", salt);
 
                                     int rAfetada = cmd.ExecuteNonQuery();
+
+                                    // Checa se teve "row" afetada.
                                     if (rAfetada > 0)
                                     {
                                         MessageBox.Show("Usuário adicionado com sucesso!");
@@ -247,11 +264,13 @@ namespace GAcademia.Forms
                         }
                                 
                     }
+                    // Se a senha tem menos de seis caracteres, o texto "labelSenha" fica visível.
                     else
                     {
                         labelSenha.Visible = true;
                     }
                 }
+                // Se o login tem menos de quatro caracteres, o texto "labelLogin" fica visível.
                 else
                 {
                     labelLogin.Visible = true;
@@ -263,6 +282,7 @@ namespace GAcademia.Forms
             }
         }
 
+        // Gera uma chave aleatória.
         private byte[] GerarSalt()
         {
             byte[] salt = new byte[16];
@@ -273,6 +293,7 @@ namespace GAcademia.Forms
             return salt;
         }
 
+        // Pega a senha e criptografa usando o "salt" como chave de criptografia.
         private byte[] pHash(string pass, byte[] salt)
         {
             using (Rfc2898DeriveBytes r = new Rfc2898DeriveBytes(pass, salt, 10000))
@@ -281,6 +302,8 @@ namespace GAcademia.Forms
             }
         }
 
+        // Atualiza os dados da tabela "tbusuario" onde "idusuario" é igual a "TextBoxIdUser".
+        // O sistema de criptografia da senha é o mesmo do adicionar.
         private void btn_UpdateN_Click(object sender, EventArgs e)
         {
             if(TextBoxIdUser.Text != "")
@@ -291,36 +314,57 @@ namespace GAcademia.Forms
                     string Senha = textBoxSenhaN.Text;
                     string Tipo = ComboBoxPrivilegio.Text;
 
-                    try
+                    labelLogin.Visible = false;
+                    labelSenha.Visible = false;
+
+                    // Checa se o texto do "textBoxLoginN" tem quatro ou mais caracteres.
+                    if (textBoxLoginN.Text.Length >= 4)
                     {
-                        byte[] salt = GerarSalt();
-                        byte[] critptogafado = pHash(Senha, salt);
-
-                        con.Open();
-
-                        string sql = "UPDATE tbusuario SET `login`=@Login, `senha`=@Senha, `userType`=@Tipo, `alt`=@Salt WHERE `idusuario`=@id";
-                        MySqlCommand cmd = new MySqlCommand(sql, con);
-                        cmd.Parameters.AddWithValue("@id", TextBoxIdUser.Text);
-                        cmd.Parameters.AddWithValue("@Login", Login);
-                        cmd.Parameters.AddWithValue("@Senha", critptogafado);
-                        cmd.Parameters.AddWithValue("@Tipo", Tipo);
-                        cmd.Parameters.AddWithValue("@Salt", salt);
-
-                        int rAfetada = cmd.ExecuteNonQuery();
-                        if (rAfetada > 0)
+                        // Checa se o texto do "textBoxSenhaN" tem seis ou mais caracteres. 
+                        if (textBoxSenhaN.Text.Length >= 6)
                         {
-                            MessageBox.Show("Usuário atualizado com sucesso!");
+                            try
+                            {
+                                byte[] salt = GerarSalt();
+                                byte[] critptogafado = pHash(Senha, salt);
+
+                                con.Open();
+
+                                string sql = "UPDATE tbusuario SET `login`=@Login, `senha`=@Senha, `userType`=@Tipo, `alt`=@Salt WHERE `idusuario`=@id";
+                                MySqlCommand cmd = new MySqlCommand(sql, con);
+                                cmd.Parameters.AddWithValue("@id", TextBoxIdUser.Text);
+                                cmd.Parameters.AddWithValue("@Login", Login);
+                                cmd.Parameters.AddWithValue("@Senha", critptogafado);
+                                cmd.Parameters.AddWithValue("@Tipo", Tipo);
+                                cmd.Parameters.AddWithValue("@Salt", salt);
+
+                                int rAfetada = cmd.ExecuteNonQuery();
+                                if (rAfetada > 0)
+                                {
+                                    MessageBox.Show("Usuário atualizado com sucesso!");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Erro ao atualizar o registro.");
+                                }
+
+                                con.Close();
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Erro! Banco de dados desconectado.");
+                            }
                         }
+                        // Se a senha tem menos de seis caracteres, o texto "labelSenha" fica visível.
                         else
                         {
-                            MessageBox.Show("Erro ao atualizar o registro.");
+                            labelSenha.Visible = true;
                         }
-
-                        con.Close();
                     }
-                    catch
+                    // Se o login tem menos de quatro caracteres, o texto "labelLogin" fica visível.
+                    else
                     {
-                        MessageBox.Show("Erro! Banco de dados desconectado.");
+                        labelLogin.Visible = true;
                     }
                 }
                 else
@@ -330,11 +374,12 @@ namespace GAcademia.Forms
             }
         }
 
+        // Deleta o row da tabela "tbusuario" onde "idusuario" é igual ao texto do "TextBoxIdUser".
         private void btn_DeleteN_Click(object sender, EventArgs e)
         {
             if (TextBoxIdUser.Text != "")
             {
-                if (MessageBox.Show("Deseja remover esse agendamento?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Deseja remover esse login?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {
@@ -361,6 +406,8 @@ namespace GAcademia.Forms
             }
         }
 
+        // Salva os textos do "TextBoxEmail" e "TextBoxEmailSenha" no arquivo "eConfig.txt" e o criptografa.
+        // Se o arquivo não existir, cria ele.
         private void btn_SalvarEmail_Click(object sender, EventArgs e)
         {
             string emailOrigen = TextBoxEmail.Text;

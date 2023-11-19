@@ -1,12 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GAcademia.Forms
@@ -37,6 +33,7 @@ namespace GAcademia.Forms
         {
             InitializeComponent();
 
+            // Definição das posições iniciais dos objetos da tela (botões, caixa de textos, etc) para redimensionamento da tela.
             formOriginal = this.Size;
             TextBoxSearchOriginal = new Rectangle(TextBoxSearch.Location.X, TextBoxSearch.Location.Y, TextBoxSearch.Width, TextBoxSearch.Height);
             btn_searchOriginal = new Rectangle(btn_search.Location.X, btn_search.Location.Y, btn_search.Width, btn_search.Height);
@@ -57,27 +54,30 @@ namespace GAcademia.Forms
             searchResultOriginal = new Rectangle(searchResult.Location.X, TextBoxSearch.Location.Y + 25, searchResult.Width, searchResult.Height);
         }
 
+        // Cria novo objeto usando a string de conexão do banco de dados.
         MySqlConnection con = new MySqlConnection(Database.Connect.dbConnect);
 
         private void Instrutores_Load(object sender, EventArgs e)
         {
-            var sex = new List<sexo>();
-            sex.Add(new sexo() { sexoId = 1, sexoS = "" });
-            sex.Add(new sexo() { sexoId = 2, sexoS = "Masculino" });
-            sex.Add(new sexo() { sexoId = 3, sexoS = "Feminino" });
-            sex.Add(new sexo() { sexoId = 4, sexoS = "Outro" });
+            // cria a lista "Sexo".
+            var sexo = new List<Sexo>();
+            sexo.Add(new Sexo() { sexoId = 1, sexoS = "" });
+            sexo.Add(new Sexo() { sexoId = 2, sexoS = "Masculino" });
+            sexo.Add(new Sexo() { sexoId = 3, sexoS = "Feminino" });
+            sexo.Add(new Sexo() { sexoId = 4, sexoS = "Outro" });
 
-            ComboBoxSexo.DataSource = sex;
+            ComboBoxSexo.DataSource = sexo;
             ComboBoxSexo.DisplayMember = "sexoS";
             ComboBoxSexo.Text = "Selecione o sexo";
         }
 
-        private class sexo
+        private class Sexo
         {
             public int sexoId { get; set; }
             public string sexoS { get; set; }
         }
 
+        // Seleciona os dados da tabela "tbprofessor" e preenche os textbox.
         private void btn_search_Click(object sender, EventArgs e)
         {
             if (TextBoxSearch.Text != "")
@@ -109,6 +109,8 @@ namespace GAcademia.Forms
             }
         }
 
+        // Ao digitar algo no "TextBoxSearch" busca na tabela "tbprofessor" valores similares (para número = idprofessor, para letras = nome do professor) 
+        // e preenche o data grid "searchResult" com os valores encontrados, se houver.
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
         {
             if (TextBoxSearch.TextLength >= 1)
@@ -153,6 +155,7 @@ namespace GAcademia.Forms
             }
         }
 
+        // Ao clicar adiciona o resultado na célula ao "TextBoxSearch".
         private void searchResult_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.searchResult.Rows[e.RowIndex];
@@ -160,6 +163,7 @@ namespace GAcademia.Forms
             searchResult.Height = 0;
         }
 
+        // Adiciona a tabela "tbprofessor" o conteúdo das caixas de textos.
         private void btn_add_Click(object sender, EventArgs e)
         {
             if (TextBoxNome.Text != "" && MTextBoxCPF.Text != "" && MTextBoxNascimento.Text != "" && ComboBoxSexo.Text != "" && MTextBoxCelular.Text != "")
@@ -213,6 +217,7 @@ namespace GAcademia.Forms
             }
         }
 
+        // Atualiza os registros da tabela "tbprofessor" com o conteúdo das caixas de textos onde "idprofessor" é igual ao texto do "TextBoxID".
         private void btn_update_Click(object sender, EventArgs e)
         {
             if (TextBoxID.Text != "")
@@ -255,6 +260,7 @@ namespace GAcademia.Forms
             }
         }
 
+        // Deleta linha(row) da tabela "tbprofessor" onde "idprofessor" é igual ao valor da caixa de texto "TextBoxID".
         private void btn_delete_Click(object sender, EventArgs e)
         {
             {
@@ -287,6 +293,7 @@ namespace GAcademia.Forms
             }
         }
 
+        //Reposiciona os objetos da tela quando redimensiona a tela.
         private void resize()
         {
             resizeControl(TextBoxSearchOriginal, TextBoxSearch);
@@ -308,6 +315,7 @@ namespace GAcademia.Forms
             resizeControl(searchResultOriginal, searchResult);
         }
 
+        // Método usado no cálculo do redimensionamento.
         private void resizeControl(Rectangle OriginalControl, Control control)
         {
             float xRatio = (float)(this.Width) / (float)(formOriginal.Width);
@@ -323,6 +331,7 @@ namespace GAcademia.Forms
             control.Size = new Size(newWidth, newHeight);
         }
 
+        //Chama o "resize" quando redimensiona a tela.
         private void Instrutores_Resize(object sender, EventArgs e)
         {
             resize();

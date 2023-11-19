@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using static GAcademia.UserControlMySqlConfig;
 
 namespace GAcademia.Database
 {
     class Connect
     {
+        // valores padrões para conexão com MySql
         public static string servidor = "localhost";
         public static string bancoDados = "dbacademia";
-        public static string usuario = "";
+        public static string usuario = "root";
         public static string senha = "";
         public static string porta = "3306";
 
+        // string de conexão com MySql, deve ser chamado sempre que precisar abrir conexão com o banco de dados.
         static public string dbConnect = $"server={servidor};database={bancoDados};user={usuario};password={senha};port={porta}";
 
+        // Sobrescreve os valores padrões de conexão com os valores do arquivo configurado.
         public static void LoadFile()
         {
             try
@@ -71,6 +69,7 @@ namespace GAcademia.Database
             }
         }
 
+        // Descriptografa o arquivo com as configurações de conexão salvas previamente.
         private static void ReadConfigFile()
         {
             try

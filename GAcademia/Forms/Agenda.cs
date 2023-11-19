@@ -71,6 +71,7 @@ namespace GAcademia.Forms
 
         private void Agenda_Load(object sender, EventArgs e)
         {
+            // Cria a lista diaSemana.
             var dia = new List<diaSemana>();
             dia.Add(new diaSemana() { diaId = 0, nomeDia = "" });
             dia.Add(new diaSemana() { diaId = 1, nomeDia = "Domingo" });
@@ -81,12 +82,15 @@ namespace GAcademia.Forms
             dia.Add(new diaSemana() { diaId = 6, nomeDia = "Sexta" });
             dia.Add(new diaSemana() { diaId = 7, nomeDia = "Sábado" });
 
+            // Adiciona a lista "diaSemana" para o ComboBoxDia.
             ComboBoxDia.DataSource = dia;
             ComboBoxDia.DisplayMember = "nomeDia";
             ComboBoxDia.Text = "Selecione o dia";
 
+            
             try
             {
+                // Adiciona ao "ComboBoxProfessor" os dados das colunas "idprofessor" e "nome" da tabela "tbprofessor".
                 con.Open();
                 MySqlDataAdapter daP = new MySqlDataAdapter("SELECT idprofessor, nome FROM tbprofessor", con);
                 DataSet dtP = new DataSet();
@@ -96,6 +100,7 @@ namespace GAcademia.Forms
                 ComboBoxProfessor.ValueMember = "idprofessor";
                 ComboBoxProfessor.Text = "Selecionar Professor";
 
+                // Adiciona ao "ComboBoxAluno" os dados das colunas "idaluno" e "nome" da tabela "tbalunos".
                 MySqlDataAdapter daA = new MySqlDataAdapter("SELECT idaluno, nome, cpf FROM tbalunos", con);
                 DataSet dtA = new DataSet();
                 daA.Fill(dtA, "Aluno");
@@ -113,34 +118,41 @@ namespace GAcademia.Forms
             
         }
 
+        // Quando a seleção do "ComboBoxAluno" mudar, o texto do "TextBoxIdAluno" recebe o "ValueMember". 
         private void ComboBoxAluno_SelectionChangeCommitted(object sender, EventArgs e)
         {
                 TextBoxIdAluno.Text = ComboBoxAluno.GetItemText(ComboBoxAluno.SelectedValue);   
         }
 
+        // Quando a seleção do "ComboBoxProfessor" mudar, o texto do "TextBoxIdProf" recebe o "ValueMember".
         private void ComboBoxProfessor_SelectionChangeCommitted(object sender, EventArgs e)
         {
             TextBoxIdProf.Text = ComboBoxProfessor.GetItemText(ComboBoxProfessor.SelectedValue);
         }
 
+        // classe usada para criar a lista de mesmo nome
         private class diaSemana
         {
             public int diaId { get; set; }
             public string nomeDia { get; set; }
         }
 
+        // Insere no banco de dados os valores dos textbox e combobox.
         private void btn_agendar_Click(object sender, EventArgs e)
         {
+            // Checa se os textbox e combobox não estão vazios.
             if (ComboBoxAluno.Text != "" && ComboBoxProfessor.Text != "" && ComboBoxDia.Text != "" && MTextBoxHorario.Text != "")
             {
+                // Apenas para informar que está adicionando um novo registro e não alterando um já existente, afeta a mensagem do email. 
                 add = true;
 
+                // Diálogo de confirmação para evitar agendar sem querer.
                 if (MessageBox.Show("Deseja agendar esse horário?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {
                         con.Open();
-                        MySqlCommand cmd = new MySqlCommand("INSERT INTO tbagenda (`aluno`, `professor`, `dia`, `hora`, `descricao`)" + " VALUES (@Aluno, @Professor, @Dia, @Hora, @Desc)", con);
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO tbagenda (`aluno`, `professor`, `dia`, `hora`, `descricao`) VALUES (@Aluno, @Professor, @Dia, @Hora, @Desc)", con);
 
                         cmd.Parameters.Add("@Aluno", MySqlDbType.VarChar, 100);
                         cmd.Parameters.Add("@Professor", MySqlDbType.VarChar, 100);
@@ -158,6 +170,7 @@ namespace GAcademia.Forms
 
                         con.Close();
 
+                        // Pergunta se quer ou não enviar email para o aluno informando o agendamento.
                         if (MessageBox.Show("Deseja enviar email para o aluno avisando sobre o agendamento?", "Deseja enviar email?", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             sendEmail();
@@ -175,8 +188,10 @@ namespace GAcademia.Forms
             }
         }
 
+        // Procura na tabela "tbagenda" id ou nome como o digitado no "TextBoxSearch". 
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
         {
+            // define quantos caracteres sõa necessários para começar a procura.
             if (TextBoxSearch.TextLength >= 1)
             {
                 try
@@ -193,6 +208,7 @@ namespace GAcademia.Forms
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     da.Fill(dt);
 
+                    // se encontrar algo, mostra no "searchResult". 
                     if (dt != null && dt.Rows.Count > 0)
                     {
                         searchResult.DataSource = dt;
@@ -212,12 +228,14 @@ namespace GAcademia.Forms
                 }
 
             }
-            else if (TextBoxSearch.TextLength <= 0)
+            // se o número de caracteres do "TextBoxSearch" for 0, esconde o "searchResult".
+            else if (TextBoxSearch.TextLength == 0)
             {
                 searchResult.Height = 0;
             }
         }
 
+        // Ao clicar na célula do "searchResult", o nome do aluno vai para o "TextBoxSearch".
         private void searchResult_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = this.searchResult.Rows[e.RowIndex];
@@ -225,7 +243,7 @@ namespace GAcademia.Forms
             searchResult.Height = 0;
         }
 
-
+        // Adiciona os valors da tabela "tbagenda" nos textbox e combobox.
         private void btn_search_Click(object sender, EventArgs e)
         {
             if (TextBoxSearch.Text != "")
@@ -257,8 +275,10 @@ namespace GAcademia.Forms
             }
         }
 
+        // Atualiza os valores da tabela "tbagenda" com os valores dos textbox e combobox.
         private void tbn_upd_Click(object sender, EventArgs e)
         {
+            // Apenas informa que está atualizando um registro já existente, afeta a mensagem do email. 
             add = false;
 
             if (TextBoxIdAgenda.Text != "")
@@ -289,6 +309,7 @@ namespace GAcademia.Forms
                         cmd.DisposeAsync();
                         MessageBox.Show("Dados atualizados com sucesso!");
 
+                        // diálogo de confirmação de envio de email.
                         if (MessageBox.Show("Deseja enviar email para o aluno avisando sobre a alteração no agendamento?", "Deseja enviar email?", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             sendEmail();
@@ -308,8 +329,10 @@ namespace GAcademia.Forms
             
         }
 
+        // Deleta linha(row) da tabela "tbagenda" onde o "idagenda" é igual ao valor da caixa de texto "TextBoxIdAgenda".
         private void btn_delete_Click(object sender, EventArgs e)
         {
+            // Checa se o texto no TextBoxIdAgenda não está vazio.
             if (TextBoxIdAgenda.Text != "")
             {
                 if (MessageBox.Show("Deseja remover esse agendamento?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -334,12 +357,14 @@ namespace GAcademia.Forms
                     
                 }
             }
+            // Caso o "TextBoxIdAgenda" estiver vazio mostra a mensagem.
             else
             {
                 MessageBox.Show("Selecione um agendamento");
             }
         }
 
+        //Reposiciona os objetos da tela quando redimensiona a tela.
         private void resize()
         {
             resizeControl(TextBoxSearchOriginal, TextBoxSearch);
@@ -361,6 +386,7 @@ namespace GAcademia.Forms
             resizeControl(searchResultOriginal, searchResult);
         }
 
+        // Método usado no cálculo do redimensionamento.
         private void resizeControl(Rectangle OriginalControl, Control control)
         {
             float xRatio = (float)(this.Width) / (float)(formOriginal.Width);
@@ -376,11 +402,13 @@ namespace GAcademia.Forms
             control.Size = new Size(newWidth, newHeight);
         }
 
+        //Chama o "resize" quando redimensiona a tela.
         private void Agenda_Resize(object sender, EventArgs e)
         {
             resize();
         }
 
+        // Seleciona o email do aluno e usa as credenciais carregadas no loadEmail para enviar email para o aluno. 
         private void sendEmail()
         {
             loadEmail();
@@ -406,7 +434,7 @@ namespace GAcademia.Forms
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(emailOrigen);
                 mail.To.Add(emailDestino);
-                mail.Subject = "Agendamento de treino na academia";
+                mail.Subject = "Agendamento de treino na academia"; // Assunto do email
                 if(add == true)
                 {
                     mail.Body = "Você tem treino marcado para " + ComboBoxDia.Text + " as " + MTextBoxHorario.Text;
@@ -432,7 +460,7 @@ namespace GAcademia.Forms
             }
         }
 
-
+        // Descriptografa o arquivo com os registros de email e senha.
         private void readEmail()
         {
             string encryptedData;
@@ -457,6 +485,7 @@ namespace GAcademia.Forms
             }
         }
 
+        // Pega os valores descriptografados do readEmail e adiciona a "emailOrigen" e "emailSenha".
         private void loadEmail()
         {
             try

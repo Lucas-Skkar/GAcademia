@@ -1,12 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GAcademia.Forms
@@ -354,7 +349,7 @@ namespace GAcademia.Forms
             searchResult.Height = 0;
         }
 
-        //Calcula as novas posições dos objetos da tela quando redimensiona a tela.
+        // Reposiciona os objetos da tela quando redimensiona a tela.
         private void resize()
         {
             resizeControl(btn_searchUserOriginal, btn_searchUser);
