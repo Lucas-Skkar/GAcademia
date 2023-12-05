@@ -195,8 +195,9 @@ namespace GAcademia.Forms
                 // Testa conexão com o banco de dados
                 try
                 {
-                    con.Open();
-                    con.Close();
+                    MySqlConnection conex = new MySqlConnection(Database.Connect.dbConnect);
+                    conex.Open();
+                    conex.Close();
                 }
                 catch
                 {

@@ -135,7 +135,7 @@ namespace GAcademia.Forms
         // Adiciona a tabela tbalunos o conteúdo das caixas de textos.
         private void btn_addUser_Click(object sender, EventArgs e)
         {
-            if (textBoxNome.Text != "" && MtextBoxNascimento.Text != "" && textBoxRg.Text != "" && MtextBoxCpf.Text != "" && textBoxEndereco.Text != "" && textBoxNumero.Text != "" && textBoxBairro.Text != "" && textBoxCidade.Text != "" && textBoxEstado.Text != "" && MtextBoxTelefone.Text != "" && textBoxEmail.Text != "")
+            if (textBoxNome.Text != "" && MtextBoxNascimento.Text != "   /    / " && textBoxRg.Text != "" && MtextBoxCpf.Text != "   ,   ,   -" && textBoxEndereco.Text != "" && textBoxNumero.Text != "" && textBoxBairro.Text != "" && textBoxCidade.Text != "" && textBoxEstado.Text != "" && MtextBoxTelefone.Text != "(  )       - " && textBoxEmail.Text != "")
             {
                 if (MessageBox.Show("Deseja adicionar esse usuário?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {

@@ -31,6 +31,7 @@ namespace GAcademia
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btn_confg = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_Agenda = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -294,9 +295,9 @@ namespace GAcademia
             this.Logo.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Logo.Location = new System.Drawing.Point(50, 23);
             this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(98, 30);
+            this.Logo.Size = new System.Drawing.Size(96, 30);
             this.Logo.TabIndex = 0;
-            this.Logo.Text = "GerAcaD";
+            this.Logo.Text = "GerAcad";
             this.Logo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelDesktop
@@ -1155,11 +1156,12 @@ namespace GAcademia
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
             this.ForeColor = System.Drawing.Color.Transparent;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "FormMain";
             this.Palette = this.kryptonPaletteMain;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.Resize += new System.EventHandler(this.FormMain_Resize);
             this.panelMenu.ResumeLayout(false);

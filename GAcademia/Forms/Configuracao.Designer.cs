@@ -39,8 +39,8 @@ namespace GAcademia.Forms
             this.btn_Login = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panelChildrens = new System.Windows.Forms.Panel();
             this.PanelEmail = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.labelIportante = new System.Windows.Forms.Label();
             this.btn_SalvarEmail = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.labelImportante = new System.Windows.Forms.Label();
             this.TextBoxEmail = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TextBoxEmailSenha = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.TextBoxInfEmail = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -68,6 +68,7 @@ namespace GAcademia.Forms
             this.PanelMySqlConfig = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btn_testConnect = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.userControlMySqlConfig1 = new GAcademia.UserControlMySqlConfig();
+            this.labelImportant = new System.Windows.Forms.Label();
             this.panelButtons.SuspendLayout();
             this.panelChildrens.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PanelEmail)).BeginInit();
@@ -230,7 +231,7 @@ namespace GAcademia.Forms
             this.btn_NewLogin.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_NewLogin.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_NewLogin.TabIndex = 8;
-            this.btn_NewLogin.Values.Text = "Add Login Database";
+            this.btn_NewLogin.Values.Text = "Add Novo Login ";
             this.btn_NewLogin.Click += new System.EventHandler(this.btn_NewLogin_Click);
             // 
             // btn_db
@@ -274,7 +275,7 @@ namespace GAcademia.Forms
             this.btn_Login.StateNormal.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btn_Login.StateNormal.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Login.TabIndex = 6;
-            this.btn_Login.Values.Text = "Config Admin Padrão";
+            this.btn_Login.Values.Text = "Admin Padrão";
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
             // panelChildrens
@@ -293,8 +294,9 @@ namespace GAcademia.Forms
             // 
             // PanelEmail
             // 
-            this.PanelEmail.Controls.Add(this.labelIportante);
             this.PanelEmail.Controls.Add(this.btn_SalvarEmail);
+            this.PanelEmail.Controls.Add(this.labelImportante);
+            this.PanelEmail.Controls.Add(this.labelImportant);
             this.PanelEmail.Controls.Add(this.TextBoxEmail);
             this.PanelEmail.Controls.Add(this.TextBoxEmailSenha);
             this.PanelEmail.Controls.Add(this.TextBoxInfEmail);
@@ -311,19 +313,6 @@ namespace GAcademia.Forms
             this.PanelEmail.StateNormal.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.PanelEmail.TabIndex = 76;
             this.PanelEmail.Visible = false;
-            // 
-            // labelIportante
-            // 
-            this.labelIportante.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelIportante.AutoSize = true;
-            this.labelIportante.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIportante.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.labelIportante.Location = new System.Drawing.Point(103, 190);
-            this.labelIportante.Name = "labelIportante";
-            this.labelIportante.Size = new System.Drawing.Size(477, 91);
-            this.labelIportante.TabIndex = 75;
-            this.labelIportante.Text = resources.GetString("labelIportante.Text");
-            this.labelIportante.Visible = false;
             // 
             // btn_SalvarEmail
             // 
@@ -396,6 +385,19 @@ namespace GAcademia.Forms
             this.btn_SalvarEmail.TabIndex = 67;
             this.btn_SalvarEmail.Values.Text = "Salvar";
             this.btn_SalvarEmail.Click += new System.EventHandler(this.btn_SalvarEmail_Click);
+            // 
+            // labelImportante
+            // 
+            this.labelImportante.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelImportante.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelImportante.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.labelImportante.Location = new System.Drawing.Point(165, 190);
+            this.labelImportante.Name = "labelImportante";
+            this.labelImportante.Size = new System.Drawing.Size(377, 112);
+            this.labelImportante.TabIndex = 75;
+            this.labelImportante.Text = resources.GetString("labelImportante.Text");
+            this.labelImportante.Visible = false;
             // 
             // TextBoxEmail
             // 
@@ -1498,6 +1500,18 @@ namespace GAcademia.Forms
             this.userControlMySqlConfig1.Size = new System.Drawing.Size(634, 461);
             this.userControlMySqlConfig1.TabIndex = 0;
             // 
+            // labelImportant
+            // 
+            this.labelImportant.AutoSize = true;
+            this.labelImportant.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelImportant.ForeColor = System.Drawing.Color.Yellow;
+            this.labelImportant.Location = new System.Drawing.Point(103, 190);
+            this.labelImportant.Name = "labelImportant";
+            this.labelImportant.Size = new System.Drawing.Size(91, 13);
+            this.labelImportant.TabIndex = 76;
+            this.labelImportant.Text = "Importante:        \r\n";
+            this.labelImportant.Visible = false;
+            // 
             // Configuracao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1560,12 +1574,13 @@ namespace GAcademia.Forms
         private System.Windows.Forms.Label labelSenha;
         private System.Windows.Forms.Label labelLogin;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel PanelEmail;
-        private System.Windows.Forms.Label labelIportante;
+        private System.Windows.Forms.Label labelImportante;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_SalvarEmail;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxEmail;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxEmailSenha;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfEmail;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfEmailSenha;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_ConfigEmail;
+        private System.Windows.Forms.Label labelImportant;
     }
 }

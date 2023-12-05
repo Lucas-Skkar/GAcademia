@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
 
 namespace GAcademia
@@ -18,6 +11,8 @@ namespace GAcademia
         public UserControlMySqlConfig()
         {
             InitializeComponent();
+
+            // Carrega os valores das contantes (caminho: Database.Connect) nos textos dos textbox. 
             textBoxServidor.Text = Database.Connect.servidor;
             textBoxBancoDados.Text = Database.Connect.bancoDados;
             textBoxUsuario.Text = Database.Connect.usuario;
@@ -25,9 +20,10 @@ namespace GAcademia
             textBoxPorta.Text = Database.Connect.porta;
         }
 
+        // Criptografa usando uma chave privada (key)
         public class DataEncryptor
         {
-            private const string key = "apenasfazendotes"; // Key para criptografia (16 caracteres)
+            private const string key = "apenasfazendotes"; // Chave para criptografia (16 caracteres)
 
             public static string Encrypt(string plainText)
             {
@@ -53,6 +49,8 @@ namespace GAcademia
                 }
             }
 
+            // Descriptografa usando a mesma chave usada para criptografar.
+            // Caso mude a chave após ter criptografado, o arquivo não poderá ser descriptografado.
             public static string Decrypt(string cipherText)
             {
                 using (Aes aesAlg = Aes.Create())
@@ -76,6 +74,7 @@ namespace GAcademia
             }
         }
 
+        // Cria ou salva(caso o arquivo já exista) o arquivo "dBconfig.txt" com os valores dos textbox.
         private void btn_save_Click(object sender, EventArgs e)
         {
             string servidor = textBoxServidor.Text;

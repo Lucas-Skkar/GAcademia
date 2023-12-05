@@ -1,12 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
 using System.Net;
@@ -141,7 +137,7 @@ namespace GAcademia.Forms
         private void btn_agendar_Click(object sender, EventArgs e)
         {
             // Checa se os textbox e combobox não estão vazios.
-            if (ComboBoxAluno.Text != "" && ComboBoxProfessor.Text != "" && ComboBoxDia.Text != "" && MTextBoxHorario.Text != "")
+            if (ComboBoxAluno.Text != "" && ComboBoxProfessor.Text != "" && ComboBoxDia.Text != "" && MTextBoxHorario.Text != "  :")
             {
                 // Apenas para informar que está adicionando um novo registro e não alterando um já existente, afeta a mensagem do email. 
                 add = true;

@@ -816,7 +816,7 @@ namespace GAcademia.Forms
             this.Controls.Add(this.btn_search);
             this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "Instrutores";
-            this.Text = "Instrutores";
+            this.Text = "Professores";
             this.Load += new System.EventHandler(this.Instrutores_Load);
             this.Resize += new System.EventHandler(this.Instrutores_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxSexo)).EndInit();

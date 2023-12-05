@@ -29,6 +29,7 @@ namespace GAcademia.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.bnt_close = new System.Windows.Forms.Label();
             this.Btn_login = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.TextBoxInfUser = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
@@ -325,10 +326,10 @@ namespace GAcademia.Forms
             this.Controls.Add(this.tBoxUsuario);
             this.Controls.Add(this.TextBoxInfUser);
             this.Controls.Add(this.bnt_close);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1065, 503);
             this.MinimumSize = new System.Drawing.Size(419, 350);
             this.Name = "LoginForm";
-            this.ShowIcon = false;
             this.StateActive.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.StateActive.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.StateActive.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));

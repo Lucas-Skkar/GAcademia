@@ -56,11 +56,13 @@ namespace GAcademia.Forms
 
             if (File.Exists("eConfig.txt"))
             {
-                labelIportante.Visible = false;
+                labelImportante.Visible = false;
+                labelImportant.Visible = false;
             }
             else
             {
-                labelIportante.Visible = true;
+                labelImportante.Visible = true;
+                labelImportant.Visible = true;
             }
         }
 

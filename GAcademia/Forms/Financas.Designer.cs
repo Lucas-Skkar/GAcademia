@@ -30,7 +30,7 @@ namespace GAcademia.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelButtons = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btn_Detalhes = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.kryptonPaletteButtons = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
@@ -224,16 +224,15 @@ namespace GAcademia.Forms
             // 
             this.DataGridDetalhes.AllowUserToAddRows = false;
             this.DataGridDetalhes.AllowUserToDeleteRows = false;
-            this.DataGridDetalhes.AllowUserToOrderColumns = true;
             this.DataGridDetalhes.AllowUserToResizeColumns = false;
             this.DataGridDetalhes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DataGridDetalhes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DataGridDetalhes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridDetalhes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataGridDetalhes.ColumnHeadersHeight = 24;
+            this.DataGridDetalhes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridDetalhes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Aluno,
             this.valor,
@@ -248,7 +247,6 @@ namespace GAcademia.Forms
             this.DataGridDetalhes.ReadOnly = true;
             this.DataGridDetalhes.RowHeadersVisible = false;
             this.DataGridDetalhes.RowTemplate.Height = 30;
-            this.DataGridDetalhes.RowTemplate.ReadOnly = true;
             this.DataGridDetalhes.Size = new System.Drawing.Size(636, 307);
             this.DataGridDetalhes.StateCommon.Background.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
             this.DataGridDetalhes.StateCommon.Background.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -351,7 +349,7 @@ namespace GAcademia.Forms
             this.statusM.HeaderText = "Status da mensalidade";
             this.statusM.Name = "statusM";
             this.statusM.ReadOnly = true;
-            this.statusM.Width = 154;
+            this.statusM.Width = 141;
             // 
             // mes
             // 
@@ -367,7 +365,7 @@ namespace GAcademia.Forms
             this.DiaM.HeaderText = "Dia Vencimento";
             this.DiaM.Name = "DiaM";
             this.DiaM.ReadOnly = true;
-            this.DiaM.Width = 119;
+            this.DiaM.Width = 109;
             // 
             // contato
             // 
@@ -441,6 +439,7 @@ namespace GAcademia.Forms
             this.textBoxAtrasado.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxAtrasado.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAtrasado.TabIndex = 80;
+            this.textBoxAtrasado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TextBoxInfRecebeu
             // 
@@ -505,6 +504,7 @@ namespace GAcademia.Forms
             this.textBoxRecebeu.StateNormal.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textBoxRecebeu.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRecebeu.TabIndex = 78;
+            this.textBoxRecebeu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ComboBoxMes
             // 

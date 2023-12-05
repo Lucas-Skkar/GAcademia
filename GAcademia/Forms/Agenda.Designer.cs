@@ -288,6 +288,7 @@ namespace GAcademia.Forms
             this.TextBoxSearch.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxSearch.TabIndex = 12;
             this.TextBoxSearch.Text = "Digite o número ID do agendamento ou Nome do aluno.";
+            this.TextBoxSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TextBoxSearch.TextChanged += new System.EventHandler(this.TextBoxSearch_TextChanged);
             this.TextBoxSearch.Enter += new System.EventHandler(this.TextBoxSearch_Enter);
             this.TextBoxSearch.Leave += new System.EventHandler(this.TextBoxSearch_Leave);

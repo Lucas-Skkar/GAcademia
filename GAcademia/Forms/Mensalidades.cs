@@ -57,7 +57,8 @@ namespace GAcademia.Forms
             btn_updateOriginal = new Rectangle(btn_update.Location.X, btn_update.Location.Y, btn_update.Width, btn_update.Height);
             btn_deleteOriginal = new Rectangle(btn_delete.Location.X, btn_delete.Location.Y, btn_delete.Width, btn_delete.Height);
             btn_ImprimirOriginal = new Rectangle(btn_Imprimir.Location.X, btn_Imprimir.Location.Y, btn_Imprimir.Width, btn_Imprimir.Height);
-            searchResultOriginal = new Rectangle(searchResult.Location.X, TextBoxSearch.Location.Y + 25, searchResult.Width, searchResult.Height);
+            searchResultOriginal = new Rectangle(searchResult.Location.X, TextBoxSearch.Location.Y +30, searchResult.Width, searchResult.Height);
+            
             if (call == true) 
             {
                 btn_AdicionarOriginal = new Rectangle(btn_Adicionar.Location.X +172, btn_Adicionar.Location.Y, btn_Adicionar.Width, btn_Adicionar.Height);
@@ -66,6 +67,11 @@ namespace GAcademia.Forms
             {
                 btn_AdicionarOriginal = new Rectangle(btn_Adicionar.Location.X, btn_Adicionar.Location.Y, btn_Adicionar.Width, btn_Adicionar.Height);
             }
+        }
+
+        private void Mensalidades_ResizeBegin(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void Mensalidades_Load(object sender, EventArgs e)
@@ -259,44 +265,51 @@ namespace GAcademia.Forms
         // Adiciona a tabela tbmensalidades o conteúdo das caixas de textos.
         private void btn_Adicionar_Click(object sender, EventArgs e)
         {
-            // mostra um dialogo com opções "Sim" e "Não", caso seja selecionado "Sim", executa o bloco try.
-            if (MessageBox.Show("Deseja adicionar essa mensalidade?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (ComboBoxAluno.Text != "" && ComboBoxMes.Text != "" && ComboBoxDia.Text != "" && ComboBoxStatus.Text != "" && textBoxValor.Text != "")
             {
-                try
+                // mostra um dialogo com opções "Sim" e "Não", caso seja selecionado "Sim", executa o bloco try.
+                if (MessageBox.Show("Deseja adicionar essa mensalidade?", "ATENÇÃO", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    con.Open();
-                    string sql = "INSERT INTO tbmensalidades (`mes`, `dia`, `status`, `valor`, `data_pag`, `FK_idaluno`) ";
-                    sql += "VALUES (@Mes, @Dia, @Status, @Valor, @DataPagamento, @IdAluno)";
-                    MySqlCommand cmd = new MySqlCommand(sql, con);
+                    try
+                    {
+                        con.Open();
+                        string sql = "INSERT INTO tbmensalidades (`mes`, `dia`, `status`, `valor`, `data_pag`, `FK_idaluno`) ";
+                        sql += "VALUES (@Mes, @Dia, @Status, @Valor, @DataPagamento, @IdAluno)";
+                        MySqlCommand cmd = new MySqlCommand(sql, con);
 
-                    cmd.Parameters.Add("@Mes", MySqlDbType.VarChar, 20);
-                    cmd.Parameters.Add("@Dia", MySqlDbType.Int32, 11);
-                    cmd.Parameters.Add("@Status", MySqlDbType.VarChar, 10);
-                    cmd.Parameters.Add("@Valor", MySqlDbType.VarChar, 20);
-                    cmd.Parameters.Add("@DataPagamento", MySqlDbType.VarChar, 10);
-                    cmd.Parameters.Add("@IdAluno", MySqlDbType.Int32, 11);
+                        cmd.Parameters.Add("@Mes", MySqlDbType.VarChar, 20);
+                        cmd.Parameters.Add("@Dia", MySqlDbType.Int32, 11);
+                        cmd.Parameters.Add("@Status", MySqlDbType.VarChar, 10);
+                        cmd.Parameters.Add("@Valor", MySqlDbType.VarChar, 20);
+                        cmd.Parameters.Add("@DataPagamento", MySqlDbType.VarChar, 10);
+                        cmd.Parameters.Add("@IdAluno", MySqlDbType.Int32, 11);
 
-                    cmd.Parameters["@Mes"].Value = ComboBoxMes.Text;
-                    cmd.Parameters["@Dia"].Value = ComboBoxDia.Text;
-                    cmd.Parameters["@Status"].Value = ComboBoxStatus.Text;
-                    cmd.Parameters["@Valor"].Value = textBoxValor.Text;
-                    cmd.Parameters["@DataPagamento"].Value = MtextBoxDPagamento.Text;
-                    cmd.Parameters["@IdAluno"].Value = TextBoxIdAluno.Text;
+                        cmd.Parameters["@Mes"].Value = ComboBoxMes.Text;
+                        cmd.Parameters["@Dia"].Value = ComboBoxDia.Text;
+                        cmd.Parameters["@Status"].Value = ComboBoxStatus.Text;
+                        cmd.Parameters["@Valor"].Value = textBoxValor.Text;
+                        cmd.Parameters["@DataPagamento"].Value = MtextBoxDPagamento.Text;
+                        cmd.Parameters["@IdAluno"].Value = TextBoxIdAluno.Text;
 
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Adicionado com sucesso!");
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        MessageBox.Show("Adicionado com sucesso!");
+                    }
+                    catch
+                    {
+                    }
+
+                    // se a tela tiver sido aberta pela tela alunos, após adicionar os dados ela fecha.
+                    if (call == true)
+                    {
+                        call = false;
+                        this.Close();
+                    }
                 }
-                catch
-                {
-                }
-                
-                // se a tela tiver sido aberta pela tela alunos, após adicionar os dados ela fecha.
-                if (call == true)
-                {
-                    call = false;
-                    this.Close();
-                }
+            }
+            else
+            {
+                MessageBox.Show("É necessário preencher os campos Aluno, Mês, Dia e Valor");
             }
         }
 
@@ -379,7 +392,7 @@ namespace GAcademia.Forms
         // Abre a tela de impressão de comprovante de pagamento com os dados dos textBox e comboBox.
         private void btn_Imprimir_Click(object sender, EventArgs e)
         {
-            if (MtextBoxDPagamento.Text != "" && TextBoxIdMensalidade.Text != "")
+            if (MtextBoxDPagamento.Text != "   /    / " && TextBoxIdMensalidade.Text != "")
             {
                 Comprovante.Comprovante frm = new Comprovante.Comprovante(ComboBoxAluno.Text, textBoxValor.Text, ComboBoxMes.Text, MtextBoxDPagamento.Text);
                 frm.Show();
@@ -393,6 +406,7 @@ namespace GAcademia.Forms
         //Calcula as novas posições dos objetos da tela quando redimensiona a tela.
         private void resize()
         {
+           
             resizeControl(TextBoxSearchOriginal, TextBoxSearch);
             resizeControl(btn_searchOriginal, btn_search);
             resizeControl(ComboBoxAlunoOriginal, ComboBoxAluno);
