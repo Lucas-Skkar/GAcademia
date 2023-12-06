@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using System.ComponentModel;
 
 namespace GAcademia
 {
@@ -37,6 +38,7 @@ namespace GAcademia
         {
             InitializeComponent();
             test_bdConnection();
+            diaDaSemana();
 
             // Definição das posições iniciais dos botões de dias da semana.
             formOriginal = this.Size;
@@ -209,6 +211,7 @@ namespace GAcademia
                 activeForm.Close();
             labelHead.Text = "Home";
             test_bdConnection();
+            diaDaSemana();
 
             // Testa conexão com o banco de dados e habilita os botões dias da semana se conseguir se conectar.
             try
@@ -321,6 +324,44 @@ namespace GAcademia
         private void FormMain_Resize(object sender, EventArgs e)
         {
             resize();
+        }
+
+        // Filtra os dados do datagrid para mostrar os referêntes ao dia atual
+        private void diaDaSemana()
+        {
+            string day = "Domingo";
+            DateTime diaSemana = DateTime.Now;
+            DayOfWeek d = diaSemana.DayOfWeek;
+
+            if (d == DayOfWeek.Monday)
+            {
+                day = "Segunda";
+            }
+            else if (d == DayOfWeek.Tuesday)
+            {
+                day = "Terça";
+            }
+            else if (d == DayOfWeek.Wednesday)
+            {
+                day = "Quarta";
+            }
+            else if (d == DayOfWeek.Thursday)
+            {
+                day = "Quinta";
+            }
+            else if (d == DayOfWeek.Friday)
+            {
+                day = "Sexta";
+            }
+            else 
+            {
+                day = "Sábado";
+            }
+
+            (DataGridAgenda.DataSource as DataTable).DefaultView.RowFilter = string.Format("dia LIKE '{0}'", day);
+
+            // Ordena o datagrid usando a coluna Horário na direção ascendente(menor para o maior)
+            this.DataGridAgenda.Sort(this.DataGridAgenda.Columns["horario"], ListSortDirection.Ascending);
         }
     }
 }

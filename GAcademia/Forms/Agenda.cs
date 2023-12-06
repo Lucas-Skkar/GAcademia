@@ -59,7 +59,7 @@ namespace GAcademia.Forms
             btn_agendarOriginal = new Rectangle(btn_agendar.Location.X, btn_agendar.Location.Y, btn_agendar.Width, btn_agendar.Height);
             tbn_updOriginal = new Rectangle(tbn_upd.Location.X, tbn_upd.Location.Y, tbn_upd.Width, tbn_upd.Height);
             btn_deleteOriginal = new Rectangle(btn_delete.Location.X, btn_delete.Location.Y, btn_delete.Width, btn_delete.Height);
-            searchResultOriginal = new Rectangle(searchResult.Location.X, TextBoxSearch.Location.Y + 25, searchResult.Width, searchResult.Height);
+            searchResultOriginal = new Rectangle(searchResult.Location.X, TextBoxSearch.Location.Y + 32, searchResult.Width, searchResult.Height);
         }
 
         // Cria novo objeto usando a string de conexão do banco de dados.
@@ -380,6 +380,11 @@ namespace GAcademia.Forms
             resizeControl(tbn_updOriginal, tbn_upd);
             resizeControl(btn_deleteOriginal, btn_delete);
             resizeControl(searchResultOriginal, searchResult);
+
+            if (searchResult.Location.Y > TextBoxSearch.Location.Y + 32)
+            {
+                searchResult.Top = +96;
+            }
         }
 
         // Método usado no cálculo do redimensionamento.

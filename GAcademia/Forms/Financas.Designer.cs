@@ -37,17 +37,17 @@ namespace GAcademia.Forms
             this.btn_Mensalidades = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panelChildrens = new System.Windows.Forms.Panel();
             this.DataGridDetalhes = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.TextBoxInfAtrasado = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.textBoxAtrasado = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.TextBoxInfRecebeu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.textBoxRecebeu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.ComboBoxMes = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.Aluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contato = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TextBoxInfAtrasado = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.textBoxAtrasado = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.TextBoxInfRecebeu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.textBoxRecebeu = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.ComboBoxMes = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelButtons)).BeginInit();
             this.panelButtons.SuspendLayout();
             this.panelChildrens.SuspendLayout();
@@ -240,12 +240,12 @@ namespace GAcademia.Forms
             this.mes,
             this.DiaM,
             this.contato});
-            this.DataGridDetalhes.Enabled = false;
             this.DataGridDetalhes.HideOuterBorders = true;
             this.DataGridDetalhes.Location = new System.Drawing.Point(16, 142);
             this.DataGridDetalhes.Name = "DataGridDetalhes";
             this.DataGridDetalhes.ReadOnly = true;
             this.DataGridDetalhes.RowHeadersVisible = false;
+            this.DataGridDetalhes.RowHeadersWidth = 30;
             this.DataGridDetalhes.RowTemplate.Height = 30;
             this.DataGridDetalhes.Size = new System.Drawing.Size(636, 307);
             this.DataGridDetalhes.StateCommon.Background.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(31)))), ((int)(((byte)(36)))));
@@ -296,7 +296,6 @@ namespace GAcademia.Forms
             this.DataGridDetalhes.StatePressed.HeaderColumn.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.DataGridDetalhes.StatePressed.HeaderColumn.Border.Rounding = 20;
             this.DataGridDetalhes.StatePressed.HeaderRow.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.DataGridDetalhes.StatePressed.HeaderRow.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.DataGridDetalhes.StatePressed.HeaderRow.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -304,7 +303,6 @@ namespace GAcademia.Forms
             this.DataGridDetalhes.StatePressed.HeaderRow.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.DataGridDetalhes.StatePressed.HeaderRow.Border.Rounding = 20;
             this.DataGridDetalhes.StateSelected.DataCell.Back.Color1 = System.Drawing.SystemColors.MenuHighlight;
             this.DataGridDetalhes.StateSelected.DataCell.Back.Color2 = System.Drawing.SystemColors.MenuHighlight;
             this.DataGridDetalhes.StateSelected.DataCell.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
@@ -316,7 +314,6 @@ namespace GAcademia.Forms
             this.DataGridDetalhes.StateSelected.HeaderRow.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.DataGridDetalhes.StateSelected.HeaderRow.Border.Rounding = 20;
             this.DataGridDetalhes.StateTracking.HeaderRow.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DataGridDetalhes.StateTracking.HeaderRow.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.DataGridDetalhes.StateTracking.HeaderRow.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
@@ -324,57 +321,6 @@ namespace GAcademia.Forms
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.DataGridDetalhes.StateTracking.HeaderRow.Border.Rounding = 20;
             this.DataGridDetalhes.TabIndex = 82;
-            // 
-            // Aluno
-            // 
-            this.Aluno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Aluno.DataPropertyName = "nome";
-            this.Aluno.HeaderText = "Aluno";
-            this.Aluno.Name = "Aluno";
-            this.Aluno.ReadOnly = true;
-            // 
-            // valor
-            // 
-            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.valor.DataPropertyName = "valor";
-            this.valor.HeaderText = "Valor";
-            this.valor.Name = "valor";
-            this.valor.ReadOnly = true;
-            this.valor.Width = 62;
-            // 
-            // statusM
-            // 
-            this.statusM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.statusM.DataPropertyName = "status";
-            this.statusM.HeaderText = "Status da mensalidade";
-            this.statusM.Name = "statusM";
-            this.statusM.ReadOnly = true;
-            this.statusM.Width = 141;
-            // 
-            // mes
-            // 
-            this.mes.DataPropertyName = "mes";
-            this.mes.HeaderText = "Mês";
-            this.mes.Name = "mes";
-            this.mes.ReadOnly = true;
-            // 
-            // DiaM
-            // 
-            this.DiaM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.DiaM.DataPropertyName = "dia";
-            this.DiaM.HeaderText = "Dia Vencimento";
-            this.DiaM.Name = "DiaM";
-            this.DiaM.ReadOnly = true;
-            this.DiaM.Width = 109;
-            // 
-            // contato
-            // 
-            this.contato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.contato.DataPropertyName = "celular";
-            this.contato.HeaderText = "contato";
-            this.contato.Name = "contato";
-            this.contato.ReadOnly = true;
-            this.contato.Width = 77;
             // 
             // TextBoxInfAtrasado
             // 
@@ -559,6 +505,59 @@ namespace GAcademia.Forms
             this.ComboBoxMes.TabIndex = 2;
             this.ComboBoxMes.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxMes_SelectedIndexChanged);
             // 
+            // Aluno
+            // 
+            this.Aluno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Aluno.DataPropertyName = "nome";
+            this.Aluno.HeaderText = "Aluno";
+            this.Aluno.Name = "Aluno";
+            this.Aluno.ReadOnly = true;
+            this.Aluno.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // valor
+            // 
+            this.valor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.valor.DataPropertyName = "valor";
+            this.valor.HeaderText = "Valor";
+            this.valor.Name = "valor";
+            this.valor.ReadOnly = true;
+            this.valor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // statusM
+            // 
+            this.statusM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.statusM.DataPropertyName = "status";
+            this.statusM.HeaderText = "Status da mensalidade";
+            this.statusM.Name = "statusM";
+            this.statusM.ReadOnly = true;
+            this.statusM.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // mes
+            // 
+            this.mes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.mes.DataPropertyName = "mes";
+            this.mes.HeaderText = "Mês";
+            this.mes.Name = "mes";
+            this.mes.ReadOnly = true;
+            this.mes.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // DiaM
+            // 
+            this.DiaM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiaM.DataPropertyName = "dia";
+            this.DiaM.HeaderText = "Dia Vencimento";
+            this.DiaM.Name = "DiaM";
+            this.DiaM.ReadOnly = true;
+            this.DiaM.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // contato
+            // 
+            this.contato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.contato.DataPropertyName = "celular";
+            this.contato.HeaderText = "contato";
+            this.contato.Name = "contato";
+            this.contato.ReadOnly = true;
+            // 
             // Financas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,12 +591,12 @@ namespace GAcademia.Forms
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox TextBoxInfRecebeu;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox textBoxRecebeu;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView DataGridDetalhes;
+        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteButtons;
         private System.Windows.Forms.DataGridViewTextBoxColumn Aluno;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusM;
         private System.Windows.Forms.DataGridViewTextBoxColumn mes;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaM;
         private System.Windows.Forms.DataGridViewTextBoxColumn contato;
-        private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteButtons;
     }
 }

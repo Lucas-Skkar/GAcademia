@@ -211,7 +211,7 @@ namespace GAcademia.Forms
             this.TextBoxSearch.StateNormal.Content.Color1 = System.Drawing.Color.Gray;
             this.TextBoxSearch.StateNormal.Content.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxSearch.TabIndex = 0;
-            this.TextBoxSearch.Text = "Digite o número ID ou Nome do aluno para procurar.";
+            this.TextBoxSearch.Text = "Digite o número ID ou Nome do aluno.";
             this.TextBoxSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TextBoxSearch.TextChanged += new System.EventHandler(this.TextBoxSearch_TextChanged);
             this.TextBoxSearch.Enter += new System.EventHandler(this.TextBoxSearch_Enter);

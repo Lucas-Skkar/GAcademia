@@ -43,11 +43,6 @@ namespace GAcademia
             this.Logo = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.DataGridAgenda = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.NomeAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Horario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Professor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_sabado = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_sexta = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_quinta = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -58,6 +53,11 @@ namespace GAcademia
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelHead = new System.Windows.Forms.Label();
             this.kryptonPaletteMain = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
+            this.NomeAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Horario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Professor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelDesktop.SuspendLayout();
@@ -144,7 +144,7 @@ namespace GAcademia
             this.btn_Agenda.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(91)))));
             this.btn_Agenda.TabIndex = 11;
             this.btn_Agenda.Values.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.btn_Agenda.Values.Text = "Agendamentos";
+            this.btn_Agenda.Values.Text = "Agenda";
             this.btn_Agenda.Click += new System.EventHandler(this.btn_Agenda_Click);
             // 
             // btn_Financas
@@ -421,45 +421,6 @@ namespace GAcademia
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.DataGridAgenda.StateTracking.HeaderRow.Border.Rounding = 20;
             this.DataGridAgenda.TabIndex = 75;
-            // 
-            // NomeAluno
-            // 
-            this.NomeAluno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NomeAluno.DataPropertyName = "aluno";
-            this.NomeAluno.HeaderText = "Nome Aluno";
-            this.NomeAluno.Name = "NomeAluno";
-            this.NomeAluno.ReadOnly = true;
-            // 
-            // Dia
-            // 
-            this.Dia.DataPropertyName = "dia";
-            this.Dia.HeaderText = "Dia";
-            this.Dia.Name = "Dia";
-            this.Dia.ReadOnly = true;
-            this.Dia.Visible = false;
-            // 
-            // Horario
-            // 
-            this.Horario.DataPropertyName = "hora";
-            this.Horario.HeaderText = "Horário";
-            this.Horario.Name = "Horario";
-            this.Horario.ReadOnly = true;
-            // 
-            // Professor
-            // 
-            this.Professor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Professor.DataPropertyName = "professor";
-            this.Professor.HeaderText = "Professor";
-            this.Professor.Name = "Professor";
-            this.Professor.ReadOnly = true;
-            // 
-            // Descricao
-            // 
-            this.Descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Descricao.DataPropertyName = "descricao";
-            this.Descricao.HeaderText = "Descrição";
-            this.Descricao.Name = "Descricao";
-            this.Descricao.ReadOnly = true;
             // 
             // btn_sabado
             // 
@@ -1146,6 +1107,45 @@ namespace GAcademia
             this.kryptonPaletteMain.HeaderStyles.HeaderForm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)(((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             // 
+            // NomeAluno
+            // 
+            this.NomeAluno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NomeAluno.DataPropertyName = "aluno";
+            this.NomeAluno.HeaderText = "Nome do Aluno";
+            this.NomeAluno.Name = "NomeAluno";
+            this.NomeAluno.ReadOnly = true;
+            // 
+            // Dia
+            // 
+            this.Dia.DataPropertyName = "dia";
+            this.Dia.HeaderText = "Dia";
+            this.Dia.Name = "Dia";
+            this.Dia.ReadOnly = true;
+            this.Dia.Visible = false;
+            // 
+            // Horario
+            // 
+            this.Horario.DataPropertyName = "hora";
+            this.Horario.HeaderText = "Horário";
+            this.Horario.Name = "Horario";
+            this.Horario.ReadOnly = true;
+            // 
+            // Professor
+            // 
+            this.Professor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Professor.DataPropertyName = "professor";
+            this.Professor.HeaderText = "Professor";
+            this.Professor.Name = "Professor";
+            this.Professor.ReadOnly = true;
+            // 
+            // Descricao
+            // 
+            this.Descricao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Descricao.DataPropertyName = "descricao";
+            this.Descricao.HeaderText = "Descrição";
+            this.Descricao.Name = "Descricao";
+            this.Descricao.ReadOnly = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1189,11 +1189,6 @@ namespace GAcademia
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Segunda;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Domingo;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView DataGridAgenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomeAluno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Horario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Professor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPaletteMain;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Home;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Alunos;
@@ -1203,6 +1198,11 @@ namespace GAcademia
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_confg;
         private System.Windows.Forms.Label Logo;
         private System.Windows.Forms.Label labelHead;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomeAluno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Horario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Professor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
     }
 }
 

@@ -84,7 +84,7 @@ namespace GAcademia.Forms
             btn_addUserOriginal = new Rectangle(btn_addUser.Location.X, btn_addUser.Location.Y, btn_addUser.Width, btn_addUser.Height);
             btn_UpdUserOriginal = new Rectangle(btn_UpdUser.Location.X, btn_UpdUser.Location.Y, btn_UpdUser.Width, btn_UpdUser.Height);
             btn_DelUserOriginal = new Rectangle(btn_DelUser.Location.X, btn_DelUser.Location.Y, btn_DelUser.Width, btn_DelUser.Height);
-            searchResultOriginal = new Rectangle(searchResult.Location.X, tBoxSearchUser.Location.Y + 25, searchResult.Width, searchResult.Height);
+            searchResultOriginal = new Rectangle(searchResult.Location.X, tBoxSearchUser.Location.Y + 30, searchResult.Width, searchResult.Height);
         }
 
         // Cria novo objeto usando a string de conexão do banco de dados.
@@ -352,6 +352,8 @@ namespace GAcademia.Forms
         // Reposiciona os objetos da tela quando redimensiona a tela.
         private void resize()
         {
+            //searchResultOriginal = new Rectangle(searchResult.Location.X, tBoxSearchUser.Location.Y + 30, searchResult.Width, searchResult.Height);
+
             resizeControl(btn_searchUserOriginal, btn_searchUser);
             resizeControl(tBoxSearchUserOriginal, tBoxSearchUser);
             resizeControl(textBoxIdOriginal, textBoxId);
@@ -386,6 +388,12 @@ namespace GAcademia.Forms
             resizeControl(btn_UpdUserOriginal, btn_UpdUser);
             resizeControl(btn_DelUserOriginal, btn_DelUser);
             resizeControl(searchResultOriginal, searchResult);
+
+            // Mantem o datagrid searchResult o mais perto possível do textbox tBoxSearchUser
+            if (searchResult.Location.Y > tBoxSearchUser.Location.Y +30)
+            {
+                searchResult.Top = +60; 
+            }
         }
 
         // Método usado no cálculo do redimensionamento.

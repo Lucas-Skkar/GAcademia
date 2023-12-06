@@ -57,7 +57,7 @@ namespace GAcademia.Forms
             btn_updateOriginal = new Rectangle(btn_update.Location.X, btn_update.Location.Y, btn_update.Width, btn_update.Height);
             btn_deleteOriginal = new Rectangle(btn_delete.Location.X, btn_delete.Location.Y, btn_delete.Width, btn_delete.Height);
             btn_ImprimirOriginal = new Rectangle(btn_Imprimir.Location.X, btn_Imprimir.Location.Y, btn_Imprimir.Width, btn_Imprimir.Height);
-            searchResultOriginal = new Rectangle(searchResult.Location.X, TextBoxSearch.Location.Y +30, searchResult.Width, searchResult.Height);
+            searchResultOriginal = new Rectangle(searchResult.Location.X, TextBoxSearch.Location.Y +32, searchResult.Width, searchResult.Height);
             
             if (call == true) 
             {
@@ -76,6 +76,7 @@ namespace GAcademia.Forms
 
         private void Mensalidades_Load(object sender, EventArgs e)
         {
+            // deixa botões invisíveis
             if (call == true)
             {
                 btn_update.Visible = false;
@@ -406,7 +407,6 @@ namespace GAcademia.Forms
         //Calcula as novas posições dos objetos da tela quando redimensiona a tela.
         private void resize()
         {
-           
             resizeControl(TextBoxSearchOriginal, TextBoxSearch);
             resizeControl(btn_searchOriginal, btn_search);
             resizeControl(ComboBoxAlunoOriginal, ComboBoxAluno);
@@ -424,6 +424,11 @@ namespace GAcademia.Forms
             resizeControl(btn_deleteOriginal, btn_delete);
             resizeControl(btn_ImprimirOriginal, btn_Imprimir);
             resizeControl(searchResultOriginal, searchResult);
+
+            if (searchResult.Location.Y > TextBoxSearch.Location.Y + 32)
+            {
+                searchResult.Top = +106;
+            }
         }
 
         // Método usado no cálculo do redimensionamento.
